@@ -129,7 +129,10 @@ class EventVars1L_signal:
                 ret['totalNgen'] = 1
                 ret['susyNgen'] = 1
                 ret['susyWgen'] = 1
-
+            ##HACK PLEASE REMOVE##
+            noLHEstuff = True                                                                                         
+            if noLHEstuff:
+                return ret
             #### LHE Weights (for Scale uncert) #####
             ## Scale uncertainty
             ## https://indico.cern.ch/event/459797/contribution/2/attachments/1181555/1710844/mcaod-Nov4-2015.pdf
