@@ -139,9 +139,9 @@ def getFastSimCF(isFastSim, jParton, jPt, jEta):
     ptlim = 799.9
 
     # Get fast-sim correction factor from dictionary
-    fsim_SF      = sfReadersFastSim["fastsim"].eval('central',flav, jEta, min(jPt, ptlim))
-    fsim_SF_up   = sfReadersFastSim["fastsim"].eval('up',flav, jEta, min(jPt, ptlim))
-    fsim_SF_down = sfReadersFastSim["fastsim"].eval('down',flav, jEta, min(jPt, ptlim))
+    fsim_SF      = sfReadersFastSim["fastsim"].eval_auto_bounds('central',flav, jEta, min(jPt, ptlim))
+    fsim_SF_up   = sfReadersFastSim["fastsim"].eval_auto_bounds('up',flav, jEta, min(jPt, ptlim))
+    fsim_SF_down = sfReadersFastSim["fastsim"].eval_auto_bounds('down',flav, jEta, min(jPt, ptlim))
 
     # If pT above threshold, double uncertainty
     if jPt > ptlim:
