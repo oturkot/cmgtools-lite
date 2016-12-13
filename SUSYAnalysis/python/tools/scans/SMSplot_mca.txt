@@ -1,0 +1,19 @@
+# -- SUSY
+T1tttt_Scan+: T1tttt_TuneCUETP8M1_1 :susyXsec*9529354/susyNgen;Label="x10 T1t^{4} 1.2/0.8"
+T1tttt_Scan+: T1tttt_TuneCUETP8M1_2 :susyXsec*9766116/susyNgen ; Label="x10 T1t^{4} 1.2/0.8"                                                                                  
+T1tttt_Scan+: T1tttt_TuneCUETP8M1_3 :susyXsec*11743597/susyNgen ; Label="x10 T1t^{4} 1.2/0.8" 
+
+T1tttt_Scan_nISRweight+ : T1tttt_TuneCUETP8M1_1      : susyXsec*9529354/susyNgen*nISRweight ; FillColor=ROOT.kAzure+8
+T1tttt_Scan_nISRweight+ : T1tttt_TuneCUETP8M1_2      : susyXsec*9766116/susyNgen*nISRweight ; FillColor=ROOT.kAzure+8
+T1tttt_Scan_nISRweight+ : T1tttt_TuneCUETP8M1_3      : susyXsec*11743597/susyNgen*nISRweight ; FillColor=ROOT.kAzure+8
+
+
+T1tttt_Scan_nISRweight_up+ : T1tttt_TuneCUETP8M1_1      : susyXsec*9529354/susyNgen*nISRweightsyst_up ; FillColor=ROOT.kAzure+8
+T1tttt_Scan_nISRweight_up+ : T1tttt_TuneCUETP8M1_2      : susyXsec*9766116/susyNgen*nISRweightsyst_up ; FillColor=ROOT.kAzure+8
+T1tttt_Scan_nISRweight_up+ : T1tttt_TuneCUETP8M1_3      : susyXsec*11743597/susyNgen*nISRweightsyst_up ; FillColor=ROOT.kAzure+8
+
+
+T1tttt_Scan_nISRweight_down+ : T1tttt_TuneCUETP8M1_1      : susyXsec*9529354/susyNgen*nISRweightsyst_down ; FillColor=ROOT.kAzure+8
+T1tttt_Scan_nISRweight_down+ : T1tttt_TuneCUETP8M1_2      : susyXsec*9766116/susyNgen*nISRweightsyst_down ; FillColor=ROOT.kAzure+8
+T1tttt_Scan_nISRweight_down+ : T1tttt_TuneCUETP8M1_3      : susyXsec*11743597/susyNgen*nISRweightsyst_down ; FillColor=ROOT.kAzure+8
+
