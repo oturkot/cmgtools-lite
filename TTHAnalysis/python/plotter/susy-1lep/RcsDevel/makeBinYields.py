@@ -8,7 +8,7 @@ import time
 
 ## Trees -- skimmed with trig_base
 
-Tdir = "SampLinks/"
+Tdir = ["SampLinks/"] #important needs this format
 # MC
 mcFTdir = "SampLinks/Friends/"
 sigFTdir = "SampLinks/Friends/"
@@ -24,14 +24,15 @@ def addOptions(options):
 #    if options.lumi > 19:
 #        options.lumi = 2.2
 
-    # set tree options -- set only if not set in cmd line
-    if options.path == "./":
-        options.path = Tdir
-        #options.friendTrees = [("sf/t",FTdir+"/evVarFriend_{cname}.root")]
-        options.friendTreesMC = [("sf/t",mcFTdir+"/evVarFriend_{cname}.root")]
-        options.friendTreesData = [("sf/t",dataFTdir+"/evVarFriend_{cname}.root")]
+
+    # always overwrite in this example
+    options.path = Tdir
+    
+    options.friendTreesMC = [("sf/t",mcFTdir+"/evVarFriend_{cname}.root")]
+    options.friendTreesData = [("sf/t",dataFTdir+"/evVarFriend_{cname}.root")]
     options.tree = "treeProducerSusySingleLepton"
 
+    print "????",options.path
     # extra options
     options.doS2V = True
     options.weight = True
@@ -383,6 +384,8 @@ def submitJobs(args, nchunks,options):
     return 1
 
 if __name__ == "__main__":
+    
+
 
     from optparse import OptionParser
     parser = OptionParser()
@@ -430,6 +433,9 @@ if __name__ == "__main__":
 
     # make normal plots
     parser.add_option("--plot", dest="plot", action="store_true", default=False, help="Do normal plot")
+
+    # pick analysis period i.e. ICHEP16, Moriond17 (determines which binning is used)
+    parser.add_option("--conference", dest="conference", type="string", default="Moriond17", help="pick which binning to use ICHEP16 or Morion17")
 
     # Read options and args
     (options,args) = parser.parse_args()
