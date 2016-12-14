@@ -14,6 +14,7 @@ Merge search bins from yield files
 
 # extra options for tty
 parser.add_option("-v","--verbose",  dest="verbose",  default=0,  type="int",    help="Verbosity level (0 = quiet, 1 = verbose, 2+ = more)")
+parser.add_option("--conference", dest="conference", type="string", default="Moriond17", help="pick which binning to use ICHEP16 or Moriond17")
 
 (options,args) = parser.parse_args()
 
@@ -76,6 +77,63 @@ def matchSB(bname):
 
     return name #to remove the trailing _
 
+def matchSBMoriond17(bname):
+    # Matching main band (MB) bins to side band (SB)
+
+    name = bname+'_'
+    if 'Few' in name:
+        #name = name.replace('SR','SR_Few')
+        #name = name.replace('CR','CR_Few')
+        if 'NJ68' in name:
+            name = name.replace('NJ68','NJ45f6')
+            name = name.replace('NB3i_','NB2i_')
+            if 'HT4i' in name:
+                name = name.replace('NB3i_','NB1i_')
+        if 'NJ9i' in name:
+            name = name.replace('NJ9i','NJ45f9')
+            name = name.replace('NB3i_','NB2i_')
+            if 'HT4i' in name:
+                name = name.replace('NB3i_','NB1i_')
+                name = name.replace('NB2i_','NB1i_')
+                name = name.replace('NB2_','NB1i_')
+
+    elif 'NJ68' in name:
+        # match for NJ68
+        name = name.replace('NJ68','NJ45f6')
+        if 'HT4i' in name:
+            name = name.replace('NB1_','NB1i_')
+            name = name.replace('NB2_','NB1i_')
+            name = name.replace('NB2i_','NB1i_')
+            name = name.replace('NB3i','NB1i')
+        elif 'HT4i' not in name:
+            name = name.replace('NB2_','NB2i_')
+            name = name.replace('NB3i','NB2i')
+    elif 'NJ9' in name:
+        # match for NJ9i
+        name = name.replace('NJ9i','NJ45f9')
+        if 'HT4i' in name:
+            name = name.replace('NB1_','NB1i_')
+            name = name.replace('NB2_','NB1i_')
+            name = name.replace('NB3i_','NB1i_')
+        else:
+            name = name.replace('NB2_','NB2i_')
+            name = name.replace('NB3i_','NB2i_')
+
+    elif 'NJ5' in name:
+        name = name.replace('NJ5','NJ4f5')
+        name = name.replace('NB2_','NB2i_')
+        name = name.replace('NB3i','NB2i')
+
+    name = name[:-1]
+
+    if options.verbose > 0:
+        if name!= bname:
+            print 'Replaced %s with %s' %(bname,name)
+        else:
+            print 'No replace: %s with %s' %(bname,name)
+
+    return name #to remove the trailing _
+
 def findMatchBins(binname):
 
     # have to supply SR binname:
@@ -111,7 +169,11 @@ def findMatchBins(binname):
         print "No match found:", binname
         exit(0)
 
-    SBname = matchSB(binname)# + '_NJ45'
+    SBname = ""
+    if options.conference == "Moriond17":
+        SBname = matchSBMoriond17(binname)
+    else:
+        SBname = matchSB(binname)
     SBname = SBname[:SBname.find('_NJ')] + '_' + njSB
     SR_SBname = SBname + '_SR'
     CR_SBname = SBname + '_CR'
@@ -168,7 +230,8 @@ def writeBins(ofname, srcdir, binnames):
         srcfname = srcdir+binnames[idx]+'.yields.root'
         if not os.path.exists(srcfname):
             if 'DL' in dname:
-                print 'DL', os.path.basename(srcfname)
+                continue
+#                print 'DL', os.path.basename(srcfname)
             else:
                 print 'Could not find src file', os.path.basename(srcfname)
             continue
@@ -192,6 +255,7 @@ def writeBins(ofname, srcdir, binnames):
 
 def mergeBins(fileList, pattern = 'NJ68', outdir = None):
 
+    print pattern
     # filter out MB_SR files
     srList = [fname for fname in fileList if pattern in fname]
     srList = [fname for fname in srList if '_SR' in fname]
@@ -199,6 +263,7 @@ def mergeBins(fileList, pattern = 'NJ68', outdir = None):
     if len(srList) == 0:
         print "No files found matching pattern", pattern , "+ SR"
         return 0
+
 
     # create outdir
     if outdir == None: outdir = os.path.dirname(srList[0]) + "/merged/"
@@ -245,10 +310,31 @@ if __name__ == "__main__":
     # find files matching pattern
     fileList = glob.glob(pattern+"*.root")
 
-    bins = ['NJ5','NJ68','NJ9i']#,'Few']
+    bins = ['NJ5','NJ68','NJ9i']
 
     for bin in bins:
         print "Merging bin:", bin
         mergeBins(fileList,bin)
+
+
+    #clean up a bit and create separate folders for 4,5 jet cross check and aggregate SR
+    patternList = pattern.split("/")
+    listMerged = glob.glob(patternList[0]+"/"+patternList[1]+"/merged/*.root")
+
+    if not os.path.exists(patternList[0]+"/"+patternList[1]+"/merged4f5"):
+        os.system("mkdir -p "+patternList[0]+"/"+patternList[1]+"/merged4f5")
+
+    if not os.path.exists(patternList[0]+"/"+patternList[1]+"/mergedFew"):
+        os.system("mkdir -p "+patternList[0]+"/"+patternList[1]+"/mergedFew")
+    for f in listMerged:
+        cmd =""
+        if "NJ5" in f:
+            cmd = "mv " + f + " " +patternList[0]+"/"+patternList[1]+"/merged4f5/."
+        elif "Few" in f:
+            cmd = "mv " + f + " " + patternList[0]+"/"+patternList[1]+"/mergedFew/."
+        else:
+            continue
+        print cmd
+        os.system(cmd)
 
     print 'Finished'
