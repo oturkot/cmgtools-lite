@@ -419,7 +419,7 @@ class EventVars1L_base:
                         passConv = True # cuts already included in POG_Cuts_ID_SPRING15_25ns_v1_ConvVetoDxyDz_X
 
 
-                    passPostICHEPHLTHOverE = True if (lep.hOverE < 0.04 and abs(lep.eta)>1.479) or abs(lep.eta)<=1.479 else False
+                    passPostICHEPHLTHOverE = True # comment out again if (lep.hOverE < 0.04 and abs(lep.eta)>1.479) or abs(lep.eta)<=1.479 else False
                                         
                     # fill
                     if passIso and passConv and passPostICHEPHLTHOverE:
