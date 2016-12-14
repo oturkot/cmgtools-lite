@@ -262,7 +262,7 @@ class EventVars1L_base:
             # no HF stuff
 #            'METNoHF', 'LTNoHF', 'dPhiNoHF',
             ## jets
-            'HT','nJets','nBJet', 'nBJet0855', 'nBJetDeep',
+            'HT','nJets','nBJet', 'nBJet08467', 'nBJetDeep',
             ("nJets30","I"),("Jets30Idx","I",50,"nJets30"),'nBJets30','nJets30Clean',
             'nJets40','nBJets40',
             "htJet30j", "htJet30ja","htJet40j",
@@ -720,15 +720,15 @@ class EventVars1L_base:
         BJetMedium30 = []
         BJetMedium40 = []
 
-        nBJet0855 = 0
+        nBJet08467 = 0
         nBJetDeep = 0
 
         for i,j in enumerate(cJet30Clean):
             if j.btagCSV > btagWP:
                 BJetMedium30.append(j)
-            if j.btagCSV > 0.855 :
-                nBJet0855 += 1
-            if (j.DFb + j.DFbb) > 0.64 :
+            if j.btagCSV > 0.8467 :
+                nBJet08467 += 1
+            if (j.DFb + j.DFbb) > 0.63 :
                 nBJetDeep += 1
 
         for i,j in enumerate(centralJet40):
@@ -739,7 +739,7 @@ class EventVars1L_base:
         ret['nBJet']   = len(BJetMedium30)
         ret['nBJets30']   = len(BJetMedium30)
 
-        ret['nBJet0855'] = nBJet0855
+        ret['nBJet08467'] = nBJet08467
         ret['nBJetDeep'] = nBJetDeep
 
         # using normal collection
