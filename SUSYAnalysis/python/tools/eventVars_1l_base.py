@@ -116,9 +116,19 @@ def returnJERSmearedPt(jetpt,aeta,genpt,smearJER):
 #btag_TightWP = 0.941
 
 ## CSV v2 (CSV-IVF) (Spring16)
-btag_LooseWP = 0.460
-btag_MediumWP = 0.800
-btag_TightWP = 0.935
+#btag_LooseWP = 0.460
+#btag_MediumWP = 0.800
+#btag_TightWP = 0.935
+
+# CSV v2 (CSV-IVF) (after remeasurement by BTV POG)
+btag_LooseWP = 0.5426
+btag_MediumWP = 0.8484
+btag_TightWP = 0.9535
+
+# DeepCSV v2 (new Deep Flavour tagger)
+btag_DeepLooseWP = 0.2219
+btag_DeepMediumWP = 0.6324
+btag_DeepTightWP = 0.8958
 
 ###########
 # MUONS
@@ -262,7 +272,7 @@ class EventVars1L_base:
             # no HF stuff
 #            'METNoHF', 'LTNoHF', 'dPhiNoHF',
             ## jets
-            'HT','nJets','nBJet', 'nBJet08467', 'nBJetDeep',
+            'HT','nJets','nBJet', 'nBJetDeep',
             ("nJets30","I"),("Jets30Idx","I",50,"nJets30"),'nBJets30','nJets30Clean',
             'nJets40','nBJets40',
             "htJet30j", "htJet30ja","htJet40j",
@@ -720,15 +730,12 @@ class EventVars1L_base:
         BJetMedium30 = []
         BJetMedium40 = []
 
-        nBJet08467 = 0
         nBJetDeep = 0
 
         for i,j in enumerate(cJet30Clean):
             if j.btagCSV > btagWP:
                 BJetMedium30.append(j)
-            if j.btagCSV > 0.8467 :
-                nBJet08467 += 1
-            if (j.DFb + j.DFbb) > 0.63 :
+            if (j.DFb + j.DFbb) > btag_DeepMediumWP:
                 nBJetDeep += 1
 
         for i,j in enumerate(centralJet40):
@@ -739,7 +746,6 @@ class EventVars1L_base:
         ret['nBJet']   = len(BJetMedium30)
         ret['nBJets30']   = len(BJetMedium30)
 
-        ret['nBJet08467'] = nBJet08467
         ret['nBJetDeep'] = nBJetDeep
 
         # using normal collection
