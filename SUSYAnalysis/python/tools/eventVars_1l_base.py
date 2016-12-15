@@ -275,7 +275,7 @@ class EventVars1L_base:
             'Mll', #di-lepton mass
             'METfilters',
             #Datasets
-            'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu'
+            'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET'
             ]
 
     def listBranches(self):
@@ -300,11 +300,13 @@ class EventVars1L_base:
         ret['PD_JetHT'] = 0
         ret['PD_SingleEle'] = 0
         ret['PD_SingleMu'] = 0
+        ret['PD_MET'] = 0
 
         if event.isData and hasattr(self,"sample"):
+            elif "JetHT" in self.sample: ret['PD_JetHT'] = 1
             if "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
             elif "SingleMu" in self.sample: ret['PD_SingleMu'] = 1
-            elif "JetHT" in self.sample: ret['PD_JetHT'] = 1
+            elif "MET_" in self.sample: ret['PD_MET'] = 1
         ##############################
 
         # copy basic event info:
