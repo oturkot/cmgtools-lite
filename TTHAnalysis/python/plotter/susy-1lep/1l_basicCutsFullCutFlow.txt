@@ -2,7 +2,7 @@
 1 hard lep: nLep == 1 && Lep_pt > 25
 
 # Veto events with additional leptons
-no Veto: nVeto == 0
+No veto lep: nVeto == 0
 
 # Lepton needs to be selected
 Selected: Selected == 1
@@ -17,10 +17,10 @@ Trigger XOR: !isData || ((PD_SingleEle && (HLT_EleHT350 || HLT_EleHT400 || HLT_E
 Filters: !isData || METfilters == 1
 
 # Isolated track veto
-iso veto: !iso_Veto
+Iso veto: !iso_Veto
 
 # At least 5 jets
-nJet>5: nJets30Clean >= 5
+nJet > 5: nJets30Clean >= 5
 
 # Second leading jet pT larger than 80 GeV
 Jet2_pt > 80: Jet2_pt > 80
