@@ -16,6 +16,9 @@ Trigger XOR: !isData || (isData && ((PD_SingleEle && nEl==1) || (PD_SingleMu && 
 # Apply filters
 Filters: !isData || METfilters == 1
 
+# Isolated track veto
+iso veto: !iso_Veto
+
 # At least 5 jets
 nJet>5: nJets30Clean >= 5
 
