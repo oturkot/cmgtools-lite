@@ -2,13 +2,13 @@
 from CMGTools.TTHAnalysis.plotter.mcAnalysis import *
 import sys, os, os.path
 
-from searchBins import *
+
 from math import hypot
 import time
 
 ## Trees -- skimmed with trig_base
 
-Tdir = "SampLinks/"
+Tdir = ["SampLinks/"] #important needs this format
 # MC
 mcFTdir = "SampLinks/Friends/"
 sigFTdir = "SampLinks/Friends/"
@@ -24,14 +24,15 @@ def addOptions(options):
 #    if options.lumi > 19:
 #        options.lumi = 2.2
 
-    # set tree options -- set only if not set in cmd line
-    if options.path == "./":
-        options.path = Tdir
-        #options.friendTrees = [("sf/t",FTdir+"/evVarFriend_{cname}.root")]
-        options.friendTreesMC = [("sf/t",mcFTdir+"/evVarFriend_{cname}.root")]
-        options.friendTreesData = [("sf/t",dataFTdir+"/evVarFriend_{cname}.root")]
+
+    # always overwrite in this example
+    options.path = Tdir
+    
+    options.friendTreesMC = [("sf/t",mcFTdir+"/evVarFriend_{cname}.root")]
+    options.friendTreesData = [("sf/t",dataFTdir+"/evVarFriend_{cname}.root")]
     options.tree = "treeProducerSusySingleLepton"
 
+    print "????",options.path
     # extra options
     options.doS2V = True
     options.weight = True
@@ -384,6 +385,8 @@ def submitJobs(args, nchunks,options):
 
 if __name__ == "__main__":
 
+
+
     from optparse import OptionParser
     parser = OptionParser()
 
@@ -391,7 +394,6 @@ if __name__ == "__main__":
     parser.description="""
     Make yields from trees
     """
-
     addMCAnalysisOptions(parser)
 
     # extra options for tty
@@ -431,6 +433,9 @@ if __name__ == "__main__":
     # make normal plots
     parser.add_option("--plot", dest="plot", action="store_true", default=False, help="Do normal plot")
 
+    # pick analysis period i.e. ICHEP16, Moriond17 (determines which binning is used)
+    parser.add_option("--conference", dest="conference", type="string", default="Moriond17", help="pick which binning to use ICHEP16 or Moriond17")
+
     # Read options and args
     (options,args) = parser.parse_args()
 
@@ -438,6 +443,12 @@ if __name__ == "__main__":
         print 'Arguments', args
 
     if not os.path.exists(options.outdir): os.makedirs(options.outdir)
+
+    print options.conference
+    if options.conference == "Moriond17":
+        from searchBinsMoriond17 import *
+    else:
+        from searchBins import *
 
     # make cut list
     cDict = {}
@@ -463,12 +474,11 @@ if __name__ == "__main__":
         cDict.update(cutDictSRf5)
         cDict.update(cutDictCRf5)
 
-    doFew = True
+        
+    doFew = True and options.conference == "Moriond17"
     if doFew:
-        cDict.update(cutDictSRf68Few)
-        cDict.update(cutDictCRf68Few)
-        cDict.update(cutDictSRf9Few)
-        cDict.update(cutDictCRf9Few)
+        cDict.update(cutDictSRfFew)
+        cDict.update(cutDictCRfFew)
 
 #    print cutDict
     #cDict = cutQCDsyst #QCD
