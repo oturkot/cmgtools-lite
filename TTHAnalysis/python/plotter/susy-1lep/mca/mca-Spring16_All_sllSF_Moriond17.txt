@@ -90,13 +90,13 @@ TTV : TTZToQQ      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor
 ####################################################################
 
 ##DiBoson#
-VV : WWTo2L2Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
-VV : WWToLNuQQ      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
-VV : WZTo1L1Nu2Q    : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
-VV : WZTo1L3Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
-VV : WZTo2L2Q       : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
-VV : ZZTo2L2Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
-VV : ZZTo2Q2Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kBrown-3, Label="VV(W/Z/H)"
+VV : WWTo2L2Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
+VV : WWToLNuQQ      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
+VV : WZTo1L1Nu2Q    : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
+VV : WZTo1L3Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
+VV : WZTo2L2Q       : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
+VV : ZZTo2L2Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
+VV : ZZTo2Q2Nu      : xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillColor=ROOT.kOrange-6, Label="VV(W/Z/H)"
 
 
 
