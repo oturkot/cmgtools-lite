@@ -262,7 +262,7 @@ class EventVars1L_base:
             # no HF stuff
 #            'METNoHF', 'LTNoHF', 'dPhiNoHF',
             ## jets
-            'HT','nJets','nBJet',
+            'HT','nJets','nBJet', 'nBJet0855', 'nBJetDeep',
             ("nJets30","I"),("Jets30Idx","I",50,"nJets30"),'nBJets30','nJets30Clean',
             'nJets40','nBJets40',
             "htJet30j", "htJet30ja","htJet40j",
@@ -419,7 +419,7 @@ class EventVars1L_base:
                         passConv = True # cuts already included in POG_Cuts_ID_SPRING15_25ns_v1_ConvVetoDxyDz_X
 
 
-                    passPostICHEPHLTHOverE = True if (lep.hOverE < 0.04 and abs(lep.eta)>1.479) or abs(lep.eta)<=1.479 else False
+                    passPostICHEPHLTHOverE = True # comment out again if (lep.hOverE < 0.04 and abs(lep.eta)>1.479) or abs(lep.eta)<=1.479 else False
                                         
                     # fill
                     if passIso and passConv and passPostICHEPHLTHOverE:
@@ -720,9 +720,16 @@ class EventVars1L_base:
         BJetMedium30 = []
         BJetMedium40 = []
 
+        nBJet0855 = 0
+        nBJetDeep = 0
+
         for i,j in enumerate(cJet30Clean):
             if j.btagCSV > btagWP:
                 BJetMedium30.append(j)
+            if j.btagCSV > 0.855 :
+                nBJet0855 += 1
+            if (j.DFb + j.DFbb) > 0.64 :
+                nBJetDeep += 1
 
         for i,j in enumerate(centralJet40):
             if j.btagCSV > btagWP:
@@ -731,6 +738,10 @@ class EventVars1L_base:
         # using cleaned collection!
         ret['nBJet']   = len(BJetMedium30)
         ret['nBJets30']   = len(BJetMedium30)
+
+        ret['nBJet0855'] = nBJet0855
+        ret['nBJetDeep'] = nBJetDeep
+
         # using normal collection
         ret['nBJets40']   = len(BJetMedium40)
 
