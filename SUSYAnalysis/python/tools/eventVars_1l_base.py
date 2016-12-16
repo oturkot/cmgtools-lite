@@ -116,9 +116,19 @@ def returnJERSmearedPt(jetpt,aeta,genpt,smearJER):
 #btag_TightWP = 0.941
 
 ## CSV v2 (CSV-IVF) (Spring16)
-btag_LooseWP = 0.460
-btag_MediumWP = 0.800
-btag_TightWP = 0.935
+#btag_LooseWP = 0.460
+#btag_MediumWP = 0.800
+#btag_TightWP = 0.935
+
+# CSV v2 (CSV-IVF) (after remeasurement by BTV POG)
+btag_LooseWP = 0.5426
+btag_MediumWP = 0.8484
+btag_TightWP = 0.9535
+
+# DeepCSV (new Deep Flavour tagger)
+btag_DeepLooseWP = 0.2219
+btag_DeepMediumWP = 0.6324
+btag_DeepTightWP = 0.8958
 
 ###########
 # MUONS
@@ -262,7 +272,7 @@ class EventVars1L_base:
             # no HF stuff
 #            'METNoHF', 'LTNoHF', 'dPhiNoHF',
             ## jets
-            'HT','nJets','nBJet', 'nBJet0855', 'nBJetDeep',
+            'HT','nJets','nBJet', 'nBJetDeep',
             ("nJets30","I"),("Jets30Idx","I",50,"nJets30"),'nBJets30','nJets30Clean',
             'nJets40','nBJets40',
             "htJet30j", "htJet30ja","htJet40j",
@@ -275,7 +285,7 @@ class EventVars1L_base:
             'Mll', #di-lepton mass
             'METfilters',
             #Datasets
-            'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu'
+            'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET'
             ]
 
     def listBranches(self):
@@ -300,11 +310,13 @@ class EventVars1L_base:
         ret['PD_JetHT'] = 0
         ret['PD_SingleEle'] = 0
         ret['PD_SingleMu'] = 0
+        ret['PD_MET'] = 0
 
         if event.isData and hasattr(self,"sample"):
-            if "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
+            if "JetHT" in self.sample: ret['PD_JetHT'] = 1
+            elif "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
             elif "SingleMu" in self.sample: ret['PD_SingleMu'] = 1
-            elif "JetHT" in self.sample: ret['PD_JetHT'] = 1
+            elif "MET_" in self.sample: ret['PD_MET'] = 1
         ##############################
 
         # copy basic event info:
@@ -720,15 +732,12 @@ class EventVars1L_base:
         BJetMedium30 = []
         BJetMedium40 = []
 
-        nBJet0855 = 0
         nBJetDeep = 0
 
         for i,j in enumerate(cJet30Clean):
             if j.btagCSV > btagWP:
                 BJetMedium30.append(j)
-            if j.btagCSV > 0.855 :
-                nBJet0855 += 1
-            if (j.DFb + j.DFbb) > 0.64 :
+            if (j.DFb + j.DFbb) > btag_DeepMediumWP:
                 nBJetDeep += 1
 
         for i,j in enumerate(centralJet40):
@@ -739,7 +748,6 @@ class EventVars1L_base:
         ret['nBJet']   = len(BJetMedium30)
         ret['nBJets30']   = len(BJetMedium30)
 
-        ret['nBJet0855'] = nBJet0855
         ret['nBJetDeep'] = nBJetDeep
 
         # using normal collection
