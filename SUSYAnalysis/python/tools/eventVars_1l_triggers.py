@@ -72,7 +72,7 @@ class EventVars1L_triggers:
         ret['HLT_EleOR'] = ret['HLT_Ele105'] or ret['HLT_Ele115'] or ret['HLT_Ele50PFJet165'] or ret['HLT_IsoEle27T'] or ret['HLT_EleHT400']
         ret['HLT_MuOR'] = ret['HLT_Mu50'] or ret['HLT_IsoMu24'] or ret['HLT_MuHT400']  
         ret['HLT_LepOR'] = ret['HLT_EleOR'] or ret['HLT_MuOR']
-        ret['HLT_METOR'] = ret["HLT_MET100MHT100"] or ret["HLT_MET110MHT110"] or ret["HLT_MET120MHT120"]
+        ret['HLT_MetOR'] = ret["HLT_MET100MHT100"] or ret["HLT_MET110MHT110"] or ret["HLT_MET120MHT120"]
 
         # return branches
         return ret
