@@ -89,7 +89,7 @@ for d in dirs:
             continue # all good
     badDirs.append(d)
 
-print 'list of bad directories:'
+print 'list of bad directories ('+str(len(badDirs))+'):'
 pprint.pprint(badDirs)
 
 if options.batch is not None:
