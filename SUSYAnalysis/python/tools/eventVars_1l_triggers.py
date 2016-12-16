@@ -17,9 +17,11 @@ class EventVars1L_triggers:
             'HLT_IsoMu27','HLT_IsoMu20','HLT_IsoMu24','HLT_Mu50', # single mu
             'HLT_MuHT400MET70','HLT_MuHT350MET70','HLT_MuHT350MET50', 'HLT_MuHTMET','HLT_MuHT350',# for analysis
             #'HLT_MuHT600', 'HLT_MuMET120', 'HLT_MuHT400B', #aux
-            'HLT_IsoEle32','HLT_IsoEle22','HLT_IsoEle23','HLT_IsoEle27T','HLT_Ele105','HLT_Ele115', # single ele
+            'HLT_IsoEle32','HLT_IsoEle22','HLT_IsoEle23','HLT_IsoEle27T','HLT_Ele105','HLT_Ele115','HLT_Ele50PFJet165', # single ele
             'HLT_EleHT400MET70','HLT_EleHT350MET70','HLT_EleHT350MET50','HLT_EleHTMET','HLT_EleHT350', # for analysis
             'HLT_EleHT400', 'HLT_MuHT400', 'HLT_Ele50HT400', 'HLT_Mu50HT400', #latest additions 
+            'HLT_highMHTMET',"HLT_MET100MHT100","HLT_MET110MHT110","HLT_MET120MHT120", #more MET triggers
+            'HLT_MET190_TypeOne_HBHE_BH',
             #'HLT_EleHT600','HLT_EleHT200', 'HLT_EleHT400B', # aux
             ## custom names
             #'HLT_EleOR', 'HLT_MuOR','HLT_LepOR'

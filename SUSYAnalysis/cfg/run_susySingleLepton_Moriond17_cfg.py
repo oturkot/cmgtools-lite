@@ -48,7 +48,7 @@ elif sample == "Signal":
   isSignal = True
 
 #Set this depending on the running mode 
-test = 1 
+test = 1
 #0: PRODUCTION (for batch)
 #1: Usually for TESTING (single component with single thread)
 #2: test all components (1 thread per comp) 
@@ -165,6 +165,10 @@ triggerFlagsAna.triggerBits = {
   'MET190_TypeOne_HBHE_BH' : triggers_METTypeOne190_HBHE_BeamHaloCleaned,
   
   'MET100MHT100' : triggers_MET100MHT100,
+  'MET110MHT110' : triggers_MET110MHT110,
+  'MET120MHT120' : triggers_MET120MHT120,
+
+  'highMHTMET' : triggers_highMHTMET,
   ## muon
   'SingleMu' : triggers_1mu,
   'IsoMu27' : triggers_1mu,
@@ -324,14 +328,13 @@ elif sample == "data":
   
   # central samples
   from CMGTools.RootTools.samples.samples_13TeV_Moriond2017 import *
-  #selectedComponents = [JetHT_Run2016H_PromptReco_v2_HT800Only, SingleMuon_Run2016H_PromptReco_v2_IsoMu27Only, SingleElectron_Run2016H_PromptReco_v2_Ele27Only, JetHT_Run2016G_PromptReco_v1_HT800Only, SingleMuon_Run2016G_PromptReco_v1_IsoMu27Only, SingleElectron_Run2016G_PromptReco_v1_Ele27Only]
-  #selectedComponents = [JetHT_Run2016B_23Sep2016, HTMHT_Run2016B_23Sep2016, MET_Run2016B_23Sep2016, SingleElectron_Run2016B_23Sep2016, SingleMuon_Run2016B_23Sep2016, SinglePhoton_Run2016B_23Sep2016, DoubleEG_Run2016B_23Sep2016, MuonEG_Run2016B_23Sep2016, DoubleMuon_Run2016B_23Sep2016, Tau_Run2016B_23Sep2016]
-  selectedComponents = [SingleMuon_Run2016H_PromptReco_v3]
+  selectedComponents = [JetHT_Run2016B_23Sep2016_v1, JetHT_Run2016B_23Sep2016, JetHT_Run2016C_23Sep2016_v1, JetHT_Run2016D_23Sep2016_v1, JetHT_Run2016E_23Sep2016_v1, JetHT_Run2016F_23Sep2016_v1, JetHT_Run2016G_23Sep2016_v1, JetHT_Run2016H_PromptReco_v1, JetHT_Run2016H_PromptReco_v2, JetHT_Run2016H_PromptReco_v3, SingleMuon_Run2016B_23Sep2016_v1, SingleMuon_Run2016B_23Sep2016, SingleMuon_Run2016C_23Sep2016_v1, SingleMuon_Run2016D_23Sep2016_v1, SingleMuon_Run2016E_23Sep2016_v1, SingleMuon_Run2016F_23Sep2016_v1, SingleMuon_Run2016G_23Sep2016_v1, SingleMuon_Run2016H_PromptReco_v1, SingleMuon_Run2016H_PromptReco_v2, SingleMuon_Run2016H_PromptReco_v3, MET_Run2016B_23Sep2016_v2, MET_Run2016B_23Sep2016, MET_Run2016C_23Sep2016_v1, MET_Run2016D_23Sep2016_v1, MET_Run2016E_23Sep2016_v1, MET_Run2016F_23Sep2016_v1, MET_Run2016G_23Sep2016_v1, MET_Run2016H_PromptReco_v1, MET_Run2016H_PromptReco_v2, MET_Run2016H_PromptReco_v3]
 
+  
   if test!=0 and jsonAna in susyCoreSequence: susyCoreSequence.remove(jsonAna)
   if test==1:
     # test one component (2 thread)
-    comp = SingleElectron_Run2016B_23Sep2016
+    comp = MET_Run2016G_23Sep2016_v1#SingleElectron_Run2016B_23Sep2016
 #    comp.files = comp.files[:1]
     comp.files = comp.files[10:11]
     selectedComponents = [comp]
