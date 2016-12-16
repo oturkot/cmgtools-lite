@@ -24,7 +24,7 @@ class EventVars1L_triggers:
             'HLT_MET190_TypeOne_HBHE_BH',
             #'HLT_EleHT600','HLT_EleHT200', 'HLT_EleHT400B', # aux
             ## custom names
-            #'HLT_EleOR', 'HLT_MuOR','HLT_LepOR'
+            'HLT_EleOR', 'HLT_MuOR','HLT_LepOR','HLT_MetOR',
             #'HLT_IsoMu27','HLT_IsoEle32',
             #'HLT_Mu50','HLT_Ele105'
             ## Trigger efficiencies
@@ -68,14 +68,11 @@ class EventVars1L_triggers:
         #        print line.GetName()
 
         # custom names for triggers
-        '''
-        if hasattr(event,'HLT_Ele105'):
-            ret['HLT_EleOR'] = event.HLT_Ele105 or event.HLT_EleHTMET
-        if hasattr(event,'HLT_Mu50'):
-            ret['HLT_MuOR'] = event.HLT_Mu50 or event.HLT_MuHTMET
-        if hasattr(event,'HLT_Ele105'):
-            ret['HLT_LepOR'] = event.HLT_Mu50 or event.HLT_MuHTMET or event.HLT_Ele105 or event.HLT_EleHTMET
-        '''
+
+        ret['HLT_EleOR'] = ret['HLT_Ele105'] or ret['HLT_Ele115'] or ret['HLT_Ele50PFJet165'] or ret['HLT_IsoEle27T'] or ret['HLT_EleHT400']
+        ret['HLT_MuOR'] = ret['HLT_Mu50'] or ret['HLT_IsoMu24'] or ret['HLT_MuHT400']  
+        ret['HLT_LepOR'] = ret['HLT_EleOR'] or ret['HLT_MuOR']
+        ret['HLT_METOR'] = ret["HLT_MET100MHT100"] or ret["HLT_MET110MHT110"] or ret["HLT_MET120MHT120"]
 
         # return branches
         return ret
