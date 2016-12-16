@@ -318,7 +318,7 @@ class EventVars1LWeightsForSystematics:
 
         #implement Moriond17 version
         # of Ana and Manuels nISR jet reweighting, very similar to eventVars_1l_signal.py
-        print self.sample
+        # print self.sample
         nISRweight = 1
         nISRweightsyst_up =  1
         nISRweightsyst_down = 1
