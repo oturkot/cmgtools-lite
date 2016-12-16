@@ -14,7 +14,8 @@ json_F=dataDir+'/json/json_DCSONLY_2016_08_10_F.txt' #only RunF
 #https://hypernews.cern.ch/HyperNews/CMS/get/physics-validation/2657.html
 #with recorded luminosity: 804.2/pb
 
-json =dataDir+'/json/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt' # Golden Json
+json =dataDir+'/json/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt'#
+#oldprompt Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt' # Golden Json
 
 #jetHT_0T = cfg.DataComponent(
 #    name = 'jetHT_0T',

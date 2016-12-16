@@ -53,6 +53,10 @@ triggers_HTMET = ["HLT_PFHT350_PFMET120_*"] # include all noise cleaning options
 triggers_HT350MET120 = ["HLT_PFHT350_PFMET120_*"] # include all noise cleaning options!
 triggers_HT350MET100 = ["HLT_PFHT350_PFMET100_*"] # include all noise cleaning options!
 triggers_MET100MHT100 = ['HLT_PFMET100_PFMHT100_IDTight_*', 'HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_*']
+triggers_MET110MHT110 = ['HLT_PFMET110_PFMHT110_IDTight_*', 'HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_*']
+triggers_MET120MHT120 = ['HLT_PFMET120_PFMHT120_IDTight_*', 'HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_*']
+
+triggers_highMHTMET = ["HLT_PFMET90_PFMHT90_IDTight_v*","HLT_PFMETNoMu90_PFMHTNoMu90_IDTight_v*","HLT_PFMET100_PFMHT100_IDTight_v*","HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_v*", "HLT_PFMET110_PFMHT110_IDTight_v*", "HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_v*", "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_v*", "HLT_PFMET120_PFMHT120_IDTight_v*"]
 
 triggers_pfjet450 = ["HLT_PFJet450_v*","HLT_AK8PFJet450_v*"]
 triggers_ak4pfjet450 = ["HLT_PFJet450_v*"]
