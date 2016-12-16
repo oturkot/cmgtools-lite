@@ -19,7 +19,7 @@ import PhysicsTools.Heppy.physicsutils.BTagSF
 # Cuts for jets
 minJpt = 30
 maxJeta = 2.4
-btagWP = 0.800
+btagWP = 0.8484
 
 # pt, eta bins
 ptBorders = [30, 40, 50, 60, 70, 80, 100, 120, 160, 210, 260, 320, 400, 500, 670]
