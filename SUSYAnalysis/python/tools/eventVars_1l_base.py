@@ -303,8 +303,8 @@ class EventVars1L_base:
         ret['PD_MET'] = 0
 
         if event.isData and hasattr(self,"sample"):
-            elif "JetHT" in self.sample: ret['PD_JetHT'] = 1
-            if "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
+            if "JetHT" in self.sample: ret['PD_JetHT'] = 1
+            elif "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
             elif "SingleMu" in self.sample: ret['PD_SingleMu'] = 1
             elif "MET_" in self.sample: ret['PD_MET'] = 1
         ##############################
