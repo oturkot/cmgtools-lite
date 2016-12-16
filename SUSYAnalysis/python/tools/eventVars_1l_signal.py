@@ -144,9 +144,14 @@ class EventVars1L_signal:
                 nISRforWeights = 6
 
             ret['nISR'] = int(nISR)
-            ISRweights = { 0: 1, 1 : 0.882, 2 : 0.792, 3 : 0.702, 4 : 0.648, 5 : 0.601, 6 : 0.515}
-            ISRweightssyst = { 0: 0.0, 1 : 0.059, 2 : 0.104, 3 : 0.149, 4 : 0.176, 5 : 0.199, 6 : 0.242}
-
+            #ICHEP weights
+            #ISRweights = { 0: 1, 1 : 0.882, 2 : 0.792, 3 : 0.702, 4 : 0.648, 5 : 0.601, 6 : 0.515}
+            #ISRweightssyst = { 0: 0.0, 1 : 0.059, 2 : 0.104, 3 : 0.149, 4 : 0.176, 5 : 0.199, 6 : 0.242}
+            
+            #Moriond17 weights
+            ISRweights = { 0: 1, 1 : 0.920, 2 : 0.821, 3 : 0.715, 4 : 0.662, 5 : 0.561, 6 : 0.511}
+            ISRweightssyst = { 0: 0.0, 1 : 0.040, 2 : 0.090, 3 : 0.143, 4 : 0.169, 5 : 0.219, 6 : 0.244}
+            
             C_ISR = float(C_ISRweightsSusy[(mGo,mLSP)][0])
             C_ISR_up = float(C_ISRweightsSusy[(mGo,mLSP)][1])
             C_ISR_down = float(C_ISRweightsSusy[(mGo,mLSP)][2])
