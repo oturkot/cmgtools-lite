@@ -8,10 +8,10 @@ No veto lep: nVeto == 0
 Selected: Selected == 1
 
 # Fire at least one trigger
-Trigger: !isData || (HLT_EleHT350 || HLT_EleHT400 || HLT_Ele105 || HLT_MuHT400 || HLT_MuHT350)
+Trigger: !isData || (HLT_EleOR || HLT_MuOR || HLT_MetOR)
 
 # Prevent double counting from different datasets
-Trigger XOR: !isData || ( (PD_SingleEle && HLT_EleOR) || (PD_SingleMu && (HLT_MuOR) && !(HLT_EleOR) ) || (PD_MET && (HLT_MetOR) && !(HLT_EleOR)&& !(HLT_MuOR) )  )
+Trigger XOR: !isData || ( (PD_SingleEle && HLT_EleOR) || (PD_SingleMu && (HLT_MuOR) && !(HLT_EleOR) ) || (PD_MET && (HLT_MetOR) && !(HLT_EleOR) && !(HLT_MuOR) )  )
 
 # Apply filters
 Filters: !isData || METfilters == 1
