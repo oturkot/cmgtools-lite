@@ -898,6 +898,8 @@ class PlotMaker:
                 # create canvas
 
                 height = plotformat[1]+150 if doRatio else plotformat[1]
+                if self._options.doSquarePlot:
+                    height = plotformat[1]
                 c1 = ROOT.TCanvas(outputName+"_canvas", outputName, plotformat[0], height)
 
                 c1.SetTopMargin(c1.GetTopMargin()*options.topSpamSize);
@@ -964,7 +966,7 @@ class PlotMaker:
 
                 if options.yrange: 
                     total.GetYaxis().SetRangeUser(options.yrange[0], options.yrange[1])
-                legendCutoff = pspec.getOption('LegendCutoff', 1e-5 if c1.GetLogy() else 1e-2)
+                legendCutoff = 0 #pspec.getOption('LegendCutoff', 1e-5 if c1.GetLogy() else 1e-2)
                 if plotmode == "norm": legendCutoff = 0 
                 doLegend(pmap,mca,corner=pspec.getOption('Legend','TR'),
                                   cutoff=legendCutoff, mcStyle=("F" if plotmode == "stack" else "L"),
@@ -1181,6 +1183,7 @@ def addPlotMakerOptions(parser, addAlsoMCAnalysis=True):
     if not parser.has_option("--yrange"): parser.add_option("--yrange", dest="yrange", default=None, nargs=2, type='float', help="Y axis range");
     parser.add_option("--emptyStack", dest="emptyStack", action="store_true", default=False, help="Allow empty stack in order to plot, for example, only signals but no backgrounds.")
     parser.add_option("--normBinW", dest="normBinW", action="store_true", default=False, help="Divide content through bin width")
+    parser.add_option("--doSquarePlot", dest="doSquarePlot", action="store_true", default=True, help="Have square plots event with ratio underneath")
     parser.add_option("--perBin", dest="perBin", action="store_true", default=False, help="Print the contents of every bin in another txt file");
     parser.add_option("--legendHeader", dest="legendHeader", type="string", default=None, help="Put a header to the legend")
     parser.add_option("--ratioOffset", dest="ratioOffset", type="float", default=0.0, help="Put an offset between ratio and main pad")
