@@ -20,7 +20,7 @@ Filters: !isData || METfilters == 1
 Iso veto: !iso_Veto
 
 # At least 5 jets
-nJet > 5: nJets30Clean >= 5
+nJet >= 5: nJets30Clean >= 5
 
 # Second leading jet pT larger than 80 GeV
 Jet2_pt > 80: Jet2_pt > 80
