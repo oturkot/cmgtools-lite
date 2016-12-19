@@ -2,13 +2,15 @@
 
 # Script to make plots
 # This needs to be called from $CMSSW_BASE/src/CMGTools/TTHAnalysis/python/plotter
+# You need to have symbolic links called "trees" and "friends", pointing to your
+# trees and friend trees, resp.
 
 lumi=36.5
 
 mca=susy-1lep/mca/mca-Spring16_All_sllSF_Moriond17.txt
 cuts=susy-1lep/1l_basicCutsFullCutFlow.txt
-trees=/eos/uscms/store/user/bschneid/analysis/2016-12-12_cmgTuples_spring16_1lep_HT350_LT150/
-friends=/eos/uscms/store/user/bschneid/analysis/2016-12-12_cmgTuples_spring16_1lep_HT350_LT150/friends_v3/evVarFriend_{cname}.root
+trees=trees/
+friends=friends/evVarFriend_{cname}.root
 
 # QCD estimation, define QCD as signal
 python mcPlots.py \
