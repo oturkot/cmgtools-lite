@@ -768,11 +768,11 @@ class PlotMaker:
                         total.GetXaxis().SetBinLabel(i,blist[i-1])
                         total.GetYaxis().SetLabelSize(0.05)
 
-                if self._options.scaleSignalToData: self._sf = doScaleSigNormData(pspec,pmap,mca)
-                if self._options.scaleBackgroundToData != []: self._sf = doScaleBkgNormData(pspec,pmap,mca,self._options.scaleBackgroundToData)
-                elif self._options.fitData: doNormFit(pspec,pmap,mca)
-                elif self._options.preFitData and pspec.name == self._options.preFitData:
-                    doNormFit(pspec,pmap,mca,saveScales=True)
+                #if self._options.scaleSignalToData: self._sf = doScaleSigNormData(pspec,pmap,mca)
+                #if self._options.scaleBackgroundToData != []: self._sf = doScaleBkgNormData(pspec,pmap,mca,self._options.scaleBackgroundToData)
+                #elif self._options.fitData: doNormFit(pspec,pmap,mca)
+                #elif self._options.preFitData and pspec.name == self._options.preFitData:
+                #    doNormFit(pspec,pmap,mca,saveScales=True)
 
                 #
                 for k,v in pmap.iteritems():
