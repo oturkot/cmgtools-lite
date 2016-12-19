@@ -1023,7 +1023,7 @@ class PlotMaker:
                     p2.cd();
                     rdata,rnorm,rnorm2,rline = doRatioHists(pspec,pmap,total,totalSyst, maxRange=options.maxRatioRange, fixRange=options.fixRatioRange,
                                                             fitRatio=options.fitRatio, errorsOnRef=options.errorBandOnRatio, 
-                                                            ratioNums=options.ratioNums, ratioDen=options.ratioDen, ylabel=options.ratioYLabel, doWide=doWide, showStatTotLegend=True)
+                                                            ratioNums=options.ratioNums, ratioDen=options.ratioDen, ylabel=options.ratioYLabel, doWide=doWide, showStatTotLegend=False)
                 if self._options.printPlots:
                     for ext in self._options.printPlots.split(","):
                         fdir = printDir;
