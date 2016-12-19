@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Script to make cutflow
+# This needs to be called from $CMSSW_BASE/src/CMGTools/TTHAnalysis/python/plotter
+
+lumi=36.5
+
+mca=susy-1lep/mca/mca-Spring16_All_sllSF_Moriond17.txt
+cuts=susy-1lep/1l_basicCutsFullCutFlow.txt
+trees=/eos/uscms/store/user/bschneid/analysis/2016-12-12_cmgTuples_spring16_1lep_HT350_LT150/
+friends=/eos/uscms/store/user/bschneid/analysis/2016-12-12_cmgTuples_spring16_1lep_HT350_LT150/friends_v3/evVarFriend_{cname}.root
+
+python mcAnalysis.py \
+    "${mca}" \
+    "${cuts}" \
+    -P "${trees}" \
+    -F sf/t "${friends}" \
+    -l "${lumi}" \
+    -j $(nproc) \
+    --s2v \
+    --tree treeProducerSusySingleLepton \
+    -G
