@@ -17,7 +17,7 @@ def printLatexHeader(nCol, f, sideways = 0):
     if sideways == 1:
         f.write('\\begin{sidewaystable}[ht] \n ')
         f.write('\\tiny \n')
-        f.write('\\caption{ Expected event yields in ' + name + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: lepton SF, trigger efficiency, b-tagging SF, and top \pt reweighting. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.} \n')
+        f.write('\\caption{ Expected event yields in ' + name + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.} \n')
         f.write('\\begin{center} \n')
 
     elif sideways == 2:
@@ -36,6 +36,14 @@ def printLatexHeader(nCol, f, sideways = 0):
         f.write('\\tiny \n')
         f.write('\\caption{Input values for limit calculation. The 3 regions with data counts are given, as well as the QCD estimate for the control regions in the side and mainband and $\kappa$ derived from simulation. The last two columns represent pseudo data based based on the epxected data prediction or MC simulation.} \n')
         f.write('\\begin{center} \n')
+
+    elif sideways == 5:
+        f.write('\\begin{sidewaystable}[ht] \n ')
+        f.write('\\tiny \n')
+        f.write('\\caption{ Expected event yields in the four analysis regions SR\_MB, CR\_MB, SR\_SB, CR\_SB The bin names refer to the previously defined SR\_MB regions, however we follow the merging strategy described. i.e. NB2i\_SB for NB2\/NB3i\_MB and NB1i\_SB for HT4i\_MB} \n')
+        f.write('\\begin{center} \n')
+
+
 
     elif type(sideways) == str:
         f.write('\\begin{table}[ht] \n ')
@@ -147,10 +155,10 @@ if __name__ == "__main__":
                   'background CR\_MB',
                   'background SR\_SB',
                   'background CR\_SB']
-    printLatexHeader(len(samps), f, 1)
-    label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8'
+    printLatexHeader(len(samps), f, 5)
+    label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8'
     yds6.printLatexTable(samps, printSamps, label,f) 
-    label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, for '+lumi+' fb$^{-1}$ for $n_{jet}$ $\geq$ 9'
+    label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB, for '+lumi+' fb$^{-1}$ for $n_{jet}$ $\geq$ 9'
     yds9.printLatexTable(samps, printSamps, label, f)
     printLatexFooter(f, 2)
     f.close()
