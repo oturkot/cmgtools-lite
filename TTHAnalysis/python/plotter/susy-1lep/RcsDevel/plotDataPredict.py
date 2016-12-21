@@ -5,7 +5,7 @@ import makeYieldPlots as yp
 yp._batchMode = False
 yp._alpha = 0.8
 
-lum = "4.0"
+lum = "36.5"
 yp.CMS_lumi.lumi_13TeV = lum +  " fb^{-1}"
 yp.CMS_lumi.extraText = "Preliminary"
 
@@ -107,9 +107,9 @@ if __name__ == "__main__":
 
         #canv = plotHists("DataNJ45_"+cat,[stack,hMCpred,hDataPred,hData,total],ratio)
         if doPoisErr:
-            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hDataPois],[hPredUnc,ratioPois],'TM', 1200, 600, logY = True)
+            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hDataPois],[hPredUnc,ratioPois],'TRC', 1200, 600, logY = True)
         else:
-            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hData],ratio,'TM', 1200, 600, logY = True)
+            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hData],ratio,'TRC', 1200, 600, logY = True)
 
         cname = "Data_"+lum.replace('.','p')+"_"+mask
 
@@ -127,11 +127,11 @@ if __name__ == "__main__":
     # Save canvases
     exts = [".pdf",".png",".root"]
     #exts = [".pdf"]
-
-    odir = "BinPlots/Data/JECv7/NJ4to5/allSF_noPU/"
+#    print pattern
+    odir = "BinPlots/"
     if not os.path.isdir(odir): os.makedirs(odir)
 
     for canv in canvs:
         for ext in exts:
-            canv.SaveAs(odir+canv.GetName()+ext)
+            canv.SaveAs(odir+canv.GetName()+pattern.replace('/','_')+ext)
 
