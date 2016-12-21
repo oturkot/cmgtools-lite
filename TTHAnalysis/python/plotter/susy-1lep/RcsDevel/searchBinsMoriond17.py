@@ -164,18 +164,18 @@ for nj_bin in ['NJ45f6','NJ68']:#binsNJ.iteritems():
                 else:
                     if lt_bin in ['LT12','LT3','LT4']:
                         htbins += ['HT01','HT23']
-                    if lt_bin in ['LT5i']:
+                    if lt_bin in ['LT5i','LT4i']:
                         htbins += ['HT0i']
-                    if lt_bin in ['LT4i']:
-                        htbins += ['HT03'] 
+#                    if lt_bin in ['LT4i']:
+#                        htbins += ['HT03'] 
  
             else:
                 if lt_bin in ['LT12','LT3','LT4']:
                     htbins += ['HT01','HT23','HT4i']
-                if lt_bin in ['LT5i']:
+                if lt_bin in ['LT5i','LT4i']:
                     htbins += ['HT0i']
-                if lt_bin in ['LT4i']:
-                    htbins += ['HT03','HT4i'] 
+#                if lt_bin in ['LT4i']:
+#                    htbins += ['HT03','HT4i'] 
             
             for ht_bin in htbins:
                 ht_cut =binsHT[ht_bin][0]
@@ -347,7 +347,7 @@ for nj_bin in ['NJ45f6','NJ68','NJ45f9','NJ9i']:#binsNJ.iteritems():
             lt_cut = binsLT[lt_bin][0]
             htbins = []
             if nj_bin in ['NJ45f6','NJ68']:
-                htbins += ['HT02','HT3i']
+                htbins += ['HT3i']
 
             if nj_bin in ['NJ9i']:
                 htbins += ['HT03','HT4i']
