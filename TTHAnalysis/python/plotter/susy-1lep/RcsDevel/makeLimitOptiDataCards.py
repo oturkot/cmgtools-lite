@@ -17,6 +17,12 @@ def printDataCard(yds, ydsObs):
     for x in sampNames:
         if "Scan_m" in x: signalName = x
 
+    mGlu = signalName[signalName.find('_mGo') + 4:signalName.find('_mLSP')]
+    factor = 1.0
+    if float(mGlu) < 1400:
+        factor = 100.0
+        
+
     precision = 4
     
     try:                                                                                                                     
@@ -29,7 +35,7 @@ def printDataCard(yds, ydsObs):
     for i,bin in enumerate(bins):
         datacard = open(folder + signalName + '/' +bin + '.card.txt', 'w'); 
         datacard.write("## Datacard for binfile %s (signal %s)\n"%(bin,signalName))
-        
+        datacard.write("shapes * * FAKE \n");
         datacard.write('##----------------------------------\n')
         datacard.write('bin         %s\n' % bin)
         obs = sum(yd.val for yd in ydsObs[bin])
@@ -42,7 +48,8 @@ def printDataCard(yds, ydsObs):
         datacard.write('bin'+ ( ' ' * 32) +(" ".join([kpatt % bin     for p in sampNames]))+"\n")
         datacard.write('process'+ ( ' ' * 30)  +(" ".join([kpatt % p          for p in sampNames]))+"\n")
         datacard.write('process'+ ( ' ' * 30)  +(" ".join([kpatt % iproc[p]    for p in sampNames]))+"\n")
-        datacard.write('rate'+ ( ' ' * 35)  +(" ".join([fpatt % yd.val for yd in yds[bin]]))+"\n")
+#        datacard.write('rate'+ ( ' ' * 35)  +(" ".join([fpatt % yd.val for yd in yds[bin]]))+"\n")
+        datacard.write('rate'+ ( ' ' * 35)  +(" ".join([fpatt % float(yd.val/factor) if type(yd) != int and 'Scan' in yd.name else str(yd.val) for yd in yds[bin]]))+"\n")
         datacard.write('##----------------------------------\n')
         
         #bkg uncertainty define what you like, right now correlated accross bins and bkg samples, change if needed
@@ -94,22 +101,12 @@ if __name__ == "__main__":
     storeDict = True
 
     #Define Signal pickle file
-    pckname = "pickles/"+SMS+"_sigSysts_2016_all.pckz"
-    if storeDict == True and os.path.exists(pckname):
-
-        print "#Loading saved yields from pickle!"
-
-        import cPickle as pickle
-        import gzip
-
-        ydsSys = pickle.load( gzip.open( pckname, "rb" ) )
-#        print [name for name in ydsSys.samples if ("syst" in name and "mGo1500_mLSP1000" in name)]
  
     yds6 = YieldStore("lepYields")
     yds9 = YieldStore("lepYields")
-    pattern = "lumi12p88/*/merged/LT*NJ68*"
+    pattern = "Moriond17_Spring16_RealnISRWeight_IsoTrack/*/mergedFew/LT*NJ68*"
     yds6.addFromFiles(pattern,("lep","sele")) 
-    pattern = "lumi12p88/*/merged/LT*NJ9i.*"
+    pattern = "Moriond17_Spring16_RealnISRWeight_IsoTrack/*/mergedFew/LT*NJ9i*"
     yds9.addFromFiles(pattern,("lep","sele"))
 
 
@@ -124,18 +121,19 @@ if __name__ == "__main__":
         prefix = 'background'
 
     readSystFile()
-#    for mGo in range(600, 2000, 25):
-#       for mLSP in range(0,1200,25):
+    for mGo in range(600, 2000, 25):
+       for mLSP in range(0,1200,25):
 
-    for mGo in range(1600, 2100, 100):
-        for mLSP in range(50,150,50):
+#    for mGo in range(1600, 2100, 100):
+#        for mLSP in range(50,150,50):
             for ydIn in (yds6, yds9):
                 print "making datacards for "+str(mGo)+ ' '+str(mLSP)
                 signal = SMS+'_Scan_mGo'+str(mGo)+'_mLSP'+str(mLSP)
                 cat = 'SR_MB'
                 sampsObs = [('background',cat),]
                 ydsObs = ydIn.getMixDict(sampsObs)
-                sampsBkg = [('TTsemiLep',cat),('TTdiLep',cat),('TTV',cat), ('SingleT',cat), ('WJets',cat), ('DY',cat), ('QCD',cat),]
+#                sampsBkg = [('TTsemiLep',cat),('TTdiLep',cat),('TTV',cat), ('SingleT',cat), ('WJets',cat), ('DY',cat), ('QCD',cat),]
+                sampsBkg = [('background',cat)]
                 sampsSig = [(signal ,cat),]
                 samps = sampsBkg + sampsSig
 
