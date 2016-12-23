@@ -121,7 +121,8 @@ def matchSBMoriond17(bname):
 
     elif 'NJ5' in name:
         name = name.replace('NJ5','NJ4f5')
-        name = name.replace('NB2_','NB2i_')
+        name = name.replace('NB1_','NB1i_')
+        name = name.replace('NB2i_','NB1i_')
         name = name.replace('NB3i','NB2i')
 
     name = name[:-1]

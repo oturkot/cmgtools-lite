@@ -10,7 +10,7 @@ yp._alpha = 0.35
 
 if __name__ == "__main__":
 
-    #yp.CMS_lumi.lumi_13TeV = str(2.3) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(36.5) + " fb^{-1}"
     yp.CMS_lumi.lumi_13TeV = ""
     yp.CMS_lumi.extraText = "Simulation"
 
@@ -61,12 +61,14 @@ if __name__ == "__main__":
                     hRcsMB = yp.makeSampHisto(yds,samp,"Rcs_MB",samp+"_Rcs_MB")
                     #hRcsMB.SetTitle("R_{CS} (MB)")
                     hRcsMB.SetTitle("R_{CS}^{MC}(n_{b-tag}, n_{jet}^{SR}, EWK)")
+#                    hRcsMB.SetTitle("R_{CS}^{MC}(n_{b-tag}, n_{jet}#in [5], EWK)")
 
                     # RCS SB
                     yp.colorDict[samp+"_Rcs_SB"] = yp.kRed
                     hRcsSB = yp.makeSampHisto(yds,samp,"Rcs_SB",samp+"_Rcs_SB")
                     #hRcsSB.SetTitle("R_{CS} (SB)")
                     hRcsSB.SetTitle("R_{CS}^{MC}(n_{b-tag}, n_{jet}#in [4,5], EWK)")
+#                    hRcsSB.SetTitle("R_{CS}^{MC}(n_{b-tag}, n_{jet}#in [4], EWK)")
 
                     # Kappa
                     yp.colorDict[samp+"_Kappa"] = yp.kBlack
@@ -77,7 +79,7 @@ if __name__ == "__main__":
                     yp.prepRatio(hKappa)
 
                     # remove marker
-                    hKappa.SetMarkerStyle(0)
+                    #hKappa.SetMarkerStyle(0)
                     hKappa.SetLineWidth(2)
                     #hKappa.SetLineColor(yp.kViolet-5)
 
@@ -101,11 +103,13 @@ if __name__ == "__main__":
 
                     exts = [".pdf",".png",".root"]
 
-                    odir = "BinPlots/"+mask+"/"
+
+                    odir = "BinPlots/"
                     if not os.path.exists(odir): os.makedirs(odir)
 
                     for ext in exts:
-                        canv.SaveAs(odir+canv.GetName()+ext)
+#                        canv.SaveAs(odir+canv.GetName()+ext)
+                        canv.SaveAs(odir+canv.GetName()+pattern.replace('/','_')+ext)
 
                 '''
                 # Save canvases

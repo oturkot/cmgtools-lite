@@ -653,8 +653,8 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         elif "appa" in ratio.GetName():
             plotOpt = "e2"
         else:
-            plotOpt = "pe1"
-
+            plotOpt = "e1"
+        print ratio.GetName()
         # 1 - line
         if "TH1" not in ratio.ClassName():
             ratio.Draw(plotOpt+"A")
@@ -701,7 +701,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             for rat in ratios[1:]:
                 #rat.Draw(plotOpt+"same")
                 if "TGraph" in rat.ClassName():
-                    rat.Draw("pe1same")
+                    rat.Draw("p0same")
                 else:
                     rat.Draw("pe2same")
 

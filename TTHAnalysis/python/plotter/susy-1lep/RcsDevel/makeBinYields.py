@@ -475,8 +475,8 @@ if __name__ == "__main__":
         cDict.update(cutDictCRf5)
 
         
-    doFew = True and options.conference == "Moriond17"
-    if doFew:
+    doFew = True
+    if doFew and options.conference == "Moriond17":
         cDict.update(cutDictSRfFew)
         cDict.update(cutDictCRfFew)
 

@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
 import os, glob, sys, math
-
+from searchBinsMoriond17 import *
 from ROOT import *
-from searchBins import *
-#from searchBins_few import *
 from readYields import getLepYield, getScanYields
 #helper function maybe move somewhere else
 
@@ -320,11 +318,11 @@ class YieldStore:
         nCol = nSource + 4
         f.write('\multicolumn{' + str(nCol) + '}{|c|}{' +label +'} \\\ \n')
         f.write('\multicolumn{' + str(nCol) + '}{|c|}{'  '} \\\ \\hline \n')
-        f.write('$L_T$ & $H_T$ & nB & binName &' +  ' %s ' % ' & '.join([x.printSamps for x in OutputHelperList]) + ' \\\ \n')
-#        f.write('$L_T$ & $H_T$ & nB & binName &' +  ' %s ' % ' & '.join(map(str, printSamps)) + ' \\\ \n')
-        f.write(' $[$ GeV $]$  &   $[$GeV$]$ & &  '  + (nSource *'%(tab)s  ') % dict(tab = '&') + ' \\\ \\hline \n')
+        f.write('nB &  $L_T$ & $H_T$ & binName &' +  ' %s ' % ' & '.join([x.printSamps for x in OutputHelperList]) + ' \\\ \n')
+        f.write('   & $[$ GeV $]$  &  $[$GeV$]$  &  '  + (nSource *'%(tab)s  ') % dict(tab = '&') + ' \\\ \\hline \n')
 
         bins = sorted(yds.keys())
+        bins.sort(key=lambda x: x.split("_")[2:3])
         for i,bin in enumerate(bins):
             (LTbin, HTbin, Bbin ) = bin.split("_")[0:3]
             (LT, HT, B) = (binsLT[LTbin][1],binsHT[HTbin][1],binsNB[Bbin][1])
@@ -332,12 +330,14 @@ class YieldStore:
             if i > 0 :
                 (LT0bin, HT0bin, B0bin ) = bins[i-1].split("_")[0:3]
                 (LT0, HT0, B0) = (binsLT[LT0bin][1],binsHT[HT0bin][1],binsNB[B0bin][1])
-            if LT != LT0:
-                f.write(('\\cline{1-%s} ' + LT + ' & ' + HT + ' & ' + B + '&' + LTbin +', ' + HTbin + ', ' + Bbin) % (nCol))
+            if B != B0:
+                f.write(('\\cline{1-%s} ' + B + ' & ' + LT + ' & ' + HT + '&' + Bbin +', ' + LTbin + ', ' + HTbin) % (nCol))
+            if LT != LT0 and B==B0:
+                f.write(('\\cline{2-%s}   & ' + LT + ' & ' + HT + '&' + Bbin +', ' + LTbin + ', ' + HTbin) % (nCol))
             if LT == LT0 and HT != HT0:
-                f.write(('\\cline{2-%s}  & ' + HT + ' & ' + B + '&' + LTbin +', ' + HTbin + ', ' + Bbin) % (nCol))
+                f.write(('\\cline{3-%s}  & & ' + HT + ' &' + Bbin +', ' + LTbin + ', ' + HTbin) % (nCol))
             elif LT == LT0 and HT == HT0:
-                f.write('  &  & ' + B + '&' + LTbin +', ' + HTbin + ', ' + Bbin)
+                f.write('  &  &  &' + LTbin +', ' + HTbin + ', ' + Bbin)
 
             for i,yd in enumerate(yds[bin]):
                 
@@ -473,6 +473,15 @@ if __name__ == "__main__":
 
     import sys
 
+    from optparse import OptionParser
+    parser = OptionParser()
+
+    parser.usage = '%prog [options]'
+    parser.description="""
+    Make yields from trees
+    """
+    parser.add_option("--conference", dest="conference", type="string", default="Moriond17", help="pick which binning to use ICHEP16 or Moriond17")
+
     ## remove '-b' option
     if '-b' in sys.argv:
         sys.argv.remove('-b')
@@ -483,7 +492,12 @@ if __name__ == "__main__":
     else:
         print "No pattern given!"
         exit(0)
-
+    (options,args) = parser.parse_args()
+    print options.conference
+    if options.conference == "Moriond17":
+        from searchBinsMoriond17 import *
+    else:
+        from searchBins import *
     yds = YieldStore("bla")
     yds.addFromFiles(pattern,("lep","sele"))
     #yds.addFromFiles(pattern,("ele","anti"))
