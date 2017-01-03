@@ -48,7 +48,7 @@ elif sample == "Signal":
   isSignal = True
 
 #Set this depending on the running mode 
-test = 0 
+test = 1 
 #0: PRODUCTION (for batch)
 #1: Usually for TESTING (single component with single thread)
 #2: test all components (1 thread per comp) 
