@@ -7,15 +7,16 @@ from CMGTools.RootTools.samples.ComponentCreator import ComponentCreator
 kreator = ComponentCreator()
 
 dataDir = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data"  # use environmental variable, useful for instance to run on CRAB
-json=dataDir+'/json/Cert_271036-283685_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt'
+#json=dataDir+'/json/Cert_271036-283685_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt'
 
 json_F=dataDir+'/json/json_DCSONLY_2016_08_10_F.txt' #only RunF
 #https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/
 #https://hypernews.cern.ch/HyperNews/CMS/get/physics-validation/2657.html
 #with recorded luminosity: 804.2/pb
 
-json =dataDir+'/json/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt'#
-#oldprompt Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt' # Golden Json
+#json =dataDir+'/json/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt' # Golden Json
+#json =dataDir+'/json/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt' # Rereco Final
+json =dataDir+'/json/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON.txt' # Prompt Final 
 
 #jetHT_0T = cfg.DataComponent(
 #    name = 'jetHT_0T',

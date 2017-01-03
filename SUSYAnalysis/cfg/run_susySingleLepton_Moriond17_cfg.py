@@ -33,8 +33,8 @@ metAna.recalibrate = True
 
 
 #-------- HOW TO RUN
-sample = 'MC'
-#sample = 'data'
+#sample = 'MC'
+sample = 'data'
 #sample = 'Signal'
 
 #-------- Preprocessor yes/no
@@ -48,7 +48,7 @@ elif sample == "Signal":
   isSignal = True
 
 #Set this depending on the running mode 
-test = 1
+test = 1 
 #0: PRODUCTION (for batch)
 #1: Usually for TESTING (single component with single thread)
 #2: test all components (1 thread per comp) 
@@ -247,12 +247,12 @@ if sample == "MC":
   from CMGTools.RootTools.samples.samples_13TeV_RunIISpring16MiniAODv2 import *
   
   #pick the file you want to run on
-  selectedComponents = [TTJets_DiLepton,TTJets_SingleLeptonFromTbar,TTJets_SingleLeptonFromT,TTJets_DiLepton,
-TTJets_LO_HT600to800, TTJets_LO_HT800to1200, TTJets_LO_HT1200to2500,TTJets_LO_HT1200to2500_ext,TTJets_LO_HT2500toInf]
+  selectedComponents = [WJetsToLNuHT]
+#  [TTJets_SingleLeptonFromTbar,TTJets_SingleLeptonFromTbar_ext,TTJets_SingleLeptonFromT,TTJets_DiLepton,TTJets_DiLepton_ext,
 
   if test==1:
     # test a single component, using a single thread.
-    comp = TTJets_DiLepton
+    comp = WJetsToLNuHT
     comp.files = comp.files[:1]
     selectedComponents = [comp]
     comp.splitFactor = 1
@@ -271,7 +271,8 @@ TTJets_LO_HT600to800, TTJets_LO_HT800to1200, TTJets_LO_HT1200to2500,TTJets_LO_HT
     # PRODUCTION
     # run on everything that is defined in selectedComponents
 
-    selectedComponents =  [TTJets_LO , TTJets_LO_HT600to800, TTJets_LO_HT800to1200, TTJets_LO_HT1200to2500, TTJets_LO_HT2500toInf] + QCDHT + WJetsToLNuHT + SingleTop + DYJetsM50HT + TTV
+    #selectedComponents =  [TTJets_LO , TTJets_LO_HT600to800, TTJets_LO_HT800to1200, TTJets_LO_HT1200to2500, TTJets_LO_HT2500toInf] + QCDHT + WJetsToLNuHT + SingleTop + DYJetsM50HT + TTV
+    selectedComponents = WJetsToLNuHT+DiBosons+DYJetsM50HT
 
     for comp in selectedComponents:
       comp.fineSplitFactor = 1
@@ -328,7 +329,16 @@ elif sample == "data":
   
   # central samples
   from CMGTools.RootTools.samples.samples_13TeV_Moriond2017 import *
-  selectedComponents = [JetHT_Run2016B_23Sep2016_v1, JetHT_Run2016B_23Sep2016, JetHT_Run2016C_23Sep2016_v1, JetHT_Run2016D_23Sep2016_v1, JetHT_Run2016E_23Sep2016_v1, JetHT_Run2016F_23Sep2016_v1, JetHT_Run2016G_23Sep2016_v1, JetHT_Run2016H_PromptReco_v1, JetHT_Run2016H_PromptReco_v2, JetHT_Run2016H_PromptReco_v3, SingleMuon_Run2016B_23Sep2016_v1, SingleMuon_Run2016B_23Sep2016, SingleMuon_Run2016C_23Sep2016_v1, SingleMuon_Run2016D_23Sep2016_v1, SingleMuon_Run2016E_23Sep2016_v1, SingleMuon_Run2016F_23Sep2016_v1, SingleMuon_Run2016G_23Sep2016_v1, SingleMuon_Run2016H_PromptReco_v1, SingleMuon_Run2016H_PromptReco_v2, SingleMuon_Run2016H_PromptReco_v3, MET_Run2016B_23Sep2016_v2, MET_Run2016B_23Sep2016, MET_Run2016C_23Sep2016_v1, MET_Run2016D_23Sep2016_v1, MET_Run2016E_23Sep2016_v1, MET_Run2016F_23Sep2016_v1, MET_Run2016G_23Sep2016_v1, MET_Run2016H_PromptReco_v1, MET_Run2016H_PromptReco_v2, MET_Run2016H_PromptReco_v3]
+  #selectedComponents = [JetHT_Run2016B_23Sep2016, HTMHT_Run2016B_23Sep2016, MET_Run2016B_23Sep2016, SingleElectron_Run2016B_23Sep2016, SingleMuon_Run2016B_23Sep2016, SinglePhoton_Run2016B_23Sep2016, DoubleEG_Run2016B_23Sep2016, MuonEG_Run2016B_23Sep2016, DoubleMuon_Run2016B_23Sep2016, Tau_Run2016B_23Sep2016]
+  selectedComponents = [SingleElectron_Run2016H_PromptReco_v2]
+  #selectedComponents = [
+  #                      SingleElectron_Run2016B_23Sep2016,\
+  #                      SingleElectron_Run2016C_23Sep2016_v1,\
+  #                      SingleElectron_Run2016D_23Sep2016_v1,\
+  #                      SingleElectron_Run2016E_23Sep2016_v1,\
+  #                      SingleElectron_Run2016F_23Sep2016_v1,\
+  #                      SingleElectron_Run2016G_23Sep2016_v1,\
+  #                      ]
 
   
   if test!=0 and jsonAna in susyCoreSequence: susyCoreSequence.remove(jsonAna)
@@ -414,6 +424,7 @@ if not isSignal:
 if isSignal:
  sequence.remove(anyLepSkim)
  sequence.remove(ttHHTSkimmer)
+ sequence.remove(ttHSTSkimmer)
  sequence.remove(eventFlagsAna)
  sequence.remove(ttHSTSkimmer)
 ## output histogram
