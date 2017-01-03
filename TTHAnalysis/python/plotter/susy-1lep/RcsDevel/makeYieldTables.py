@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-
+lumi = "36.5"
 from yieldClass import *
 from ROOT import *
 
@@ -17,7 +17,7 @@ def printLatexHeader(nCol, f, sideways = 0):
     if sideways == 1:
         f.write('\\begin{sidewaystable}[ht] \n ')
         f.write('\\tiny \n')
-        f.write('\\caption{ Expected event yields in ' + name + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: lepton SF, trigger efficiency, b-tagging SF, and top \pt reweighting. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.} \n')
+        f.write('\\caption{ Expected event yields in ' + name + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.} \n')
         f.write('\\begin{center} \n')
 
     elif sideways == 2:
@@ -36,6 +36,14 @@ def printLatexHeader(nCol, f, sideways = 0):
         f.write('\\tiny \n')
         f.write('\\caption{Input values for limit calculation. The 3 regions with data counts are given, as well as the QCD estimate for the control regions in the side and mainband and $\kappa$ derived from simulation. The last two columns represent pseudo data based based on the epxected data prediction or MC simulation.} \n')
         f.write('\\begin{center} \n')
+
+    elif sideways == 5:
+        f.write('\\begin{sidewaystable}[ht] \n ')
+        f.write('\\tiny \n')
+        f.write('\\caption{ Expected event yields in the four analysis regions SR\_MB, CR\_MB, SR\_SB, CR\_SB The bin names refer to the previously defined SR\_MB regions, however we follow the merging strategy described. i.e. NB2i\_SB for NB2\/NB3i\_MB and NB1i\_SB for HT4i\_MB} \n')
+        f.write('\\begin{center} \n')
+
+
 
     elif type(sideways) == str:
         f.write('\\begin{table}[ht] \n ')
@@ -88,14 +96,14 @@ if __name__ == "__main__":
     ydsFew9 = YieldStore("lepYields")
 
 #    a = "YieldsJune12/lumi2p571/"
-    a = "YieldsJune29/lumi3p99/grid/"
+    a = "Moriond17_Spring16_RealnISRWeight_IsoTrack_v2/*/"
     b = a + 'merged/LT'
     btagMethod = ""
     pattern = b+"*NJ6*"
     yds6.addFromFiles(pattern,("lep","sele"))
     pattern = b+"*NJ9*"
     yds9.addFromFiles(pattern,("lep","sele"))
-    b = a + 'merged4to5/LT'
+    b = a + 'merged4f5/LT'
     pattern = b+"*NJ5*"
     yds5.addFromFiles(pattern,("lep","sele")) 
     
@@ -108,26 +116,54 @@ if __name__ == "__main__":
     yds9.showStats()
 
     #pattern = 'arturstuff/grid/merged/LT\*NJ6\*'
-    printSamps = ['TTsemiLep','TTdiLep','TTV','SingleT', 'WJets', 'DY', 'QCD','background','T1t$^4$ 1.5$/$0.1','T1t$^4$ 1.2$/$0.8']
+    printSamps = ['TTsemiLep','TTdiLep','TTV','SingleT', 'WJets', 'DY', 'QCD','VV','background','T1t$^4$ 1.8$/$0.1','T1t$^4$ 1.2$/$0.8']
 #    printSamps = ['TTJets','TTV','SingleTop', 'WJets', 'DY','EWK','T1t$^4$ 1.5$/$0.1','T1t$^4$ 1.2$/$0.8']
 
     if 1 ==1:
         cats = ('SR_MB', 'CR_MB', 'SR_SB', 'CR_SB')
         for cat in cats:
             f =  open('yields' + cat +btagMethod+'.tex','w')
-            samps = [('TTsemiLep',cat),('TTdiLep',cat),('TTV',cat), ('SingleT',cat), ('WJets',cat), ('DY',cat), ('QCD',cat), ('background',cat),
-                     ('T1tttt_Scan_mGo1500_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
+            samps = [('TTsemiLep',cat),('TTdiLep',cat),('TTV',cat), ('SingleT',cat), ('WJets',cat), ('DY',cat), ('QCD',cat),('VV',cat), ('background',cat),
+                     ('T1tttt_Scan_mGo1800_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
 #            samps = [('TTJets',cat),('TTV',cat), ('SingleTop',cat), ('WJets',cat), ('DY',cat), ('EWK',cat),
 #                     ('T1tttt_Scan_mGo1500_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
             printLatexHeader(len(samps), f, 1)
             srcr = cat.replace('_MB','').replace('_SB','')
             sbmb = cat.replace('SR_','').replace('CR_','')
-            label = 'Expected events in '+srcr+' for 0.8 fb$^{-1}$ for '+sbmb.replace('MB','$n_{jet}$ 6,8 ').replace('SB','$n_{jet}$ 4,5 for 6,8')
+            label = 'Expected events in '+srcr+' for '+lumi+' fb$^{-1}$ for '+sbmb.replace('MB','$n_{jet}$ 6,8 ').replace('SB','$n_{jet}$ 4,5 for 6,8')
             yds6.printLatexTable(samps, printSamps, label,f) 
-            label = 'Expected events in SR for 0.8 fb$^{-1}$ for '+sbmb.replace('MB','$n_{jet}$ $\\geq 9$').replace('SB','$n_{jet}$ 4,5 for $\\geq 9$')
+            label = 'Expected events in SR for '+lumi+' fb$^{-1}$ for '+sbmb.replace('MB','$n_{jet}$ $\\geq 9$').replace('SB','$n_{jet}$ 4,5 for $\\geq 9$')
             yds9.printLatexTable(samps, printSamps, label, f)
             printLatexFooter(f, 2)
             f.close()
+
+    f =  open('yields_bckgAllbins' + cat +btagMethod+'.tex','w')
+#    samps = [('background','SR_MB'),('T1tttt_Scan_mGo1800_mLSP100','SR_MB'),('T1tttt_Scan_mGo1200_mLSP800','SR_MB'),
+#             ('background','CR_MB'),('T1tttt_Scan_mGo1800_mLSP100','CR_MB'),('T1tttt_Scan_mGo1200_mLSP800','CR_MB'),
+#             ('background','SR_SB'),('T1tttt_Scan_mGo1800_mLSP100','SR_SB'),('T1tttt_Scan_mGo1200_mLSP800','SR_SB'),
+#             ('background','CR_SB'),('T1tttt_Scan_mGo1800_mLSP100','CR_SB'),('T1tttt_Scan_mGo1200_mLSP800','CR_SB')]
+#    printSamps = ['background SR\_MB','T1t$^4$ 1.8$/$0.1 SR\_MB','T1t$^4$ 1.2$/$0.8 SR\_MB',
+#                  'background CR\_MB','T1t$^4$ 1.8$/$0.1 CR\_MB','T1t$^4$ 1.2$/$0.8 CR\_MB',
+#                  'background SR\_SB','T1t$^4$ 1.8$/$0.1 SR\_SB','T1t$^4$ 1.2$/$0.8 SR\_SB',
+#                  'background CR\_SB','T1t$^4$ 1.8$/$0.1 CR\_SB','T1t$^4$ 1.2$/$0.8 CR\_SB',]
+
+    samps = [('background','SR_MB'),
+             ('background','CR_MB'),
+             ('background','SR_SB'),
+             ('background','CR_SB')]
+    printSamps = ['background SR\_MB',
+                  'background CR\_MB',
+                  'background SR\_SB',
+                  'background CR\_SB']
+    printLatexHeader(len(samps), f, 5)
+    label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8'
+    yds6.printLatexTable(samps, printSamps, label,f) 
+    label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB, for '+lumi+' fb$^{-1}$ for $n_{jet}$ $\geq$ 9'
+    yds9.printLatexTable(samps, printSamps, label, f)
+    printLatexFooter(f, 2)
+    f.close()
+
+    
 
     '''print "Prepare dileptonic printout by calculating"
     yds6.divideTwoYieldDictsForRatio('DLCR_MB','SR_MB','DLCR_MB_RelSize')
@@ -174,13 +210,13 @@ if __name__ == "__main__":
     '''
     f =  open('4to5j_preditiction.tex','w')
     label = 'Counts and Rcs from 4jet sideband used to predict events in a 5jet signal region $5j_{SR} = Rcs^{4j,data} \\times \\kappa^{EWK, MC} \\times 5j_{CR}$'
-#    printSamps = ['data 4j, SR','data 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 5j, CR'
-    #, 'data 5j, pred', 'data 5j, SR', 'MC 5j,SR']
-
-
     #in case one wants more details
-    printSamps = ['data 4j, SR','data 4j, CR','QCD 4j,CR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 5j, CR','QCD 5j, CR','(data-QCD) 5j, CR', 'data 5j, pred', 'data 5j, SR'] 
-    samps = [('data_QCDsubtr','SR_SB'),('data','CR_SB'),('data_QCDpred','CR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data','CR_MB'),('data_QCDpred','CR_MB'),('data_QCDsubtr','CR_MB'),('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
+    #printSamps = ['data 4j, SR','data 4j, CR','QCD 4j,CR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 5j, CR','QCD 5j, CR','(data-QCD) 5j, CR', 'data 5j, pred', 'data 5j, SR'] 
+    #samps = [('data_QCDsubtr','SR_SB'),('data','CR_SB'),('data_QCDpred','CR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data','CR_MB'),('data_QCDpred','CR_MB'),('data_QCDsubtr','CR_MB'),('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
+    printSamps = ['data 4j, SR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 5j, CR'
+    , 'data 5j, pred', 'data 5j, SR']
+    samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
+            ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
     printLatexHeader(len(samps), f, 2)
     yds5.printLatexTable(samps, printSamps, label,f) 
     printLatexFooter(f, 2)
@@ -193,13 +229,13 @@ if __name__ == "__main__":
 
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
-    label = 'SB, MB, and predictions for 0.8 fb$^{-1}$ for $n_{jet}$ 6,8 '
-    printSamps = ['data 45j, SR','data 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 68j, CR', 'data 68j, pred (val $\pm$ stat $\pm$ syst)', 'data 68j, SR']
+    label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat $\pm$ syst)', 'data 68j, SR']
 
-    yds6.printLatexTable(samps, printSamps, label,f, True) 
-    label = 'SB, MB, and predictions for 0.8 fb$^{-1}$ for njet $\\geq 9$'
-    printSamps = ['data 45j, SR','data 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 9ij, CR', 'data 9ij, pred (val $\pm$ stat $\pm$ syst)', 'data 9ij, SR']
-    yds9.printLatexTable(samps, printSamps, label, f, True)
+    yds6.printLatexTable(samps, printSamps, label,f) 
+    label = 'SB, MB, and predictions for '+lumi+'fb$^{-1}$ for njet $\\geq 9$'
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat $\pm$ syst)', 'data 9ij, SR']
+    yds9.printLatexTable(samps, printSamps, label, f)
     printLatexFooter(f, 3)
     f.close()
 
@@ -213,10 +249,10 @@ if __name__ == "__main__":
 
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
-    label = 'SB, MB, and predictions for 0.8 fb$^{-1}$ for $n_{jet}$ 6,8 '
-    printSamps = ['data 45j, SR','data 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 68j, CR', 'data 68j, pred (val $\pm$ stat)', 'data 68j, SR']
+    label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat)', 'data 68j, SR']
     ydsFew6.printLatexTable(samps, printSamps, label,f) 
-    printSamps = ['data 45j, SR','data 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
     ydsFew9.printLatexTable(samps, printSamps, label, f)
     printLatexFooter(f, 3)
     f.close()
@@ -237,7 +273,7 @@ if __name__ == "__main__":
 
 
     f =  open('tabelforLimits.tex','w')
-    label = 'SB, MB, and predictions for 0.8 fb$^{-1}$ for $n_{jet}$ 6,8 '
+    label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
     samps = [('data','SR_SB'),('data','CR_SB'),('data','Rcs_SB'),
              ('data','CR_MB'),('EWK','Kappa'),('data','SR_MB_predict'),('data','SR_MB')]
 
@@ -246,7 +282,7 @@ if __name__ == "__main__":
 
     printLatexHeader(len(samps), f, 4)
     yds6.printLatexTable(samps, printSamps, label,f) 
-    label = 'SB, MB, and predictions for 0.8 fb$^{-1}$ for njet $\\geq 9$'
+    label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for njet $\\geq 9$'
     printSamps = ['data 45j, SR','data 45j, CR','data 4j5, Rcs$^{EWK}$',
                   'data 9j, CR','$\\kappa$ MC','data 9j, SRpred','Obs 9j SR']
     yds9.printLatexTable(samps, printSamps, label, f)

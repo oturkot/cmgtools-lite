@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# Script to make plots
+# This needs to be called from $CMSSW_BASE/src/CMGTools/TTHAnalysis/python/plotter
+# You need to have symbolic links called "trees" and "friends", pointing to your
+# trees and friend trees, resp.
+
+lumi=36.5
+
+mca=susy-1lep/mca/mca-Spring16_All_sllSF_Moriond17.txt
+cuts=susy-1lep/1l_basicCutsFullCutFlow.txt
+trees=trees/
+friends=friends/evVarFriend_{cname}.root
+
+# QCD estimation, define QCD as signal
+python mcPlots.py \
+    "${mca}" \
+    "${cuts}" \
+    susy-1lep/plots/base_plots.txt \
+    -P "${trees}" \
+    -F sf/t "${friends}" \
+    -l "${lumi}" \
+    -j $(nproc) \
+    --s2v \
+    --tree treeProducerSusySingleLepton \
+    -G \
+    -f \
+    --showRatio \
+    --maxRatioRange 0.05 1.95 \
+    --fixRatioRange \
+    --noErrorBandOnRatio \
+    --noStackSig \
+    --showIndivSigs \
+    --scaleBkgToData TTsemiLep \
+    --scaleBkgToData TTdiLep \
+    --scaleBkgToData TTV \
+    --scaleBkgToData SingleT \
+    --scaleBkgToData WJets \
+    --scaleBkgToData DY \
+    --scaleBkgToData VV \
+    --scaleBkgToData QCD \
+    --showSF
+
+## Fit QCD estimation to data in anti-selected region; this is only useful for
+## plotting; define QCD as background
+#python mcPlots.py \
+#    "${mca}" \
+#    susy-1lep/mca/mycuts.txt \
+#    susy-1lep/mca/myplots.txt \
+#    -P "${trees}" \
+#    -F sf/t "${friends}" \
+#    -l "${lumi}" \
+#    -j $(nproc) \
+#    --s2v \
+#    --tree treeProducerSusySingleLepton \
+#    -G \
+#    -f \
+#    --noStackSig \
+#    --showIndivSigs \
+#    --showRatio \
+#    --maxRatioRange 0.0 2.0 \
+#    --fixRatioRange \
+#    --noErrorBandOnRatio \
+#    --scaleBkgToData QCD \
+#    --showSF
+

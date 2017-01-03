@@ -19,7 +19,7 @@ import PhysicsTools.Heppy.physicsutils.BTagSF
 # Cuts for jets
 minJpt = 30
 maxJeta = 2.4
-btagWP = 0.800
+btagWP = 0.8484
 
 # pt, eta bins
 ptBorders = [30, 40, 50, 60, 70, 80, 100, 120, 160, 210, 260, 320, 400, 500, 670]
@@ -40,22 +40,24 @@ def partonName (parton):
 # SF ROOT file
 sfFnameBTagSF = sfdir+"btagSF_CSVv2.csv"
 
+sfReadersBTagSF = {}
+
 # load SFs from csv file
 calib = ROOT.BTagCalibration("csvv2", sfFnameBTagSF)
 
-# SF readers (from CMSSW)
-sfReadersBTagSF = { "Comb" : {}, "Mu" : {}, "incl" : {} }
-
-sfReadersBTagSF["Comb"]["Up"]      = ROOT.BTagCalibrationReader(calib, 1, "comb", "up")
-sfReadersBTagSF["Comb"]["Central"] = ROOT.BTagCalibrationReader(calib, 1, "comb", "central")
-sfReadersBTagSF["Comb"]["Down"]    = ROOT.BTagCalibrationReader(calib, 1, "comb", "down")
-sfReadersBTagSF["Mu"]["Up"]        = ROOT.BTagCalibrationReader(calib, 1, "mujets", "up")
-sfReadersBTagSF["Mu"]["Central"]   = ROOT.BTagCalibrationReader(calib, 1, "mujets", "central")
-sfReadersBTagSF["Mu"]["Down"]      = ROOT.BTagCalibrationReader(calib, 1, "mujets", "down")
-sfReadersBTagSF["incl"]["Up"]      = ROOT.BTagCalibrationReader(calib, 1, "incl", "up")
-sfReadersBTagSF["incl"]["Central"] = ROOT.BTagCalibrationReader(calib, 1, "incl", "central")
-sfReadersBTagSF["incl"]["Down"]    = ROOT.BTagCalibrationReader(calib, 1, "incl", "down")
-
+# BTagCalibrationReader(wp,sys,add sys):  wp= 0,1,2;  syst= central, up, down; add sys: up,down
+# 1=med wp
+# BTagCalibrationReader::load(calib,flavour,measuerement type)                                        
+# 0=b flavor, "comb" mesurement type etc
+v_sys = getattr(ROOT, 'vector<string>')()
+v_sys.push_back('up')
+v_sys.push_back('down')
+name1=["Comb","Mu","incl"]
+name2=["comb","mujets","incl"]
+for m in range(3):
+    sfReadersBTagSF[name1[m]] = ROOT.BTagCalibrationReader(1, "central", v_sys)
+    for flavour in range(3): 
+        sfReadersBTagSF[name1[m]].load(calib, flavour, name2[m])                            
 
 ### Fast-Sim correction factors
 # SF ROOT file
@@ -65,11 +67,11 @@ sfFnameFastSim = sfdir+"CSV_13TEV_Combined_14_7_2016.csv"
 calibFastSim = ROOT.BTagCalibration("csvv2", sfFnameFastSim)
 
 # SF readers (from CMSSW)
-sfReadersFastSim = { "fastsim" : {} }
+sfReadersFastSim = {}
 
-sfReadersFastSim["fastsim"]["Up"]      = ROOT.BTagCalibrationReader(calibFastSim, 1, "fastsim", "up")
-sfReadersFastSim["fastsim"]["Central"] = ROOT.BTagCalibrationReader(calibFastSim, 1, "fastsim", "central")
-sfReadersFastSim["fastsim"]["Down"]    = ROOT.BTagCalibrationReader(calibFastSim, 1, "fastsim", "down")
+sfReadersBTagSF["fastsim"] = ROOT.BTagCalibrationReader(1, "central", v_sys)
+for flavour in range(3): 
+    sfReadersBTagSF["fastsim"].load(calibFastSim, flavour, "fastsim")                            
 
 def getSF2015(parton, pt, eta):
 
@@ -85,9 +87,9 @@ def getSF2015(parton, pt, eta):
         flav = 2; ptlim = 999.9; sftype = "incl"
 
     # read SFs
-    sf   = sfReadersBTagSF[sftype]["Central"].eval(flav, eta, min(pt,ptlim))
-    sf_d = sfReadersBTagSF[sftype]["Down"].eval(flav, eta, min(pt,ptlim))
-    sf_u = sfReadersBTagSF[sftype]["Up"].eval(flav, eta, min(pt,ptlim))
+    sf     = sfReadersBTagSF[sftype].eval_auto_bounds('central',flav, eta, min(pt,ptlim))
+    sf_d   = sfReadersBTagSF[sftype].eval_auto_bounds('down',   flav, eta, min(pt,ptlim))
+    sf_u   = sfReadersBTagSF[sftype].eval_auto_bounds('up',     flav, eta, min(pt,ptlim))
 
     # double uncertainty for out-of-range pt
     if pt > ptlim:
@@ -137,9 +139,9 @@ def getFastSimCF(isFastSim, jParton, jPt, jEta):
     ptlim = 799.9
 
     # Get fast-sim correction factor from dictionary
-    fsim_SF = sfReadersFastSim["fastsim"]["Central"].eval(flav, jEta, min(jPt, ptlim))
-    fsim_SF_up = sfReadersFastSim["fastsim"]["Up"].eval(flav, jEta, min(jPt, ptlim))
-    fsim_SF_down = sfReadersFastSim["fastsim"]["Down"].eval(flav, jEta, min(jPt, ptlim))
+    fsim_SF      = sfReadersFastSim["fastsim"].eval_auto_bounds('central',flav, jEta, min(jPt, ptlim))
+    fsim_SF_up   = sfReadersFastSim["fastsim"].eval_auto_bounds('up',flav, jEta, min(jPt, ptlim))
+    fsim_SF_down = sfReadersFastSim["fastsim"].eval_auto_bounds('down',flav, jEta, min(jPt, ptlim))
 
     # If pT above threshold, double uncertainty
     if jPt > ptlim:

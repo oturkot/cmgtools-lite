@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Script to make cutflow
+# This needs to be called from $CMSSW_BASE/src/CMGTools/TTHAnalysis/python/plotter
+# You need to have symbolic links called "trees" and "friends", pointing to your
+# trees and friend trees, resp.
+
+lumi=36.5
+
+mca=susy-1lep/mca/mca-Spring16_All_sllSF_Moriond17.txt
+cuts=susy-1lep/1l_basicCutsFullCutFlow.txt
+trees=trees/
+friends=friends/evVarFriend_{cname}.root
+
+python mcAnalysis.py \
+    "${mca}" \
+    "${cuts}" \
+    -P "${trees}" \
+    -F sf/t "${friends}" \
+    -l "${lumi}" \
+    -j $(nproc) \
+    --s2v \
+    --tree treeProducerSusySingleLepton \
+    -G

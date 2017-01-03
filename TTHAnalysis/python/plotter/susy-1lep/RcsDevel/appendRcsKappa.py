@@ -123,8 +123,9 @@ def getQCDsystError(binname):
 
     for njbin,htbin in qcdSysts.keys():
         if njbin in binname and htbin in binname:
-            #print binname, njbin, htbin, qcdSysts[(njbin,htbin)]
+            print binname, njbin, htbin, qcdSysts[(njbin,htbin)]
             return qcdSysts[(njbin,htbin)]
+        else: return 1.00 #if it can't find any uncertainty use 100%
     return 0
 
 def getQCDsubtrHistos(tfile, sample = "background", band = "CR_MB/", isMC = True, applySyst = True, lep = "ele"):
@@ -138,8 +139,8 @@ def getQCDsubtrHistos(tfile, sample = "background", band = "CR_MB/", isMC = True
 
     fRatios = {}
 
-    if isMC: fRatios = readQCDratios("fratios_7p7_mc.txt")
-    else: fRatios = readQCDratios("fRatios_Data_lumi12p88.txt")
+    if isMC: fRatios = readQCDratios("fRatios_MC_lumi36p5_Spring16.txt")
+    else: fRatios = readQCDratios("fRatios_Data_lumi36p5_Spring16.txt")
 
     # read bin name
     binString = tfile.Get(band+"BinName")
@@ -148,6 +149,7 @@ def getQCDsubtrHistos(tfile, sample = "background", band = "CR_MB/", isMC = True
 
     # get bin from filename
     for key in fRatios:
+        #print key, binName
         if key in binName:
             (fRatio,fRatioErr) = fRatios[key]
             #print "Found matching ratios for key" , key

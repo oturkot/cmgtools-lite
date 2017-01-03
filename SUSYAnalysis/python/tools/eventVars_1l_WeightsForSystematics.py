@@ -6,6 +6,7 @@ ROOT.gROOT.ProcessLine(".L ../python/tools/TTbarPolarization.C+")
 ROOT.gSystem.Load("libFWCoreFWLite.so")
 ROOT.AutoLibraryLoader.enable()
 
+
 def getLV(p4):
     if p4 != None: return ROOT.LorentzVector(p4.Px(),p4.Py(),p4.Pz(),p4.E())
     else: return p4
@@ -138,13 +139,14 @@ class EventVars1LWeightsForSystematics:
     def __init__(self):
         self.branches = [
             # Top related
-            "GenTopPt", "GenAntiTopPt", "TopPtWeight", "GenTTBarPt", "GenTTBarWeight",
+            "GenTopPt", "GenAntiTopPt", "TopPtWeight","TopPtWeightII", "GenTTBarPt", "GenTTBarWeight",
             # ISR
             "ISRTTBarWeight", "GenGGPt", "ISRSigUp", "ISRSigDown",
             # DiLepton
             "DilepNJetWeightConstUp", "DilepNJetWeightSlopeUp", "DilepNJetWeightConstDn", "DilepNJetWeightSlopeDn",
             # W polarisation
             "WpolWup","WpolWdown",
+            'nISRtt','nISRttweight','nISRttweightsyst_up', 'nISRttweightsyst_down',
             # PDF related -- Work In Progress
             #"pdfW","pdfW_Up","pdfW_Down",
             # Scale uncertainty
@@ -200,6 +202,7 @@ class EventVars1LWeightsForSystematics:
         GenAntiTopPt = -999
         GenAntiTopIdx = -999
         TopPtWeight = 1.
+        TopPtWeightII = 1.
         GenTTBarPt = -999
         GenTTBarWeight = 1.
         ISRTTBarWeight = 1.
@@ -232,8 +235,14 @@ class EventVars1LWeightsForSystematics:
         if GenTopPt!=-999 and GenAntiTopPt!=-999 and nGenTops==2:
             SFTop     = exp(0.156    -0.00137*GenTopPt    )
             SFAntiTop = exp(0.156    -0.00137*GenAntiTopPt)
+
+            SFTopII     = exp(0.0615    -0.0005*GenTopPt    )
+            SFAntiTopII = exp(0.0615    -0.0005*GenAntiTopPt)
+            
             TopPtWeight = sqrt(SFTop*SFAntiTop)
+            TopPtWeightII = sqrt(SFTopII*SFAntiTopII)
             if TopPtWeight<0.5: TopPtWeight=0.5
+            if TopPtWeightII<0.5: TopPtWeightII=0.5
 
             if GenAntiTopIdx!=-999 and GenTopIdx!=-999:
                 GenTTBarp4 = genParts[GenTopIdx].p4()+ genParts[GenAntiTopIdx].p4()
@@ -298,12 +307,43 @@ class EventVars1LWeightsForSystematics:
         ret['GenTopPt'] = GenTopPt
         ret['GenAntiTopPt'] = GenAntiTopPt
         ret['TopPtWeight']  = TopPtWeight
+        ret['TopPtWeightII']  = TopPtWeightII
         ret['GenTTBarPt']  = GenTTBarPt
         ret['GenTTBarWeight'] = GenTTBarWeight
         ret['ISRTTBarWeight' ]  = ISRTTBarWeight
         ret['GenGGPt'] = GenGGPt
         ret['ISRSigUp' ]  = ISRSigUp
         ret['ISRSigDown'] = ISRSigDown
+
+
+        #implement Moriond17 version
+        # of Ana and Manuels nISR jet reweighting, very similar to eventVars_1l_signal.py
+        # print self.sample
+        nISRweight = 1
+        nISRweightsyst_up =  1
+        nISRweightsyst_down = 1
+        if 'TTJets' in self.sample:
+            nISR = 0
+            if hasattr(event,'nIsr'): nISR = event.nIsr
+            nISRforWeights = int(nISR)
+            if nISR > 6:
+                nISRforWeights = 6
+            
+            ret['nISR'] = int(nISR)
+            ISRweights = { 0: 1, 1 : 0.920, 2 : 0.821, 3 : 0.715, 4 : 0.662, 5 : 0.561, 6 : 0.511}
+            ISRweightssyst = { 0: 0.0, 1 : 0.040, 2 : 0.090, 3 : 0.143, 4 : 0.169, 5 : 0.219, 6 : 0.244}
+
+
+            C_ISR = 1.071
+            nISRweight = C_ISR * ISRweights[nISRforWeights]
+            nISRweightsyst_up =  1
+            nISRweightsyst_down = 1
+                    
+        ret['nISRttweight'] = nISRweight
+        ret['nISRttweightsyst_up'] = nISRweightsyst_up 
+        ret['nISRttweightsyst_down'] = nISRweightsyst_down
+        
+        print "weight",nISRweight
         return ret
 
 if __name__ == '__main__':

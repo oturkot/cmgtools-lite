@@ -595,7 +595,7 @@ def doStatTests(total,data,test,legendCorner):
 
 
 legend_ = None;
-def doLegend(pmap,mca,corner="TR",textSize=0.035,cutoff=1e-2,cutoffSignals=True,mcStyle="F",legWidth=0.18,legBorder=True,signalPlotScale=None,totalError=None,header="",doWide=False):
+def doLegend(pmap,mca,corner="TR",textSize=0.035,cutoff=1e-2,cutoffSignals=True,mcStyle="F",legWidth=0.18,legBorder=True,signalPlotScale=None,totalError=None,header="",doWide=False,sf=None):
         if (corner == None): return
         total = sum([x.Integral() for x in pmap.itervalues()])
         sigEntries = []; bgEntries = []
@@ -644,6 +644,7 @@ def doLegend(pmap,mca,corner="TR",textSize=0.035,cutoff=1e-2,cutoffSignals=True,
         for (plot,label,style) in sigEntries: leg.AddEntry(plot,label,style)
         for (plot,label,style) in  bgEntries: leg.AddEntry(plot,label,style)
         if totalError: leg.AddEntry(totalError,"total bkg. unc.","F") 
+        if options.showSF: leg.AddEntry('SF', 'SF: {0}'.format(round(sf,2)), '')
         leg.Draw()
         ## assign it to a global variable so it's not deleted
         global legend_
@@ -756,6 +757,7 @@ class PlotMaker:
                         total.GetYaxis().SetTitle("density/bin")
                     total.GetYaxis().SetDecimals(True)
 
+                self._sf = 1.
                 if options.scaleSignalToData: self._sf = doScaleSigNormData(pspec,pmap,mca)
                 if options.scaleBackgroundToData != []: self._sf = doScaleBkgNormData(pspec,pmap,mca,options.scaleBackgroundToData)
                 elif options.fitData: doNormFit(pspec,pmap,mca)
@@ -768,11 +770,11 @@ class PlotMaker:
                         total.GetXaxis().SetBinLabel(i,blist[i-1])
                         total.GetYaxis().SetLabelSize(0.05)
 
-                if self._options.scaleSignalToData: self._sf = doScaleSigNormData(pspec,pmap,mca)
-                if self._options.scaleBackgroundToData != []: self._sf = doScaleBkgNormData(pspec,pmap,mca,self._options.scaleBackgroundToData)
-                elif self._options.fitData: doNormFit(pspec,pmap,mca)
-                elif self._options.preFitData and pspec.name == self._options.preFitData:
-                    doNormFit(pspec,pmap,mca,saveScales=True)
+                #if self._options.scaleSignalToData: self._sf = doScaleSigNormData(pspec,pmap,mca)
+                #if self._options.scaleBackgroundToData != []: self._sf = doScaleBkgNormData(pspec,pmap,mca,self._options.scaleBackgroundToData)
+                #elif self._options.fitData: doNormFit(pspec,pmap,mca)
+                #elif self._options.preFitData and pspec.name == self._options.preFitData:
+                #    doNormFit(pspec,pmap,mca,saveScales=True)
 
                 #
                 for k,v in pmap.iteritems():
@@ -898,6 +900,8 @@ class PlotMaker:
                 # create canvas
 
                 height = plotformat[1]+150 if doRatio else plotformat[1]
+                if self._options.doSquarePlot:
+                    height = plotformat[1]
                 c1 = ROOT.TCanvas(outputName+"_canvas", outputName, plotformat[0], height)
 
                 c1.SetTopMargin(c1.GetTopMargin()*options.topSpamSize);
@@ -964,7 +968,7 @@ class PlotMaker:
 
                 if options.yrange: 
                     total.GetYaxis().SetRangeUser(options.yrange[0], options.yrange[1])
-                legendCutoff = pspec.getOption('LegendCutoff', 1e-5 if c1.GetLogy() else 1e-2)
+                legendCutoff = 0 #pspec.getOption('LegendCutoff', 1e-5 if c1.GetLogy() else 1e-2)
                 if plotmode == "norm": legendCutoff = 0 
                 doLegend(pmap,mca,corner=pspec.getOption('Legend','TR'),
                                   cutoff=legendCutoff, mcStyle=("F" if plotmode == "stack" else "L"),
@@ -972,7 +976,7 @@ class PlotMaker:
                                   textSize=( (0.045 if doRatio else 0.022) if options.legendFontSize <= 0 else options.legendFontSize ),
                                   legWidth=options.legendWidth, legBorder=options.legendBorder, signalPlotScale=options.signalPlotScale,
                                   header=self._options.legendHeader if self._options.legendHeader else pspec.getOption("LegendHeader", ""),
-                                  doWide=doWide, totalError=totalError)
+                                  doWide=doWide, totalError=totalError, sf=self._sf)
                 if self._options.doOfficialCMS:
                     CMS_lumi.lumi_13TeV = "%.1f fb^{-1}" % self._options.lumi
                     CMS_lumi.extraText  = self._options.cmsprel
@@ -1021,7 +1025,7 @@ class PlotMaker:
                     p2.cd();
                     rdata,rnorm,rnorm2,rline = doRatioHists(pspec,pmap,total,totalSyst, maxRange=options.maxRatioRange, fixRange=options.fixRatioRange,
                                                             fitRatio=options.fitRatio, errorsOnRef=options.errorBandOnRatio, 
-                                                            ratioNums=options.ratioNums, ratioDen=options.ratioDen, ylabel=options.ratioYLabel, doWide=doWide, showStatTotLegend=True)
+                                                            ratioNums=options.ratioNums, ratioDen=options.ratioDen, ylabel=options.ratioYLabel, doWide=doWide, showStatTotLegend=False)
                 if self._options.printPlots:
                     for ext in self._options.printPlots.split(","):
                         fdir = printDir;
@@ -1178,9 +1182,10 @@ def addPlotMakerOptions(parser, addAlsoMCAnalysis=True):
     parser.add_option("--wide", dest="wideplot", action="store_true", default=False, help="Draw a wide canvas")
     parser.add_option("--elist", dest="elist", action="store_true", default='auto', help="Use elist (on by default if making more than 2 plots)")
     parser.add_option("--no-elist", dest="elist", action="store_false", default='auto', help="Don't elist (which are on by default if making more than 2 plots)")
-    #if not parser.has_option("--yrange"): parser.add_option("--yrange", dest="yrange", default=None, nargs=2, type='float', help="Y axis range");
+    if not parser.has_option("--yrange"): parser.add_option("--yrange", dest="yrange", default=None, nargs=2, type='float', help="Y axis range");
     parser.add_option("--emptyStack", dest="emptyStack", action="store_true", default=False, help="Allow empty stack in order to plot, for example, only signals but no backgrounds.")
     parser.add_option("--normBinW", dest="normBinW", action="store_true", default=False, help="Divide content through bin width")
+    parser.add_option("--doSquarePlot", dest="doSquarePlot", action="store_true", default=True, help="Have square plots event with ratio underneath")
     parser.add_option("--perBin", dest="perBin", action="store_true", default=False, help="Print the contents of every bin in another txt file");
     parser.add_option("--legendHeader", dest="legendHeader", type="string", default=None, help="Put a header to the legend")
     parser.add_option("--ratioOffset", dest="ratioOffset", type="float", default=0.0, help="Put an offset between ratio and main pad")
