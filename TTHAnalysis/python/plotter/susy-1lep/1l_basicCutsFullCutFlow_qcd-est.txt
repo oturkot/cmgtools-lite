@@ -1,0 +1,44 @@
+# Cutflow to produce Lp distributions used in QCD estimation. To produce nice
+# plots, QCD needs to be defined as background. For the actual estimation, QCD
+# needs to be defined as signal (to distinguish it from the EWK background)
+
+# Select events with exactly one lepton
+1 hard lep: nLep == 1 && Lep_pt > 25
+
+# Veto events with additional leptons
+No veto lep: nVeto == 0
+
+# Lepton needs to be selected (For the QCD estimation, we want both selected and
+# anti-selected events. They are selected in the mca file, so no cut is applied
+# here)
+#Selected: Selected == 1
+
+# QCD is measured in an electron sample only
+nEl == 1: nEl == 1
+
+# Fire at least one trigger
+Trigger: !isData || (HLT_EleOR || HLT_MuOR || HLT_MetOR)
+
+# Prevent double counting from different datasets
+Trigger XOR: !isData || ( (PD_SingleEle && HLT_EleOR) || (PD_SingleMu && (HLT_MuOR) && !(HLT_EleOR) ) || (PD_MET && (HLT_MetOR) && !(HLT_EleOR) && !(HLT_MuOR) )  )
+
+# Apply filters
+Filters: !isData || METfilters == 1
+
+# Isolated track veto
+Iso veto: !iso_Veto
+
+# At least 5 jets
+nJet 3 4: nJets30Clean >= 3 && nJets30Clean <= 4
+
+# Second leading jet pT larger than 80 GeV
+Jet2_pt > 80: Jet2_pt > 80
+
+# HT baseline selection
+triggHT: HT > 500
+
+# LT baseline selection
+triggLT: LT > 250
+
+# QCD is measured in a 0-b sample
+nbjets == 0 : nBJet == 0

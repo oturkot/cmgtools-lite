@@ -50,12 +50,15 @@ def decryptBinName(binname):
     if "LT" not in binname: binname += "L_{T} #geq 250"
     elif "LTi" in binname: binname = binname.replace("LTi","L_{T} #geq 250")
     elif "LT1i" in binname: binname = binname.replace("LT1i","L_{T} #geq 250")
-    elif "LT1" in binname: binname = binname.replace("LT1","L_{T} #in [250,350]")
+    #elif "LT1" in binname: binname = binname.replace("LT1","L_{T} #in [250,350]")
+    elif "LT12" in binname: binname = binname.replace("LT12","L_{T} #in [250,450]")
     elif "LT2i" in binname: binname = binname.replace("LT2i","L_{T} #geq 350")
     elif "LT2" in binname: binname = binname.replace("LT2","L_{T} #in [350,450]")
     elif "LT3i" in binname: binname = binname.replace("LT3i","L_{T} #geq 450")
     elif "LT3" in binname: binname = binname.replace("LT3","L_{T} #in [450,600]")
-    elif "LT4" in binname: binname = binname.replace("LT4","L_{T} #geq 600")
+    elif "LT4i" in binname: binname = binname.replace("LT4i","L_{T} #geq 600")
+    elif "LT4" in binname: binname = binname.replace("LT4","L_{T} #in [600,750]")
+    elif "LT5i" in binname: binname = binname.replace("LT5i","L_{T} #geq 750")
 
     #print 'Binname after', binname
     return binname
@@ -521,7 +524,10 @@ if __name__ == "__main__":
     #binNames = ['NJ34']
     #binNames = ['NJ34','LT1_NJ34']
 
-    binNames = ['LTi_NJ34','LT1_NJ34','LT2_NJ34','LT3_NJ34','LT4_NJ34']
+    # ICHEP '16
+    #binNames = ['LTi_NJ34','LT1_NJ34','LT2_NJ34','LT3_NJ34','LT4_NJ34']
+    # Moriond '17
+    binNames = ['LTi_NJ34','LT12_NJ34','LT3i_NJ34','LT3_NJ34','LT4i_NJ34','LT4_NJ34','LT5i_NJ34']
     #binNames = ['LTi_NJ34','LT1_NJ34','LT1i_NJ34','LT2_NJ34','LT2i_NJ34','LT3_NJ34','LT3i_NJ34','LT4_NJ34']
 
     #binNames += ['NJ45','LT0_NJ45','LT1_NJ45','LT2_NJ45','LT3_NJ45','LT4_NJ45']
