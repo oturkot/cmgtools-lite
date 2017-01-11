@@ -201,8 +201,8 @@ class susyParameterScanAnalyzer( Analyzer ):
         if self.cfg_ana.doLHE:
             if not self.cfg_ana.useLumiInfo:
                 self.readLHE(event)
-            else:
-                self.readLHELumiInfo(event)
+        #    else:
+        #        self.readLHELumiInfo(event)
         self.findSusyMasses(event)
 
 #        self.countISRjets(event)
