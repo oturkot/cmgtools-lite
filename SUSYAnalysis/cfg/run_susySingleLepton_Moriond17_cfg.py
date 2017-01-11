@@ -243,6 +243,7 @@ genAna.allGenTaus = True
 if sample == "MC":
 
   print 'Going to process MC'
+  print 'If It fails due to susy masses please comment out necessary lines in TTHAnalysis/python/analyzers/treeProducerSusyCore.py for now'
 
   # apply a loose lepton skim to MC
   anyLepSkim.minLeptons = 1
