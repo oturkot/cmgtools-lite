@@ -37,8 +37,8 @@ metAna.recalibrate = True
 #sample = 'data' #default
 sample = 'Signal'
 
-multib = False
-zerob = True
+multib = True
+zerob = False
 
 #-------- Preprocessor yes/no
 cmssw = True
