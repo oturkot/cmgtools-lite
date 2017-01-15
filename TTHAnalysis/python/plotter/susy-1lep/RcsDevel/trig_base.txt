@@ -22,3 +22,4 @@ Filters: !isData || (isData && METfilters == 1)
 #clean: (mGo == 0) || (mGo > 0 && JetForMET_pt[0] < 3000)
 
 base: 1
+#runG < 279931: run <= 279931
