@@ -571,7 +571,7 @@ if __name__ == "__main__":
     predSaps = [s for s in predSamps if s in allSamps]
 
     #replaceEmptyDataBinsWithMC(fileList)
-    #blindDataBins(fileList)
+    blindDataBins(fileList)
 
     makePoissonErrors(fileList, poisSamps)
     makeQCDsubtraction(fileList, qcdPredSamps)
