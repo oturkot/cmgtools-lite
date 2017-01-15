@@ -84,9 +84,10 @@ def matchSBMoriond17(bname):
     if 'Few' in name:
         #name = name.replace('SR','SR_Few')
         #name = name.replace('CR','CR_Few')
-        if 'NJ68' in name:
-            name = name.replace('NJ68','NJ45f6')
+        if 'NJ6i' in name:
+            name = name.replace('NJ6i','NJ45f6')
             name = name.replace('NB3i_','NB2i_')
+            name = name.replace('NB1i_','NB1i_')
             if 'HT4i' in name:
                 name = name.replace('NB3i_','NB1i_')
         if 'NJ9i' in name:
@@ -95,7 +96,7 @@ def matchSBMoriond17(bname):
             if 'HT4i' in name:
                 name = name.replace('NB3i_','NB1i_')
                 name = name.replace('NB2i_','NB1i_')
-                name = name.replace('NB2_','NB1i_')
+           
 
     elif 'NJ68' in name:
         # match for NJ68
@@ -160,7 +161,7 @@ def findMatchBins(binname):
 
     #print 'replace', purebname, 'to', matchSB(purebname)
 
-    if 'NJ68' in binname:
+    if 'NJ68' in binname or 'NJ6i' in binname:
         njSB = 'NJ45f6'
     elif 'NJ9i' in binname:
         njSB = 'NJ45f9'
@@ -311,7 +312,7 @@ if __name__ == "__main__":
     # find files matching pattern
     fileList = glob.glob(pattern+"*.root")
 
-    bins = ['NJ5','NJ68','NJ9i']
+    bins = ['NJ5','NJ68','NJ9i','NJ6i']
 
     for bin in bins:
         print "Merging bin:", bin
@@ -319,6 +320,7 @@ if __name__ == "__main__":
 
 
     #clean up a bit and create separate folders for 4,5 jet cross check and aggregate SR
+        
     patternList = pattern.split("/")
     listMerged = glob.glob(patternList[0]+"/"+patternList[1]+"/merged/*.root")
 
