@@ -4,7 +4,7 @@ lumi = "36.5"
 from yieldClass import *
 from ROOT import *
 
-def printLatexHeader(nCol, f, sideways = 0):
+def printLatexHeader(nCol, f, caption, sideways = 0):
     print type(sideways)
     nCol = nCol + 4
     print f.name
@@ -16,49 +16,13 @@ def printLatexHeader(nCol, f, sideways = 0):
     print name
     if sideways == 1:
         f.write('\\begin{sidewaystable}[ht] \n ')
-        f.write('\\tiny \n')
-        f.write('\\caption{ Expected event yields in ' + name + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.} \n')
-        f.write('\\begin{center} \n')
-
-    elif sideways == 2:
-        f.write('\\begin{sidewaystable}[ht] \n ')
-        f.write('\\tiny \n')
-        f.write('\\caption{ Test of the background prediction method using the exclusive 4 jet category as a side band to predict the expected number of events in the signal regin of an exclusive 5 jet main band.} \n')
-        f.write('\\begin{center} \n')
-    elif sideways == 3:
-        f.write('\\begin{sidewaystable}[ht] \n ')
-        f.write('\\tiny \n')
-        f.write('\\caption{Background prediction based on the [4,5] jet side band in the [6,8] and $\geq$ 9 jet signal regions. The oberseved events in the SR, MB are still blinded.} \n')
-        f.write('\\begin{center} \n')
-
-    elif sideways == 4:
-        f.write('\\begin{sidewaystable}[ht] \n ')
-        f.write('\\tiny \n')
-        f.write('\\caption{Input values for limit calculation. The 3 regions with data counts are given, as well as the QCD estimate for the control regions in the side and mainband and $\kappa$ derived from simulation. The last two columns represent pseudo data based based on the epxected data prediction or MC simulation.} \n')
-        f.write('\\begin{center} \n')
-
-    elif sideways == 5:
-        f.write('\\begin{sidewaystable}[ht] \n ')
-        f.write('\\tiny \n')
-        f.write('\\caption{ Expected event yields in the four analysis regions SR\_MB, CR\_MB, SR\_SB, CR\_SB The bin names refer to the previously defined SR\_MB regions, however we follow the merging strategy described. i.e. NB2i\_SB for NB2\/NB3i\_MB and NB1i\_SB for HT4i\_MB} \n')
-        f.write('\\begin{center} \n')
-
-
-
-    elif type(sideways) == str:
-        f.write('\\begin{table}[ht] \n ')
-        f.write('\\tiny \n')
-        f.write('\\caption{'+sideways+'} \n')
-        f.write('\\begin{center} \n')
-
     else:
-
         f.write('\\begin{table}[ht] \n ')
-        f.write('\\footnotesize \n')
-        f.write('\\caption{'+name+'} \n')
-        f.write('\\begin{center} \n')
 
-    
+    f.write('\\tiny \n')
+    f.write('\\caption{'+caption+'} \n')
+    f.write('\\begin{center} \n')
+
     f.write('\\label{tab:'+f.name.replace('.tex','')+'} \n')
     f.write('\\begin{tabular}{|' + (nCol *'%(align)s | ') % dict(align = 'c') + '} \n')
     f.write('\\hline \n')
@@ -96,7 +60,9 @@ if __name__ == "__main__":
     ydsFew9 = YieldStore("lepYields")
 
 #    a = "YieldsJune12/lumi2p571/"
-    a = "Moriond17_Spring16_RealnISRWeight_IsoTrack_v2/*/"
+#    a = "Moriond17_Spring16_RealnISRWeight_IsoTrack_v2/*/"
+    a = "Moriond17_Spring16_RealnISRWeight_IsoTrack_5p2_RunGgeq279931/*/"
+    a = "Moriond17_Spring16_All_Jan15/*/"
     b = a + 'merged/LT'
     btagMethod = ""
     pattern = b+"*NJ6*"
@@ -108,7 +74,7 @@ if __name__ == "__main__":
     yds5.addFromFiles(pattern,("lep","sele")) 
     
     b = a + 'mergedFew/LT'
-    pattern = b+"*NJ68*"
+    pattern = b+"*NJ6i*"
     ydsFew6.addFromFiles(pattern,("lep","sele")) 
     pattern = b+"*NJ9*"
     ydsFew9.addFromFiles(pattern,("lep","sele")) 
@@ -127,14 +93,15 @@ if __name__ == "__main__":
                      ('T1tttt_Scan_mGo1800_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
 #            samps = [('TTJets',cat),('TTV',cat), ('SingleTop',cat), ('WJets',cat), ('DY',cat), ('EWK',cat),
 #                     ('T1tttt_Scan_mGo1500_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
-            printLatexHeader(len(samps), f, 1)
+            caption ='Expected event yields in ' + cat.replace('_','\\_') + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.'
+            printLatexHeader(len(samps), f, caption, 1)
             srcr = cat.replace('_MB','').replace('_SB','')
             sbmb = cat.replace('SR_','').replace('CR_','')
             label = 'Expected events in '+srcr+' for '+lumi+' fb$^{-1}$ for '+sbmb.replace('MB','$n_{jet}$ 6,8 ').replace('SB','$n_{jet}$ 4,5 for 6,8')
             yds6.printLatexTable(samps, printSamps, label,f) 
             label = 'Expected events in SR for '+lumi+' fb$^{-1}$ for '+sbmb.replace('MB','$n_{jet}$ $\\geq 9$').replace('SB','$n_{jet}$ 4,5 for $\\geq 9$')
             yds9.printLatexTable(samps, printSamps, label, f)
-            printLatexFooter(f, 2)
+            printLatexFooter(f, 1)
             f.close()
 
     f =  open('yields_bckgAllbins' + cat +btagMethod+'.tex','w')
@@ -155,12 +122,13 @@ if __name__ == "__main__":
                   'background CR\_MB',
                   'background SR\_SB',
                   'background CR\_SB']
-    printLatexHeader(len(samps), f, 5)
+    caption = 'Expected event yields in the four analysis regions SR\_MB, CR\_MB, SR\_SB, CR\_SB The bin names refer to the previously defined SR\_MB regions, however we follow the merging strategy described. i.e. NB2i\_SB for NB2\/NB3i\_MB and NB1i\_SB for HT4i\_MB'
+    printLatexHeader(len(samps), f, caption, 1)
     label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8'
     yds6.printLatexTable(samps, printSamps, label,f) 
     label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB, for '+lumi+' fb$^{-1}$ for $n_{jet}$ $\geq$ 9'
     yds9.printLatexTable(samps, printSamps, label, f)
-    printLatexFooter(f, 2)
+    printLatexFooter(f, 1)
     f.close()
 
     
@@ -217,15 +185,16 @@ if __name__ == "__main__":
     , 'data 5j, pred', 'data 5j, SR']
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
-    printLatexHeader(len(samps), f, 2)
+    caption =' Test of the background prediction method using the exclusive 4 jet category as a side band to predict the expected number of events in the signal regin of an exclusive 5 jet main band.'
+    printLatexHeader(len(samps), f,caption,1)
     yds5.printLatexTable(samps, printSamps, label,f) 
-    printLatexFooter(f, 2)
+    printLatexFooter(f, 1)
     f.close()
 
-    label = 'Counts and Rcs from 45jet sideband used to predict events in a >= 6 jet signal region $5j_{SR} = Rcs^{4j,data} \\times \\kappa^{EWK, MC} \\times 5j_{CR}$'
+    caption = 'Background prediction based on the [4,5] jet sideband in the [6,8] and $\geq$ 9 jet signal regions. The oberseved events in the SR, MB are still blinded.'
     f =  open('4to68_4to9j_prediction.tex','w')
 
-    printLatexHeader(len(samps), f, 3)
+    printLatexHeader(len(samps), f, caption, 1)
 
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
@@ -236,16 +205,16 @@ if __name__ == "__main__":
     label = 'SB, MB, and predictions for '+lumi+'fb$^{-1}$ for njet $\\geq 9$'
     printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat $\pm$ syst)', 'data 9ij, SR']
     yds9.printLatexTable(samps, printSamps, label, f)
-    printLatexFooter(f, 3)
+    printLatexFooter(f, 1)
     f.close()
 
 
 
 
-    label = 'Counts and Rcs from 45jet sideband used to predict events in a >= 6 jet signal region $5j_{SR} = Rcs^{4j,data} \\times \\kappa^{EWK, MC} \\times 5j_{CR}$'
+    caption = 'Background prediction for aggregate signal regions.'
     f =  open('fewbins_prediction.tex','w')
 
-    printLatexHeader(len(samps), f, 3)
+    printLatexHeader(len(samps), f, caption,1)
 
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
@@ -254,21 +223,36 @@ if __name__ == "__main__":
     ydsFew6.printLatexTable(samps, printSamps, label,f) 
     printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
     ydsFew9.printLatexTable(samps, printSamps, label, f)
-    printLatexFooter(f, 3)
+    printLatexFooter(f, 1)
+    f.close()
+
+    caption = 'Expected MC events for the aggregate SR including two signal benchmark points.'
+    f =  open('fewbins_small_prediction.tex','w')
+
+    printLatexHeader(len(samps), f, caption,0)
+
+    samps = [('EWK','SR_MB'),('T1tttt_Scan_mGo1800_mLSP100','SR_MB'),('T1tttt_Scan_mGo1300_mLSP900','SR_MB')]
+    label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
+    printSamps = ['MC 6ij','T1tttt 1.8/0.1','T1tttt 1.3/0.9']
+    ydsFew6.printLatexTable(samps, printSamps, label,f) 
+    printSamps = ['MC 9ij','T1tttt 1.8/0.1','T1tttt 1.3/0.9']
+    ydsFew9.printLatexTable(samps, printSamps, label, f)
+    printLatexFooter(f, 0)
     f.close()
 
 
     f =  open('RCS_mc.tex','w')
-    label = 'Rcs values from SB and MB and kappa'
+    caption = 'Rcs values from SB and MB and kappa'
+    lable = 'Rcs values from SB and MB and kappa'
 
     printSamps = ['$R_{CS}$ [6,8] jets','$R_{CS}$ [4,5] jets','$\kappa$']#, '(Data-QCD) $R_{CS}$ [4,5] jets']
     samps = [('EWK','Rcs_MB'),('EWK','Rcs_SB'),('EWK','Kappa')]#,('data_QCDsubtr','Rcs_SB')]
-    printLatexHeader(len(samps), f)
+    printLatexHeader(len(samps), f, caption,0)
     yds6.printLatexTable(samps, printSamps, label,f) 
     printSamps = ['$R_{CS}$ $\geq$ 9 jets','$R_{CS}$ [4,5] jets','$\kappa$']#,'(Data-QCD) $R_{CS}$ [4,5] jets']
     samps = [('EWK','Rcs_MB'),('EWK','Rcs_SB'),('EWK','Kappa')]#,('data_QCDsubtr','Rcs_SB')]
     yds9.printLatexTable(samps, printSamps, label,f) 
-    printLatexFooter(f)
+    printLatexFooter(f,0)
     f.close()
 
 
@@ -279,12 +263,12 @@ if __name__ == "__main__":
 
     printSamps = ['data 45j, SR','data 45j, CR','data 4j5, Rcs$^{EWK}$',
                   'data 68j, CR','$\\kappa$ MC','data 68j, SRpred','Obs 68j, SR']
-
-    printLatexHeader(len(samps), f, 4)
+    caption = 'Input values for limit calculation. The 3 regions with data counts are given, as well as the QCD estimate for the control regions in the side and mainband and $\kappa$ derived from simulation. The last two columns represent pseudo data based based on the epxected data prediction or MC simulation.'
+    printLatexHeader(len(samps), f, caption, 1)
     yds6.printLatexTable(samps, printSamps, label,f) 
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for njet $\\geq 9$'
     printSamps = ['data 45j, SR','data 45j, CR','data 4j5, Rcs$^{EWK}$',
                   'data 9j, CR','$\\kappa$ MC','data 9j, SRpred','Obs 9j SR']
     yds9.printLatexTable(samps, printSamps, label, f)
-    printLatexFooter(f, 4)
+    printLatexFooter(f, 1)
     f.close()
