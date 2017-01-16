@@ -332,9 +332,9 @@ class YieldStore:
                 (LT0, HT0, B0) = (binsLT[LT0bin][1],binsHT[HT0bin][1],binsNB[B0bin][1])
             if B != B0:
                 f.write(('\\cline{1-%s} ' + B + ' & ' + LT + ' & ' + HT + '&' + Bbin +', ' + LTbin + ', ' + HTbin) % (nCol))
-            if LT != LT0 and B==B0:
+            elif LT != LT0 and B==B0:
                 f.write(('\\cline{2-%s}   & ' + LT + ' & ' + HT + '&' + Bbin +', ' + LTbin + ', ' + HTbin) % (nCol))
-            if LT == LT0 and HT != HT0:
+            elif LT == LT0 and HT != HT0:
                 f.write(('\\cline{3-%s}  & & ' + HT + ' &' + Bbin +', ' + LTbin + ', ' + HTbin) % (nCol))
             elif LT == LT0 and HT == HT0:
                 f.write('  &  &  &' + LTbin +', ' + HTbin + ', ' + Bbin)

@@ -3,7 +3,8 @@ import sys,os
 #from makeYieldPlots import *
 import makeYieldPlots as yp
 
-yp.gStyle.SetPadLeftMargin(0.075)
+#yp.gStyle.SetPadLeftMargin(0.075)
+yp.gStyle.SetPadLeftMargin(0.12)
 
 yp._batchMode = False
 yp._alpha = 0.35
@@ -14,10 +15,15 @@ if __name__ == "__main__":
     yp.CMS_lumi.lumi_13TeV = ""
     yp.CMS_lumi.extraText = "Simulation"
 
+
     ## remove '-b' option
     if '-b' in sys.argv:
         sys.argv.remove('-b')
         yp._batchMode = True
+    doSquare = False
+    if '-s' in sys.argv:
+        sys.argv.remove('-s')
+        doSquare = True
 
     if len(sys.argv) > 1:
         pattern = sys.argv[1]
@@ -84,9 +90,15 @@ if __name__ == "__main__":
                     #hKappa.SetLineColor(yp.kViolet-5)
 
                     hRcsMB.GetYaxis().SetRangeUser(0,0.14)
+                    width = 1200
+                    height = 600
+                    legPos = "TM"
 
-                    #canv = yp.plotHists(samp+"_RcsKappa_",[hRcsMB,hRcsSB],hKappa, legPos = "TM", width = 1200, height = 600)
-                    canv = yp.plotHists(samp+"_RcsKappa_",[hRcsMB,hRcsSB],hKappa, legPos = "TRC", width = 1200, height = 600)
+                    if doSquare == True:
+                        width = 600
+                        height = 600
+                        legPos = "Square"
+                    canv = yp.plotHists(samp+"_RcsKappa_",[hRcsMB,hRcsSB],hKappa, legPos, width, height)
                     #canv = yp.plotHists(samp+"_RcsKappa_",[hRcsMB,hRcsSB],hKappa, legPos = "TM")
 
                     hRcsMB.GetYaxis().SetTitle("R_{CS}^{MC}")
@@ -96,7 +108,9 @@ if __name__ == "__main__":
                     hKappa.GetYaxis().SetTitleSize(0.2)
                     hKappa.GetYaxis().SetTitleOffset(0.15)
                     hKappa.GetYaxis().SetTitle("#kappa_{EWK}")
-
+                    if doSquare:
+                        hRcsMB.GetYaxis().SetTitleOffset(0.8)
+                        hKappa.GetYaxis().SetTitleOffset(0.25)
                     canvs.append(canv)
 
                     if not yp._batchMode: raw_input("Enter any key to exit")

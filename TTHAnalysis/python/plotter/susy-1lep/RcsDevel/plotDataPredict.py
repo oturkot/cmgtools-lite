@@ -25,6 +25,10 @@ if __name__ == "__main__":
     if '-b' in sys.argv:
         sys.argv.remove('-b')
         yp._batchMode = True
+    doSquare = False
+    if '-s' in sys.argv:
+        sys.argv.remove('-s')
+        doSquare = True
 
     if len(sys.argv) > 1:
         pattern = sys.argv[1]
@@ -106,10 +110,18 @@ if __name__ == "__main__":
         yp.setUnc(hUncert)
 
         #canv = plotHists("DataNJ45_"+cat,[stack,hMCpred,hDataPred,hData,total],ratio)
+        width = 1200
+        height = 600
+        legPos = "TM"
+
+        if doSquare == True:
+            width = 600
+            height = 600
+            legPos = "Square"
         if doPoisErr:
-            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hDataPois],[hPredUnc,ratioPois],'TRC', 1200, 600, logY = True)
+            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hDataPois],[hPredUnc,ratioPois],legPos, width, height, logY = True)
         else:
-            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hData],ratio,'TRC', 1200, 600, logY = True)
+            canv = yp.plotHists("SR_MB_Prediction",[mcStack,hUncert,hData],ratio,legPos, width, height, logY = True)
 
         cname = "Data_"+lum.replace('.','p')+"_"+mask
 

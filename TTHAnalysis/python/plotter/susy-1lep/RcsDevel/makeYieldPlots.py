@@ -95,6 +95,9 @@ def doLegend(pos = "TM",nEntr = None):
         #leg = TLegend(gStyle.GetPadLeftMargin(),0.55,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
         #leg = TLegend(gStyle.GetPadLeftMargin(),0.55,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
         leg = TLegend(gStyle.GetPadLeftMargin(),0.5,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
+    elif pos == "Square":
+        leg = TLegend(0.4632107,0.6017643,0.9899666,0.9269061)
+    
     else:
         leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.55,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
 
@@ -103,7 +106,7 @@ def doLegend(pos = "TM",nEntr = None):
     #leg.SetTextSize(0.03321678)
     leg.SetTextSize(0.05)
 
-    if pos != "TRC" and pos!= "TLC":
+    if pos != "TRC" and pos!= "TLC" and pos!="Square":
         leg.SetLineColor(0)
         leg.SetLineStyle(0)
         leg.SetLineWidth(0)
@@ -264,7 +267,7 @@ def makeSampHisto(yds, samp, cat, hname = "", ind = 0):
         #if binLabel in ulabs: binLabel = ulabs[binLabel]
 
         newLabel = "#splitline"
-
+        binLabel = binLabel.replace("_Few","")
         splitbins = binLabel.split("_")#[:2]
         nbins = len(splitbins)
 

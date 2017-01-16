@@ -11,7 +11,7 @@ binsLT['LT13'] = ('250 < LT && LT < 600','[250, 600]')
 binsLT['LT2'] = ('350 < LT && LT < 450','[350, 450]')
 binsLT['LT3'] = ('450 < LT && LT < 600','[450, 600]')
 binsLT['LT4'] = ('600 < LT && LT < 750','[600, 750]')
-
+binsLT['LT1i'] = ('250 < LT','$\geq$ 250')
 binsLT['LT2i'] = ('350 < LT','$\geq$ 350')
 binsLT['LT3i'] = ('450 < LT','$\geq$ 450')
 binsLT['LT4i'] = ('600 < LT','$\geq$ 600')
@@ -34,7 +34,7 @@ DLLTDict['LT4i'] = 'DLLT4i'
 
 # HT bins
 binsHT = {}
-binsHT['HT0i'] = ('500 < HT','$\geq$ 500')
+
 binsHT['HT0'] = ('500 < HT && HT < 750','[500, 750]')
 binsHT['HT02'] = ('500 < HT && HT < 1250','[500, 1250]')
 binsHT['HT03'] = ('500 < HT && HT < 1500','[500, 1500]')
@@ -42,6 +42,7 @@ binsHT['HT1'] = ('750 < HT && HT < 1000','[750, 1000]')
 binsHT['HT2'] = ('1000 < HT && HT < 1250','[1000, 1250]')
 binsHT['HT23'] = ('1000 < HT && HT < 1500','[1000, 1500]')
 binsHT['HT3'] = ('1250 < HT && HT < 1500','[1250, 1500]')
+binsHT['HT0i'] = ('500 < HT','$\geq$ 500')
 binsHT['HT1i'] = ('750 < HT','$\geq$ 750')
 binsHT['HT2i'] = ('1000 < HT','$\geq$ 1000')
 binsHT['HT3i'] = ('1250 < HT','$\geq$ 1250')
@@ -86,6 +87,7 @@ binsNJ['NJ45'] = ('4 <= nJets30Clean && nJets30Clean <= 5','[4, 5]')
 binsNJ['NJ45f9'] = ('4 <= nJets30Clean && nJets30Clean <= 5','[4, 5]')
 binsNJ['NJ45f6'] = ('4 <= nJets30Clean && nJets30Clean <= 5','[4, 5]')
 binsNJ['NJ68'] = ('6 <= nJets30Clean && nJets30Clean <= 8','[6, 8]')
+binsNJ['NJ6i'] = ('6 <= nJets30Clean ','$\geq$ 6')
 binsNJ['NJ9i'] = ('9 <= nJets30Clean','$\geq$ 9')
 binsNJ['NJ5'] = ('nJets30Clean == 5','[5]')
 binsNJ['NJ4f5'] = ('nJets30Clean == 4','[4]')
@@ -104,7 +106,7 @@ def getSRcut(nj_bin, lt_bin, sr_bin, blinded):
         cutLbl += " < $ "
 
     ## DPhi Cuts for LT bins
-    cuts = { "LT1": 1.0, "LT2": 0.75, "LT3": 0.75, "LT3i": 0.75, "LT4": 0.5, "LT4i": 0.5 , "LT5i":0.5}
+    cuts = { "LT1": 1.0, "LT1i": 1.0, "LT2": 0.75,"LT2i": 0.75, "LT3": 0.75, "LT3i": 0.75, "LT4": 0.5, "LT4i": 0.5 , "LT5i":0.5}
 
     for bin in cuts:
         if bin in lt_bin:
@@ -315,48 +317,50 @@ cutDictfFew = {}
 cutDictSRfFew = {}
 cutDictCRfFew = {}
 
-for nj_bin in ['NJ45f6','NJ68','NJ45f9','NJ9i']:#binsNJ.iteritems():
+for nj_bin in ['NJ45f6','NJ6i','NJ45f9','NJ9i']:#binsNJ.iteritems():
 
     nj_cut = binsNJ[nj_bin][0]
 
     nbbins = []
     if nj_bin in ['NJ45f9']:
-        nbbins += ['NB1i','NB2','NB2i']
+        nbbins += ['NB1i','NB2i']
 
     if nj_bin in ['NJ45f6']:
-        nbbins += ['NB2','NB2i']
+        nbbins += ['NB1i','NB2i']
 
     if nj_bin in ['NJ9i']:
-        nbbins += ['NB2','NB3i']
-    if nj_bin in ['NJ68']:
-        nbbins += ['NB3i']
+        nbbins += ['NB2i','NB3i']
+    if nj_bin in ['NJ6i']:
+        nbbins += ['NB1i','NB3i']
 
 
     for nb_bin in nbbins:
         nb_cut = binsNB[nb_bin][0]
         ltbins =[]
-        if nj_bin in ['NJ45f6','NJ68']:
+        if nj_bin in ['NJ45f6','NJ6i']:
             ltbins += ['LT4i']
 
-        if nj_bin in ['NJ45f9','NJ9i']:
-            if nb_bin in ['NB3i','NB2i','NB1i']:
-                ltbins += ['LT12','LT3i']
-            else:
+        if nj_bin in ['NJ9i']:
+            if nb_bin in ['NB1i','NB3i']:
+                ltbins += ['LT1i','LT3i']
+            if nb_bin in ['NB2i']:
                 ltbins += ['LT3i']
+
+
+        if nj_bin in ['NJ45f9']:
+            ltbins += ['LT1i','LT3i']
+
         for lt_bin in ltbins:
             lt_cut = binsLT[lt_bin][0]
             htbins = []
-            if nj_bin in ['NJ45f6','NJ68']:
-                htbins += ['HT3i']
+            if nj_bin in ['NJ45f6','NJ6i']:
+                htbins += ['HT2i']
 
-            if nj_bin in ['NJ9i']:
-                htbins += ['HT03','HT4i']
-
-            if nj_bin in ['NJ45f9']:
+            if nj_bin in ['NJ45f9','NJ9i']:
                 if nb_bin in ['NB1i']:
                     htbins += ['HT4i']
                 else:
-                    htbins += ['HT03']
+                    htbins += ['HT0i','HT4i']
 
                 
             for ht_bin in htbins:
