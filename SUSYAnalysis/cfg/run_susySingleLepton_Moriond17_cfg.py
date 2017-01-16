@@ -33,9 +33,9 @@ metAna.recalibrate = True
 
 
 #-------- HOW TO RUN
-#sample = 'MC'
+sample = 'MC'
 #sample = 'data' #default
-sample = 'Signal'
+#sample = 'Signal'
 
 multib = False
 zerob = True
@@ -51,7 +51,7 @@ elif sample == "Signal":
   isSignal = True
 
 #Set this depending on the running mode 
-test = 0 
+test = 1 
 #0: PRODUCTION (for batch)
 #1: Usually for TESTING (single component with single thread)
 #2: test all components (1 thread per comp) 
@@ -256,7 +256,7 @@ if sample == "MC":
 
   if test==1:
     # test a single component, using a single thread.
-    comp = WJetsToLNuHT
+    comp = WJetsToLNuHT[0]
     comp.files = comp.files[:1]
     selectedComponents = [comp]
     comp.splitFactor = 1
