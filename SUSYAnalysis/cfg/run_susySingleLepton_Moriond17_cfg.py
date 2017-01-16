@@ -34,8 +34,11 @@ metAna.recalibrate = True
 
 #-------- HOW TO RUN
 #sample = 'MC'
-sample = 'data'
-#sample = 'Signal'
+#sample = 'data' #default
+sample = 'Signal'
+
+multib = True
+zerob = False
 
 #-------- Preprocessor yes/no
 cmssw = True
@@ -240,6 +243,7 @@ genAna.allGenTaus = True
 if sample == "MC":
 
   print 'Going to process MC'
+  print 'If It fails due to susy masses please comment out necessary lines in TTHAnalysis/python/analyzers/treeProducerSusyCore.py for now'
 
   # apply a loose lepton skim to MC
   anyLepSkim.minLeptons = 1
@@ -283,7 +287,7 @@ elif sample == "Signal":
   print 'Going to process Signal, assuming it is FastSim'
 
   # Set FastSim JEC
-  jetAna.mcGT = "Spring16_25nsFastsimV1_MC"
+  jetAna.mcGT = "Spring16_FastSimV1_MC"
 
   #### REMOVE JET ID FOR FASTSIM
   jetAna.relaxJetId = True
@@ -292,11 +296,15 @@ elif sample == "Signal":
   anyLepSkim.minLeptons = 0
 
   from CMGTools.RootTools.samples.samples_80x_signal import *
-  selectedComponents = [SMS_T1tttt_TuneCUETP8M1]
+  if multib: selectedComponents = [SMS_T1tttt_TuneCUETP8M1]
+  if zerob: selectedComponents = [SMS_T5qqqqVV_TuneCUETP8M1]
+  if multib and zerob : print "Warning ! Both zero b and multi b is set to  True, you will be running Zero b signals ;) Cheers from Ece"
+  if not (multib or zerob) : print 8*"*", "Error ! Choose a signal toprocess", 8*"*"
 
   if test==1:
     # test a single component, using a single thread.
-    comp  = SMS_T1tttt_TuneCUETP8M1
+    if multib: comp  = SMS_T1tttt_TuneCUETP8M1
+    if zerob: comp  = SMS_T5qqqqVV_TuneCUETP8M1
     comp.files = comp.files[:1]
     selectedComponents = [comp]
     comp.splitFactor = 1
@@ -396,7 +404,10 @@ if isSignal:
   susyCoreSequence.insert(susyCoreSequence.index(susyScanAna)+1,
         susyCounter)
   # change scan mass parameters
-  susyCounter.SUSYmodel = 'T1tttt'
+  if multib:
+    susyCounter.SUSYmodel = 'T1tttt'
+  if zerob:
+    susyCounter.SUSYmodel = 'T5qqqq'
   susyCounter.SMS_mass_1 = "genSusyMGluino"
   susyCounter.SMS_mass_2 = "genSusyMNeutralino"
   susyCounter.SMS_varying_masses = ['genSusyMGluino','genSusyMNeutralino']
@@ -426,7 +437,6 @@ if isSignal:
  sequence.remove(ttHHTSkimmer)
  sequence.remove(ttHSTSkimmer)
  sequence.remove(eventFlagsAna)
- sequence.remove(ttHSTSkimmer)
 ## output histogram
 outputService=[]
 from PhysicsTools.HeppyCore.framework.services.tfile import TFileService

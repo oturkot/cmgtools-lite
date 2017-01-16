@@ -9,8 +9,11 @@ kreator = ComponentCreator()
 ### SUSY2016B
 
 SMS_T1tttt_TuneCUETP8M1 = kreator.makeMCComponent("SMS_T1tttt_TuneCUETP8M1","/SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM","CMS",".*root")
-
 mcSamplesT1tttt = [SMS_T1tttt_TuneCUETP8M1]
+
+SMS_T5qqqqVV_TuneCUETP8M1 = kreator.makeMCComponent("SMS_T5qqqqVV_TuneCUETP8M1","/SMS-T5qqqqVV_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM","CMS",".*root")
+mcSamplesT5qqqqVV = [SMS_T5qqqqVV_TuneCUETP8M1]
+
 
 
 ### OFFICIAL SMS SIGNALS
