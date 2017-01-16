@@ -37,8 +37,8 @@ metAna.recalibrate = True
 #sample = 'data' #default
 sample = 'Signal'
 
-multib = True
-zerob = False
+multib = False
+zerob = True
 
 #-------- Preprocessor yes/no
 cmssw = True
@@ -51,7 +51,7 @@ elif sample == "Signal":
   isSignal = True
 
 #Set this depending on the running mode 
-test = 1 
+test = 0 
 #0: PRODUCTION (for batch)
 #1: Usually for TESTING (single component with single thread)
 #2: test all components (1 thread per comp) 
