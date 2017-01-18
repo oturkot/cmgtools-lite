@@ -33,12 +33,12 @@ metAna.recalibrate = True
 
 
 #-------- HOW TO RUN
-#sample = 'MC'
+sample = 'MC'
 #sample = 'data' #default
-sample = 'Signal'
+#sample = 'Signal'
 
-multib = True
-zerob = False
+multib = False
+zerob = True
 
 #-------- Preprocessor yes/no
 cmssw = True
@@ -256,7 +256,7 @@ if sample == "MC":
 
   if test==1:
     # test a single component, using a single thread.
-    comp = WJetsToLNuHT
+    comp = WJetsToLNuHT[0]
     comp.files = comp.files[:1]
     selectedComponents = [comp]
     comp.splitFactor = 1
