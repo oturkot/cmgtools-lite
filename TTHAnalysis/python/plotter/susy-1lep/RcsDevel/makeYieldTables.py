@@ -93,7 +93,7 @@ if __name__ == "__main__":
                      ('T1tttt_Scan_mGo1800_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
 #            samps = [('TTJets',cat),('TTV',cat), ('SingleTop',cat), ('WJets',cat), ('DY',cat), ('EWK',cat),
 #                     ('T1tttt_Scan_mGo1500_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
-            caption ='Expected event yields in ' + cat.replace('_','\\_') + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.'
+            caption ='Pure MC expected event yields in ' + cat.replace('_','\\_') + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:1b_sigreg_3fb}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.'
             printLatexHeader(len(samps), f, caption, 1)
             srcr = cat.replace('_MB','').replace('_SB','')
             sbmb = cat.replace('SR_','').replace('CR_','')
@@ -122,7 +122,7 @@ if __name__ == "__main__":
                   'background CR\_MB',
                   'background SR\_SB',
                   'background CR\_SB']
-    caption = 'Expected event yields in the four analysis regions SR\_MB, CR\_MB, SR\_SB, CR\_SB The bin names refer to the previously defined SR\_MB regions, however we follow the merging strategy described. i.e. NB2i\_SB for NB2\/NB3i\_MB and NB1i\_SB for HT4i\_MB'
+    caption = 'Pure MC expected event yields in the four analysis regions SR\_MB, CR\_MB, SR\_SB, CR\_SB The bin names refer to the previously defined SR\_MB regions, however we follow the merging strategy described. i.e. NB2i\_SB for NB2\/NB3i\_MB and NB1i\_SB for HT4i\_MB'
     printLatexHeader(len(samps), f, caption, 1)
     label = 'Expected events in the four ABCD regions SR\_MB, CR\_MB, SR\_SB, CR\_SB for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8'
     yds6.printLatexTable(samps, printSamps, label,f) 
