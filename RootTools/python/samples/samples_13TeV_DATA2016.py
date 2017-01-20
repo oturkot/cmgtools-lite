@@ -34,18 +34,21 @@ json_G=dataDir+'/json/Cert_278820-280385_13TeV_PromptReco_Collisions16_JSON_NoL1
 
 ### ----------------------------- Run2016 PromptReco v1 ----------------------------------------
 
-JetHT_Run2016B_PromptReco          = kreator.makeDataComponent("JetHT_Run2016B_PromptReco"         , "/JetHT/Run2016B-PromptReco-v1/MINIAOD"         , "CMS", ".*root", json)
-HTMHT_Run2016B_PromptReco          = kreator.makeDataComponent("HTMHT_Run2016B_PromptReco"         , "/HTMHT/Run2016B-PromptReco-v1/MINIAOD"         , "CMS", ".*root", json)
-MET_Run2016B_PromptReco            = kreator.makeDataComponent("MET_Run2016B_PromptReco"           , "/MET/Run2016B-PromptReco-v1/MINIAOD"           , "CMS", ".*root", json)
-SingleElectron_Run2016B_PromptReco = kreator.makeDataComponent("SingleElectron_Run2016B_PromptReco", "/SingleElectron/Run2016B-PromptReco-v1/MINIAOD", "CMS", ".*root", json)
-SingleMuon_Run2016B_PromptReco     = kreator.makeDataComponent("SingleMuon_Run2016B_PromptReco"    , "/SingleMuon/Run2016B-PromptReco-v1/MINIAOD"    , "CMS", ".*root", json)
-SinglePhoton_Run2016B_PromptReco   = kreator.makeDataComponent("SinglePhoton_Run2016B_PromptReco"  , "/SinglePhoton/Run2016B-PromptReco-v1/MINIAOD"  , "CMS", ".*root", json)
-DoubleEG_Run2016B_PromptReco       = kreator.makeDataComponent("DoubleEG_Run2016B_PromptReco"      , "/DoubleEG/Run2016B-PromptReco-v1/MINIAOD"      , "CMS", ".*root", json)
-MuonEG_Run2016B_PromptReco         = kreator.makeDataComponent("MuonEG_Run2016B_PromptReco"       , "/MuonEG/Run2016B-PromptReco-v1/MINIAOD"        , "CMS", ".*root", json)
-DoubleMuon_Run2016B_PromptReco     = kreator.makeDataComponent("DoubleMuon_Run2016B_PromptReco"    , "/DoubleMuon/Run2016B-PromptReco-v1/MINIAOD"    , "CMS", ".*root", json)
-Tau_Run2016B_PromptReco     = kreator.makeDataComponent("Tau_Run2016B_PromptReco"    , "/Tau/Run2016B-PromptReco-v2/MINIAOD"    , "CMS", ".*root", json)
+## Commenting out, since it doesn't contain any run in the golden JSON so it's not useful
 
-dataSamples_Run2016_v1 = [JetHT_Run2016B_PromptReco, HTMHT_Run2016B_PromptReco, MET_Run2016B_PromptReco, SingleElectron_Run2016B_PromptReco, SingleMuon_Run2016B_PromptReco, SinglePhoton_Run2016B_PromptReco, DoubleEG_Run2016B_PromptReco, MuonEG_Run2016B_PromptReco, DoubleMuon_Run2016B_PromptReco, Tau_Run2016B_PromptReco]
+#JetHT_Run2016B_PromptReco          = kreator.makeDataComponent("JetHT_Run2016B_PromptReco"         , "/JetHT/Run2016B-PromptReco-v1/MINIAOD"         , "CMS", ".*root", json)
+#HTMHT_Run2016B_PromptReco          = kreator.makeDataComponent("HTMHT_Run2016B_PromptReco"         , "/HTMHT/Run2016B-PromptReco-v1/MINIAOD"         , "CMS", ".*root", json)
+#MET_Run2016B_PromptReco            = kreator.makeDataComponent("MET_Run2016B_PromptReco"           , "/MET/Run2016B-PromptReco-v1/MINIAOD"           , "CMS", ".*root", json)
+#SingleElectron_Run2016B_PromptReco = kreator.makeDataComponent("SingleElectron_Run2016B_PromptReco", "/SingleElectron/Run2016B-PromptReco-v1/MINIAOD", "CMS", ".*root", json)
+#SingleMuon_Run2016B_PromptReco     = kreator.makeDataComponent("SingleMuon_Run2016B_PromptReco"    , "/SingleMuon/Run2016B-PromptReco-v1/MINIAOD"    , "CMS", ".*root", json)
+#SinglePhoton_Run2016B_PromptReco   = kreator.makeDataComponent("SinglePhoton_Run2016B_PromptReco"  , "/SinglePhoton/Run2016B-PromptReco-v1/MINIAOD"  , "CMS", ".*root", json)
+#DoubleEG_Run2016B_PromptReco       = kreator.makeDataComponent("DoubleEG_Run2016B_PromptReco"      , "/DoubleEG/Run2016B-PromptReco-v1/MINIAOD"      , "CMS", ".*root", json)
+#MuonEG_Run2016B_PromptReco         = kreator.makeDataComponent("MuonEG_Run2016B_PromptReco"       , "/MuonEG/Run2016B-PromptReco-v1/MINIAOD"        , "CMS", ".*root", json)
+#DoubleMuon_Run2016B_PromptReco     = kreator.makeDataComponent("DoubleMuon_Run2016B_PromptReco"    , "/DoubleMuon/Run2016B-PromptReco-v1/MINIAOD"    , "CMS", ".*root", json)
+#Tau_Run2016B_PromptReco     = kreator.makeDataComponent("Tau_Run2016B_PromptReco"    , "/Tau/Run2016B-PromptReco-v2/MINIAOD"    , "CMS", ".*root", json)
+#
+#dataSamples_Run2016_v1 = [JetHT_Run2016B_PromptReco, HTMHT_Run2016B_PromptReco, MET_Run2016B_PromptReco, SingleElectron_Run2016B_PromptReco, SingleMuon_Run2016B_PromptReco, SinglePhoton_Run2016B_PromptReco, DoubleEG_Run2016B_PromptReco, MuonEG_Run2016B_PromptReco, DoubleMuon_Run2016B_PromptReco, Tau_Run2016B_PromptReco]
+dataSamples_Run2016_v1 = []
 
 ### ----------------------------- Run2016B PromptReco v2 ----------------------------------------
 
@@ -177,47 +180,5 @@ for comp in samples:
     comp.isData = True
 
 if __name__ == "__main__":
-   import sys
-   if "test" in sys.argv:
-       from CMGTools.RootTools.samples.ComponentCreator import testSamples
-       testSamples(samples)
-   if "locality" in sys.argv:
-       import re
-       from CMGTools.Production.localityChecker import LocalityChecker
-       tier2Checker = LocalityChecker("T2_CH_CERN", datasets="/*/*/MINIAOD*")
-       for comp in samples:
-           if len(comp.files) == 0: 
-               print '\033[34mE: Empty component: '+comp.name+'\033[0m'
-               continue
-           if not hasattr(comp,'dataset'): continue
-           if not re.match("/[^/]+/[^/]+/MINIAOD(SIM)?", comp.dataset): continue
-           if "/store/" not in comp.files[0]: continue
-           if re.search("/store/(group|user|cmst3)/", comp.files[0]): continue
-           if not tier2Checker.available(comp.dataset):
-               print "\033[1;31mN: Dataset %s (%s) is not available on T2_CH_CERN\033[0m" % (comp.name,comp.dataset)
-           else: print "Y: Dataset %s (%s) is available on T2_CH_CERN" % (comp.name,comp.dataset)
-   if "refresh" in sys.argv:
-        from CMGTools.Production.cacheChecker import CacheChecker
-        checker = CacheChecker()
-        dataSamples = samples
-        if len(sys.argv) > 2: 
-            dataSamples = []
-            for x in sys.argv[2:]:
-                for s in samples:
-                    if x in s.name and s not in dataSamples:
-                        dataSamples.append(s)
-            dataSamples.sort(key = lambda d : d.name)
-        for d in dataSamples:
-            print "Checking ",d.name," aka ",d.dataset
-            checker.checkComp(d, verbose=True)
-   if "list" in sys.argv:
-        from CMGTools.HToZZ4L.tools.configTools import printSummary
-        dataSamples = samples
-        if len(sys.argv) > 2:
-            dataSamples = []
-            for x in sys.argv[2:]:
-                for s in samples:
-                    if x in s.name and s not in dataSamples:
-                        dataSamples.append(s)
-            dataSamples.sort(key = lambda d : d.name)
-        printSummary(dataSamples)
+    from CMGTools.RootTools.samples.tools import runMain
+    runMain(samples)

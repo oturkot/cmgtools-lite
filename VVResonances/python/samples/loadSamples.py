@@ -9,10 +9,10 @@ from CMGTools.RootTools.samples.samples_13TeV_RunIISpring16MiniAODv2 import *
 
 
 
-TTs = [TTJets]
+TTs = [TTJets, TT_pow_ext3, TT_pow_ext4]
 background = TTs+SingleTop+DYJetsM50HT+WJetsToLNuHT+QCDHT+DiBosons
 
-#Load signal from here 
+#Load signal from here
 from CMGTools.VVResonances.samples.signal_13TeV_80X_reHLT import *
 from CMGTools.VVResonances.samples.signal_13TeV_80X_ZPTT import *
 
@@ -72,7 +72,7 @@ for s in MET:
 
 #Jet HT to be used for jj (silver)
 for s in JetHT:
-    s.triggers = triggers_HT800+triggers_HT900+triggers_dijet_fat
+    s.triggers = triggers_HT800+triggers_HT900+triggers_dijet_fat+triggers_jet_recoverHT
     s.vetoTriggers = triggers_1mu_noniso+triggers_1mu_iso+triggers_1e_noniso+triggers_1e+triggers_metNoMu120_mhtNoMu120
     s.json=json
 
@@ -89,7 +89,7 @@ dataDir = "$CMSSW_BASE/src/CMGTools/VVResonances/data"
 for comp in mcSamples:
     comp.isMC = True
     comp.isData = False
-    comp.splitFactor = 300   
+    comp.splitFactor = 300
     comp.puFileMC=dataDir+"/pileup_MC.root"
     comp.puFileData=dataDir+"/pileup_DATA.root"
     comp.efficiency = eff2012
