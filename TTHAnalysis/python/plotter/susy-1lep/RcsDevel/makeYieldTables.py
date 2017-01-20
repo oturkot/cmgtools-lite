@@ -177,11 +177,11 @@ if __name__ == "__main__":
     printLatexFooter(f)
     '''
     f =  open('4to5j_preditiction.tex','w')
-    label = 'Counts and Rcs from 4jet sideband used to predict events in a 5jet signal region $5j_{SR} = Rcs^{4j,data} \\times \\kappa^{EWK, MC} \\times 5j_{CR}$'
+    label = 'Counts and Rcs from 4jet sideband used to predict events in a 5jet signal region $5j_{SR} = Rcs^{4j,data} \\times \\kappa^{EW} \\times 5j_{CR}$'
     #in case one wants more details
-    #printSamps = ['data 4j, SR','data 4j, CR','QCD 4j,CR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','data 5j, CR','QCD 5j, CR','(data-QCD) 5j, CR', 'data 5j, pred', 'data 5j, SR'] 
+    #printSamps = ['data 4j, SR','data 4j, CR','QCD 4j,CR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EW}$','data 5j, CR','QCD 5j, CR','(data-QCD) 5j, CR', 'data 5j, pred', 'data 5j, SR'] 
     #samps = [('data_QCDsubtr','SR_SB'),('data','CR_SB'),('data_QCDpred','CR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data','CR_MB'),('data_QCDpred','CR_MB'),('data_QCDsubtr','CR_MB'),('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
-    printSamps = ['data 4j, SR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 5j, CR'
+    printSamps = ['data 4j, SR','(data-QCD) 4j, CR','data 4j, Rcs$^{EWK}$','$\\kappa^{EW}$','(data-QCD) 5j, CR'
     , 'data 5j, pred', 'data 5j, SR']
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
@@ -199,11 +199,11 @@ if __name__ == "__main__":
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
-    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat $\pm$ syst)', 'data 68j, SR']
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EW}$','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat $\pm$ syst)', 'data 68j, SR']
 
     yds6.printLatexTable(samps, printSamps, label,f) 
     label = 'SB, MB, and predictions for '+lumi+'fb$^{-1}$ for njet $\\geq 9$'
-    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat $\pm$ syst)', 'data 9ij, SR']
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EW}$','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat $\pm$ syst)', 'data 9ij, SR']
     yds9.printLatexTable(samps, printSamps, label, f)
     printLatexFooter(f, 1)
     f.close()
@@ -219,9 +219,9 @@ if __name__ == "__main__":
     samps = [('data_QCDsubtr','SR_SB'),('data_QCDsubtr','CR_SB'),('data_QCDsubtr','Rcs_SB'),('EWK','Kappa'),('data_QCDsubtr','CR_MB'),
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
-    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat)', 'data 68j, SR']
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EW}$','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat)', 'data 68j, SR']
     ydsFew6.printLatexTable(samps, printSamps, label,f) 
-    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
+    printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EW}$','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
     ydsFew9.printLatexTable(samps, printSamps, label, f)
     printLatexFooter(f, 1)
     f.close()
