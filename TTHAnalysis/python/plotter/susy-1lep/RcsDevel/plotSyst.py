@@ -174,7 +174,7 @@ if __name__ == "__main__":
     stack = yp.getStack(hists)
     sqHist = yp.getSquaredSum(hists)
 
-    hCentral.GetYaxis().SetTitle("#kappa_{EWK}")
+    hCentral.GetYaxis().SetTitle("#kappa_{EW}")
     hCentral.GetYaxis().SetTitleSize(0.15)
     hCentral.GetYaxis().SetTitleOffset(0.17)
 

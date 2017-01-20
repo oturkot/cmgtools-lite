@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
                     hKappa.GetYaxis().SetTitleSize(0.2)
                     hKappa.GetYaxis().SetTitleOffset(0.15)
-                    hKappa.GetYaxis().SetTitle("#kappa_{EWK}")
+                    hKappa.GetYaxis().SetTitle("#kappa_{EW}")
                     if doSquare:
                         hRcsMB.GetYaxis().SetTitleOffset(0.8)
                         hKappa.GetYaxis().SetTitleOffset(0.25)
