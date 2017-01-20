@@ -972,18 +972,11 @@ class PlotMaker:
                         doStatTests(totalSyst, pmap['data'], options.doStatTests, legendCorner=pspec.getOption('Legend','TR'))
                 if pspec.hasOption('YMin') and pspec.hasOption('YMax'):
                     total.GetYaxis().SetRangeUser(pspec.getOption('YMin',1.0), pspec.getOption('YMax',1.0))
-<<<<<<< HEAD
-
-                if options.yrange: 
-                    total.GetYaxis().SetRangeUser(options.yrange[0], options.yrange[1])
-                legendCutoff = 0 #pspec.getOption('LegendCutoff', 1e-5 if c1.GetLogy() else 1e-2)
-=======
                 if pspec.hasOption('ZMin') and pspec.hasOption('ZMax'):
                     total.GetZaxis().SetRangeUser(pspec.getOption('ZMin',1.0), pspec.getOption('ZMax',1.0))
                 #if options.yrange: 
                 #    total.GetYaxis().SetRangeUser(options.yrange[0], options.yrange[1])
                 legendCutoff = pspec.getOption('LegendCutoff', 1e-5 if c1.GetLogy() else 1e-2)
->>>>>>> 9923052736bc9f1cf2a3a82a1449a71f7a3d7479
                 if plotmode == "norm": legendCutoff = 0 
                 if plotmode == "stack":
                     if options.noStackSig: mcStyle = ("L","F")
