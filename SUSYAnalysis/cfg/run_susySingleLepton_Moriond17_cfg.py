@@ -30,7 +30,7 @@ jetAna.dataGT = "Spring16_25nsV6_DATA"
 #jetAna.applyL2L3Residual = "Data"
 #metAna.recalibrate = True
 ##Current official recommendation for Summer16 samples: Stick with what is in MiniAOD for MC JEC
-jetAna.addJECShifts = False
+jetAna.addJECShifts = True
 jetAna.smearJets = False
 jetAna.recalibrateJets = False 
 jetAna.applyL2L3Residual = "Data"
