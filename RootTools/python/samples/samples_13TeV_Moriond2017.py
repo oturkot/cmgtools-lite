@@ -15,8 +15,8 @@ json_F=dataDir+'/json/json_DCSONLY_2016_08_10_F.txt' #only RunF
 #with recorded luminosity: 804.2/pb
 
 #json =dataDir+'/json/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt' # Golden Json
-#json =dataDir+'/json/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt' # Rereco Final
-json =dataDir+'/json/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON.txt' # Prompt Final 
+json =dataDir+'/json/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt' # Rereco Final
+#json =dataDir+'/json/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON.txt' # Prompt Final 
 
 #jetHT_0T = cfg.DataComponent(
 #    name = 'jetHT_0T',
