@@ -87,14 +87,28 @@ eventFlagsAna = cfg.Analyzer(
     )
 
 from CMGTools.TTHAnalysis.analyzers.badChargedHadronAnalyzerSummer2016 import badChargedHadronAnalyzerSummer2016
-badChargedHadronAna = cfg.Analyzer(
+badChargedHadronAna2016 = cfg.Analyzer(
     badChargedHadronAnalyzerSummer2016, name = 'badChargedHadronAnaSummer2016',
     muons='slimmedMuons',
     packedCandidates = 'packedPFCandidates',
 )
 
-from CMGTools.TTHAnalysis.analyzers.badMuonAnalyzerSummer2016 import badMuonAnalyzerSummer2016
+from CMGTools.TTHAnalysis.analyzers.badChargedHadronAnalyzer import badChargedHadronAnalyzer
+badChargedHadronAna = cfg.Analyzer(
+    badChargedHadronAnalyzer, name = 'badChargedHadronAna',
+    muons='slimmedMuons',
+    packedCandidates = 'packedPFCandidates',
+)
+
+from CMGTools.TTHAnalysis.analyzers.badMuonAnalyzer import badMuonAnalyzer
 badMuonAna = cfg.Analyzer(
+    badMuonAnalyzer, name = 'badMuonAna',
+    muons='slimmedMuons',
+    packedCandidates = 'packedPFCandidates',
+)
+
+from CMGTools.TTHAnalysis.analyzers.badMuonAnalyzerSummer2016 import badMuonAnalyzerSummer2016
+badMuonAna2016 = cfg.Analyzer(
     badMuonAnalyzerSummer2016, name = 'badMuonAnaSummer2016',
     muons='slimmedMuons',
     packedCandidates = 'packedPFCandidates',
@@ -111,6 +125,8 @@ badCloneMuonAnaMoriond2017 = cfg.Analyzer(
     selectClones = True,
     postFix = '',
 )
+
+
 
 badMuonAnaMoriond2017 = cfg.Analyzer(
     badMuonAnalyzerMoriond2017, name = 'badMuonMoriond2017',
@@ -600,7 +616,9 @@ susyCoreSequence = [
     triggerFlagsAna,
     eventFlagsAna,
     badMuonAna,
+    badMuonAna2016,
     badMuonAnaMoriond2017,
     badCloneMuonAnaMoriond2017,
     badChargedHadronAna,
+    badChargedHadronAna2016,
 ]
