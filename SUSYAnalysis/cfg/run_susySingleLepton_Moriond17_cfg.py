@@ -21,8 +21,10 @@ eleID = "CBID"
 # Isolation
 isolation = "miniIso"
 #JEC
-jetAna.mcGT = "Spring16_25nsV6_MC"
-jetAna.dataGT = "Spring16_25nsV6_DATA"
+jetAna.mcGT = "Summer16_23Sep2016V3_MC"
+#jetAna.dataGT = "Summer16_23Sep2016AllV3_DATA"
+jetAna.dataGT = "Summer16_23Sep2016BCDV3_DATA Summer16_23Sep2016EFV3_DATA Summer16_23Sep2016GV3_DATA Summer16_23Sep2016HV3_DATA"
+jetAna.runsDataJEC = [276811, 278801, 280385]
 ##Lets turn everything on for now, at least we know what is applied
 #jetAna.addJECShifts = True
 #jetAna.smearJets = False
