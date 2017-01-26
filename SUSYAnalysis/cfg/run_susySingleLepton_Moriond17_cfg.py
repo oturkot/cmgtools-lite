@@ -24,11 +24,18 @@ isolation = "miniIso"
 jetAna.mcGT = "Spring16_25nsV6_MC"
 jetAna.dataGT = "Spring16_25nsV6_DATA"
 ##Lets turn everything on for now, at least we know what is applied
+#jetAna.addJECShifts = True
+#jetAna.smearJets = False
+#jetAna.recalibrateJets = True 
+#jetAna.applyL2L3Residual = "Data"
+#metAna.recalibrate = True
+##Current official recommendation for Summer16 samples: Stick with what is in MiniAOD for MC JEC
 jetAna.addJECShifts = True
 jetAna.smearJets = False
-jetAna.recalibrateJets = True 
+jetAna.recalibrateJets = False 
 jetAna.applyL2L3Residual = "Data"
-metAna.recalibrate = True
+metAna.recalibrate = False
+
 
 
 
