@@ -34,9 +34,9 @@ jetAna.runsDataJEC = [276811, 278801, 280385]
 ##Current official recommendation for Summer16 samples: Stick with what is in MiniAOD for MC JEC
 jetAna.addJECShifts = True
 jetAna.smearJets = False
-jetAna.recalibrateJets = False
+jetAna.recalibrateJets = True
 jetAna.applyL2L3Residual = "Data"
-metAna.recalibrate = False
+metAna.recalibrate = True
 
 
 
