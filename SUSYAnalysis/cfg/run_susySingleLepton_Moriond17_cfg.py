@@ -255,7 +255,7 @@ if sample == "MC":
   # apply a loose lepton skim to MC
   anyLepSkim.minLeptons = 1
 
-  from CMGTools.RootTools.samples.samples_13TeV_RunIISpring16MiniAODv2 import *
+  from CMGTools.RootTools.samples.samples_13TeV_RunIISummer16MiniAODv2 import *
   
   #pick the file you want to run on
   selectedComponents = [WJetsToLNuHT]
