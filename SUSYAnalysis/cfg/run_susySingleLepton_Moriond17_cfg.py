@@ -26,13 +26,13 @@ jetAna.dataGT = "Spring16_25nsV6_DATA"
 ##Lets turn everything on for now, at least we know what is applied
 #jetAna.addJECShifts = True
 #jetAna.smearJets = False
-#jetAna.recalibrateJets = True 
+#jetAna.recalibrateJets = True
 #jetAna.applyL2L3Residual = "Data"
 #metAna.recalibrate = True
 ##Current official recommendation for Summer16 samples: Stick with what is in MiniAOD for MC JEC
 jetAna.addJECShifts = True
 jetAna.smearJets = False
-jetAna.recalibrateJets = False 
+jetAna.recalibrateJets = False
 jetAna.applyL2L3Residual = "Data"
 metAna.recalibrate = False
 
@@ -57,11 +57,11 @@ if sample == 'data':
 elif sample == "Signal":
   isSignal = True
 
-#Set this depending on the running mode 
-test = 1 
+#Set this depending on the running mode
+test = 1
 #0: PRODUCTION (for batch)
 #1: Usually for TESTING (single component with single thread)
-#2: test all components (1 thread per comp) 
+#2: test all components (1 thread per comp)
 #3: run all components (split jobs)
 ################################################################
 ###########################
@@ -173,7 +173,7 @@ triggerFlagsAna.triggerBits = {
   'MET170_BH' : triggers_MET170_BeamHaloCleaned,
   'MET170_HBHE_BH' : triggers_MET170_HBHE_BeamHaloCleaned,
   'MET190_TypeOne_HBHE_BH' : triggers_METTypeOne190_HBHE_BeamHaloCleaned,
-  
+
   'MET100MHT100' : triggers_MET100MHT100,
   'MET110MHT110' : triggers_MET110MHT110,
   'MET120MHT120' : triggers_MET120MHT120,
@@ -255,8 +255,8 @@ if sample == "MC":
   # apply a loose lepton skim to MC
   anyLepSkim.minLeptons = 1
 
-  from CMGTools.RootTools.samples.samples_13TeV_RunIISpring16MiniAODv2 import *
-  
+  from CMGTools.RootTools.samples.samples_13TeV_RunIISummer16MiniAODv2 import *
+
   #pick the file you want to run on
   selectedComponents = [WJetsToLNuHT]
 #  [TTJets_SingleLeptonFromTbar,TTJets_SingleLeptonFromTbar_ext,TTJets_SingleLeptonFromT,TTJets_DiLepton,TTJets_DiLepton_ext,
@@ -341,7 +341,7 @@ elif sample == "data":
 
   # modify skim
   anyLepSkim.minLeptons = 1
-  
+
   # central samples
   from CMGTools.RootTools.samples.samples_13TeV_Moriond2017 import *
   #selectedComponents = [JetHT_Run2016B_23Sep2016, HTMHT_Run2016B_23Sep2016, MET_Run2016B_23Sep2016, SingleElectron_Run2016B_23Sep2016, SingleMuon_Run2016B_23Sep2016, SinglePhoton_Run2016B_23Sep2016, DoubleEG_Run2016B_23Sep2016, MuonEG_Run2016B_23Sep2016, DoubleMuon_Run2016B_23Sep2016, Tau_Run2016B_23Sep2016]
@@ -355,7 +355,7 @@ elif sample == "data":
   #                      SingleElectron_Run2016G_23Sep2016_v1,\
   #                      ]
 
-  
+
   if test!=0 and jsonAna in susyCoreSequence: susyCoreSequence.remove(jsonAna)
   if test==1:
     # test one component (2 thread)
