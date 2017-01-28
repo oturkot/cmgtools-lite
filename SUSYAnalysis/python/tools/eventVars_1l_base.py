@@ -251,7 +251,7 @@ class EventVars1L_base:
 
         self.branches = [
             ## general event info
-            'Run','Lumi','Xsec',("Event","l"),
+            'Run','Lumi','Xsec',("Event","l"),'genWeight',
             ## leptons
             'nLep', 'nVeto',
             'nEl','nMu',
@@ -323,6 +323,8 @@ class EventVars1L_base:
         ret['Run'] = event.run
         ret['Event'] = event.evt
         ret['Lumi'] = event.lumi
+        if hasattr(event, 'genWeight'):
+            ret['genWeight'] = event.genWeight
 
         if hasattr(event,'xsec'):
             ret['Xsec'] = event.xsec
