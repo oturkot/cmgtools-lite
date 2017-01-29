@@ -21,7 +21,6 @@ python mcPlots.py \
     -F sf/t "${friends}" \
     -l "${lumi}" \
     -j $(nproc) \
-    --s2v \
     --tree treeProducerSusySingleLepton \
     -G \
     -f \
@@ -51,7 +50,6 @@ python mcPlots.py \
 #    -F sf/t "${friends}" \
 #    -l "${lumi}" \
 #    -j $(nproc) \
-#    --s2v \
 #    --tree treeProducerSusySingleLepton \
 #    -G \
 #    -f \
