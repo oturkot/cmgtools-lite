@@ -16,12 +16,17 @@ def _runIt(file):
     t.SetBranchStatus("run",1)
     t.SetBranchStatus("lumi",1)
     t.SetBranchStatus("evt",1)
-    #t.SetBranchStatus("isData",1)
+    t.SetBranchStatus("isData",1)
     t.SetBranchStatus("genWeight",1)
-
+    t.SetBranchStatus("lheHTIncoming",1)
+    t.SetBranchStatus("genLep_grandmotherId",1)
+    t.SetBranchStatus("genTau_grandmotherId",1)
+    t.SetBranchStatus("genLep_motherId",1)
+    t.SetBranchStatus("genTau_motherId",1)
 
     #--- Write to new file
     newFile = ROOT.TFile(file.replace(".url",""),"RECREATE")
+    #newFile = ROOT.TFile(file.replace("tree_normal","tree"),"RECREATE")
     t_new = t.CloneTree()
 
     t_new.Print()
@@ -42,7 +47,7 @@ if __name__ == "__main__":
     inDIR = args[0]
     print inDIR
     pattern = 'tree.root.url'
-    #pattern = 'tree.root'
+    #pattern = 'tree_normal.root'
     fileList = []
 
     # Walk through directory
