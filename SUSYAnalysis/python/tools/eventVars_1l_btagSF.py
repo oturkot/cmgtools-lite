@@ -76,7 +76,6 @@ for flavour in range(3):
 def getSF2015(parton, pt, eta):
 
     flav = 2 # flavour for reader
-    ptlim = 999.9 # limit of pt range
     sftype = "Comb" # meas type of SF
 
     if abs(parton)==5: #SF for b
@@ -87,15 +86,9 @@ def getSF2015(parton, pt, eta):
         flav = 2; sftype = "incl"
 
     # read SFs
-    sf     = sfReadersBTagSF[sftype].eval_auto_bounds('central',flav, eta, min(pt,ptlim))
-    sf_d   = sfReadersBTagSF[sftype].eval_auto_bounds('down',   flav, eta, min(pt,ptlim))
-    sf_u   = sfReadersBTagSF[sftype].eval_auto_bounds('up',     flav, eta, min(pt,ptlim))
-
-    # double uncertainty for out-of-range pt
-    if pt > ptlim:
-        # derived from c + 2*(d-c) = 2*d - c = d + (d-c)
-        sf_d += sf_d - sf
-        sf_u += sf_u - sf
+    sf     = sfReadersBTagSF[sftype].eval_auto_bounds('central',flav, eta, pt)
+    sf_d   = sfReadersBTagSF[sftype].eval_auto_bounds('down',   flav, eta, pt)
+    sf_u   = sfReadersBTagSF[sftype].eval_auto_bounds('up',     flav, eta, pt)
 
     return {"SF":sf, "SF_down":sf_d,"SF_up":sf_u}
 
@@ -136,18 +129,11 @@ def getFastSimCF(isFastSim, jParton, jPt, jEta):
         flav = 1
     else: # SF for light flavours
         flav = 2
-    ptlim = 799.9
 
     # Get fast-sim correction factor from dictionary
-    fsim_SF      = sfReadersFastSim["fastsim"].eval_auto_bounds('central',flav, jEta, min(jPt, ptlim))
-    fsim_SF_up   = sfReadersFastSim["fastsim"].eval_auto_bounds('up',flav, jEta, min(jPt, ptlim))
-    fsim_SF_down = sfReadersFastSim["fastsim"].eval_auto_bounds('down',flav, jEta, min(jPt, ptlim))
-
-    # If pT above threshold, double uncertainty
-    if jPt > ptlim:
-        # derived from c + 2*(d-c) = 2*d - c = d + (d-c)
-        fsim_SF_down += fsim_SF_down - fsim_SF
-        fsim_SF_up += fsim_SF_up - fsim_SF
+    fsim_SF      = sfReadersFastSim["fastsim"].eval_auto_bounds('central',flav, jEta, jPt)
+    fsim_SF_up   = sfReadersFastSim["fastsim"].eval_auto_bounds('up',flav, jEta, jPt)
+    fsim_SF_down = sfReadersFastSim["fastsim"].eval_auto_bounds('down',flav, jEta, jPt)
 
     return fsim_SF, fsim_SF_up, fsim_SF_down
 
