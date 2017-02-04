@@ -47,7 +47,7 @@ calib = ROOT.BTagCalibration("csvv2", sfFnameBTagSF)
 
 # BTagCalibrationReader(wp,sys,add sys):  wp= 0,1,2;  syst= central, up, down; add sys: up,down
 # 1=med wp
-# BTagCalibrationReader::load(calib,flavour,measuerement type)                                        
+# BTagCalibrationReader::load(calib,flavour,measuerement type)
 # 0=b flavor, "comb" mesurement type etc
 v_sys = getattr(ROOT, 'vector<string>')()
 v_sys.push_back('up')
@@ -56,8 +56,8 @@ name1=["Comb","Mu","incl"]
 name2=["comb","mujets","incl"]
 for m in range(3):
     sfReadersBTagSF[name1[m]] = ROOT.BTagCalibrationReader(1, "central", v_sys)
-    for flavour in range(3): 
-        sfReadersBTagSF[name1[m]].load(calib, flavour, name2[m])                            
+    for flavour in range(3):
+        sfReadersBTagSF[name1[m]].load(calib, flavour, name2[m])
 
 ### Fast-Sim correction factors
 # SF ROOT file
@@ -70,8 +70,8 @@ calibFastSim = ROOT.BTagCalibration("csvv2", sfFnameFastSim)
 sfReadersFastSim = {}
 
 sfReadersBTagSF["fastsim"] = ROOT.BTagCalibrationReader(1, "central", v_sys)
-for flavour in range(3): 
-    sfReadersBTagSF["fastsim"].load(calibFastSim, flavour, "fastsim")                            
+for flavour in range(3):
+    sfReadersBTagSF["fastsim"].load(calibFastSim, flavour, "fastsim")
 
 def getSF2015(parton, pt, eta):
 
