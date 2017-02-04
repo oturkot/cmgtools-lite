@@ -76,15 +76,15 @@ for flavour in range(3):
 def getSF2015(parton, pt, eta):
 
     flav = 2 # flavour for reader
-    ptlim = 1000 # limit of pt range
+    ptlim = 999.9 # limit of pt range
     sftype = "Comb" # meas type of SF
 
     if abs(parton)==5: #SF for b
-        flav = 0; ptlim = 669.9; sftype = "Comb"
+        flav = 0; sftype = "Comb"
     elif abs(parton)==4: #SF for c
-        flav = 1; ptlim = 669.9; sftype = "Comb"
+        flav = 1; sftype = "Comb"
     else: # SF for light flavours
-        flav = 2; ptlim = 999.9; sftype = "incl"
+        flav = 2; sftype = "incl"
 
     # read SFs
     sf     = sfReadersBTagSF[sftype].eval_auto_bounds('central',flav, eta, min(pt,ptlim))
