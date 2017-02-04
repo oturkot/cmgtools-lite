@@ -238,7 +238,7 @@ class EventVars1LWeightsForSystematics:
 
             SFTopII     = exp(0.0615    -0.0005*GenTopPt    )
             SFAntiTopII = exp(0.0615    -0.0005*GenAntiTopPt)
-            
+
             TopPtWeight = sqrt(SFTop*SFAntiTop)
             TopPtWeightII = sqrt(SFTopII*SFAntiTopII)
             if TopPtWeight<0.5: TopPtWeight=0.5
@@ -287,9 +287,9 @@ class EventVars1LWeightsForSystematics:
         else: nJets30Clean = event.nJet
 
         sumnGenLepTau=0
-        for i in range(0,event.ngenTau): 
+        for i in range(0,event.ngenTau):
             if abs(event.genTau_grandmotherId[i])==6 and abs(event.genTau_motherId[i])==24: sumnGenLepTau+=1
-        for i in range(0,event.ngenLep): 
+        for i in range(0,event.ngenLep):
             if abs(event.genLep_grandmotherId[i])==6 and abs(event.genLep_motherId[i])==24: sumnGenLepTau+=1
 #        if (event.ngenLep+event.ngenTau)==2: #would like to restore this behavior...
         if sumnGenLepTau==2:
@@ -328,7 +328,7 @@ class EventVars1LWeightsForSystematics:
             nISRforWeights = int(nISR)
             if nISR > 6:
                 nISRforWeights = 6
-            
+
             ret['nISR'] = int(nISR)
             ISRweights = { 0: 1, 1 : 0.920, 2 : 0.821, 3 : 0.715, 4 : 0.662, 5 : 0.561, 6 : 0.511}
             ISRweightssyst = { 0: 0.0, 1 : 0.040, 2 : 0.090, 3 : 0.143, 4 : 0.169, 5 : 0.219, 6 : 0.244}
@@ -338,12 +338,11 @@ class EventVars1LWeightsForSystematics:
             nISRweight = C_ISR * ISRweights[nISRforWeights]
             nISRweightsyst_up =  1
             nISRweightsyst_down = 1
-                    
+
         ret['nISRttweight'] = nISRweight
-        ret['nISRttweightsyst_up'] = nISRweightsyst_up 
+        ret['nISRttweightsyst_up'] = nISRweightsyst_up
         ret['nISRttweightsyst_down'] = nISRweightsyst_down
-        
-        print "weight",nISRweight
+
         return ret
 
 if __name__ == '__main__':

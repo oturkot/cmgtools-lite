@@ -1,38 +1,38 @@
-#HT: HT : 30, 0, 3000; XTitle="H_{T} [GeV]"
-#HT_log: HT : 30, 0, 3000; XTitle="H_{T} [GeV]", Logy
-#
-#LT: LT : 20, 0, 2000; XTitle="L_{T} [GeV]"
-#LT_log: LT : 20, 0, 2000; XTitle="L_{T} [GeV]", Logy
-#
-#MET: MET : 15, 0, 1500; XTitle="MET [GeV]"
-#MET_log: MET : 15, 0, 1500; XTitle="MET [GeV]", Logy
+HT: HT : 30, 0, 3000; XTitle="H_{T} [GeV]"
+HT_log: HT : 30, 0, 3000; XTitle="H_{T} [GeV]", Logy
 
-LepPt: LepGood_pt[tightLepsIdx[0]] : 32, 0, 800; XTitle="Lep p_{T} [GeV]"
-LepPt_log: LepGood_pt[tightLepsIdx[0]] : 32, 0, 800; XTitle="Lep p_{T} [GeV]", Logy
+LT: LT : 20, 0, 2000; XTitle="L_{T} [GeV]"
+LT_log: LT : 20, 0, 2000; XTitle="L_{T} [GeV]", Logy
 
-#dPhi: fabs(DeltaPhiLepW) : 30, 0, 3.142 ; XTitle="#Delta #varphi (lep\,W)", IncludeOverflows=False
-#dPhi_log: fabs(DeltaPhiLepW) : 30, 0, 3.142 ; XTitle="#Delta #varphi (lep\,W)", IncludeOverflows=False, Logy
+MET: MET : 15, 0, 1500; XTitle="MET [GeV]"
+MET_log: MET : 15, 0, 1500; XTitle="MET [GeV]", Logy
+
+LepPt: Lep_pt : 32, 0, 800; XTitle="Lep p_{T} [GeV]"
+LepPt_log: Lep_pt : 32, 0, 800; XTitle="Lep p_{T} [GeV]", Logy
+
+dPhi: fabs(dPhi) : 30, 0, 3.142 ; XTitle="#Delta #varphi (lep\,W)", IncludeOverflows=False
+dPhi_log: fabs(dPhi) : 30, 0, 3.142 ; XTitle="#Delta #varphi (lep\,W)", IncludeOverflows=False, Logy
+
+nJet: nJets30Clean : 15, 0, 15 ; XTitle="jet multiplicity"
+nJet_log: nJets30Clean : 15, 0, 15 ; XTitle="jet multiplicity", Logy
+
+nBJet: nBJet : 8, 0, 8 ; XTitle="b-jet multiplicity (Med)"
+nBJet_log: nBJet : 8, 0, 8 ; XTitle="b-jet multiplicity (Med)", Logy
+
+Lp: Lp : 30,-0.5,2.5 ; XTitle="L_{p}", IncludeOverflows=False
+Lp_log: Lp : 30,-0.5,2.5 ; XTitle="L_{p}", IncludeOverflows=False, Logy
+
+Jet1pt: Jet1_pt : 40,0,800; XTitle = "Lead Jet pt"
+Jet1pt_log: Jet1_pt : 40,0,800; XTitle = "Lead Jet pt", Logy
+
+Jet2pt: Jet2_pt : 40,0,800; XTitle = "2. Lead Jet pt"
+Jet2pt_log: Jet2_pt : 40,0,800; XTitle = "2. Lead Jet pt", Logy
+
+LepEta: Lep_eta : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100
+LepEta_log: Lep_eta : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100, Logy
+
+#MuEta: LepGood_eta[tightMuIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100
+#MuEta_log: LepGood_eta[tightMuIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100, Logy
 #
-#nJet: nJets30Clean : 15, 0, 15 ; XTitle="jet multiplicity"
-#nJet_log: nJets30Clean : 15, 0, 15 ; XTitle="jet multiplicity", Logy
-#
-#nBJet: nBJet : 8, 0, 8 ; XTitle="b-jet multiplicity (Med)"
-#nBJet_log: nBJet : 8, 0, 8 ; XTitle="b-jet multiplicity (Med)", Logy
-#
-#Lp: Lp : 30,-0.5,2.5 ; XTitle="L_{p}", IncludeOverflows=False
-#Lp_log: Lp : 30,-0.5,2.5 ; XTitle="L_{p}", IncludeOverflows=False, Logy
-#
-#Jet1pt: Jet_pt[Jets30Idx[0]] : 40,0,800; XTitle = "Lead Jet pt"
-#Jet1pt_log: Jet_pt[Jets30Idx[0]] : 40,0,800; XTitle = "Lead Jet pt", Logy
-#
-#Jet2pt: Jet_pt[Jets30Idx[1]] : 40,0,800; XTitle = "2. Lead Jet pt"
-#Jet2pt_log: Jet_pt[Jets30Idx[1]] : 40,0,800; XTitle = "2. Lead Jet pt", Logy
-#
-#LepEta: LepGood_eta[tightLepsIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100
-#LepEta_log: LepGood_eta[tightLepsIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100, Logy
-#
-##MuEta: LepGood_eta[tightMuIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100
-##MuEta_log: LepGood_eta[tightMuIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100, Logy
-##
-##ElEta: LepGood_eta[tightElIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100
-##ElEta_log: LepGood_eta[tightElIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100, Logy
+#ElEta: LepGood_eta[tightElIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100
+#ElEta_log: LepGood_eta[tightElIdx[0]] : 40,-2.4,2.4 ; XTitle="Lep #eta", MoreY=100, Logy
