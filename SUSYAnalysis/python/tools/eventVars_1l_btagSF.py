@@ -38,7 +38,7 @@ def partonName (parton):
 
 ### b tag SF
 # SF ROOT file
-sfFnameBTagSF = sfdir+"btagSF_CSVv2.csv"
+sfFnameBTagSF = sfdir+"CSVv2_Moriond17_B_H.csv"
 
 sfReadersBTagSF = {}
 
@@ -47,7 +47,7 @@ calib = ROOT.BTagCalibration("csvv2", sfFnameBTagSF)
 
 # BTagCalibrationReader(wp,sys,add sys):  wp= 0,1,2;  syst= central, up, down; add sys: up,down
 # 1=med wp
-# BTagCalibrationReader::load(calib,flavour,measuerement type)                                        
+# BTagCalibrationReader::load(calib,flavour,measuerement type)
 # 0=b flavor, "comb" mesurement type etc
 v_sys = getattr(ROOT, 'vector<string>')()
 v_sys.push_back('up')
@@ -56,12 +56,12 @@ name1=["Comb","Mu","incl"]
 name2=["comb","mujets","incl"]
 for m in range(3):
     sfReadersBTagSF[name1[m]] = ROOT.BTagCalibrationReader(1, "central", v_sys)
-    for flavour in range(3): 
-        sfReadersBTagSF[name1[m]].load(calib, flavour, name2[m])                            
+    for flavour in range(3):
+        sfReadersBTagSF[name1[m]].load(calib, flavour, name2[m])
 
 ### Fast-Sim correction factors
 # SF ROOT file
-sfFnameFastSim = sfdir+"CSV_13TEV_Combined_14_7_2016.csv"
+sfFnameFastSim = sfdir+"fastsim_csvv2_ttbar_26_1_2017.csv"
 
 # load SFs from csv file
 calibFastSim = ROOT.BTagCalibration("csvv2", sfFnameFastSim)
@@ -70,32 +70,25 @@ calibFastSim = ROOT.BTagCalibration("csvv2", sfFnameFastSim)
 sfReadersFastSim = {}
 
 sfReadersBTagSF["fastsim"] = ROOT.BTagCalibrationReader(1, "central", v_sys)
-for flavour in range(3): 
-    sfReadersBTagSF["fastsim"].load(calibFastSim, flavour, "fastsim")                            
+for flavour in range(3):
+    sfReadersBTagSF["fastsim"].load(calibFastSim, flavour, "fastsim")
 
 def getSF2015(parton, pt, eta):
 
     flav = 2 # flavour for reader
-    ptlim = 1000 # limit of pt range
     sftype = "Comb" # meas type of SF
 
     if abs(parton)==5: #SF for b
-        flav = 0; ptlim = 669.9; sftype = "Comb"
+        flav = 0; sftype = "Comb"
     elif abs(parton)==4: #SF for c
-        flav = 1; ptlim = 669.9; sftype = "Comb"
+        flav = 1; sftype = "Comb"
     else: # SF for light flavours
-        flav = 2; ptlim = 999.9; sftype = "incl"
+        flav = 2; sftype = "incl"
 
     # read SFs
-    sf     = sfReadersBTagSF[sftype].eval_auto_bounds('central',flav, eta, min(pt,ptlim))
-    sf_d   = sfReadersBTagSF[sftype].eval_auto_bounds('down',   flav, eta, min(pt,ptlim))
-    sf_u   = sfReadersBTagSF[sftype].eval_auto_bounds('up',     flav, eta, min(pt,ptlim))
-
-    # double uncertainty for out-of-range pt
-    if pt > ptlim:
-        # derived from c + 2*(d-c) = 2*d - c = d + (d-c)
-        sf_d += sf_d - sf
-        sf_u += sf_u - sf
+    sf     = sfReadersBTagSF[sftype].eval_auto_bounds('central',flav, eta, pt)
+    sf_d   = sfReadersBTagSF[sftype].eval_auto_bounds('down',   flav, eta, pt)
+    sf_u   = sfReadersBTagSF[sftype].eval_auto_bounds('up',     flav, eta, pt)
 
     return {"SF":sf, "SF_down":sf_d,"SF_up":sf_u}
 
@@ -136,18 +129,11 @@ def getFastSimCF(isFastSim, jParton, jPt, jEta):
         flav = 1
     else: # SF for light flavours
         flav = 2
-    ptlim = 799.9
 
     # Get fast-sim correction factor from dictionary
-    fsim_SF      = sfReadersFastSim["fastsim"].eval_auto_bounds('central',flav, jEta, min(jPt, ptlim))
-    fsim_SF_up   = sfReadersFastSim["fastsim"].eval_auto_bounds('up',flav, jEta, min(jPt, ptlim))
-    fsim_SF_down = sfReadersFastSim["fastsim"].eval_auto_bounds('down',flav, jEta, min(jPt, ptlim))
-
-    # If pT above threshold, double uncertainty
-    if jPt > ptlim:
-        # derived from c + 2*(d-c) = 2*d - c = d + (d-c)
-        fsim_SF_down += fsim_SF_down - fsim_SF
-        fsim_SF_up += fsim_SF_up - fsim_SF
+    fsim_SF      = sfReadersFastSim["fastsim"].eval_auto_bounds('central',flav, jEta, jPt)
+    fsim_SF_up   = sfReadersFastSim["fastsim"].eval_auto_bounds('up',flav, jEta, jPt)
+    fsim_SF_down = sfReadersFastSim["fastsim"].eval_auto_bounds('down',flav, jEta, jPt)
 
     return fsim_SF, fsim_SF_up, fsim_SF_down
 
