@@ -61,7 +61,7 @@ for m in range(3):
 
 ### Fast-Sim correction factors
 # SF ROOT file
-sfFnameFastSim = sfdir+"CSV_13TEV_Combined_14_7_2016.csv"
+sfFnameFastSim = sfdir+"fastsim_csvv2_ttbar_26_1_2017.csv"
 
 # load SFs from csv file
 calibFastSim = ROOT.BTagCalibration("csvv2", sfFnameFastSim)
