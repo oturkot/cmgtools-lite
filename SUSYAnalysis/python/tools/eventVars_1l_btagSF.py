@@ -38,7 +38,7 @@ def partonName (parton):
 
 ### b tag SF
 # SF ROOT file
-sfFnameBTagSF = sfdir+"btagSF_CSVv2.csv"
+sfFnameBTagSF = sfdir+"CSVv2_Moriond17_B_H.csv"
 
 sfReadersBTagSF = {}
 
