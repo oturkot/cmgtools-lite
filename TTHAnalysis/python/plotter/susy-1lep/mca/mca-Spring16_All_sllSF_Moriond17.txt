@@ -77,7 +77,10 @@ SingleT : T_tWch      : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; FillCo
 #DY      : DYJetsToLL_M50_HT100to200 :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 #DY      : DYJetsToLL_M50_HT200to400 :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 DY      : DYJetsToLL_M50_HT400to600 :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY      : DYJetsToLL_M50_HT600toInf :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT600to800 :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT800to1200 :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT1200to2500 :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT2500toInf :    Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 ####################################################################
 
