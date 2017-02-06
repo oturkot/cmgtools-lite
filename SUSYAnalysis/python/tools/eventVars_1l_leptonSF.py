@@ -6,11 +6,11 @@ import math
 
 ### SF ROOT files
 ### Full SIM ###
-eleSFname = "../python/tools/SFs/ICHEP/CBtight_miniIso0p1_ICHEP.root"
-eleHname = "CBtight_miniIso0p2_ICHEP"
+eleSFname = "../python/tools/SFs/Moriond/El_CBtight_miniIso0p1_Moriond.root"
+eleHname = "El_CBtight_miniIso0p1_Moriond"
 
-muSFname = "../python/tools/SFs/ICHEP/MediumMuon_miniIso0p2_SIP3D_ICHEP.root"
-muHname = "MediumMuon_miniIso0p2_SIP3D_ICHEP"
+muSFname = "../python/tools/SFs/Moriond/Mu_Medium_miniIso0p2_SIP3D_Moriond.root"
+muHname = "Mu_Medium_miniIso0p2_SIP3D_Moriond"
 
 ####HIP Root files
 eleHIPname = "../python/tools/SFs/ICHEP/ElectronHIP_1D.root"
