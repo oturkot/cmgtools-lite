@@ -126,13 +126,16 @@ def getLepSF(lep, nPU = 1, sample = "FullSim"):
     lepSFerr = lepSF * sqrt(lepSFerr*lepSFerr + HIPerr*HIPerr)
 
 #    print lepSF, HIP, lepSFerr
-    if sample == "FastSim":
-        maxPtfs = hSFfs.GetXaxis().GetXmax()
-        if lepPt > maxPtfs: lepPt = maxPtfs-0.1
 
-        bin = hSFfs.FindBin(lepPt,lepEta, nPU)
-        lepSF *= hSFfs.GetBinContent(bin)
-        lepSFerr = math.hypot(lepSFerr,hSFfs.GetBinError(bin))
+    # TO BE UPDATED
+    # FastSim corrections are not yet available
+    #if sample == "FastSim":
+    #    maxPtfs = hSFfs.GetXaxis().GetXmax()
+    #    if lepPt > maxPtfs: lepPt = maxPtfs-0.1
+
+    #    bin = hSFfs.FindBin(lepPt,lepEta, nPU)
+    #    lepSF *= hSFfs.GetBinContent(bin)
+    #    lepSFerr = math.hypot(lepSFerr,hSFfs.GetBinError(bin))
 
     #print lep, hSF, lepPt, lepEta, bin, lepSF
     if lepSF == 0:
