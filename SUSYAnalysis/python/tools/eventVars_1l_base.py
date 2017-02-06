@@ -134,7 +134,7 @@ btag_DeepTightWP = 0.8958
 # MUONS
 ###########
 
-muID = 'ICHEPmediumMuonId' # 'medium'(2015) or 'ICHEPmediumMuonId' (2016)
+muID = 'medium' # 'medium'(2015) or 'ICHEPmediumMuonId' (2016)
 
 
 
