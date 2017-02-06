@@ -134,7 +134,7 @@ btag_DeepTightWP = 0.8958
 # MUONS
 ###########
 
-muID = 'ICHEPmediumMuonId' # 'medium'(2015) or 'ICHEPmediumMuonId' (2016)
+muID = 'medium' # 'medium'(2015) or 'ICHEPmediumMuonId' (2016)
 
 
 
@@ -437,7 +437,7 @@ class EventVars1L_base:
 
 
                     passPostICHEPHLTHOverE = True # comment out again if (lep.hOverE < 0.04 and abs(lep.eta)>1.479) or abs(lep.eta)<=1.479 else False
-                                        
+
                     # fill
                     if passIso and passConv and passPostICHEPHLTHOverE:
                         selectedTightLeps.append(lep); selectedTightLepsIdx.append(idx)
