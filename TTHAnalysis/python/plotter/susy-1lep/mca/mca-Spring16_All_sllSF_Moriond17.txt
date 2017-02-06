@@ -22,9 +22,9 @@ T1tttt_1800_100+: SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 :10*susyXsec*10091667/s
 #Dilepton#
 
 TTdiLep            : TTJets_DiLepton            : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT600to800_ext   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT800to1200_ext  : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT1200to2500_ext : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT600to800       : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT800to1200      : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT1200to2500     : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 TTdiLep            : TTJets_LO_HT2500toInf      : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 ##################################
@@ -32,9 +32,9 @@ TTdiLep            : TTJets_LO_HT2500toInf      : Xsec*1*btagSF*TopPtWeight*puRa
 #semileptonic ttbar#
 TTsemiLep          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 TTsemiLep          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT600to800_ext    : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT800to1200_ext   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT1200to2500_ext  : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT600to800        : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 TTsemiLep          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 ####################################################################
