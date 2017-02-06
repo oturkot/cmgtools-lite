@@ -40,8 +40,8 @@ TTsemiLep          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*TopPtWeight*puR
 ####################################################################
 
 ##W+Jets#
-WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
 WJets    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
 WJets    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
 WJets    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*TopPtWeight*puRatio*TrigEff*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
