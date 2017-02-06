@@ -437,7 +437,7 @@ class EventVars1L_base:
 
 
                     passPostICHEPHLTHOverE = True # comment out again if (lep.hOverE < 0.04 and abs(lep.eta)>1.479) or abs(lep.eta)<=1.479 else False
-                                        
+
                     # fill
                     if passIso and passConv and passPostICHEPHLTHOverE:
                         selectedTightLeps.append(lep); selectedTightLepsIdx.append(idx)
