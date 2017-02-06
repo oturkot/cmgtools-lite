@@ -13,8 +13,8 @@ muSFname = "../python/tools/SFs/Moriond/Mu_Medium_miniIso0p2_SIP3D_Moriond.root"
 muHname = "Mu_Medium_miniIso0p2_SIP3D_Moriond"
 
 ####HIP Root files
-eleHIPname = "../python/tools/SFs/ICHEP/ElectronHIP_1D.root"
-eleHIPHname = "h2_scaleFactorsEGamma_px"
+eleHIPname = "../python/tools/SFs/Moriond/egammaEffi.txt_EGM2D.root"
+eleHIPHname = "EGamma_SF2D"
 
 muHIPname = "../python/tools/SFs/ICHEP/general_tracks_and_early_general_tracks_corr_ratio.root"
 muHIPHname = "mutrksfptl10"
@@ -108,7 +108,9 @@ def getLepSF(lep, nPU = 1, sample = "FullSim"):
 #    print lepSF, lepSFerr
 
     #HIP stuff
-    HIPbin = hHIP.FindBin(lep.eta)
+    # The second argument in FindBin() is arbitrary, since the 2D histogram has
+    # only one bin in y
+    HIPbin = hHIP.FindBin(lep.eta, 100.)
     HIP =  hHIP.GetBinContent(HIPbin)
     HIPerr = hHIP.GetBinError(HIPbin)
 #    print lep.pdgId, lep.eta, HIP,
