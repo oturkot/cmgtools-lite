@@ -100,6 +100,11 @@ def getLepSF(lep, nPU = 1, sample = "FullSim"):
     bin = hSF.FindBin(lepPt,lepEta)
     lepSF = hSF.GetBinContent(bin)
     lepSFerr = hSF.GetBinError(bin)
+
+    # For Muons, ignore error from histogram, but use flat uncertainty of 3 %
+    if abs(lep.pdgId) == 13:
+        lepSFerr = 0.03
+
 #    print lepSF, lepSFerr
 
     #HIP stuff
