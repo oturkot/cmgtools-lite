@@ -6,29 +6,62 @@ from ROOT import *
 # Get lepton SF histograms
 
 # Electrons
-f1_ele = TFile.Open('scaleFactors.root', 'read')
+# Full-Sim to data
+f1_full_ele = TFile.Open('scaleFactors.root', 'read')
 
-h1_ele = f1_ele.Get('GsfElectronToCutBasedSpring15T')
-h2_ele = f1_ele.Get('MVAVLooseElectronToMini')
+h1_full_ele = f1_full_ele.Get('GsfElectronToCutBasedSpring15T')
+h2_full_ele = f1_full_ele.Get('MVAVLooseElectronToMini')
 
-h12_ele = h1_ele.Clone()
-h12_ele.Multiply(h2_ele)
-h12_ele.SetName('El_CBtight_miniIso0p1_Moriond')
-h12_ele.SetTitle('El_CBtight_miniIso0p1_Moriond')
-h12_ele.SaveAs('El_CBtight_miniIso0p1_Moriond.root')
+h12_full_ele = h1_full_ele.Clone()
+h12_full_ele.Multiply(h2_full_ele)
+h12_full_ele.SetName('El_CBtight_miniIso0p1_Moriond')
+h12_full_ele.SetTitle('El_CBtight_miniIso0p1_Moriond')
+h12_full_ele.SaveAs('El_CBtight_miniIso0p1_Moriond.root')
+
+# Fast-Sim to Full-Sim
+# NOT AVAILABLE AS OF 2017-02-06
+#f1_fast_ele = TFile.Open('sf_el_mini01_FastSim.root', 'read')
+#f2_fast_ele = TFile.Open('sf_el_tightCB_FastSim.root', 'read')
+#
+#h1_fast_ele = f1_fast_ele.Get('histo2D')
+#h2_fast_ele = f2_fast_ele.Get('histo2D')
+#
+#h12_fast_ele = h1_fast_ele.Clone()
+#h12_fast_ele.Multiply(h2_fast_ele)
+#
+#h12_fast_ele.SetName('CBtight_miniIso0p1_FastSim_Moriond')
+#h12_fast_ele.SetTitle('CBtight_miniIso0p1_FastSim_Moriond')
+#h12_fast_ele.SaveAs('CBtight_miniIso0p1_FastSim_Moriond.root')
 
 # Muons
-f1_mu = TFile.Open('TnP_NUM_MediumID_DENOM_generalTracks_VAR_map_pt_eta.root', 'read')
-f2_mu = TFile.Open('TnP_NUM_MiniIsoTight_DENOM_MediumID_VAR_map_pt_eta.root', 'read')
-f3_mu = TFile.Open('TnP_NUM_TightIP3D_DENOM_MediumID_VAR_map_pt_eta.root', 'read')
+f1_full_mu = TFile.Open('TnP_NUM_MediumID_DENOM_generalTracks_VAR_map_pt_eta.root', 'read')
+f2_full_mu = TFile.Open('TnP_NUM_MiniIsoTight_DENOM_MediumID_VAR_map_pt_eta.root', 'read')
+f3_full_mu = TFile.Open('TnP_NUM_TightIP3D_DENOM_MediumID_VAR_map_pt_eta.root', 'read')
 
-h1_mu = f1_mu.Get('SF')
-h2_mu = f2_mu.Get('SF')
-h3_mu = f3_mu.Get('SF')
+h1_full_mu = f1_full_mu.Get('SF')
+h2_full_mu = f2_full_mu.Get('SF')
+h3_full_mu = f3_full_mu.Get('SF')
 
-h123_mu = h1_mu.Clone()
-h123_mu.Multiply(h2_mu)
-h123_mu.Multiply(h3_mu)
-h123_mu.SetName("Mu_Medium_miniIso0p2_SIP3D_Moriond")
-h123_mu.SetTitle("Mu_Medium_miniIso0p2_SIP3D_Moriond")
-h123_mu.SaveAs("Mu_Medium_miniIso0p2_SIP3D_Moriond.root")
+h123_full_mu = h1_full_mu.Clone()
+h123_full_mu.Multiply(h2_full_mu)
+h123_full_mu.Multiply(h3_full_mu)
+h123_full_mu.SetName("Mu_Medium_miniIso0p2_SIP3D_Moriond")
+h123_full_mu.SetTitle("Mu_Medium_miniIso0p2_SIP3D_Moriond")
+h123_full_mu.SaveAs("Mu_Medium_miniIso0p2_SIP3D_Moriond.root")
+
+# Fast-Sim to Full-Sim
+# NOT AVAILABLE AS OF 2017-02-06
+#f1_fast_mu = TFile.Open('sf_mu_mediumID_mini02_FastSim.root', 'read')
+#f2_fast_mu = TFile.Open('sf_mu_medium_FastSim.root', 'read')
+#f3_fast_mu = TFile.Open('sf_mu_tightIP3D_FastSim.root', 'read')
+#
+#h1_fast_mu = f1_fast_mu.Get('histo2D')
+#h2_fast_mu = f2_fast_mu.Get('histo2D')
+#h3_fast_mu = f3_fast_mu.Get('histo2D')
+#
+#h123_fast_mu = h1_fast_mu.Clone()
+#h123_fast_mu.Multiply(h2_fast_mu)
+#h123_fast_mu.Multiply(h3_fast_mu)
+#h123_fast_mu.SetName("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond")
+#h123_fast_mu.SetTitle("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond")
+#h123_fast_mu.SaveAs("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond.root")
