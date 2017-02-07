@@ -8,7 +8,7 @@ import operator
 from CMGTools.TTHAnalysis.treeReAnalyzer import *
 from ROOT import TLorentzVector, TVector2, std
 
-from math import sqrt
+from math import sqrt, pi
 
 #################
 ### Cuts and WP
@@ -285,7 +285,8 @@ class EventVars1L_base:
             'Mll', #di-lepton mass
             'METfilters',
             #Datasets
-            'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET'
+            'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET',
+            'RA2_muJetFilter'
             ]
 
     def listBranches(self):
@@ -875,6 +876,12 @@ class EventVars1L_base:
                     Mll = dilepP4.M()
 
         ret['Mll'] = Mll
+
+        # RA2 proposed filter
+        ret['RA2_muJetFilter'] = True
+        for j in cJet30Clean:
+            if j.pt > 200 and j.muEF > 0.5 and abs(acos(cos(j.phi-metp4.Phi()))) > (pi - 0.4):
+                ret['RA2_muJetFilter'] = False
 
         return ret
 
