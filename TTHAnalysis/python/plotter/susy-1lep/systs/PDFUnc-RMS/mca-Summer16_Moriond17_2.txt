@@ -11,10 +11,10 @@
 TT                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600;
 TT                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600;
 TT                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600;
-TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr :
-TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr :
-TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr :
-TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr :
+TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1;
+TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1;
+TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1;
+TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1;
 
 # W+Jets
 #WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ;
@@ -71,10 +71,10 @@ VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 TT_PDFUnc-RMS20                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS20                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS20                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS20                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS20                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS20                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS20                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS20                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS20                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS20                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS20                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS20    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[20]/LHEweight_wgt[0]  ;
@@ -132,10 +132,10 @@ VV_PDFUnc-RMS20 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS21                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS21                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS21                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS21                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS21                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS21                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS21                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS21                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS21                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS21                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS21                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS21    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[21]/LHEweight_wgt[0]  ;
@@ -193,10 +193,10 @@ VV_PDFUnc-RMS21 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS22                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS22                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS22                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS22                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS22                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS22                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS22                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS22                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS22                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS22                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS22                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS22    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[22]/LHEweight_wgt[0]  ;
@@ -254,10 +254,10 @@ VV_PDFUnc-RMS22 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS23                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS23                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS23                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS23                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS23                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS23                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS23                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS23                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS23                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS23                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS23                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS23    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[23]/LHEweight_wgt[0]  ;
@@ -315,10 +315,10 @@ VV_PDFUnc-RMS23 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS24                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS24                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS24                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS24                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS24                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS24                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS24                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS24                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS24                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS24                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS24                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS24    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[24]/LHEweight_wgt[0]  ;
@@ -376,10 +376,10 @@ VV_PDFUnc-RMS24 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS25                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS25                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS25                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS25                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS25                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS25                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS25                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS25                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS25                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS25                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS25                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS25    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[25]/LHEweight_wgt[0]  ;
@@ -437,10 +437,10 @@ VV_PDFUnc-RMS25 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS26                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS26                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS26                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS26                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS26                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS26                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS26                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS26                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS26                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS26                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS26                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS26    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[26]/LHEweight_wgt[0]  ;
@@ -498,10 +498,10 @@ VV_PDFUnc-RMS26 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS27                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS27                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS27                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS27                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS27                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS27                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS27                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS27                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS27                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS27                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS27                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS27    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[27]/LHEweight_wgt[0]  ;
@@ -559,10 +559,10 @@ VV_PDFUnc-RMS27 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS28                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS28                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS28                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS28                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS28                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS28                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS28                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS28                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS28                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS28                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS28                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS28    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[28]/LHEweight_wgt[0]  ;
@@ -620,10 +620,10 @@ VV_PDFUnc-RMS28 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 TT_PDFUnc-RMS29                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS29                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : lheHTIncoming <= 600
 TT_PDFUnc-RMS29                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : lheHTIncoming <= 600
-TT_PDFUnc-RMS29                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS29                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS29                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] :
-TT_PDFUnc-RMS29                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] :
+TT_PDFUnc-RMS29                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS29                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS29                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : 1;
+TT_PDFUnc-RMS29                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0] : 1;
 
 # W+Jets
 #WJets_PDFUnc-RMS29    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[29]/LHEweight_wgt[0]  ;

@@ -6,10 +6,10 @@
 TT                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 TT                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 TT                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -66,10 +66,10 @@ VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT
 TT_DLConst-Up                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 TT_DLConst-Up                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 TT_DLConst-Up                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_DLConst-Up                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_DLConst-Up                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_DLConst-Up                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_DLConst-Up                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Up                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Up                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Up                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Up                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_DLConst-Up    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstUp  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -126,10 +126,10 @@ VV_DLConst-Up : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*Dilep
 TT_DLConst-Down                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 TT_DLConst-Down                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 TT_DLConst-Down                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_DLConst-Down                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_DLConst-Down                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_DLConst-Down                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_DLConst-Down                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Down                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Down                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Down                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT_DLConst-Down                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_DLConst-Down    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightConstDn  ; Label="W+jets", FillColor=ROOT.kGreen-2
