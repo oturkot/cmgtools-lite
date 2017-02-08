@@ -3,592 +3,592 @@
 ### Nominal
 
 # Dileptonic ttbar
-TTdiLep            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 1
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env1            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env1            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env1            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env1          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env1          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env1          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env1          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env1          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env1      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env1      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env1      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env1      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env1      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env1      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env1      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env1      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env1      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env1      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env1      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env1      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env1 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env1 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env1 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env1 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env1 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env1 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env1 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env1 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env1 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env1 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env1 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env1 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env1 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env1 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env1 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env1 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env1 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env1 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env1 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env1 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env1 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 2
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env2            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env2            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env2            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env2          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env2          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env2          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env2          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env2          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env2      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env2      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env2      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env2      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env2      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env2      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env2      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env2      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env2      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env2      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env2      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env2      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env2 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env2 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env2 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env2 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env2 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env2 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env2 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env2 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env2 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env2 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env2 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env2 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env2 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env2 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env2 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env2 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env2 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env2 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env2 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env2 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env2 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 3
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env3            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env3            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env3            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env3          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env3          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env3          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env3          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env3          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env3      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env3      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env3      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env3      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env3      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env3      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env3      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env3      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env3      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env3      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env3      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env3      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env3 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env3 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env3 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env3 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env3 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env3 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env3 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env3 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env3 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env3 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env3 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env3 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env3 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env3 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env3 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env3 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env3 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env3 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env3 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env3 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env3 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 4
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env4            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env4            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env4            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env4          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env4          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env4          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env4          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env4          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env4      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env4      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env4      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env4      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env4      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env4      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env4      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env4      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env4      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env4      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env4      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env4      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env4 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env4 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env4 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env4 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env4 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env4 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env4 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env4 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env4 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env4 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env4 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env4 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env4 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env4 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env4 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env4 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env4 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env4 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env4 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env4 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env4 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 5
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env5            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env5            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env5            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env5          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env5          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env5          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env5          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env5          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env5      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env5      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env5      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env5      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env5      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env5      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env5      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env5      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env5      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env5      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env5      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env5      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env5 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env5 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env5 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env5 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env5 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env5 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env5 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env5 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env5 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env5 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env5 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env5 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env5 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env5 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env5 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env5 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env5 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env5 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env5 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env5 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env5 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 6
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env6            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env6            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env6            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env6          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env6          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env6          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env6          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env6          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env6      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env6      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env6      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env6      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env6      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env6      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env6      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env6      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env6      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env6      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env6      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env6      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env6 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env6 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env6 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env6 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env6 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env6 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env6 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env6 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env6 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env6 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env6 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env6 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env6 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env6 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env6 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env6 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env6 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env6 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env6 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env6 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env6 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 7
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env7            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env7            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env7            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env7          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env7          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env7          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env7          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env7          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env7      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env7      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env7      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env7      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env7      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env7      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env7      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env7      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env7      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env7      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env7      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env7      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env7 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env7 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env7 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env7 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env7 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env7 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env7 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env7 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env7 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env7 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env7 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env7 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env7 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env7 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env7 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env7 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env7 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env7 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env7 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env7 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env7 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
 ### Scale variation 8
 
 # Dileptonic ttbar
-TTdiLep_ScaleMatchVar-Env8            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env8            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTdiLep_ScaleMatchVar-Env8            : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Semileptonic ttbar
-TTsemiLep_ScaleMatchVar-Env8          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env8          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env8          : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env8          : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2  ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTsemiLep_ScaleMatchVar-Env8          : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24) <2 ; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 
 # W+Jets
-#WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-#WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
-WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+#WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT200to400   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
+WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
 # QCD
-QCD_ScaleMatchVar-Env8      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env8      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env8      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env8      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env8      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
-QCD_ScaleMatchVar-Env8      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env8      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env8      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env8      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env8      : QCD_HT1000to1500        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env8      : QCD_HT1500to2000        : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
+QCD_ScaleMatchVar-Env8      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label ="QCD", FillColor=ROOT.kCyan-6
 
 # Single Top
-SingleT_ScaleMatchVar-Env8 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env8 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env8 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env8 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env8 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
-#DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-#DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
-DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+#DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT200to400  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT400to600   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT600to800   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
+DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
 
 # TTV
-TTV_ScaleMatchVar-Env8 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env8 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env8 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
-TTV_ScaleMatchVar-Env8 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env8 : TTWToLNu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env8 : TTWToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env8 : TTZToLLNuNu   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
+TTV_ScaleMatchVar-Env8 : TTZToQQ       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kOrange-3, Label="ttV(W/Z/H)", NormSystematic=0.2
 
 # DiBoson
-VV_ScaleMatchVar-Env8 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env8 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env8 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env8 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env8 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-VV_ScaleMatchVar-Env8 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
-#VV_ScaleMatchVar-Env8 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : WWTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : WWToLNuQQ      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+#VV_ScaleMatchVar-Env8 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
