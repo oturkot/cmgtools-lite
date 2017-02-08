@@ -345,8 +345,8 @@ class EventVars1LWeightsForSystematics:
 
             C_ISR = 1.071
             nISRweight = C_ISR * ISRweights[nISRforWeights]
-            nISRweightsyst_up =  1
-            nISRweightsyst_down = 1
+            nISRweightsyst_up   =  C_ISR * (ISRweights[nISRforWeights] + ISRweightssyst[nISRforWeights])
+            nISRweightsyst_down =  C_ISR * (ISRweights[nISRforWeights] - ISRweightssyst[nISRforWeights])
 
         ret['nISRttweight'] = nISRweight
         ret['nISRttweightsyst_up'] = nISRweightsyst_up
