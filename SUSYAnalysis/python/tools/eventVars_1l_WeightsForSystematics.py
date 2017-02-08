@@ -143,6 +143,7 @@ class EventVars1LWeightsForSystematics:
             # ISR
             "ISRTTBarWeight", "GenGGPt", "ISRSigUp", "ISRSigDown",
             # DiLepton
+            "DilepNJetCorr", #to shift central value 
             "DilepNJetWeightConstUp", "DilepNJetWeightSlopeUp", "DilepNJetWeightConstDn", "DilepNJetWeightSlopeDn",
             # W polarisation
             "WpolWup","WpolWdown",
@@ -276,12 +277,18 @@ class EventVars1LWeightsForSystematics:
         constVariation= sqrt(0.06*0.06 +0.03*0.03)
         slopevariation = sqrt(0.06*0.06 +0.02*0.02)
         wmean = 5.62 - 0.5
-        '''
 
         #2016 update with 7.7/fb
         constVariation= sqrt(0.04*0.04 +0.02*0.02)
         slopevariation = sqrt(0.07*0.07 +0.02*0.02)
         wmean = 5.67 - 0.5
+        '''
+
+        #2016 update with 36.5/fb
+        #https://indico.cern.ch/event/611061/contributions/2464202/attachments/1406419/2149049/diLepStudy.pdf
+        constVariation= sqrt(0.030*0.030 +0.023*0.023)
+        slopevariation = sqrt(0.017*0.017 +0.014*0.014)
+        wmean = 6.93 - 0.5
 
         if "nJets30Clean" in base: nJets30Clean = base["nJets30Clean"]
         else: nJets30Clean = event.nJet
@@ -293,11 +300,13 @@ class EventVars1LWeightsForSystematics:
             if abs(event.genLep_grandmotherId[i])==6 and abs(event.genLep_motherId[i])==24: sumnGenLepTau+=1
 #        if (event.ngenLep+event.ngenTau)==2: #would like to restore this behavior...
         if sumnGenLepTau==2:
+            ret['DilepNJetCorr']          = 1/(1.030-0.017(nJets30Clean-wmean))
             ret['DilepNJetWeightConstUp'] = 1-constVariation
             ret['DilepNJetWeightSlopeUp'] = 1+ (nJets30Clean-wmean)*slopevariation
             ret['DilepNJetWeightConstDn'] = 1+constVariation
             ret['DilepNJetWeightSlopeDn'] = 1- (nJets30Clean-wmean)*slopevariation
         else:
+            ret['DilepNJetCorr']          = 1.
             ret['DilepNJetWeightConstUp'] = 1.
             ret['DilepNJetWeightSlopeUp'] = 1.
             ret['DilepNJetWeightConstDn'] = 1.
