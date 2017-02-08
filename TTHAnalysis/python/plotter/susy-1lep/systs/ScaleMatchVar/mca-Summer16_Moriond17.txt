@@ -3,13 +3,13 @@
 ### Nominal
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -63,13 +63,13 @@ VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT
 ### Scale variation 1
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env1                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env1                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env1                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env1                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env1                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env1                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env1                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env1                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env1    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -123,13 +123,13 @@ VV_ScaleMatchVar-Env1 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 2
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env2                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env2                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env2                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env2                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env2                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env2                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env2                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env2                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env2    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -183,13 +183,13 @@ VV_ScaleMatchVar-Env2 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 3
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env3                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env3                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env3                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env3                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env3                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env3                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env3                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env3                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env3    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -243,13 +243,13 @@ VV_ScaleMatchVar-Env3 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 4
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env4                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env4                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env4                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env4                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env4                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env4                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env4                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env4                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env4    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -303,13 +303,13 @@ VV_ScaleMatchVar-Env4 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 5
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env5                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env5                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env5                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env5                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env5                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env5                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env5                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env5                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env5    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -363,13 +363,13 @@ VV_ScaleMatchVar-Env5 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 6
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env6                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env6                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env6                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env6                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env6                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env6                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env6                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env6                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env6    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -423,13 +423,13 @@ VV_ScaleMatchVar-Env6 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 7
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env7                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env7                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env7                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env7                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env7                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env7                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env7                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env7                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env7    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
@@ -483,13 +483,13 @@ VV_ScaleMatchVar-Env7 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 ### Scale variation 8
 
 # all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
-TT_ScaleMatchVar-Env8                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env8                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env8                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT_ScaleMatchVar-Env8                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env8                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env8                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT_ScaleMatchVar-Env8                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets_ScaleMatchVar-Env8                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # W+Jets
 #WJets_ScaleMatchVar-Env8    : WJetsToLNu_HT100to200   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0]  ; Label="W+jets", FillColor=ROOT.kGreen-2
