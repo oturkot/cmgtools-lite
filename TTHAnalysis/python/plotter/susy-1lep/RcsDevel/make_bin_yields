@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+lumi=36.5
+outputdir=makeBinYields01
+
+./makeBinYields.py \
+    --mca mca/mca-Spring16_Signal_forMoriond17.txt \
+    --signal \
+    -v 1 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/scan
+
+./makeBinYields.py \
+    --mca mca/mca-Summer16_Moriond17.txt \
+    --grid \
+    -v 1 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/grid
+
+./makeBinYields.py \
+    --mca mca/mca-Summer16_Moriond17.txt \
+    --systs True \
+    --grid \
+    -v 1 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/grid
