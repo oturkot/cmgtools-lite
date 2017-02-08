@@ -4,10 +4,10 @@
 TT                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 TT                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
 TT                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
-TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2 ; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
-TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : Sum$(abs(genTau_grandmotherId)==6&&abs(genTau_motherId)==24)+Sum$(abs(genLep_grandmotherId)==6&&abs(genLep_motherId)==24)==2; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TT                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Dileptonic ttbar
 TTdiLep            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*TrigEff*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
