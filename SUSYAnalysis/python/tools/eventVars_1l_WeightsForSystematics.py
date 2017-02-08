@@ -300,7 +300,7 @@ class EventVars1LWeightsForSystematics:
             if abs(event.genLep_grandmotherId[i])==6 and abs(event.genLep_motherId[i])==24: sumnGenLepTau+=1
 #        if (event.ngenLep+event.ngenTau)==2: #would like to restore this behavior...
         if sumnGenLepTau==2:
-            ret['DilepNJetCorr']          = 1.030-0.017(nJets30Clean-wmean)
+            ret['DilepNJetCorr']          = 1.030-0.017*(nJets30Clean-wmean)
             ret['DilepNJetWeightConstUp'] = 1-constVariation
             ret['DilepNJetWeightSlopeUp'] = 1+ (nJets30Clean-wmean)*slopevariation
             ret['DilepNJetWeightConstDn'] = 1+constVariation
