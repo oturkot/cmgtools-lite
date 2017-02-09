@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+
+if [ -z "${1}" ]; then
+    echo Please specify outputfolder as positional argument.
+    exit
+fi
+
+lumi=36.5
+outputdir="${1}"
+
+# Signal
+./makeBinYields.py \
+    --mca mca/mca-Spring16_Signal_forMoriond17.txt \
+    --signal \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/scan
+
+# Background
+./makeBinYields.py \
+    --mca mca/mca-Summer16_Moriond17.txt \
+    --grid \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/grid
+
+# Systematic: dilepton constant
+./makeBinYields.py \
+    --mca ../systs/DLConst/mca-Summer16_Moriond17.txt \
+    --systs True \
+    --grid \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/DLConst
+
+# Systematic: dilepton slope
+./makeBinYields.py \
+    --mca ../systs/DLSlope/mca-Summer16_Moriond17.txt \
+    --systs True \
+    --grid \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/DLSlope
+
+## Systematic: JEC
+#./makeBinYields.py \
+#    --mca ../systs/JEC/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/JEC
+#
+## Systematic: PDF
+#./makeBinYields.py \
+#    --mca ../systs/PDFUnc-RMS/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/PDFUnc-RMS
+#
+## Systematic: scale match
+#./makeBinYields.py \
+#    --mca ../systs/ScaleMatchVar/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/ScaleMatchVar
+#
+## Systematic: W polarization
+#./makeBinYields.py \
+#    --mca ../systs/Wpol/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/Wpol
+#
+## Systematic: W cross section
+#./makeBinYields.py \
+#    --mca ../systs/Wxsec/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/Wxsec
+#
+## Systematic: b-tagging
+#./makeBinYields.py \
+#    --mca ../systs/btag/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/btag
+#
+## Systematic: lepton SF
+#./makeBinYields.py \
+#    --mca ../systs/lepSF/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/lepSF
+#
+## Systematic: pileup
+#./makeBinYields.py \
+#    --mca ../systs/pileup/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/pileup
+#
+## Systematic: TTV cross section
+#./makeBinYields.py \
+#    --mca ../systs/TTVxsec/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/TTVxsec
+#
+## Systematic: nISR reweighting
+#./makeBinYields.py \
+#    --mca ../systs/nISRreweighting/mca-Summer16_Moriond17.txt \
+#    --systs True \
+#    --grid \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/nISRreweighting

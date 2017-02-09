@@ -102,31 +102,24 @@ def getPoissonHist(tfile, sample = "background", band = "CR_MB"):
 
 # Systematic error on F-ratio
 qcdSysts = {
-    ('NJ45','HT0') : 1.0,#0.25,
-    ('NJ45','HT1') : 1.0,#0.25,
-    ('NJ45','HT2i') : 1.0,#0.5,
-    ('NJ68','HT0') : 1.0,#0.25,
-    ('NJ68','HT1') : 1.0,#0.25,
-    ('NJ68','HT2i') : 1.0,#0.5,
-    ('NJ9','HT01') : 1.0,#0.75,
-    ('NJ9','HT2i') : 1.0,#0.75,
-    #    ('NB2','NB2') : 1.0,
-    #    ('NB3','NB3') : 1.0,
-    }
+        'NJ45' : 0.15,
+        'NJ68' : 0.30,
+        'NJ9'  : 0.50
+}
 
 def getQCDsystError(binname):
 
-    # Set 100% syst if NB >= 2
-    for nbbin in ['NB2','NB3']:
+    # Set 100% syst if NB >= 3
+    for nbbin in ['NB3']:
         if nbbin in binname:
-            return 1.00
+            return 1.0
 
-    for njbin,htbin in qcdSysts.keys():
-        if njbin in binname and htbin in binname:
-            print binname, njbin, htbin, qcdSysts[(njbin,htbin)]
-            return qcdSysts[(njbin,htbin)]
-        else: return 1.00 #if it can't find any uncertainty use 100%
-    return 0
+    for njbin in qcdSysts.keys():
+        if njbin in binname:
+            print binname, njbin, qcdSysts[njbin]
+            return qcdSysts[njbin]
+    # If no bin is found, return 100 % uncertainty
+    return 1.0
 
 def getQCDsubtrHistos(tfile, sample = "background", band = "CR_MB/", isMC = True, applySyst = True, lep = "ele"):
     ## returns two histograms:

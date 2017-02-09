@@ -19,6 +19,10 @@ Filters: !isData || METfilters == 1
 # Isolated track veto
 Iso veto: !iso_Veto
 
+# Ghost Muon filters
+MET/met_caloPt <= 5: MET/met_caloPt <= 5
+Mu jet filter: RA2_muJetFilter == 1
+
 # At least 5 jets
 nJet >= 5: nJets30Clean >= 5
 

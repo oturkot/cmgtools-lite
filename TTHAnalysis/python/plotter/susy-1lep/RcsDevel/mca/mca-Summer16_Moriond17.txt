@@ -1,12 +1,13 @@
 # MCA file for Summer16 samples
 
-# Signal
-T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : 10*susyXsec*10201737/susyNgen*btagSF*puRatio*lepSF*DilepNJetCorr : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
-T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : 10*susyXsec*10318820/susyNgen*btagSF*puRatio*lepSF*DilepNJetCorr : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
-T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : 10*susyXsec*10091667/susyNgen*btagSF*puRatio*lepSF*DilepNJetCorr : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
-T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : 10*susyXsec*10201737/susyNgen*btagSF*puRatio*lepSF*DilepNJetCorr : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
-T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : 10*susyXsec*10318820/susyNgen*btagSF*puRatio*lepSF*DilepNJetCorr : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
-T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : 10*susyXsec*10091667/susyNgen*btagSF*puRatio*lepSF*DilepNJetCorr : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
+# all ttbar, uncomment only for makeBinYields otherwise ttbar will be double counted
+TTJets                 : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_SingleLeptonFromT    : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets                 : TTJets_SingleLeptonFromTbar : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue-7, Label="t\#bar{t} l + jets"
+TTJets                 : TTJets_LO_HT600to800        : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_LO_HT800to1200       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_LO_HT1200to2500      : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
+TTJets                 : TTJets_LO_HT2500toInf       : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : 1; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
 
 # Dileptonic ttbar
 TTdiLep            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF*DilepNJetCorr : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"
@@ -32,7 +33,7 @@ WJets    : WJetsToLNu_HT800to1200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  
 WJets    : WJetsToLNu_HT1200to2500 : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
 WJets    : WJetsToLNu_HT2500toInf  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr  ; Label="W+jets", FillColor=ROOT.kGreen-2
 
-# QCD
+#QCD
 QCD      : QCD_HT300to500          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
 QCD      : QCD_HT500to700          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
 QCD      : QCD_HT700to1000         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label ="QCD", FillColor=ROOT.kCyan-6
