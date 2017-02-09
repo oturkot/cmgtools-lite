@@ -266,8 +266,10 @@ def replaceEmptyDataBinsWithMC(fileList):
         tfile = TFile(fname,"UPDATE")
         if 1==1:
             for bindir in bindirs:
-                print tfile.GetName(),bindir+"/data"
-                histData = tfile.Get(bindir+"/data").Clone()
+                try:
+                    histData = tfile.Get(bindir+"/data").Clone()
+                except ReferenceError:
+                    continue
                 histBkg = tfile.Get(bindir+"/background").Clone()
 
                 #if "TH" not in histData.ClassName() or 'TH' in histBkg.ClassName(): return 0
@@ -304,7 +306,10 @@ def blindDataBins(fileList):
             for bindir in bindirs:
                 ix = 2
                 iy = 2
-                histData = tfile.Get(bindir+"/data").Clone()
+                try:
+                    histData = tfile.Get(bindir+"/data").Clone()
+                except ReferenceError:
+                    continue
                 print '!!! ATTENTION: Blinding DATA'
                 histData.SetBinContent(ix, iy, 0)
                 histData.SetBinError(ix, iy, 0)
