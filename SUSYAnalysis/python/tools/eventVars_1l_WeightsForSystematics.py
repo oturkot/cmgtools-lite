@@ -343,10 +343,20 @@ class EventVars1LWeightsForSystematics:
             ISRweightssyst = { 0: 0.0, 1 : 0.040, 2 : 0.090, 3 : 0.143, 4 : 0.169, 5 : 0.219, 6 : 0.244}
 
 
-            C_ISR = 1.071
+            # ------ Forwarded Message --------
+            # Subject: Re: question for ttbar ISR reweighting
+            # Date: Sat, 14 Jan 2017 20:24:14 +0100
+            # From: Manuel Franco Sevilla <manuel.franco.sevilla@cern.ch>
+            #The [Nom, Up, Down] values we find for the events with Nisr = 0 are:
+            #[1.090, 1.043, 1.141]: TTJets_Tune
+            #[1.096, 1.046, 1.151]: TTJets_SingleLeptFromT
+            #[1.116, 1.055, 1.185]: TTJets_DiLept
+            C_ISR = 1.090
+            C_ISR_up   = 1.043
+            C_ISR_down = 1.141
             nISRweight = C_ISR * ISRweights[nISRforWeights]
-            nISRweightsyst_up   =  C_ISR * (ISRweights[nISRforWeights] + ISRweightssyst[nISRforWeights])
-            nISRweightsyst_down =  C_ISR * (ISRweights[nISRforWeights] - ISRweightssyst[nISRforWeights])
+            nISRweightsyst_up   =  C_ISR_up   * (ISRweights[nISRforWeights] + ISRweightssyst[nISRforWeights])
+            nISRweightsyst_down =  C_ISR_down * (ISRweights[nISRforWeights] - ISRweightssyst[nISRforWeights])
 
         ret['nISRttweight'] = nISRweight
         ret['nISRttweightsyst_up'] = nISRweightsyst_up
