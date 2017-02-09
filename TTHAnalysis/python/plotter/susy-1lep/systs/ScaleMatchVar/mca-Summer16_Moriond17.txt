@@ -32,8 +32,8 @@ QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -92,8 +92,8 @@ QCD_ScaleMatchVar-Env1      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env1 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env1 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env1 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env1 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env1 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env1 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env1      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -152,8 +152,8 @@ QCD_ScaleMatchVar-Env2      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env2 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env2 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env2 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env2 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env2 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env2 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env2      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -212,8 +212,8 @@ QCD_ScaleMatchVar-Env3      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env3 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env3 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env3 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env3 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env3 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env3 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env3      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -272,8 +272,8 @@ QCD_ScaleMatchVar-Env4      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env4 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env4 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env4 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env4 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env4 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env4 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env4      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -332,8 +332,8 @@ QCD_ScaleMatchVar-Env5      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env5 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env5 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env5 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env5 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env5 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env5 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env5      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -392,8 +392,8 @@ QCD_ScaleMatchVar-Env6      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env6 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env6 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env6 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env6 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env6 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env6 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env6      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -452,8 +452,8 @@ QCD_ScaleMatchVar-Env7      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env7 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env7 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env7 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env7 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env7 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env7 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env7      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -512,8 +512,8 @@ QCD_ScaleMatchVar-Env8      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*le
 SingleT_ScaleMatchVar-Env8 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env8 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_ScaleMatchVar-Env8 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env8 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_ScaleMatchVar-Env8 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_ScaleMatchVar-Env8 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_ScaleMatchVar-Env8      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5

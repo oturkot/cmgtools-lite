@@ -32,8 +32,8 @@ QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -92,8 +92,8 @@ QCD_PU-Up      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio_up*lepSF*DilepN
 SingleT_PU-Up : TToLeptons_sch           : Xsec*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_PU-Up : T_tch_powheg             : Xsec*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_PU-Up : TBar_tch_powheg          : Xsec*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_PU-Up : TBar_tWch                : Xsec*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_PU-Up : T_tWch                   : Xsec*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_PU-Up : TBar_tWch                : 19.55*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_PU-Up : T_tWch                   : 19.55*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_PU-Up      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio_up*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
@@ -152,8 +152,8 @@ QCD_PU-Down      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio_down*lepSF*Di
 SingleT_PU-Down : TToLeptons_sch           : Xsec*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_PU-Down : T_tch_powheg             : Xsec*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_PU-Down : TBar_tch_powheg          : Xsec*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_PU-Down : TBar_tWch                : Xsec*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_PU-Down : T_tWch                   : Xsec*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_PU-Down : TBar_tWch                : 19.55*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_PU-Down : T_tWch                   : 19.55*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
 # Drell-Yan
 #DY_PU-Down      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio_down*lepSF*DilepNJetCorr ; Label="DY+jets", FillColor=ROOT.kRed-6, NormSystematic=0.5
