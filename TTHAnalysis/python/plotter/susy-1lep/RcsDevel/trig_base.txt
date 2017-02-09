@@ -1,9 +1,11 @@
-1 hard lep: nLep == 1 && Lep_pt > 25 && nVeto == 0
-# Isolated track veto
-Iso veto: !iso_Veto
+# Select events with exactly one lepton
+1 hard lep: nLep == 1 && Lep_pt > 25
+
+# Veto events with additional leptons
+No veto lep: nVeto == 0
+
+# Lepton needs to be selected
 #Selected: Selected == 1
-triggHT: HT > 500
-triggLT: LT > 250
 
 # Fire at least one trigger
 Trigger: !isData || (HLT_EleOR || HLT_MuOR || HLT_MetOR)
@@ -11,15 +13,27 @@ Trigger: !isData || (HLT_EleOR || HLT_MuOR || HLT_MetOR)
 # Prevent double counting from different datasets
 Trigger XOR: !isData || ( (PD_SingleEle && HLT_EleOR) || (PD_SingleMu && (HLT_MuOR) && !(HLT_EleOR) ) || (PD_MET && (HLT_MetOR) && !(HLT_EleOR) && !(HLT_MuOR) )  )
 
-nJetBase: nJets30Clean >= 3
+# Apply filters
+Filters: !isData || METfilters == 1
 
-2.JetPt > 80: Jet2_pt > 80
+# Isolated track veto
+Iso veto: !iso_Veto
 
-Filters: !isData || (isData && METfilters == 1)
+# Ghost Muon filters
+MET/met_caloPt <= 5: MET/met_caloPt <= 5
+Mu jet filter: RA2_muJetFilter == 1
 
-## Filter strange FastSim events
-#clean: (mGo == 0) || (mGo > 0 && met_pt < 3000)
-#clean: (mGo == 0) || (mGo > 0 && JetForMET_pt[0] < 3000)
+# At least 3 jets
+nJet >= 3: nJets30Clean >= 3
 
+# Second leading jet pT larger than 80 GeV
+Jet2_pt > 80: Jet2_pt > 80
+
+# HT baseline selection
+triggHT: HT > 500
+
+# LT baseline selection
+triggLT: LT > 250
+
+# Place holder for bin cuts
 base: 1
-#runG < 279931: run <= 279931
