@@ -136,6 +136,16 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/TTVxsec
 
+# Systematic: TT cross section
+./makeBinYields.py \
+    --mca ../systs/TTxsec/mca-Summer16_Moriond17.txt \
+    --systs True \
+    --grid \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/TTxsec
+
 # Systematic: nISR reweighting
 ./makeBinYields.py \
     --mca ../systs/nISRreweighting/mca-Summer16_Moriond17.txt \
