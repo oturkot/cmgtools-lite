@@ -164,9 +164,10 @@ def makeSystHists(fileList):
     #hnames = ["T1tttt_Scan"] # process name
     #hnames = ["EWK"] # process name
     #hnames = ["EWK","TTJets","WJets","SingleTop","DY","TTV"] # process name
-    hnames = ["EWK","TTJets","WJets","SingleTop","DY","TTV"] # process name
+    #hnames = ["EWK","TTJets","WJets","SingleTop","DY","TTV"] # process name
     #hnames = ['T_tWch','TToLeptons_tch','TBar_tWch', 'EWK', 'TToLeptons_sch'] # process name
     #hnames = ["TTJets","WJets","SingleTop","DY","TTV"] # process name
+    hnames = ['EWK', 'DY', 'QCD', 'SingleT', 'TTJets', 'TTV', 'VV', 'WJets']
     #hnames = getHnames(fileList[0],'SR_MB') # get process names from file
     #print 'Found these hists:', hnames
 
@@ -180,12 +181,13 @@ def makeSystHists(fileList):
     #systNames = ["TTVxsec"]
     #systNames = ["lepSF"]
     #systNames = ["JEC"]
-    #systNames = ["DLSlope"]
+    systNames = ["DLSlope"]
     #systNames = ["DLConst"]
     #systNames = ["JER"]
     #systNames = ["Wpol"]
-    systNames = ["btagHF","btagLF"]
+    #systNames = ["btagHF","btagLF"]
     #systNames = ["ISR"]
+    #systNames = ["nISRr"]
 
     #bindirs =  ['SR_MB','CR_MB','SR_SB','CR_SB']
     #bindirs =  ['SR_MB','CR_MB','SR_SB','CR_SB','Kappa','Rcs_MB','Rcs_SB']

@@ -102,8 +102,8 @@ def getPoissonHist(tfile, sample = "background", band = "CR_MB"):
 
 # Systematic error on F-ratio
 qcdSysts = {
-        'NJ45' : 0.15
-        'NJ68' : 0.30
+        'NJ45' : 0.15,
+        'NJ68' : 0.30,
         'NJ9'  : 0.50
 }
 
