@@ -105,15 +105,25 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/syst_Wxsec
 
-# Systematic: b-tagging
+# Systematic: b-tagging heavy flavour
 ./makeBinYields.py \
-    --mca ../systs/btag/mca-Summer16_Moriond17.txt \
+    --mca ../systs/btagHF/mca-Summer16_Moriond17.txt \
     --grid \
     --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/syst_btag
+    --od "${outputdir}"/syst_btagHF
+
+# Systematic: b-tagging
+./makeBinYields.py \
+    --mca ../systs/btagLF/mca-Summer16_Moriond17.txt \
+    --grid \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/syst_btagLF
 
 # Systematic: lepton SF
 ./makeBinYields.py \
