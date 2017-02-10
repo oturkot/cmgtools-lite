@@ -31,7 +31,7 @@ QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 # Single Top
 SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
@@ -91,7 +91,7 @@ QCD_DLSlope-Up      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Dile
 # Single Top
 SingleT_DLSlope-Up : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_DLSlope-Up : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_DLSlope-Up : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_DLSlope-Up : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_DLSlope-Up : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_DLSlope-Up : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
@@ -151,7 +151,7 @@ QCD_DLSlope-Down      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_DLSlope-Down : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_DLSlope-Down : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_DLSlope-Down : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_DLSlope-Down : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_DLSlope-Down : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_DLSlope-Down : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 

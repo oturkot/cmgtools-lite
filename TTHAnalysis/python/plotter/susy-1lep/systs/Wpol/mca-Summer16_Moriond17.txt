@@ -31,7 +31,7 @@ QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 # Single Top
 SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
@@ -91,7 +91,7 @@ QCD_Wpol-Up      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJ
 # Single Top
 SingleT_Wpol-Up : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWup ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_Wpol-Up : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWup ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_Wpol-Up : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWup ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_Wpol-Up : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWup ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_Wpol-Up : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWup ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_Wpol-Up : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWup ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 
@@ -151,7 +151,7 @@ QCD_Wpol-Down      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Dilep
 # Single Top
 SingleT_Wpol-Down : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWdown ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_Wpol-Down : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWdown ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
-SingleT_Wpol-Down : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWdown ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
+SingleT_Wpol-Down : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWdown ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_Wpol-Down : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWdown ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 SingleT_Wpol-Down : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*WpolWdown ; FillColor = ROOT.kViolet+5, Label= "t/\#bar{t}"
 

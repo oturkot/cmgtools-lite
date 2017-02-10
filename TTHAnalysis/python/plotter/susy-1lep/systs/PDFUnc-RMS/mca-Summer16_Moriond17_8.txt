@@ -36,9 +36,9 @@ QCD      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 # Single Top
 SingleT : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 SingleT : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
-SingleT : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
-SingleT : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
-SingleT : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
+SingleT : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
+SingleT : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
+SingleT : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 
 # Drell-Yan
 #DY      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
@@ -96,9 +96,9 @@ QCD_PDFUnc-RMS80      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS80 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS80 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS80 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS80 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS80 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS80 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS80 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS80 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS80      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[80]/LHEweight_wgt[0] ;
@@ -157,9 +157,9 @@ QCD_PDFUnc-RMS81      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS81 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS81 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS81 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS81 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS81 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS81 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS81 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS81 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS81      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[81]/LHEweight_wgt[0] ;
@@ -218,9 +218,9 @@ QCD_PDFUnc-RMS82      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS82 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS82 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS82 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS82 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS82 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS82 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS82 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS82 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS82      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[82]/LHEweight_wgt[0] ;
@@ -279,9 +279,9 @@ QCD_PDFUnc-RMS83      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS83 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS83 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS83 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS83 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS83 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS83 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS83 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS83 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS83      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[83]/LHEweight_wgt[0] ;
@@ -340,9 +340,9 @@ QCD_PDFUnc-RMS84      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS84 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS84 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS84 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS84 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS84 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS84 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS84 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS84 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS84      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[84]/LHEweight_wgt[0] ;
@@ -401,9 +401,9 @@ QCD_PDFUnc-RMS85      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS85 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS85 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS85 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS85 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS85 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS85 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS85 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS85 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS85      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[85]/LHEweight_wgt[0] ;
@@ -462,9 +462,9 @@ QCD_PDFUnc-RMS86      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS86 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS86 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS86 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS86 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS86 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS86 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS86 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS86 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS86      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[86]/LHEweight_wgt[0] ;
@@ -523,9 +523,9 @@ QCD_PDFUnc-RMS87      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS87 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS87 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS87 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS87 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS87 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS87 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS87 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS87 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS87      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[87]/LHEweight_wgt[0] ;
@@ -584,9 +584,9 @@ QCD_PDFUnc-RMS88      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS88 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS88 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS88 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS88 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS88 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS88 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS88 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS88 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS88      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[88]/LHEweight_wgt[0] ;
@@ -645,9 +645,9 @@ QCD_PDFUnc-RMS89      : QCD_HT2000toInf         : Xsec*1*btagSF*puRatio*lepSF*Di
 # Single Top
 SingleT_PDFUnc-RMS89 : TToLeptons_sch           : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
 SingleT_PDFUnc-RMS89 : T_tch_powheg             : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS89 : TBar_tch_powheg          : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS89 : TBar_tWch                : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
-SingleT_PDFUnc-RMS89 : T_tWch                   : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS89 : TBar_tch_powheg          : 80.95*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS89 : TBar_tWch                : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
+SingleT_PDFUnc-RMS89 : T_tWch                   : 19.55*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
 
 # Drell-Yan
 #DY_PDFUnc-RMS89      : DYJetsToLL_M50_HT100to200  : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[89]/LHEweight_wgt[0] ;
