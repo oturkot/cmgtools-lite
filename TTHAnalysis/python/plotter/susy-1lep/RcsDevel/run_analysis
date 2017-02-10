@@ -38,8 +38,8 @@ outputdir="${1}"
 # Systematic: dilepton constant
 ./makeBinYields.py \
     --mca ../systs/DLConst/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -48,8 +48,8 @@ outputdir="${1}"
 # Systematic: dilepton slope
 ./makeBinYields.py \
     --mca ../systs/DLSlope/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -58,8 +58,8 @@ outputdir="${1}"
 ## Systematic: JEC
 #./makeBinYields.py \
 #    --mca ../systs/JEC/mca-Summer16_Moriond17.txt \
-#    --systs True \
 #    --grid \
+#    --systs True \
 #    -v 2 \
 #    -l "${lumi}" \
 #    -b \
@@ -68,8 +68,8 @@ outputdir="${1}"
 ## Systematic: PDF
 #./makeBinYields.py \
 #    --mca ../systs/PDFUnc-RMS/mca-Summer16_Moriond17.txt \
-#    --systs True \
 #    --grid \
+#    --systs True \
 #    -v 2 \
 #    -l "${lumi}" \
 #    -b \
@@ -78,8 +78,8 @@ outputdir="${1}"
 ## Systematic: scale match
 #./makeBinYields.py \
 #    --mca ../systs/ScaleMatchVar/mca-Summer16_Moriond17.txt \
-#    --systs True \
 #    --grid \
+#    --systs True \
 #    -v 2 \
 #    -l "${lumi}" \
 #    -b \
@@ -88,8 +88,8 @@ outputdir="${1}"
 # Systematic: W polarization
 ./makeBinYields.py \
     --mca ../systs/Wpol/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -98,8 +98,8 @@ outputdir="${1}"
 # Systematic: W cross section
 ./makeBinYields.py \
     --mca ../systs/Wxsec/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -108,8 +108,8 @@ outputdir="${1}"
 # Systematic: b-tagging
 ./makeBinYields.py \
     --mca ../systs/btag/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -118,8 +118,8 @@ outputdir="${1}"
 # Systematic: lepton SF
 ./makeBinYields.py \
     --mca ../systs/lepSF/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -128,8 +128,8 @@ outputdir="${1}"
 # Systematic: pileup
 ./makeBinYields.py \
     --mca ../systs/pileup/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -138,8 +138,8 @@ outputdir="${1}"
 # Systematic: TTV cross section
 ./makeBinYields.py \
     --mca ../systs/TTVxsec/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -148,8 +148,8 @@ outputdir="${1}"
 # Systematic: TT cross section
 ./makeBinYields.py \
     --mca ../systs/TTxsec/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
@@ -158,9 +158,60 @@ outputdir="${1}"
 # Systematic: nISR reweighting
 ./makeBinYields.py \
     --mca ../systs/nISRreweighting/mca-Summer16_Moriond17.txt \
-    --systs True \
     --grid \
+    --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
     --od "${outputdir}"/nISRreweighting
+
+# Signal systematic: Gluino ISR
+./makeBinYields.py \
+    --mca ../systs/signal/ISR \
+    --signal \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/signal_ISR
+
+# Signal systematic: JEC
+./makeBinYields.py \
+    --mca ../systs/signal/JEC \
+    --signal \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/signal_JEC
+
+# Signal systematic: btag heavy flavour
+./makeBinYields.py \
+    --mca ../systs/signal/btagHF \
+    --signal \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/signal_btagHF
+
+# Signal systematic: btag light flavour
+./makeBinYields.py \
+    --mca ../systs/signal/btagLF \
+    --signal \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/signal_btagLF
+
+# Signal systematic: btag light flavour
+./makeBinYields.py \
+    --mca ../systs/signal/PU \
+    --signal \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/PU
+
