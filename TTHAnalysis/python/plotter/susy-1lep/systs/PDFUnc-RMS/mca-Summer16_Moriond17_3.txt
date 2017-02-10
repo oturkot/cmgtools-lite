@@ -62,6 +62,7 @@ VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
+VV : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 #VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 
 
@@ -122,6 +123,7 @@ VV_PDFUnc-RMS30 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS30 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[30]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS30 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[30]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS30 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[30]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS30 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[30]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS30 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[30]/LHEweight_wgt[0] ;
 
 
@@ -183,6 +185,7 @@ VV_PDFUnc-RMS31 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS31 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[31]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS31 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[31]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS31 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[31]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS31 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[31]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS31 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[31]/LHEweight_wgt[0] ;
 
 
@@ -244,6 +247,7 @@ VV_PDFUnc-RMS32 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS32 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[32]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS32 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[32]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS32 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[32]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS32 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[32]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS32 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[32]/LHEweight_wgt[0] ;
 
 
@@ -305,6 +309,7 @@ VV_PDFUnc-RMS33 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS33 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[33]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS33 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[33]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS33 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[33]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS33 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[33]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS33 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[33]/LHEweight_wgt[0] ;
 
 
@@ -366,6 +371,7 @@ VV_PDFUnc-RMS34 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS34 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[34]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS34 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[34]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS34 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[34]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS34 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[34]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS34 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[34]/LHEweight_wgt[0] ;
 
 
@@ -427,6 +433,7 @@ VV_PDFUnc-RMS35 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS35 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[35]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS35 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[35]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS35 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[35]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS35 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[35]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS35 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[35]/LHEweight_wgt[0] ;
 
 
@@ -488,6 +495,7 @@ VV_PDFUnc-RMS36 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS36 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[36]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS36 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[36]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS36 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[36]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS36 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[36]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS36 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[36]/LHEweight_wgt[0] ;
 
 
@@ -549,6 +557,7 @@ VV_PDFUnc-RMS37 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS37 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[37]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS37 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[37]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS37 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[37]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS37 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[37]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS37 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[37]/LHEweight_wgt[0] ;
 
 
@@ -610,6 +619,7 @@ VV_PDFUnc-RMS38 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS38 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[38]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS38 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[38]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS38 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[38]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS38 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[38]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS38 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[38]/LHEweight_wgt[0] ;
 
 
@@ -671,6 +681,7 @@ VV_PDFUnc-RMS39 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHE
 VV_PDFUnc-RMS39 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[39]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS39 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[39]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS39 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[39]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS39 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[39]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS39 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[39]/LHEweight_wgt[0] ;
 
 

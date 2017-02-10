@@ -77,6 +77,7 @@ VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
+VV : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 #VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ;
 
 """
@@ -143,6 +144,7 @@ VV_PDFUnc-RMS{0} : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LH
 VV_PDFUnc-RMS{0} : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[{0}]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS{0} : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[{0}]/LHEweight_wgt[0] ;
 VV_PDFUnc-RMS{0} : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[{0}]/LHEweight_wgt[0] ;
+VV_PDFUnc-RMS{0} : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[{0}]/LHEweight_wgt[0] ;
 #VV_PDFUnc-RMS{0} : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[{0}]/LHEweight_wgt[0] ;
 
 
