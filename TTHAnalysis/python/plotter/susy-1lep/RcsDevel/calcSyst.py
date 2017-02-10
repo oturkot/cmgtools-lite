@@ -181,13 +181,16 @@ def makeSystHists(fileList):
     #systNames = ["TTVxsec"]
     #systNames = ["lepSF"]
     #systNames = ["JEC"]
-    systNames = ["DLSlope"]
+    #systNames = ["DLSlope"]
     #systNames = ["DLConst"]
     #systNames = ["JER"]
     #systNames = ["Wpol"]
     #systNames = ["btagHF","btagLF"]
     #systNames = ["ISR"]
     #systNames = ["nISRr"]
+    systNames = [pattern[pattern.find('/')+1:pattern.find('/', pattern.find('/')+1)]]
+    if systNames[0] == 'btag':
+        systNames = ['btagHF','btagLF']
 
     #bindirs =  ['SR_MB','CR_MB','SR_SB','CR_SB']
     #bindirs =  ['SR_MB','CR_MB','SR_SB','CR_SB','Kappa','Rcs_MB','Rcs_SB']
