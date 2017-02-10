@@ -74,11 +74,11 @@ if __name__ == "__main__":
 #       # centrPath = "Yields/wData/jecv7_fixSR/lumi2p3fb/allbins/allSF_noPU/merged"; paths.append(centrPath)
         #centrPath = "YieldsJune29/lumi3p99/grid/merged/"; paths.append(centrPath)
 
-        # Add everything
-        paths = glob('{}/*/merged/'.format(pattern))
+        # Add all systematics
+        paths = glob('{}/systs_*/merged/'.format(pattern))
 
         # Remove central values
-        paths = [path for path in paths if (not '/grid/' in path and not 'scan' in path and not 'signal_' in path)]
+        paths.append('{}/grid-dilep'.format(pattern))
 
         for path in paths:
             yds.addFromFiles(path+"LT",("lep","sele"))
@@ -109,10 +109,8 @@ if __name__ == "__main__":
 #    systs = ["Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope","JER","JERYesNo"]
     #systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
 #    systs = ["lepSF"]
-    systs = glob('{}/*'.format(pattern))
-    systs = [syst[len(pattern)+1:] for syst in systs]
-    systs = [syst for syst in systs if (not 'grid' in syst and not 'scan' in syst and not 'btag' in syst)]
-    systs.extend(['btagHF', 'btagLF'])
+    systs = glob('{}/syst_*'.format(pattern))
+    systs = [syst[syst.find('syst_')+5:] for syst in systs]
 
     systNames = {
         "btagLF" : "b-mistag (light)",

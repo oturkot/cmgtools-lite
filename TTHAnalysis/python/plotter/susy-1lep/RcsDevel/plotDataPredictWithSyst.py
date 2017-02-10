@@ -94,11 +94,8 @@ if __name__ == "__main__":
         #btagPath = "Yields/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
         #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
 
-        # Add everything
-        paths = glob('{}/*/merged/'.format(pattern))
-
-        # Remove central values
-        paths = [path for path in paths if (not 'grid' in path and not 'scan' in path and not 'signal_' in path)]
+        # Add all systematics
+        paths = glob('{}/systs_*/merged/'.format(pattern))
 
         for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 
@@ -115,10 +112,8 @@ if __name__ == "__main__":
 #    systs = ["Wxsec","PU","JEC","btagHF","btagLF","topPt"]
 #    systs = ["Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope","JER"]
     #systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
-    systs = glob('{}/*'.format(pattern))
-    systs = [syst[len(pattern)+1:] for syst in systs]
-    systs = [syst for syst in systs if (not 'grid' in syst and not 'scan' in syst and not 'btag' in syst)]
-    systs.extend(['btagHF', 'btagLF'])
+    systs = glob('{}/syst_*'.format(pattern))
+    systs = [syst[syst.find('syst_')+5:] for syst in systs]
 
     # Kappa systematics
     samp = "EWK";    var = "Kappa"

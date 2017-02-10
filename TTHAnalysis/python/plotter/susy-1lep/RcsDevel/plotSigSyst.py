@@ -59,7 +59,7 @@ if __name__ == "__main__":
         ## for central values
         #normPath  = "Yields/signal/fixSR/lumi2p3fb/jPt3TeV/merged/"; paths.append(normPath)
 
-        # Add everything
+        # Add all signal systematics
         paths = glob('{}/signal_*/merged/'.format(pattern))
 
         # Add central value
@@ -88,8 +88,7 @@ if __name__ == "__main__":
 #    systs = ["ISR"]
 #    systs = ["btagHF","btagLF","PU"]
     systs = glob('{}/signal_*'.format(pattern))
-    systs = [syst[len(pattern)+1:] for syst in systs]
-    systs = [syst for syst in systs if (not 'grid' in syst and not 'scan' in syst)]
+    systs = [syst[syst.find('signal_')+7:] for syst in systs]
 
     systNames = {
         "btagLF" : "b-mistag (light)",

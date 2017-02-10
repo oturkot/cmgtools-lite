@@ -43,7 +43,7 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/DLConst
+    --od "${outputdir}"/syst_DLConst
 
 # Systematic: dilepton slope
 ./makeBinYields.py \
@@ -53,7 +53,7 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/DLSlope
+    --od "${outputdir}"/syst_DLSlope
 
 ## Systematic: JEC
 #./makeBinYields.py \
@@ -63,7 +63,7 @@ outputdir="${1}"
 #    -v 2 \
 #    -l "${lumi}" \
 #    -b \
-#    --od "${outputdir}"/JEC
+#    --od "${outputdir}"/syst_JEC
 
 ## Systematic: PDF
 #./makeBinYields.py \
@@ -73,7 +73,7 @@ outputdir="${1}"
 #    -v 2 \
 #    -l "${lumi}" \
 #    -b \
-#    --od "${outputdir}"/PDFUnc-RMS
+#    --od "${outputdir}"/syst_PDFUnc-RMS
 
 ## Systematic: scale match
 #./makeBinYields.py \
@@ -83,7 +83,7 @@ outputdir="${1}"
 #    -v 2 \
 #    -l "${lumi}" \
 #    -b \
-#    --od "${outputdir}"/ScaleMatchVar
+#    --od "${outputdir}"/syst_ScaleMatchVar
 
 # Systematic: W polarization
 ./makeBinYields.py \
@@ -93,7 +93,7 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/Wpol
+    --od "${outputdir}"/syst_Wpol
 
 # Systematic: W cross section
 ./makeBinYields.py \
@@ -103,7 +103,7 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/Wxsec
+    --od "${outputdir}"/syst_Wxsec
 
 # Systematic: b-tagging
 ./makeBinYields.py \
@@ -113,7 +113,7 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/btag
+    --od "${outputdir}"/syst_btag
 
 # Systematic: lepton SF
 ./makeBinYields.py \
@@ -123,17 +123,17 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/lepSF
+    --od "${outputdir}"/syst_lepSF
 
 # Systematic: pileup
 ./makeBinYields.py \
-    --mca ../systs/pileup/mca-Summer16_Moriond17.txt \
+    --mca ../systs/PU/mca-Summer16_Moriond17.txt \
     --grid \
     --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/pileup
+    --od "${outputdir}"/syst_PU
 
 # Systematic: TTV cross section
 ./makeBinYields.py \
@@ -143,7 +143,7 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/TTVxsec
+    --od "${outputdir}"/syst_TTVxsec
 
 # Systematic: TT cross section
 ./makeBinYields.py \
@@ -153,17 +153,17 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/TTxsec
+    --od "${outputdir}"/syst_TTxsec
 
 # Systematic: nISR reweighting
 ./makeBinYields.py \
-    --mca ../systs/nISRreweighting/mca-Summer16_Moriond17.txt \
+    --mca ../systs/nISR/mca-Summer16_Moriond17.txt \
     --grid \
     --systs True \
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/nISRreweighting
+    --od "${outputdir}"/syst_nISR
 
 # Signal systematic: Gluino ISR
 ./makeBinYields.py \
@@ -213,5 +213,5 @@ outputdir="${1}"
     -v 2 \
     -l "${lumi}" \
     -b \
-    --od "${outputdir}"/PU
+    --od "${outputdir}"/signal_PU
 
