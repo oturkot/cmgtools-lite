@@ -26,6 +26,15 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/grid
 
+# Background with dilepton nJet correction
+./makeBinYields.py \
+    --mca mca/mca-Summer16_Moriond17_dilep-corr.txt \
+    --grid \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/grid-dilep
+
 # Systematic: dilepton constant
 ./makeBinYields.py \
     --mca ../systs/DLConst/mca-Summer16_Moriond17.txt \
