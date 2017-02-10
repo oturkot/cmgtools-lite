@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys,os
+from glob import glob
 
 #from makeYieldPlots import *
 import makeYieldPlots as yp
@@ -50,31 +51,37 @@ if __name__ == "__main__":
 
         # Define storage
         yds = yp.YieldStore("Sele")
-        paths = []
+        #paths = []
 
-        # Add files
-        tptPath = "Yields2015Uncert/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
-        puPath = "Yields2015Uncert/systs/PU/MC/allSF/meth1A/merged/"; paths.append(puPath)
-        wxsecPath = "Yields2015Uncert/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
-        ttvxsecPath = "Yields2015Uncert/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
-        wpolPath = "Yields2015Uncert/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
-        dlConstPath = "Yields2015Uncert/systs/DLConst/merged/"; paths.append(dlConstPath)
-        dlSlopePath = "Yields2015Uncert/systs/DLSlope/merged/"; paths.append(dlSlopePath)
-        jerPath = "Yields2015Uncert/systs/JER/merged/"; paths.append(jerPath)
-        jerNoPath = "Yields2015Uncert/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
-        #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
-        jecPath = "Yields2015Uncert/systs/JEC/MC/allSF_noPU_fixLT/meth1A/merged/"; paths.append(jecPath)
-        btagPath = "Yields2015Uncert/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
-#        dlScaleMatchVarPath = "lumi22fb_DlMakeBinYields/ScaleMatchVar/merged"; paths.append(dlScaleMatchVarPath)
-#        dlPDFUncPath = "lumi22fb_DlMakeBinYields/PDFUnc-RMS/merged"; paths.append(dlPDFUncPath)
-        # lep SF unct < 1%
-        #paths = ["Yields/systs/lepSF/test/allSF_noPU/merged_main/"]
-        # central value
-#        centrPath = "Yields/wData/jecv7_fixSR/lumi2p3fb/allbins/allSF_noPU/merged"; paths.append(centrPath)
-        centrPath = "YieldsJune29/lumi3p99/grid/merged/"; paths.append(centrPath)
+        ## Add files
+        #tptPath = "Yields2015Uncert/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
+        #puPath = "Yields2015Uncert/systs/PU/MC/allSF/meth1A/merged/"; paths.append(puPath)
+        #wxsecPath = "Yields2015Uncert/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
+        #ttvxsecPath = "Yields2015Uncert/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
+        #wpolPath = "Yields2015Uncert/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
+        #dlConstPath = "Yields2015Uncert/systs/DLConst/merged/"; paths.append(dlConstPath)
+        #dlSlopePath = "Yields2015Uncert/systs/DLSlope/merged/"; paths.append(dlSlopePath)
+        #jerPath = "Yields2015Uncert/systs/JER/merged/"; paths.append(jerPath)
+        #jerNoPath = "Yields2015Uncert/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
+        ##jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
+        #jecPath = "Yields2015Uncert/systs/JEC/MC/allSF_noPU_fixLT/meth1A/merged/"; paths.append(jecPath)
+        #btagPath = "Yields2015Uncert/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
+#       # dlScaleMatchVarPath = "lumi22fb_DlMakeBinYields/ScaleMatchVar/merged"; paths.append(dlScaleMatchVarPath)
+#       # dlPDFUncPath = "lumi22fb_DlMakeBinYields/PDFUnc-RMS/merged"; paths.append(dlPDFUncPath)
+        ## lep SF unct < 1%
+        ##paths = ["Yields/systs/lepSF/test/allSF_noPU/merged_main/"]
+        ## central value
+#       # centrPath = "Yields/wData/jecv7_fixSR/lumi2p3fb/allbins/allSF_noPU/merged"; paths.append(centrPath)
+        #centrPath = "YieldsJune29/lumi3p99/grid/merged/"; paths.append(centrPath)
+
+        # Add everything
+        paths = glob('{}/*/merged/'.format(pattern))
+
+        # Remove central values
+        paths = [path for path in paths if (not '/grid/' in path and not 'scan' in path)]
 
         for path in paths:
-            yds.addFromFiles(path+"/"+basename,("lep","sele"))
+            yds.addFromFiles(path+"LT",("lep","sele"))
 
         yds.showStats()
 
@@ -100,8 +107,12 @@ if __name__ == "__main__":
 #    systs = ["Wpol","Wxsec"]
 #    systs = ["ScaleMatchVar-Env","PDFUnc-RMS"]
 #    systs = ["Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope","JER","JERYesNo"]
-    systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
+    #systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
 #    systs = ["lepSF"]
+    systs = glob('{}/*'.format(pattern))
+    systs = [syst[len(pattern)+1:] for syst in systs]
+    systs = [syst for syst in systs if (not 'grid' in syst and not 'scan' in syst and not 'btag' in syst)]
+    systs.extend(['btagHF', 'btagLF'])
 
     systNames = {
         "btagLF" : "b-mistag (light)",
@@ -112,6 +123,7 @@ if __name__ == "__main__":
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
         "TTVxsec" : "t#bar{t}V x-sec",
+        "TTVxsec" : "t#bar{t} x-sec",
         "Wpol" : "W polar.",
         "JER" : "JER",
         "JERYesNo" : "JER Yes/No",
@@ -119,6 +131,8 @@ if __name__ == "__main__":
         "DLSlope" : "N_{j} Slope",
         #"DLConst" : "DiLep (N_{j} Const)",
         "DLConst" : "N_{j} Offset",
+        "lepSF" : "lepton SF",
+        "nISR" : "nISR rew.",
         }
 
 

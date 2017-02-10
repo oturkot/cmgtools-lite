@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
     ## Create Yield Storage
     yds = yp.YieldStore("lepYields")
-    yds.addFromFiles(pattern,("lep","sele"))
+    yds.addFromFiles('{}/grid-dilep/merged/LT'.format(pattern), ("lep","sele"))
     yds.showStats()
 
     mcSamps = ['DY','TTV','SingleT','WJets','TTsemiLep','TTdiLep']
