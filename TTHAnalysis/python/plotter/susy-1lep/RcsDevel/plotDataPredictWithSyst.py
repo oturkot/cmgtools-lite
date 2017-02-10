@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
         # Define storage
         ydsSyst = yp.YieldStore("Sele")
-        paths = []
+        #paths = []
 
         # Add files
         #tptPath = "Yields/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
@@ -87,18 +87,18 @@ if __name__ == "__main__":
         #wxsecPath = "Yields/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
         #ttvxsecPath = "Yields/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
         #wpolPath = "Yields/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
-        dlConstPath = "makeBinYields11_all-singleT-fixed/DLConst/merged/"; paths.append(dlConstPath)
-        dlSlopePath = "makeBinYields11_all-singleT-fixed/DLSlope/merged/"; paths.append(dlSlopePath)
+        #dlConstPath = "Yields/systs/DLConst/merged/"; paths.append(dlConstPath)
+        #dlSlopePath = "Yields/systs/DLSlope/merged/"; paths.append(dlSlopePath)
         #jerPath = "Yields/systs/JER/merged/"; paths.append(jerPath)
         #jerNoPath = "Yields/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
         #btagPath = "Yields/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
         #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
 
         # Add everything
-        #paths = glob('{}/*/merged/'.format(pattern))
+        paths = glob('{}/*/merged/'.format(pattern))
 
         # Remove central values
-        #paths = [path for path in paths if (not 'grid' in path and not 'scan' in path)]
+        paths = [path for path in paths if (not 'grid' in path and not 'scan' in path)]
 
         for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 
