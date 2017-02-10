@@ -1,11 +1,11 @@
 # Select events with exactly one lepton
 1 hard lep: nLep == 1 && Lep_pt > 25
 
-# Veto events with additional leptons
-No veto lep: nVeto == 0
-
 # Lepton needs to be selected
 Selected: Selected == 1
+
+# Veto events with additional leptons
+No veto lep: nVeto == 0
 
 # Fire at least one trigger
 Trigger: !isData || (HLT_EleOR || HLT_MuOR || HLT_MetOR)
