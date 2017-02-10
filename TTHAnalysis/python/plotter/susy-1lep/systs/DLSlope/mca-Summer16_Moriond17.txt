@@ -57,6 +57,7 @@ VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT
 VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -117,6 +118,7 @@ VV_DLSlope-Up : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*Dilep
 VV_DLSlope-Up : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_DLSlope-Up : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_DLSlope-Up : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_DLSlope-Up : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_DLSlope-Up : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeUp ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -177,4 +179,5 @@ VV_DLSlope-Down : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*Dil
 VV_DLSlope-Down : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_DLSlope-Down : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_DLSlope-Down : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_DLSlope-Down : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_DLSlope-Down : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*DilepNJetWeightSlopeDn ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"

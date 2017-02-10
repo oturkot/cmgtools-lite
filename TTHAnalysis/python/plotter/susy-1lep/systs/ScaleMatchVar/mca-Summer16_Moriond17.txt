@@ -57,6 +57,7 @@ VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT
 VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -117,6 +118,7 @@ VV_ScaleMatchVar-Env1 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env1 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env1 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env1 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env1 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env1 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[1]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -177,6 +179,7 @@ VV_ScaleMatchVar-Env2 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env2 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env2 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env2 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env2 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env2 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[2]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -237,6 +240,7 @@ VV_ScaleMatchVar-Env3 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env3 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env3 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env3 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env3 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env3 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[3]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -297,6 +301,7 @@ VV_ScaleMatchVar-Env4 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env4 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env4 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env4 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env4 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env4 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[4]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -357,6 +362,7 @@ VV_ScaleMatchVar-Env5 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env5 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env5 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env5 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env5 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env5 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[5]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -417,6 +423,7 @@ VV_ScaleMatchVar-Env6 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env6 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env6 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env6 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env6 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env6 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[6]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -477,6 +484,7 @@ VV_ScaleMatchVar-Env7 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env7 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env7 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env7 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env7 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env7 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[7]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -537,4 +545,5 @@ VV_ScaleMatchVar-Env8 : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCo
 VV_ScaleMatchVar-Env8 : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env8 : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_ScaleMatchVar-Env8 : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_ScaleMatchVar-Env8 : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_ScaleMatchVar-Env8 : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr*LHEweight_wgt[8]/LHEweight_wgt[0] ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"

@@ -57,6 +57,7 @@ VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT
 VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -117,6 +118,7 @@ VV_btagHF-Up : WZTo1L1Nu2Q    : Xsec*1*btagSF_b_up*puRatio*lepSF*DilepNJetCorr ;
 VV_btagHF-Up : WZTo1L3Nu      : Xsec*1*btagSF_b_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagHF-Up : WZTo2L2Q       : Xsec*1*btagSF_b_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagHF-Up : ZZTo2L2Nu      : Xsec*1*btagSF_b_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_btagHF-Up : ZZTo2L2Q       : Xsec*1*btagSF_b_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_btagHF-Up : ZZTo2Q2Nu      : Xsec*1*btagSF_b_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -177,6 +179,7 @@ VV_btagHF-Down : WZTo1L1Nu2Q    : Xsec*1*btagSF_b_down*puRatio*lepSF*DilepNJetCo
 VV_btagHF-Down : WZTo1L3Nu      : Xsec*1*btagSF_b_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagHF-Down : WZTo2L2Q       : Xsec*1*btagSF_b_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagHF-Down : ZZTo2L2Nu      : Xsec*1*btagSF_b_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_btagHF-Down : ZZTo2L2Q       : Xsec*1*btagSF_b_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_btagHF-Down : ZZTo2Q2Nu      : Xsec*1*btagSF_b_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -237,6 +240,7 @@ VV_btagLF-Up : WZTo1L1Nu2Q    : Xsec*1*btagSF_l_up*puRatio*lepSF*DilepNJetCorr ;
 VV_btagLF-Up : WZTo1L3Nu      : Xsec*1*btagSF_l_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagLF-Up : WZTo2L2Q       : Xsec*1*btagSF_l_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagLF-Up : ZZTo2L2Nu      : Xsec*1*btagSF_l_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_btagLF-Up : ZZTo2L2Q       : Xsec*1*btagSF_l_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_btagLF-Up : ZZTo2Q2Nu      : Xsec*1*btagSF_l_up*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -297,4 +301,5 @@ VV_btagLF-Down : WZTo1L1Nu2Q    : Xsec*1*btagSF_l_down*puRatio*lepSF*DilepNJetCo
 VV_btagLF-Down : WZTo1L3Nu      : Xsec*1*btagSF_l_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagLF-Down : WZTo2L2Q       : Xsec*1*btagSF_l_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_btagLF-Down : ZZTo2L2Nu      : Xsec*1*btagSF_l_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_btagLF-Down : ZZTo2L2Q       : Xsec*1*btagSF_l_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_btagLF-Down : ZZTo2Q2Nu      : Xsec*1*btagSF_l_down*puRatio*lepSF*DilepNJetCorr ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"

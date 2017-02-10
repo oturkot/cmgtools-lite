@@ -57,6 +57,7 @@ VV : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*DilepNJetCorr*lepSF ; FillColor=ROOT
 VV : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : WZTo2L2Q       : Xsec*1*btagSF*puRatio*DilepNJetCorr*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*DilepNJetCorr*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*lepSF ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -117,6 +118,7 @@ VV_lepSF-Up : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF+lepSFe
 VV_lepSF-Up : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF+lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_lepSF-Up : WZTo2L2Q       : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF+lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_lepSF-Up : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF+lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_lepSF-Up : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF+lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_lepSF-Up : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF+lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 
 
@@ -177,4 +179,5 @@ VV_lepSF-Down : WZTo1L1Nu2Q    : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF-lepS
 VV_lepSF-Down : WZTo1L3Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF-lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_lepSF-Down : WZTo2L2Q       : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF-lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 VV_lepSF-Down : ZZTo2L2Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF-lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
+VV_lepSF-Down : ZZTo2L2Q       : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF-lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
 #VV_lepSF-Down : ZZTo2Q2Nu      : Xsec*1*btagSF*puRatio*DilepNJetCorr*(lepSF-lepSFerr) ; FillColor=ROOT.kRed+3, Label="VV(W/Z/H)"
