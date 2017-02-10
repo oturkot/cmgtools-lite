@@ -78,7 +78,7 @@ if __name__ == "__main__":
         paths = glob('{}/*/merged/'.format(pattern))
 
         # Remove central values
-        paths = [path for path in paths if (not '/grid/' in path and not 'scan' in path)]
+        paths = [path for path in paths if (not '/grid/' in path and not 'scan' in path and not 'signal_' in path)]
 
         for path in paths:
             yds.addFromFiles(path+"LT",("lep","sele"))
@@ -117,13 +117,14 @@ if __name__ == "__main__":
     systNames = {
         "btagLF" : "b-mistag (light)",
         "btagHF" : "b-tag (b/c)",
-        "JEC" : "JES",
+        "JEC" : "JEC",
         "topPt" : "Top p_{T}",
-        "PU" : "Pileup",
+        "PU" : "PU",
+        "ISR": "ISR",
+        "Scale-Env": "Scale",
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
-        "TTVxsec" : "t#bar{t}V x-sec",
-        "TTVxsec" : "t#bar{t} x-sec",
+        "TTVxsec" : "TTV x-sec",
         "Wpol" : "W polar.",
         "JER" : "JER",
         "JERYesNo" : "JER Yes/No",
@@ -131,9 +132,13 @@ if __name__ == "__main__":
         "DLSlope" : "N_{j} Slope",
         #"DLConst" : "DiLep (N_{j} Const)",
         "DLConst" : "N_{j} Offset",
-        "lepSF" : "lepton SF",
+        "lumi" : "Lumi.",
+        "trig" : "Trigger",
+        "lepSF": "Lepton SF",
+        "stat": "Stat.",
         "nISR" : "nISR rew.",
         }
+
 
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)

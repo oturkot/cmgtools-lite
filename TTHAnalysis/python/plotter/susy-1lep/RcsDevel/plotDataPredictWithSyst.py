@@ -98,7 +98,7 @@ if __name__ == "__main__":
         paths = glob('{}/*/merged/'.format(pattern))
 
         # Remove central values
-        paths = [path for path in paths if (not 'grid' in path and not 'scan' in path)]
+        paths = [path for path in paths if (not 'grid' in path and not 'scan' in path and not 'signal_' in path)]
 
         for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 

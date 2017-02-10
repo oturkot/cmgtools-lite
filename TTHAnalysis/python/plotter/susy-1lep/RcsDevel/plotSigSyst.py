@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys,os
+from glob import glob
 
 #from makeYieldPlots import *
 import makeYieldPlots as yp
@@ -10,7 +11,7 @@ yp._alpha = 0.8
 
 if __name__ == "__main__":
 
-    yp.CMS_lumi.lumi_13TeV = str(12.9) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(36.5) + " fb^{-1}"
     #yp.CMS_lumi.lumi_13TeV = "MC"
     yp.CMS_lumi.extraText = "Simulation"
 
@@ -47,16 +48,22 @@ if __name__ == "__main__":
 
         # Define storage
         yds = yp.YieldStore("Sele")
-        paths = []
+        #paths = []
 
-        # Add files
-        scalePath  = "Yields/signal/systs/scale/T1tttt/normScale2/allSF_noPU/meth1A/merged/"; paths.append(scalePath)
-        isrPath  = "Yields/signal/systs/ISR/T1tttt/allSF_noPU_v2/meth1A/merged/"; paths.append(isrPath)
-        puPath   = "Yields/signal/systs/pileup/T1tttt/allSF_noPU_fix/meth1A/merged/"; paths.append(puPath)
-        btagPath = "Yields/signal/systs/btag/T1tttt/allSF_noPU_fixLepSF/meth1A/merged/"; paths.append(btagPath)
-        jecPath  = "Yields/signal/systs/JEC/allSF_noSF/merged/"; paths.append(jecPath)
-        # for central values
-        normPath  = "Yields/signal/fixSR/lumi2p3fb/jPt3TeV/merged/"; paths.append(normPath)
+        ## Add files
+        #scalePath  = "Yields/signal/systs/scale/T1tttt/normScale2/allSF_noPU/meth1A/merged/"; paths.append(scalePath)
+        #isrPath  = "Yields/signal/systs/ISR/T1tttt/allSF_noPU_v2/meth1A/merged/"; paths.append(isrPath)
+        #puPath   = "Yields/signal/systs/pileup/T1tttt/allSF_noPU_fix/meth1A/merged/"; paths.append(puPath)
+        #btagPath = "Yields/signal/systs/btag/T1tttt/allSF_noPU_fixLepSF/meth1A/merged/"; paths.append(btagPath)
+        #jecPath  = "Yields/signal/systs/JEC/allSF_noSF/merged/"; paths.append(jecPath)
+        ## for central values
+        #normPath  = "Yields/signal/fixSR/lumi2p3fb/jPt3TeV/merged/"; paths.append(normPath)
+
+        # Add everything
+        paths = glob('{}/signal_*/merged/'.format(pattern))
+
+        # Add central value
+        paths.append('{}/scan/merged/'.format(pattern))
 
         for path in paths:
             yds.addFromFiles(path+basename,("lep","sele"))
@@ -75,11 +82,14 @@ if __name__ == "__main__":
     ## Sys types
 #    systs = ["btagHF","btagLF"]
 #    systs = ["PU","btagLF","btagHF","ISR","JEC"]
-    systs = ["Scale-Env","PU","btagLF","btagHF","ISR","JEC"]
+    #systs = ["Scale-Env","PU","btagLF","btagHF","ISR","JEC"]
 #    systs = ["btagLF","btagHF","ISR","JEC","PU","Scale-Env"]
 #    systs = ["Scale-Env"]
 #    systs = ["ISR"]
 #    systs = ["btagHF","btagLF","PU"]
+    systs = glob('{}/signal_*'.format(pattern))
+    systs = [syst[len(pattern)+1:] for syst in systs]
+    systs = [syst for syst in systs if (not 'grid' in syst and not 'scan' in syst)]
 
     systNames = {
         "btagLF" : "b-mistag (light)",
@@ -103,6 +113,7 @@ if __name__ == "__main__":
         "trig" : "Trigger",
         "lepSF": "Lepton SF",
         "stat": "Stat.",
+        "nISR" : "nISR rew.",
         }
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)
