@@ -95,7 +95,7 @@ if __name__ == "__main__":
         #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
 
         # Add all systematics
-        paths = glob('{}/systs_*/merged/'.format(pattern))
+        paths = glob('{}/syst_*/merged/'.format(pattern))
 
         for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 
