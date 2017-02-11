@@ -64,7 +64,7 @@ if __name__ == "__main__":
     #a = "Moriond17_Spring16_RealnISRWeight_IsoTrack_5p2_RunGgeq279931/*/"
     #a = "Moriond17_Spring16_All_Jan15/*/"
     #a = 'makeBinYields05/*/'
-    a = pattern
+    a = '{}/*/'.format(pattern)
 
     b = a + 'merged/LT'
     btagMethod = ""

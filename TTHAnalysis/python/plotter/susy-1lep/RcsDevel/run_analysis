@@ -177,7 +177,7 @@ outputdir="${1}"
 
 # Signal systematic: Gluino ISR
 ./makeBinYields.py \
-    --mca ../systs/signal/ISR \
+    --mca ../systs/signal/ISR/mca-Spring16_Signal_forMoriond17.txt \
     --signal \
     --systs True \
     -v 2 \
@@ -185,19 +185,19 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/signal_ISR
 
-# Signal systematic: JEC
-./makeBinYields.py \
-    --mca ../systs/signal/JEC \
-    --signal \
-    --systs True \
-    -v 2 \
-    -l "${lumi}" \
-    -b \
-    --od "${outputdir}"/signal_JEC
+## Signal systematic: JEC
+#./makeBinYields.py \
+#    --mca ../systs/signal/JEC/mca-Spring16_Signal_forMoriond17.txt  \
+#    --signal \
+#    --systs True \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/signal_JEC
 
 # Signal systematic: btag heavy flavour
 ./makeBinYields.py \
-    --mca ../systs/signal/btagHF \
+    --mca ../systs/signal/btagHF/mca-Spring16_Signal_forMoriond17.txt  \
     --signal \
     --systs True \
     -v 2 \
@@ -207,7 +207,7 @@ outputdir="${1}"
 
 # Signal systematic: btag light flavour
 ./makeBinYields.py \
-    --mca ../systs/signal/btagLF \
+    --mca ../systs/signal/btagLF/mca-Spring16_Signal_forMoriond17.txt  \
     --signal \
     --systs True \
     -v 2 \
@@ -217,7 +217,7 @@ outputdir="${1}"
 
 # Signal systematic: btag light flavour
 ./makeBinYields.py \
-    --mca ../systs/signal/PU \
+    --mca ../systs/signal/PU/mca-Spring16_Signal_forMoriond17.txt  \
     --signal \
     --systs True \
     -v 2 \
