@@ -297,7 +297,8 @@ def replaceEmptyDataBinsWithMC(fileList):
 
 def blindDataBins(fileList):
     # hists to make QCD estimation
-    bindirs =  ['SR_MB']
+    #bindirs =  ['SR_MB']
+    bindirs =  []
     print ''
     print "Replacing empty data bins with MC for CR_MB, SR_SB, CR_SB, 100% error"
     for fname in fileList:
