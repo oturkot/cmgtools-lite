@@ -18,7 +18,7 @@ exec 2>&1
 inputfolder="${1%/}"
 
 # Remove pickle files (is this a good idea?)
-rm -rf pickles
+#rm -rf pickles
 
 # Create necessary folders
 mkdir -p pickles BinPlots FracPlots FracPlots_TT RCSplots
