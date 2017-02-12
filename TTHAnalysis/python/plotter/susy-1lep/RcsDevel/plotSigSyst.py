@@ -66,7 +66,7 @@ if __name__ == "__main__":
         paths.append('{}/scan/merged/'.format(pattern))
 
         for path in paths:
-            yds.addFromFiles(path+basename,("lep","sele"))
+            yds.addFromFiles(path+"LT",("lep","sele"))
             #print yds.bins
 
         print "#Saving yields to pickle:", pckname

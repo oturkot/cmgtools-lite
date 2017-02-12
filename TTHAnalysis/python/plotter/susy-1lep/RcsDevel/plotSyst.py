@@ -36,7 +36,7 @@ if __name__ == "__main__":
     ## Store dict in pickle file
     storeDict = True
     pckname = "pickles/bkgSysts_fixSR_"+mask+".pck"
-    print pckname
+    print 'pickle name is {}'.format(pckname)
     if storeDict == True and os.path.exists(pckname):
 
         print "#Loading saved yields from pickle!"
@@ -75,11 +75,12 @@ if __name__ == "__main__":
         #centrPath = "YieldsJune29/lumi3p99/grid/merged/"; paths.append(centrPath)
 
         # Add all systematics
-        paths = glob('{}/systs_*/merged/'.format(pattern))
+        paths = glob('{}/syst_*/merged/'.format(pattern))
 
-        # Remove central values
-        paths.append('{}/grid-dilep'.format(pattern))
+        # Add central value
+        paths.append('{}/grid-dilep/merged/'.format(pattern))
 
+        print 'paths', paths
         for path in paths:
             yds.addFromFiles(path+"LT",("lep","sele"))
 
