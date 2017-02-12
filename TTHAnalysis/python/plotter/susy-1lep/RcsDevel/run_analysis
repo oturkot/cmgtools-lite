@@ -215,13 +215,13 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/signal_btagLF
 
-# Signal systematic: btag light flavour
-./makeBinYields.py \
-    --mca ../systs/signal/PU/mca-Spring16_Signal_forMoriond17.txt  \
-    --signal \
-    --systs True \
-    -v 2 \
-    -l "${lumi}" \
-    -b \
-    --od "${outputdir}"/signal_PU
+## Signal systematic: pileup
+#./makeBinYields.py \
+#    --mca ../systs/signal/PU/mca-Spring16_Signal_forMoriond17.txt  \
+#    --signal \
+#    --systs True \
+#    -v 2 \
+#    -l "${lumi}" \
+#    -b \
+#    --od "${outputdir}"/signal_PU
 
