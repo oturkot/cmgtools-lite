@@ -72,11 +72,11 @@ done
 
 # Plot with uncertainties with kappa in the bottom panel
 echo Run plotSyst.py
-python -b plotSyst.py "${inputfolder}"
+./plotSyst.py -b "${inputfolder}"
 
 # Plot signal uncertainties with yields in bottom panel
 echo Run plotSigSyst.py
-python -b plotSigSyst.py "${inputfolder}"
+./plotSigSyst.py -b "${inputfolder}"
 
 # Compare something
 #python plotCompare.py LT
