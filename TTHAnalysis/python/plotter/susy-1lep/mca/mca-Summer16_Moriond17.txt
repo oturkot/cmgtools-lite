@@ -1,12 +1,12 @@
 # MCA file for Summer16 samples
 
 # Signal
-T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : 10*susyXsec*10201737/susyNgen*btagSF*puRatio*lepSF : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
-T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : 10*susyXsec*10318820/susyNgen*btagSF*puRatio*lepSF : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
-T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : 10*susyXsec*10091667/susyNgen*btagSF*puRatio*lepSF : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
-T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : 10*susyXsec*10201737/susyNgen*btagSF*puRatio*lepSF : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
-T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : 10*susyXsec*10318820/susyNgen*btagSF*puRatio*lepSF : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
-T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : 10*susyXsec*10091667/susyNgen*btagSF*puRatio*lepSF : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
+T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : 10*susyXsec*10201737/susyNgen*nISRweight*btagSF*puRatio*lepSF : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
+T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : 10*susyXsec*10318820/susyNgen*nISRweight*btagSF*puRatio*lepSF : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
+T1tttt_1200_800+   : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : 10*susyXsec*10091667/susyNgen*nISRweight*btagSF*puRatio*lepSF : mGo == 1200 && mLSP == 800 ; FillColor=ROOT.kBlack, Label="x10 T1t^{4} 1.2/0.8"
+T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : 10*susyXsec*10201737/susyNgen*nISRweight*btagSF*puRatio*lepSF : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
+T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : 10*susyXsec*10318820/susyNgen*nISRweight*btagSF*puRatio*lepSF : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
+T1tttt_1800_100+   : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : 10*susyXsec*10091667/susyNgen*nISRweight*btagSF*puRatio*lepSF : mGo == 1800 && mLSP == 100 ; FillColor=ROOT.kMagenta, Label="x10 T1t^{4} 1.8/0.1"
 
 # Dileptonic ttbar
 TTdiLep            : TTJets_DiLepton             : Xsec*1*btagSF*nISRttweight*puRatio*lepSF : lheHTIncoming <= 600; FillColor=ROOT.kBlue, Label="t\#bar{t} ll + jets"

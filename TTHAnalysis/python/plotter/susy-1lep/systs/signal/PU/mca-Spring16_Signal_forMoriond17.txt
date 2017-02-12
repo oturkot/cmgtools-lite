@@ -1,17 +1,17 @@
 # Nominal
 
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen;
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen;
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen;
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*nISRweight;
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*nISRweight;
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*nISRweight;
 
 # Pileup variation up
 
-T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*puRatio_up;
-T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*puRatio_up;
-T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*puRatio_up;
+T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*nISRweight*puRatio_up;
+T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*nISRweight*puRatio_up;
+T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*nISRweight*puRatio_up;
 
 # Pileup variation down
 
-T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*puRatio_down;
-T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*puRatio_down;
-T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*puRatio_down;
+T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*nISRweight*puRatio_down;
+T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*nISRweight*puRatio_down;
+T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*nISRweight*puRatio_down;
