@@ -50,6 +50,10 @@ for folder in "${inputfolder}"/*/merged*; do
     ./calcSyst.py "${folder}"
 done
 
+# Write table with systematic variations that is used by makeYieldTables.py
+echo Run tableSyst.py
+./tableSyst.py "${inputfolder}"
+
 # Write tables
 echo Run makeYieldTables.py
 ./makeYieldTables.py "${inputfolder}"
