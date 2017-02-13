@@ -101,6 +101,7 @@ if __name__ == "__main__":
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
         "TTVxsec" : "TTV x-sec",
+        "TTxsec" : "t#bar{t} x-sec",
         "Wpol" : "W polar.",
         "JER" : "JER",
         "JERYesNo" : "JER Yes/No",
