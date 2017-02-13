@@ -160,7 +160,7 @@ if __name__ == "__main__":
         ### Add flat systs (lumi, lepSF, triggEff, etc.)
         #flats["stat"] = 0.1
         flats["lepSF"] = 0.05
-        flats["lumi"] = 0.027
+        flats["lumi"] = 0.026
         flats["trig"] = 0.01
         #flats = {}
 
