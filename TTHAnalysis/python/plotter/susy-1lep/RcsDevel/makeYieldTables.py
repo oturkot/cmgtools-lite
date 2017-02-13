@@ -193,7 +193,7 @@ if __name__ == "__main__":
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
     caption =' Test of the background prediction method using the exclusive 4 jet category as a side band to predict the expected number of events in the signal regin of an exclusive 5 jet main band.'
     printLatexHeader(len(samps), f,caption,1)
-    yds5.printLatexTable(samps, printSamps, label,f, doSys)
+    yds5.printLatexTable(samps, printSamps, label,f, False)
     printLatexFooter(f, 1)
     f.close()
 
@@ -226,9 +226,9 @@ if __name__ == "__main__":
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
     printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat)', 'data 68j, SR']
-    ydsFew6.printLatexTable(samps, printSamps, label,f, doSys)
+    ydsFew6.printLatexTable(samps, printSamps, label,f, False)
     printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
-    ydsFew9.printLatexTable(samps, printSamps, label, f, doSys)
+    ydsFew9.printLatexTable(samps, printSamps, label, f, False)
     printLatexFooter(f, 1)
     f.close()
 
@@ -240,9 +240,9 @@ if __name__ == "__main__":
     samps = [('EWK','SR_MB'),('T1tttt_Scan_mGo1800_mLSP100','SR_MB'),('T1tttt_Scan_mGo1300_mLSP900','SR_MB')]
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
     printSamps = ['MC 6ij','T1tttt 1.8/0.1','T1tttt 1.3/0.9']
-    ydsFew6.printLatexTable(samps, printSamps, label,f, doSys)
+    ydsFew6.printLatexTable(samps, printSamps, label,f, False)
     printSamps = ['MC 9ij','T1tttt 1.8/0.1','T1tttt 1.3/0.9']
-    ydsFew9.printLatexTable(samps, printSamps, label, f, doSys)
+    ydsFew9.printLatexTable(samps, printSamps, label, f, False)
     printLatexFooter(f, 0)
     f.close()
 
