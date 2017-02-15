@@ -55,15 +55,15 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/syst_DLSlope
 
-## Systematic: JEC
-#./makeBinYields.py \
-#    --mca ../systs/JEC/mca-Summer16_Moriond17.txt \
-#    --grid \
-#    --systs True \
-#    -v 2 \
-#    -l "${lumi}" \
-#    -b \
-#    --od "${outputdir}"/syst_JEC
+# Systematic: JEC
+./makeBinYields.py \
+    --mca ../systs/JEC/mca-Summer16_Moriond17.txt \
+    --grid \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/syst_JEC
 
 ## Systematic: PDF
 #./makeBinYields.py \
@@ -185,15 +185,15 @@ outputdir="${1}"
     -b \
     --od "${outputdir}"/signal_ISR
 
-## Signal systematic: JEC
-#./makeBinYields.py \
-#    --mca ../systs/signal/JEC/mca-Spring16_Signal_forMoriond17.txt  \
-#    --signal \
-#    --systs True \
-#    -v 2 \
-#    -l "${lumi}" \
-#    -b \
-#    --od "${outputdir}"/signal_JEC
+# Signal systematic: JEC
+./makeBinYields.py \
+    --mca ../systs/signal/JEC/mca-Spring16_Signal_forMoriond17.txt  \
+    --signal \
+    --systs True \
+    -v 2 \
+    -l "${lumi}" \
+    -b \
+    --od "${outputdir}"/signal_JEC
 
 # Signal systematic: btag heavy flavour
 ./makeBinYields.py \
