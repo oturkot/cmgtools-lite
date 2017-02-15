@@ -114,6 +114,7 @@ if __name__ == "__main__":
         "lepSF": "Lepton SF",
         "stat": "Stat.",
         "nISR" : "nISR rew.",
+        "iso" : "Iso. track veto",
         }
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)
@@ -161,7 +162,8 @@ if __name__ == "__main__":
         #flats["stat"] = 0.1
         flats["lepSF"] = 0.05
         flats["lumi"] = 0.026
-        flats["trig"] = 0.01
+        flats["iso"] = 0.03
+        #flats["trig"] = 0.01
         #flats = {}
 
         for i, syst in enumerate(sorted(flats.keys())):

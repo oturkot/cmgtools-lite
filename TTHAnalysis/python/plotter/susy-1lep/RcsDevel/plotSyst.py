@@ -137,6 +137,7 @@ if __name__ == "__main__":
         "lepSF": "Lepton SF",
         "stat": "Stat.",
         "nISR" : "nISR rew.",
+        "iso" : "Iso. track veto",
         }
 
 
