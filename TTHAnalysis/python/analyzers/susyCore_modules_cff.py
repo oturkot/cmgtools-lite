@@ -82,6 +82,9 @@ eventFlagsAna = cfg.Analyzer(
         "trkPOG_manystripclus53X" : [ "Flag_trkPOG_manystripclus53X" ],
         "trkPOG_toomanystripclus53X" : [ "Flag_trkPOG_toomanystripclus53X" ],
         "trkPOG_logErrorTooManyClusters" : [ "Flag_trkPOG_logErrorTooManyClusters" ],
+        "badMuons" : [ "Flag_badMuons" ],
+        "duplicateMuons" : [ "Flag_duplicateMuons" ],
+        "noBadMuons" : [ "Flag_noBadMuons" ],
         "METFilters" : [ "Flag_METFilters" ],
     }
     )
@@ -539,6 +542,22 @@ metAnaScaleDown = metAna.clone(name="metAnalyzerScaleDown",
     jetAnalyzerPostFix = "_jecDown",
     collectionPostFix = "_jecDown",
     )
+
+metAnaEGClean = metAna.clone(name="metAnalyzerEGClean",
+    metCollection   = "slimmedMETsEGClean",
+    collectionPostFix = "_EGClean",
+    )
+
+metAnaMuEGClean = metAna.clone(name="metAnalyzerMuEGClean",
+    metCollection   = "slimmedMETsMuEGClean",
+    collectionPostFix = "_MuEGClean",
+    )
+
+metAnaUncorr = metAna.clone(name="metAnalyzerUncorr",
+    metCollection   = "slimmedMETsUncorrected",
+    collectionPostFix = "_Uncorr",
+    )
+
 
 
 # Core Event Analyzer (computes basic quantities like HT, dilepton masses)
