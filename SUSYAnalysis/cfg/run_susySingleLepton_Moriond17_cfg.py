@@ -356,6 +356,11 @@ elif sample == "data":
   #                      SingleElectron_Run2016F_23Sep2016_v1,\
   #                      SingleElectron_Run2016G_23Sep2016_v1,\
   #                      ]
+  MET_03Feb2017 = [MET_Run2016B_03Feb2017_v2, MET_Run2016C_03Feb2017, MET_Run2016D_03Feb2017, MET_Run2016E_03Feb2017, MET_Run2016F_03Feb2017, MET_Run2016G_03Feb2017, MET_Run2016H_03Feb2017_v2, MET_Run2016H_03Feb2017_v3]
+  SingleElectron_03Feb2017 = [SingleElectron_Run2016B_03Feb2017_v2, SingleElectron_Run2016C_03Feb2017, SingleElectron_Run2016D_03Feb2017, SingleElectron_Run2016E_03Feb2017, SingleElectron_Run2016F_03Feb2017, SingleElectron_Run2016G_03Feb2017, SingleElectron_Run2016H_03Feb2017_v2, SingleElectron_Run2016H_03Feb2017_v3]
+  SingleMuon_03Feb2017 = [SingleMuon_Run2016B_03Feb2017_v2, SingleMuon_Run2016C_03Feb2017, SingleMuon_Run2016D_03Feb2017, SingleMuon_Run2016E_03Feb2017, SingleMuon_Run2016F_03Feb2017, SingleMuon_Run2016G_03Feb2017, SingleMuon_Run2016H_03Feb2017_v2, SingleMuon_Run2016H_03Feb2017_v3]
+
+  selectedComponents = MET_03Feb2017 + SingleElectron_03Feb2017 + SingleMuon_03Feb2017
 
 #  susyCoreSequence.insert(susyCoreSequence.index(metAna),
 #      [metAnaEGClean, metAnaMuEGClean, metAnaUncorr] )
