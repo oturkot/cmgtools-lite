@@ -64,6 +64,9 @@ susyCore_globalVariables = [
 
 susyCore_globalObjects = {
             "met" : NTupleObject("met", metType, help="PF E_{T}^{miss}, after type 1 corrections"),
+            "met_EGClean" : NTupleObject("metEGClean", metType, help="PF E_{T}^{miss}, after type 1 corrections (only EG cleaned)"),
+            "met_MuEGClean" : NTupleObject("metMuEGClean", metType, help="PF E_{T}^{miss}, after type 1 corrections (only muons cleaned)"),
+            "met_Uncorr" : NTupleObject("metUncorr", metType, help="PF E_{T}^{miss}, after type 1 corrections (no cleaning)"),
             #"metNoPU" : NTupleObject("metNoPU", fourVectorType, help="PF noPU E_{T}^{miss}"),
 }
 
