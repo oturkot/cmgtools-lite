@@ -96,7 +96,7 @@ if __name__ == "__main__":
         "JEC" : "JEC",
         "topPt" : "Top p_{T}",
         "PU" : "PU",
-        "ISR": "ISR",
+        "ISR": "nISR rew.",
         "Scale-Env": "Scale",
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
