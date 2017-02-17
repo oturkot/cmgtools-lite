@@ -146,10 +146,11 @@ if __name__ == "__main__":
     #sysCols = [50] + range(49,0,-2)#range(30,50,2)
     #sysCols = range(40,100,1)#range(30,50,2)
     #sysCols = range(35,100,3)
-    sysCols = range(28,100,2)
+    #sysCols = range(28,100,2)
     #sysCols = range(49,1,-2)
     #sysCols = range(30,40,4) + range(40,100,3)
     #sysCols = range(49,40,-2) + range(40,30,-3) + range(50,100,5)
+    sysCols = [20, 24, 28, 29, 30, 32, 36, 38, 39, 40, 43, 46, 47, 49]
 
     # Sample and variable
     #samp = "EWK"
@@ -170,7 +171,12 @@ if __name__ == "__main__":
     yp.prepRatio(hCentral)
 
     for i,syst in enumerate(systs):
-        yp.colorDict[syst+"_syst"] = sysCols[i]
+        try:
+            # Get the color from a list
+            yp.colorDict[syst+"_syst"] = sysCols[i]
+        except IndexError:
+            # If list is out of bounds, use black
+            yp.colorDict[syst+"_syst"] = 1
 
         sname = samp+"_"+syst+"_syst"
         print "Making hist for", sname
