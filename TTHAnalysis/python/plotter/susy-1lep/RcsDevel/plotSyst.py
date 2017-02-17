@@ -150,7 +150,7 @@ if __name__ == "__main__":
     #sysCols = range(49,1,-2)
     #sysCols = range(30,40,4) + range(40,100,3)
     #sysCols = range(49,40,-2) + range(40,30,-3) + range(50,100,5)
-    sysCols = [20, 24, 28, 29, 30, 32, 36, 38, 39, 40, 43, 46, 47, 49]
+    sysCols = [40, 20, 30, 45, 36, 24, 29, 38, 28, 39, 32, 47, 49, 43]
 
     # Sample and variable
     #samp = "EWK"
