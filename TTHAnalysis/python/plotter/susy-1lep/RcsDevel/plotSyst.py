@@ -123,7 +123,7 @@ if __name__ == "__main__":
         "Scale-Env": "Scale",
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
-        "TTVxsec" : "TTV x-sec",
+        "TTVxsec" : "t#bar{t} x-sec",
         "TTxsec" : "t#bar{t} x-sec",
         "Wpol" : "W polar.",
         "JER" : "JER",
