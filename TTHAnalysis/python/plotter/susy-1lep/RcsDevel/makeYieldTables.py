@@ -67,23 +67,24 @@ if __name__ == "__main__":
     #a = "Moriond17_Spring16_RealnISRWeight_IsoTrack_5p2_RunGgeq279931/*/"
     #a = "Moriond17_Spring16_All_Jan15/*/"
     #a = 'makeBinYields05/*/'
-    a = '{}/grid-dilep/'.format(pattern)
+    for folder in ['grid-dilep', 'scan']:
+        a = '{}/{}/'.format(pattern, folder)
 
-    b = a + 'merged/LT'
-    btagMethod = ""
-    pattern = b+"*NJ6*"
-    yds6.addFromFiles(pattern,("lep","sele"))
-    pattern = b+"*NJ9*"
-    yds9.addFromFiles(pattern,("lep","sele"))
-    b = a + 'merged4f5/LT'
-    pattern = b+"*NJ5*"
-    yds5.addFromFiles(pattern,("lep","sele"))
+        b = a + 'merged/LT'
+        btagMethod = ""
+        globfiles = b+"*NJ6*"
+        yds6.addFromFiles(globfiles,("lep","sele"))
+        globfiles = b+"*NJ9*"
+        yds9.addFromFiles(globfiles,("lep","sele"))
+        b = a + 'merged4f5/LT'
+        globfiles = b+"*NJ5*"
+        yds5.addFromFiles(globfiles,("lep","sele"))
 
-    b = a + 'mergedFew/LT'
-    pattern = b+"*NJ6i*"
-    ydsFew6.addFromFiles(pattern,("lep","sele"))
-    pattern = b+"*NJ9*"
-    ydsFew9.addFromFiles(pattern,("lep","sele"))
+        b = a + 'mergedFew/LT'
+        globfiles = b+"*NJ6i*"
+        ydsFew6.addFromFiles(globfiles,("lep","sele"))
+        globfiles = b+"*NJ9*"
+        ydsFew9.addFromFiles(globfiles,("lep","sele"))
 
     yds9.showStats()
 
