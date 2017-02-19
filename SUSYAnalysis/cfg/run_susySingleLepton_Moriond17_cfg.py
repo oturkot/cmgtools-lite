@@ -23,15 +23,14 @@ isolation = "miniIso"
 #JEC
 jetAna.mcGT = "Summer16_23Sep2016V3_MC"
 #jetAna.dataGT = "Summer16_23Sep2016AllV3_DATA"
-jetAna.dataGT = "Summer16_23Sep2016BCDV3_DATA Summer16_23Sep2016EFV3_DATA Summer16_23Sep2016GV3_DATA Summer16_23Sep2016HV3_DATA"
-jetAna.runsDataJEC = [276811, 278801, 280385]
+jetAna.dataGT   = [(1,"Summer16_23Sep2016BCDV3_DATA"),(276831,"Summer16_23Sep2016EFV3_DATA"),(278802,"Summer16_23Sep2016GV3_DATA"),(280919,"Summer16_23Sep2016HV3_DATA")]
 ##Lets turn everything on for now, at least we know what is applied
 #jetAna.addJECShifts = True
 #jetAna.smearJets = False
 #jetAna.recalibrateJets = True
 #jetAna.applyL2L3Residual = "Data"
 #metAna.recalibrate = True
-##Current official recommendation for Summer16 samples: Stick with what is in MiniAOD for MC JEC
+##Reapply JEC anyway...
 jetAna.addJECShifts = True
 jetAna.smearJets = False
 jetAna.recalibrateJets = True
@@ -41,10 +40,11 @@ metAna.recalibrate = True
 
 
 
+
 #-------- HOW TO RUN
-#sample = 'MC'
+sample = 'MC'
 #sample = 'data' #default
-sample = 'Signal'
+#sample = 'Signal'
 
 multib = False
 zerob = True
@@ -347,7 +347,7 @@ elif sample == "data":
   # central samples
   from CMGTools.RootTools.samples.samples_13TeV_Moriond2017 import *
   #selectedComponents = [JetHT_Run2016B_23Sep2016, HTMHT_Run2016B_23Sep2016, MET_Run2016B_23Sep2016, SingleElectron_Run2016B_23Sep2016, SingleMuon_Run2016B_23Sep2016, SinglePhoton_Run2016B_23Sep2016, DoubleEG_Run2016B_23Sep2016, MuonEG_Run2016B_23Sep2016, DoubleMuon_Run2016B_23Sep2016, Tau_Run2016B_23Sep2016]
-  selectedComponents = [SingleElectron_Run2016H_PromptReco_v2]
+  selectedComponents = [SingleElectron_Run2016H_03Feb2017_v2]
   #selectedComponents = [
   #                      SingleElectron_Run2016B_23Sep2016,\
   #                      SingleElectron_Run2016C_23Sep2016_v1,\
@@ -356,12 +356,25 @@ elif sample == "data":
   #                      SingleElectron_Run2016F_23Sep2016_v1,\
   #                      SingleElectron_Run2016G_23Sep2016_v1,\
   #                      ]
+  MET_03Feb2017 = [MET_Run2016B_03Feb2017_v2, MET_Run2016C_03Feb2017, MET_Run2016D_03Feb2017, MET_Run2016E_03Feb2017, MET_Run2016F_03Feb2017, MET_Run2016G_03Feb2017, MET_Run2016H_03Feb2017_v2, MET_Run2016H_03Feb2017_v3]
+  SingleElectron_03Feb2017 = [SingleElectron_Run2016B_03Feb2017_v2, SingleElectron_Run2016C_03Feb2017, SingleElectron_Run2016D_03Feb2017, SingleElectron_Run2016E_03Feb2017, SingleElectron_Run2016F_03Feb2017, SingleElectron_Run2016G_03Feb2017, SingleElectron_Run2016H_03Feb2017_v2, SingleElectron_Run2016H_03Feb2017_v3]
+  SingleMuon_03Feb2017 = [SingleMuon_Run2016B_03Feb2017_v2, SingleMuon_Run2016C_03Feb2017, SingleMuon_Run2016D_03Feb2017, SingleMuon_Run2016E_03Feb2017, SingleMuon_Run2016F_03Feb2017, SingleMuon_Run2016G_03Feb2017, SingleMuon_Run2016H_03Feb2017_v2, SingleMuon_Run2016H_03Feb2017_v3]
 
+  selectedComponents = MET_03Feb2017 + SingleElectron_03Feb2017 + SingleMuon_03Feb2017
+
+#  susyCoreSequence.insert(susyCoreSequence.index(metAna),
+#      [metAnaEGClean, metAnaMuEGClean, metAnaUncorr] )
+  susyCoreSequence.insert(susyCoreSequence.index(metAna),
+      metAnaEGClean )
+  susyCoreSequence.insert(susyCoreSequence.index(metAna),
+      metAnaMuEGClean )
+  susyCoreSequence.insert(susyCoreSequence.index(metAna),
+      metAnaUncorr )
 
   if test!=0 and jsonAna in susyCoreSequence: susyCoreSequence.remove(jsonAna)
   if test==1:
     # test one component (2 thread)
-    comp = MET_Run2016G_23Sep2016_v1#SingleElectron_Run2016B_23Sep2016
+    comp = SingleElectron_Run2016H_03Feb2017_v2
 #    comp.files = comp.files[:1]
     comp.files = comp.files[10:11]
     selectedComponents = [comp]
