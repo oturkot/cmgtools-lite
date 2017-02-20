@@ -79,16 +79,16 @@ if __name__ == "__main__":
     samps = [('EWK_'+syst+'_syst','Kappa')  for syst in systs]
     printSamps = [syst  for syst in systsprint]
     samps = [('EWK_'+syst+'_syst','Kappa')  for syst in systs]
-    printLatexHeader(len(samps), f, caption)    
+    printLatexHeader(len(samps), f, caption, 1)
     label = '6,8 jet bins, relative uncertainties given in \%'
 
-    yds.printLatexTable(samps, printSamps, label,f, True) 
+    yds.printLatexTable(samps, printSamps, label,f, True)
     label = '9 jet bins, relative uncertainties given in \%'
-    yds9.printLatexTable(samps, printSamps, label,f,True) 
-    printLatexFooter(f, 0)
+    yds9.printLatexTable(samps, printSamps, label,f,True)
+    printLatexFooter(f, 1)
     f.close()
-    
+
     f =  open('sysTable.dat','w')
-    yds.printTable(samps, systs, label,f) 
-    yds9.printTable(samps, systs, label,f) 
+    yds.printTable(samps, systs, label,f)
+    yds9.printTable(samps, systs, label,f)
     f.close()
