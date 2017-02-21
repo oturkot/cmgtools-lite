@@ -164,7 +164,6 @@ if __name__ == "__main__":
     ## Append Systematics to prediction
     print "Appending syst. unc. to prediction and total MC"
     hDataPred = yp.getHistWithError(hDataPred, hKappaSysts, new = False)
-    hDataPred = yp.getHistWithError(hDataPred, hMCSysts, new = False)
 
     # Do MC hists
     scaleToHist(mcHists,hDataPred)
