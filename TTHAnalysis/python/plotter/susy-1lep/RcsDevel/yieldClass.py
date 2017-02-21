@@ -240,7 +240,9 @@ class YieldStore:
             return dct
             '''
             return self.yields[samp][cat]
-        else: return 0
+        else:
+            print 'Either {} is not in {} or {} is not in {}. Something\'s wrong here.'.format(samp, self.samples, cat, self.categories)
+            return 0
 
     def getSampsDict(self,samp,cats = []):
 

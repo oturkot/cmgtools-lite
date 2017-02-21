@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 import sys,os
+from glob import glob
 
 #from makeYieldPlots import *
 import makeYieldPlots as yp
@@ -33,7 +36,7 @@ if __name__ == "__main__":
     ## Store dict in pickle file
     storeDict = True
     pckname = "pickles/bkgSysts_fixSR_"+mask+".pck"
-    print pckname
+    print 'pickle name is {}'.format(pckname)
     if storeDict == True and os.path.exists(pckname):
 
         print "#Loading saved yields from pickle!"
@@ -48,31 +51,38 @@ if __name__ == "__main__":
 
         # Define storage
         yds = yp.YieldStore("Sele")
-        paths = []
+        #paths = []
 
-        # Add files
-        tptPath = "Yields2015Uncert/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
-        puPath = "Yields2015Uncert/systs/PU/MC/allSF/meth1A/merged/"; paths.append(puPath)
-        wxsecPath = "Yields2015Uncert/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
-        ttvxsecPath = "Yields2015Uncert/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
-        wpolPath = "Yields2015Uncert/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
-        dlConstPath = "Yields2015Uncert/systs/DLConst/merged/"; paths.append(dlConstPath)
-        dlSlopePath = "Yields2015Uncert/systs/DLSlope/merged/"; paths.append(dlSlopePath)
-        jerPath = "Yields2015Uncert/systs/JER/merged/"; paths.append(jerPath)
-        jerNoPath = "Yields2015Uncert/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
-        #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
-        jecPath = "Yields2015Uncert/systs/JEC/MC/allSF_noPU_fixLT/meth1A/merged/"; paths.append(jecPath)
-        btagPath = "Yields2015Uncert/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
-#        dlScaleMatchVarPath = "lumi22fb_DlMakeBinYields/ScaleMatchVar/merged"; paths.append(dlScaleMatchVarPath)
-#        dlPDFUncPath = "lumi22fb_DlMakeBinYields/PDFUnc-RMS/merged"; paths.append(dlPDFUncPath)
-        # lep SF unct < 1%
-        #paths = ["Yields/systs/lepSF/test/allSF_noPU/merged_main/"]
-        # central value
-#        centrPath = "Yields/wData/jecv7_fixSR/lumi2p3fb/allbins/allSF_noPU/merged"; paths.append(centrPath)
-        centrPath = "YieldsJune29/lumi3p99/grid/merged/"; paths.append(centrPath)
+        ## Add files
+        #tptPath = "Yields2015Uncert/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
+        #puPath = "Yields2015Uncert/systs/PU/MC/allSF/meth1A/merged/"; paths.append(puPath)
+        #wxsecPath = "Yields2015Uncert/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
+        #ttvxsecPath = "Yields2015Uncert/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
+        #wpolPath = "Yields2015Uncert/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
+        #dlConstPath = "Yields2015Uncert/systs/DLConst/merged/"; paths.append(dlConstPath)
+        #dlSlopePath = "Yields2015Uncert/systs/DLSlope/merged/"; paths.append(dlSlopePath)
+        #jerPath = "Yields2015Uncert/systs/JER/merged/"; paths.append(jerPath)
+        #jerNoPath = "Yields2015Uncert/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
+        ##jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
+        #jecPath = "Yields2015Uncert/systs/JEC/MC/allSF_noPU_fixLT/meth1A/merged/"; paths.append(jecPath)
+        #btagPath = "Yields2015Uncert/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
+#       # dlScaleMatchVarPath = "lumi22fb_DlMakeBinYields/ScaleMatchVar/merged"; paths.append(dlScaleMatchVarPath)
+#       # dlPDFUncPath = "lumi22fb_DlMakeBinYields/PDFUnc-RMS/merged"; paths.append(dlPDFUncPath)
+        ## lep SF unct < 1%
+        ##paths = ["Yields/systs/lepSF/test/allSF_noPU/merged_main/"]
+        ## central value
+#       # centrPath = "Yields/wData/jecv7_fixSR/lumi2p3fb/allbins/allSF_noPU/merged"; paths.append(centrPath)
+        #centrPath = "YieldsJune29/lumi3p99/grid/merged/"; paths.append(centrPath)
 
+        # Add all systematics
+        paths = glob('{}/syst_*/merged/'.format(pattern))
+
+        # Add central value
+        paths.append('{}/grid-dilep/merged/'.format(pattern))
+
+        print 'paths', paths
         for path in paths:
-            yds.addFromFiles(path+"/"+basename,("lep","sele"))
+            yds.addFromFiles(path+"LT",("lep","sele"))
 
         yds.showStats()
 
@@ -98,18 +108,23 @@ if __name__ == "__main__":
 #    systs = ["Wpol","Wxsec"]
 #    systs = ["ScaleMatchVar-Env","PDFUnc-RMS"]
 #    systs = ["Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope","JER","JERYesNo"]
-    systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
+    #systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
 #    systs = ["lepSF"]
+    systs = glob('{}/syst_*'.format(pattern))
+    systs = [syst[syst.find('syst_')+5:] for syst in systs]
 
     systNames = {
         "btagLF" : "b-mistag (light)",
         "btagHF" : "b-tag (b/c)",
-        "JEC" : "JES",
+        "JEC" : "JEC",
         "topPt" : "Top p_{T}",
-        "PU" : "Pileup",
+        "PU" : "PU",
+        "ISR": "ISR",
+        "Scale-Env": "Scale",
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
         "TTVxsec" : "t#bar{t}V x-sec",
+        "TTxsec" : "t#bar{t} x-sec",
         "Wpol" : "W polar.",
         "JER" : "JER",
         "JERYesNo" : "JER Yes/No",
@@ -117,17 +132,25 @@ if __name__ == "__main__":
         "DLSlope" : "N_{j} Slope",
         #"DLConst" : "DiLep (N_{j} Const)",
         "DLConst" : "N_{j} Offset",
+        "lumi" : "Lumi.",
+        "trig" : "Trigger",
+        "lepSF": "Lepton SF",
+        "stat": "Stat.",
+        "nISR" : "nISR rew.",
+        "iso" : "Iso. track veto",
         }
+
 
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)
     #sysCols = [50] + range(49,0,-2)#range(30,50,2)
     #sysCols = range(40,100,1)#range(30,50,2)
     #sysCols = range(35,100,3)
-    sysCols = range(28,100,2)
+    #sysCols = range(28,100,2)
     #sysCols = range(49,1,-2)
     #sysCols = range(30,40,4) + range(40,100,3)
     #sysCols = range(49,40,-2) + range(40,30,-3) + range(50,100,5)
+    sysCols = [40, 20, 30, 45, 36, 24, 29, 38, 28, 39, 32, 47, 49, 43]
 
     # Sample and variable
     #samp = "EWK"
@@ -148,7 +171,12 @@ if __name__ == "__main__":
     yp.prepRatio(hCentral)
 
     for i,syst in enumerate(systs):
-        yp.colorDict[syst+"_syst"] = sysCols[i]
+        try:
+            # Get the color from a list
+            yp.colorDict[syst+"_syst"] = sysCols[i]
+        except IndexError:
+            # If list is out of bounds, use black
+            yp.colorDict[syst+"_syst"] = 1
 
         sname = samp+"_"+syst+"_syst"
         print "Making hist for", sname

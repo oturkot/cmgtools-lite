@@ -22,7 +22,7 @@ maxJeta = 2.4
 btagWP = 0.8484
 
 # pt, eta bins
-ptBorders = [30, 40, 50, 60, 70, 80, 100, 120, 160, 210, 260, 320, 400, 500, 670]
+ptBorders = [30, 50, 70, 100, 140, 200, 300, 600, 1000]
 ptBins = []
 etaBins = [[0,0.8], [0.8,1.6], [ 1.6, 2.4]]
 
@@ -93,7 +93,7 @@ def getSF2015(parton, pt, eta):
     return {"SF":sf, "SF_down":sf_d,"SF_up":sf_u}
 
 # MC eff  -- precomputed
-bTagEffFile = sfdir+"btagMCeff.pck"
+bTagEffFile = sfdir+"Moriond17_v3_BU.pkl"
 try:
   mcEffDict = pickle.load(file(bTagEffFile))
 except IOError:

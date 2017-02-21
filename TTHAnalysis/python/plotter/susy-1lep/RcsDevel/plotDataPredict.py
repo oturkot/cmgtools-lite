@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys,os
 
 import makeYieldPlots as yp
@@ -48,7 +50,7 @@ if __name__ == "__main__":
     yds.showStats()
 
   #  mcSamps = ['DY','TTV','SingleT','WJets','TT']#
-    mcSamps = ['DY','TTV','SingleT','WJets','TT']#
+    mcSamps = ['DY','TTV','SingleT','WJets','TTJets']#
     #mcSamps = ['WJets','TT','QCD']
 
     # update colors

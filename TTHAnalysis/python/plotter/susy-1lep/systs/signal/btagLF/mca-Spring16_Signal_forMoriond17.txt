@@ -1,0 +1,17 @@
+# Nominal
+
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight;
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight;
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight;
+
+# b-tag heavy flavour up
+
+T1tttt_Scan_btagLF-Up : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*nISRweight*btagSF_l_up;
+T1tttt_Scan_btagLF-Up : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*nISRweight*btagSF_l_up;
+T1tttt_Scan_btagLF-Up : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*nISRweight*btagSF_l_up;
+
+# b-tag heavy flavour down
+
+T1tttt_Scan_btagLF-Down : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*nISRweight*btagSF_l_down;
+T1tttt_Scan_btagLF-Down : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*nISRweight*btagSF_l_down;
+T1tttt_Scan_btagLF-Down : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*nISRweight*btagSF_l_down;
