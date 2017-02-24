@@ -48,6 +48,10 @@ if __name__ == "__main__":
         #pattern = ""
         print "No pattern given!"
         exit(0)
+    if len(sys.argv) > 2:
+        mergeFolder = sys.argv[2]
+    else:
+        mergeFolder = 'merged'
 
     #BinMask LTX_HTX_NBX_NJX for canvas names
     basename = os.path.basename(pattern)
@@ -95,7 +99,7 @@ if __name__ == "__main__":
         #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
 
         # Add all systematics
-        paths = glob('{}/syst_*/merged/'.format(pattern))
+        paths = glob('{}/syst_*/{}/'.format(pattern, mergeFolder))
 
         for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 
@@ -136,7 +140,7 @@ if __name__ == "__main__":
 
     ## Create Yield Storage
     yds = yp.YieldStore("lepYields")
-    yds.addFromFiles('{}/grid-dilep/merged/LT'.format(pattern), ("lep","sele"))
+    yds.addFromFiles('{}/grid-dilep/{}/LT'.format(pattern, mergeFolder), ("lep","sele"))
     yds.showStats()
 
     mcSamps = ['DY','TTV','SingleT','WJets','TTsemiLep','TTdiLep']
@@ -217,7 +221,7 @@ if __name__ == "__main__":
     #### Drawing
     logY = True
     #logY = False
-    cname = "DataPredict_wPull_"+mask
+    cname = "DataPredict_wPull_"+mask+"_"+mergeFolder
     hists = [mcStack,hUncert,hDataPois]
     #ratios = [hPredUnc,ratioPois]
     ratios = pull
