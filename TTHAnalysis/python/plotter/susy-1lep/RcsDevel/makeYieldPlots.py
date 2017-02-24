@@ -692,7 +692,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                 line = TLine(pos,ymin,pos,ymax)
                 #line.SetName("line_mark_"+str(mark))
                 line.SetLineStyle(3)
-                if i == 3: line.SetLineStyle(2) # nj6 -> nj9
+                if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                 line.Draw("same")
                 _lines.append(line)
 
@@ -818,7 +818,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                     line = TLine(pos,ymin,pos,ymax)
                     #line.SetName("line_mark_"+str(mark))
                     line.SetLineStyle(3)
-                    if i == 3: line.SetLineStyle(2) # nj6 -> nj9
+                    if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                     line.Draw("same")
                     _lines.append(line)
 
