@@ -196,7 +196,7 @@ if __name__ == "__main__":
     # Ratio
     #ratio = yp.getRatio(hTotal,hDataPred)
     ratio = yp.getRatio(hData,hDataPred)
-    #ratioPois = yp.getRatio(hDataPois,hDataPred)
+    ratioPois = yp.getRatio(hDataPois,hDataPred)
     hPredUnc = yp.getRatio(hDataPred,hDataPred)
 
     # Pull
@@ -223,8 +223,8 @@ if __name__ == "__main__":
     #logY = False
     cname = "DataPredict_wPull_"+mask+"_"+mergeFolder
     hists = [mcStack,hUncert,hDataPois]
-    #ratios = [hPredUnc,ratioPois]
-    ratios = pull
+    ratios = [hPredUnc,ratioPois]
+    #ratios = pull
 
     #canv = yp.plotHists("SR_MB_Prediction",[mcStack,hTotal,hDataPred,hDataPois],[hPredUnc,ratioPois],'TM', 1200, 600, logY = logY)
     canv = yp.plotHists("SR_MB_Prediction",hists,ratios,'TRC', 1000, 600, logY = logY, nCols = 2)
