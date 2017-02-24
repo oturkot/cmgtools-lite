@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 import sys,os
+from glob import glob
 
 #from makeYieldPlots import *
 import makeYieldPlots as yp
@@ -8,7 +11,7 @@ yp._alpha = 0.8
 
 if __name__ == "__main__":
 
-    yp.CMS_lumi.lumi_13TeV = str(12.9) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(36.5) + " fb^{-1}"
     #yp.CMS_lumi.lumi_13TeV = "MC"
     yp.CMS_lumi.extraText = "Simulation"
 
@@ -45,19 +48,25 @@ if __name__ == "__main__":
 
         # Define storage
         yds = yp.YieldStore("Sele")
-        paths = []
+        #paths = []
 
-        # Add files
-        scalePath  = "Yields/signal/systs/scale/T1tttt/normScale2/allSF_noPU/meth1A/merged/"; paths.append(scalePath)
-        isrPath  = "Yields/signal/systs/ISR/T1tttt/allSF_noPU_v2/meth1A/merged/"; paths.append(isrPath)
-        puPath   = "Yields/signal/systs/pileup/T1tttt/allSF_noPU_fix/meth1A/merged/"; paths.append(puPath)
-        btagPath = "Yields/signal/systs/btag/T1tttt/allSF_noPU_fixLepSF/meth1A/merged/"; paths.append(btagPath)
-        jecPath  = "Yields/signal/systs/JEC/allSF_noSF/merged/"; paths.append(jecPath)
-        # for central values
-        normPath  = "Yields/signal/fixSR/lumi2p3fb/jPt3TeV/merged/"; paths.append(normPath)
+        ## Add files
+        #scalePath  = "Yields/signal/systs/scale/T1tttt/normScale2/allSF_noPU/meth1A/merged/"; paths.append(scalePath)
+        #isrPath  = "Yields/signal/systs/ISR/T1tttt/allSF_noPU_v2/meth1A/merged/"; paths.append(isrPath)
+        #puPath   = "Yields/signal/systs/pileup/T1tttt/allSF_noPU_fix/meth1A/merged/"; paths.append(puPath)
+        #btagPath = "Yields/signal/systs/btag/T1tttt/allSF_noPU_fixLepSF/meth1A/merged/"; paths.append(btagPath)
+        #jecPath  = "Yields/signal/systs/JEC/allSF_noSF/merged/"; paths.append(jecPath)
+        ## for central values
+        #normPath  = "Yields/signal/fixSR/lumi2p3fb/jPt3TeV/merged/"; paths.append(normPath)
+
+        # Add all signal systematics
+        paths = glob('{}/signal_*/merged/'.format(pattern))
+
+        # Add central value
+        paths.append('{}/scan/merged/'.format(pattern))
 
         for path in paths:
-            yds.addFromFiles(path+basename,("lep","sele"))
+            yds.addFromFiles(path+"LT",("lep","sele"))
             #print yds.bins
 
         print "#Saving yields to pickle:", pckname
@@ -73,11 +82,13 @@ if __name__ == "__main__":
     ## Sys types
 #    systs = ["btagHF","btagLF"]
 #    systs = ["PU","btagLF","btagHF","ISR","JEC"]
-    systs = ["Scale-Env","PU","btagLF","btagHF","ISR","JEC"]
+    #systs = ["Scale-Env","PU","btagLF","btagHF","ISR","JEC"]
 #    systs = ["btagLF","btagHF","ISR","JEC","PU","Scale-Env"]
 #    systs = ["Scale-Env"]
 #    systs = ["ISR"]
 #    systs = ["btagHF","btagLF","PU"]
+    systs = glob('{}/signal_*'.format(pattern))
+    systs = [syst[syst.find('signal_')+7:] for syst in systs]
 
     systNames = {
         "btagLF" : "b-mistag (light)",
@@ -85,11 +96,12 @@ if __name__ == "__main__":
         "JEC" : "JEC",
         "topPt" : "Top p_{T}",
         "PU" : "PU",
-        "ISR": "ISR",
+        "ISR": "nISR rew.",
         "Scale-Env": "Scale",
         #"Wxsec" : "#sigma_{W}",
         "Wxsec" : "W x-sec",
-        "TTVxsec" : "TTV x-sec",
+        "TTVxsec" : "t#bar{t}V x-sec",
+        "TTxsec" : "t#bar{t} x-sec",
         "Wpol" : "W polar.",
         "JER" : "JER",
         "JERYesNo" : "JER Yes/No",
@@ -101,16 +113,19 @@ if __name__ == "__main__":
         "trig" : "Trigger",
         "lepSF": "Lepton SF",
         "stat": "Stat.",
+        "nISR" : "nISR rew.",
+        "iso" : "Iso. track veto",
         }
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)
     #sysCols = [50] + range(49,0,-2)#range(30,50,2)
     #sysCols = range(40,100,1)#range(30,50,2)
     #sysCols = range(35,100,3)
-    sysCols = range(28,100,2)
+    #sysCols = range(28,100,2)
     #sysCols = range(49,1,-2)
     #sysCols = range(30,40,4) + range(40,100,3)
     #sysCols = range(49,40,-2) + range(40,30,-3) + range(50,100,5)
+    sysCols = [40, 20, 30, 45, 36, 24, 29, 38, 28, 39, 32, 47, 49, 43]
 
     # Sample and variable
     samp = "T1tttt_Scan"
@@ -147,15 +162,21 @@ if __name__ == "__main__":
         ### Add flat systs (lumi, lepSF, triggEff, etc.)
         #flats["stat"] = 0.1
         flats["lepSF"] = 0.05
-        flats["lumi"] = 0.027
-        flats["trig"] = 0.01
+        flats["lumi"] = 0.026
+        flats["iso"] = 0.03
+        flats["trig"] = 0.02
         #flats = {}
 
         for i, syst in enumerate(sorted(flats.keys())):
 
             if syst in systs: continue
 
-            col = sysCols[i]#+len(syst)]
+            try:
+                # Get the color from a list
+                col = sysCols[i]
+            except IndexError:
+                # If list is out of bounds, use black
+                col = 1
 
             sname = samp+"_"+syst+"_syst_"+mass
             print "Making FLAT hist for", sname
@@ -186,7 +207,12 @@ if __name__ == "__main__":
 
         # Make REAL syst hists
         for i,syst in enumerate(systs):
-            yp.colorDict[syst+"_syst"] = sysCols[i+len(flats)]
+            try:
+                # Get the color from a list
+                yp.colorDict[syst+"_syst"] = sysCols[i+len(flats)]
+            except IndexError:
+                # If list is out of bounds, use black
+                yp.colorDict[syst+"_syst"] = sysCols[i+len(flats)]
 
             sname = samp+"_"+syst+"_syst_"+mass
             print "Making hist for", sname

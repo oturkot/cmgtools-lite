@@ -1,6 +1,10 @@
+#!/usr/bin/env python
+
 import sys,os
 
 import makeYieldPlots as yp
+
+from glob import glob
 
 yp._batchMode = False
 yp._alpha = 0.8
@@ -75,22 +79,25 @@ if __name__ == "__main__":
 
         # Define storage
         ydsSyst = yp.YieldStore("Sele")
-        paths = []
+        #paths = []
 
         # Add files
-        tptPath = "Yields/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
-        puPath = "Yields/systs/PU/MC/allSF/meth1A/merged/"; paths.append(puPath)
-        wxsecPath = "Yields/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
-        ttvxsecPath = "Yields/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
-        wpolPath = "Yields/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
-        dlConstPath = "Yields/systs/DLConst/merged/"; paths.append(dlConstPath)
-        dlSlopePath = "Yields/systs/DLSlope/merged/"; paths.append(dlSlopePath)
-        jerPath = "Yields/systs/JER/merged/"; paths.append(jerPath)
-        jerNoPath = "Yields/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
-        btagPath = "Yields/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
-        jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
+        #tptPath = "Yields/systs/topPt/MC/allSF_noPU/meth1A/merged/"; paths.append(tptPath)
+        #puPath = "Yields/systs/PU/MC/allSF/meth1A/merged/"; paths.append(puPath)
+        #wxsecPath = "Yields/systs/wXsec/MC/allSF_noPU/meth1A/merged/"; paths.append(wxsecPath)
+        #ttvxsecPath = "Yields/systs/TTVxsec/MC/allSF_noPU/meth1A/merged/"; paths.append(ttvxsecPath)
+        #wpolPath = "Yields/systs/Wpol/MC/allSF_noPU/meth1A/merged/"; paths.append(wpolPath)
+        #dlConstPath = "Yields/systs/DLConst/merged/"; paths.append(dlConstPath)
+        #dlSlopePath = "Yields/systs/DLSlope/merged/"; paths.append(dlSlopePath)
+        #jerPath = "Yields/systs/JER/merged/"; paths.append(jerPath)
+        #jerNoPath = "Yields/systs/JER_YesNo/merged/"; paths.append(jerNoPath)
+        #btagPath = "Yields/systs/btag/hadFlavour/fixXsec/allSF_noPU/meth1A/merged/"; paths.append(btagPath)
+        #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
 
-        for path in paths: ydsSyst.addFromFiles(path+basename,("lep","sele"))
+        # Add all systematics
+        paths = glob('{}/syst_*/merged/'.format(pattern))
+
+        for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 
         ydsSyst.showStats()
 
@@ -104,7 +111,9 @@ if __name__ == "__main__":
 #    systs = ["btagHF","Wxsec","topPt","PU","DLSlope","DLConst"]#,"JEC"]
 #    systs = ["Wxsec","PU","JEC","btagHF","btagLF","topPt"]
 #    systs = ["Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope","JER"]
-    systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
+    #systs = ["TTVxsec","Wpol","Wxsec","PU","JEC","btagHF","btagLF","topPt","DLConst","DLSlope"]
+    systs = glob('{}/syst_*'.format(pattern))
+    systs = [syst[syst.find('syst_')+5:] for syst in systs]
 
     # Kappa systematics
     samp = "EWK";    var = "Kappa"
@@ -120,14 +129,13 @@ if __name__ == "__main__":
     systHists = yp.makeSampHists(ydsSyst,systSamps)
     hMCSysts = yp.getSquaredSum(systHists)
 
-
     ###########################
     ## Make Prediction plots ##
     ###########################
 
     ## Create Yield Storage
     yds = yp.YieldStore("lepYields")
-    yds.addFromFiles(pattern,("lep","sele"))
+    yds.addFromFiles('{}/grid-dilep/merged/LT'.format(pattern), ("lep","sele"))
     yds.showStats()
 
     mcSamps = ['DY','TTV','SingleT','WJets','TTsemiLep','TTdiLep']

@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# Stop when an error occurs
+set -e -o pipefail
+
+# User needs to specify input folder
+if [ -z "${1}" ]; then
+    echo Please specify input folder as positional argument.
+    exit
+fi
+
+# Pipe all output also to logfile
+exec > >(tee -i log.out)
+exec 2>&1
+
+# Input folder is first positional argument, need to strip possible trailing "/"
+# to prevent problems later
+inputfolder="${1%/}"
+
+# Remove pickle files (is this a good idea?)
+#rm -rf pickles
+
+# Create necessary folders
+mkdir -p pickles BinPlots FracPlots FracPlots_TT RCSplots
+
+# Merge bins
+echo Run mergeBins.py
+for folder in "${inputfolder}"/*; do
+    ./mergeBins.py "${folder}"
+done
+
+# Append Rcs kappa
+echo Run appendRcsKappa.py
+for folder in "${inputfolder}"/*/merged*; do 
+    if [[ "${folder}" == */scan/* ]]; then
+        continue
+    fi
+    ./appendRcsKappa.py "${folder}"
+done
+
+# Calculate the systematic variations
+# Takes up and down histograms and creates syst histograms
+echo Run calcSyst.py
+for folder in "${inputfolder}"/*/merged*; do
+    if [[ "${folder}" == */scan/* ]] \
+        || [[ "${folder}" == */grid/* ]] \
+        || [[ "${folder}" == */grid-dilep/* ]]; then
+        continue
+    fi
+    ./calcSyst.py "${folder}"
+done
+
+# Write table with systematic variations that is used by makeYieldTables.py
+echo Run tableSyst.py
+./tableSyst.py "${inputfolder}"
+
+# Write tables
+echo Run makeYieldTables.py
+./makeYieldTables.py "${inputfolder}"
+
+# Plot data with prediction, but no systematics
+echo Run plotDataPredict.py
+for folder in "${inputfolder}"/grid-dilep/merged*; do
+    ./plotDataPredict.py -b "${folder}"/LT
+done
+
+# Plot data with prediction, with systematics
+echo Run plotDataPredictWithSyst.py
+./plotDataPredictWithSyst.py -b "${inputfolder}"
+
+# Plot Rcs and kappa without systematics
+echo Run plotRcsKappa.py
+for folder in "${inputfolder}"/grid-dilep/merged*; do
+    ./plotRcsKappa.py -b "${folder}"/LT
+done
+
+# Plot with uncertainties with kappa in the bottom panel
+echo Run plotSyst.py
+./plotSyst.py -b "${inputfolder}"
+
+# Plot signal uncertainties with yields in bottom panel
+echo Run plotSigSyst.py
+./plotSigSyst.py -b "${inputfolder}"
+
+# Compare something
+#python plotCompare.py LT
+
+#python makeRCSplots.py indir/grid 
+#python averageSig.py LT

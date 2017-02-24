@@ -95,7 +95,7 @@ def getSystHist(tfile, hname, syst = "Xsec"):
         upName = hname + '_' + syst + '-Up'
         dnName = hname + '_' + syst + '-Down'
 
-        #print tfile, hname, upName, dnName
+        print tfile, hname, upName, dnName
 
         hNorm = tfile.Get(hname)
         hUp = tfile.Get(upName)
@@ -167,9 +167,13 @@ def makeSystHists(fileList):
     #hnames = ["EWK","TTJets","WJets","SingleTop","DY","TTV"] # process name
     #hnames = ['T_tWch','TToLeptons_tch','TBar_tWch', 'EWK', 'TToLeptons_sch'] # process name
     #hnames = ["TTJets","WJets","SingleTop","DY","TTV"] # process name
-    hnames = ['EWK', 'DY', 'QCD', 'SingleT', 'TTJets', 'TTV', 'VV', 'WJets']
+    #hnames = ['EWK', 'DY', 'QCD', 'SingleT', 'TTJets', 'TTV', 'VV', 'WJets']
     #hnames = getHnames(fileList[0],'SR_MB') # get process names from file
     #print 'Found these hists:', hnames
+    if 'signal_' in pattern:
+        hnames = ["T1tttt_Scan"] # process name
+    else:
+        hnames = ['EWK', 'DY', 'QCD', 'SingleT', 'TTJets', 'TTV', 'VV', 'WJets']
 
     #systNames = ["Xsec"]
     #systNames = ["PU"]
@@ -181,13 +185,19 @@ def makeSystHists(fileList):
     #systNames = ["TTVxsec"]
     #systNames = ["lepSF"]
     #systNames = ["JEC"]
-    systNames = ["DLSlope"]
+    #systNames = ["DLSlope"]
     #systNames = ["DLConst"]
     #systNames = ["JER"]
     #systNames = ["Wpol"]
     #systNames = ["btagHF","btagLF"]
     #systNames = ["ISR"]
     #systNames = ["nISRr"]
+    systNames2 = [pattern[pattern.find('/')+1:pattern.find('/', pattern.find('/')+1)]]
+    systNames = []
+    for systName in systNames2:
+        systNames.append(systName[systName.find('_')+1:])
+    if systNames[0] == 'btag':
+        systNames = ['btagHF','btagLF']
 
     #bindirs =  ['SR_MB','CR_MB','SR_SB','CR_SB']
     #bindirs =  ['SR_MB','CR_MB','SR_SB','CR_SB','Kappa','Rcs_MB','Rcs_SB']

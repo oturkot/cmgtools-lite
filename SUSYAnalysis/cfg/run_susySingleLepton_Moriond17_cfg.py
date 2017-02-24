@@ -42,8 +42,8 @@ metAna.recalibrate = True
 
 
 #-------- HOW TO RUN
-#sample = 'MC'
-sample = 'data' #default
+sample = 'MC'
+#sample = 'data' #default
 #sample = 'Signal'
 
 multib = False
@@ -308,7 +308,7 @@ elif sample == "Signal":
   if multib: selectedComponents = [SMS_T1tttt_TuneCUETP8M1]
   if zerob: selectedComponents = [SMS_T5qqqqVV_TuneCUETP8M1]
   if multib and zerob : print "Warning ! Both zero b and multi b is set to  True, you will be running Zero b signals ;) Cheers from Ece"
-  if not (multib or zerob) : print 8*"*", "Error ! Choose a signal toprocess", 8*"*"
+  if not (multib or zerob) : print 8*"*", "Error ! Choose a signal to process", 8*"*"
 
   if test==1:
     # test a single component, using a single thread.

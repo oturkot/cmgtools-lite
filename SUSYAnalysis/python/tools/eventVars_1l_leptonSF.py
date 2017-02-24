@@ -16,8 +16,8 @@ muHname = "Mu_Medium_miniIso0p2_SIP3D_Moriond"
 eleHIPname = "../python/tools/SFs/Moriond/egammaEffi.txt_EGM2D.root"
 eleHIPHname = "EGamma_SF2D"
 
-muHIPname = "../python/tools/SFs/ICHEP/general_tracks_and_early_general_tracks_corr_ratio.root"
-muHIPHname = "mutrksfptl10"
+muHIPname = "../python/tools/SFs/Moriond/Tracking_EfficienciesAndSF_BCDEFGH.root"
+muHIPHname = "ratio_eff_eta3_dr030e030_corr"
 
 hEleSF = 0
 hMuSF = 0
@@ -41,7 +41,7 @@ if not hMuSF:
 
 tf = ROOT.TFile(muHIPname,"READ")
 hMuHIP = tf.Get(muHIPHname).Clone()
-hMuHIP.SetDirectory(0)
+#hMuHIP.SetDirectory(0)
 tf.Close()
 if not hMuHIP:
     print "Could not load mu HIP correction"
@@ -88,8 +88,8 @@ def getLepSF(lep, nPU = 1, sample = "FullSim"):
     lepPt = lep.pt#lep.p4().Et()
     lepEta = abs(lep.eta)
 
-    if(abs(lep.pdgId) == 13): hSF = hMuSF; hSFfs = hMuSF_FS; hHIP = hMuHIP
-    elif(abs(lep.pdgId) == 11): hSF = hEleSF; hSFfs = hEleSF_FS; hHIP = hEleHIP
+    if(abs(lep.pdgId) == 13): hSF = hMuSF; hSFfs = hMuSF_FS
+    elif(abs(lep.pdgId) == 11): hSF = hEleSF; hSFfs = hEleSF_FS
     else: return 1,0
 
     # fit pt to hist
@@ -108,18 +108,31 @@ def getLepSF(lep, nPU = 1, sample = "FullSim"):
 
 #    print lepSF, lepSFerr
 
-    #HIP stuff
-    # The second argument in FindBin() is arbitrary, since the 2D histogram has
-    # only one bin in y
-    HIPbin = hHIP.FindBin(lep.eta, 100.)
-    HIP =  hHIP.GetBinContent(HIPbin)
-    HIPerr = hHIP.GetBinError(HIPbin)
+    # Tracking reconstruction efficiency (former HIP effect)
+    if abs(lep.pdgId) == 11:
+        # The second argument in FindBin() is arbitrary, since the 2D histogram has
+        # only one bin in y
+        HIPbin = hEleHIP.FindBin(lep.eta, 100.)
+        HIP =  hEleHIP.GetBinContent(HIPbin)
+        HIPerr = hEleHIP.GetBinError(HIPbin)
+    elif abs(lep.pdgId) == 13:
+        # Get bin content and error for TGraphAsymmErrors (I'm sure this can be
+        # done easier, but how?)
 
-    # TO BE UPDATED
-    # Muon HIP corrections are not yet available
-    if abs(lep.pdgId) == 13:
-        HIP = 1.
-        HIPerr = 0.
+        # Get x values in a list
+        hip_mu_x_buffer = hMuHIP.GetX()
+        hip_mu_x = []
+        for x in range(0, hMuHIP.GetN()):
+            hip_mu_x.append(hip_mu_x_buffer[x])
+
+        # Get bin number of closest eta value
+        HIPbin = hip_mu_x.index(min(hip_mu_x, key=lambda x: abs(x-lep.eta)))
+
+        # Get interpolated scale factor
+        HIP =  hMuHIP.Eval(lep.eta)
+
+        # Get approximative error from closest bin
+        HIPerr = hMuHIP.GetErrorY(HIPbin)
 
 #    print lep.pdgId, lep.eta, HIP,
     lepSF = lepSF * HIP
