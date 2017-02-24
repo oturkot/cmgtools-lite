@@ -751,7 +751,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         if not hist.ClassName() == 'THStack':
 
             hist.GetYaxis().SetTitleSize(0.05)
-            hist.GetYaxis().SetTitleOffset(0.5)
+            hist.GetYaxis().SetTitleOffset(0.6)
 
             if ratio == None: hist.GetYaxis().SetLabelSize(0.04)
             else: hist.GetYaxis().SetLabelSize(0.05)
