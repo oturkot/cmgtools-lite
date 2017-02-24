@@ -467,7 +467,7 @@ def getPull(histA,histB):
     pull.GetYaxis().SetTitle(title)
     pull.GetYaxis().CenterTitle()
     pull.GetYaxis().SetNdivisions(505)
-    pull.GetYaxis().SetTitleSize(0.1)
+    pull.GetYaxis().SetTitleSize(0.08)
     pull.GetYaxis().SetTitleOffset(0.3)
 
     pull.GetYaxis().SetLabelSize(0.1)
