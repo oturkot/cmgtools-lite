@@ -638,6 +638,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         else:
             multRatio = False
 
+        ratio.SetMaximum(ratio.GetMaximum()+.3)
         #canv.SetWindowSize(600 + (600 - canv.GetWw()), (750 + (750 - canv.GetWh())));
         p2 = TPad("pad2","pad2",0,0,1,0.31);
         p2.SetTopMargin(0);
