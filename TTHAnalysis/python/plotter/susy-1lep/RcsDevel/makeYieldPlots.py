@@ -730,6 +730,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
     else:
         #ymax *= 100; ymin = max(0.05,0.5*ymin)
         ymax *= 10; ymin = max(0.05,0.5*ymin)
+        ymin /= 10.
 
     #ymin = 0
     #ymax = min(ymax, 1.5)
