@@ -134,7 +134,7 @@ for D in glob(args[0]+"/*"):
         fname    = "%s/%s/tree.root" % (D,options.tree)
         fname    = open(fname+".url","r").readline().strip()
 
-    if os.path.exists(fname) or (os.path.exists("%s/%s/tree.root.url" % (D,options.tree))):                                                                                                                
+    if os.path.exists(fname) or (os.path.exists("%s/%s/tree.root.url" % (D,options.tree))):
         short = os.path.basename(D)
         if options.datasets != []:
             if short not in options.datasets: continue
@@ -143,7 +143,7 @@ for D in glob(args[0]+"/*"):
             for dm in  options.datasetMatches:
                 if re.match(dm,short): found = True
             if not found: continue
-        data = ("DoubleMu" in short or "MuEG" in short or "DoubleElectron" in short or "SingleMu" in short or "SingleEl" in short or "JetHT" in short)
+        data = ("DoubleMu" in short or "MuEG" in short or "DoubleElectron" in short or "SingleMu" in short or "SingleEl" in short or "JetHT" in short or "MET" in short)
         print "opening", fname
         f = ROOT.TFile.Open(fname);
         t = f.Get(treename)
