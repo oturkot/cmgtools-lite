@@ -203,7 +203,7 @@ if __name__ == "__main__":
     pull = yp.getPull(hData,hDataPred)
 
     col = yp.kGray
-    hPredUnc.SetName("PredictionUncertainty")
+    hPredUnc.SetName("PredictionUncertainty_ratio")
     hPredUnc.SetLineColor(1)
     hPredUnc.SetFillColorAlpha(col,yp._alpha)
     #hPredUnc.SetFillStyle(3244)

@@ -666,19 +666,6 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             ratio.Draw(plotOpt)
             hRatio = ratio
 
-        rname = hRatio.GetName()
-        #xmin = hRatio.GetXaxis().
-        if "pull" in rname: line = TLine(0,0,hRatio.GetNbinsX(),0)
-        elif "ratio" in rname: line = TLine(0,1,hRatio.GetNbinsX(),1)
-        elif "Kappa" in rname: line = TLine(0,1,hRatio.GetNbinsX(),1)
-        else: line = None #TLine(0,0,hRatio.GetNbinsX(),0)
-
-        if line != None:
-            line.SetLineColor(kGray)
-            line.SetLineWidth(1)
-            line.Draw()
-            SetOwnership(line,0)
-
         # plot bins separator
         marks = getMarks(hRatio)
         # do vertical lines
@@ -699,6 +686,19 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
 
         #redraw ratio on top of lines
         hRatio.Draw("same"+plotOpt)
+
+        rname = hRatio.GetName()
+        #xmin = hRatio.GetXaxis().
+        if "pull" in rname: ratioLine = TLine(0,0,hRatio.GetNbinsX(),0)
+        elif "ratio" in rname: ratioLine = TLine(0,1,hRatio.GetNbinsX(),1)
+        elif "Kappa" in rname: ratioLine = TLine(0,1,hRatio.GetNbinsX(),1)
+        else: ratioLine = None #TLine(0,0,hRatio.GetNbinsX(),0)
+
+        if ratioLine != None:
+            ratioLine.SetLineColor(kBlack)
+            ratioLine.SetLineWidth(1)
+            ratioLine.Draw()
+            SetOwnership(ratioLine,0)
 
 
         if multRatio:
