@@ -5,8 +5,11 @@ __init__.py
 #*#
 *~
 *DS_Store
-*cc.so
-*cc.d
+*.so
+*.d
 *.pcm
 LSFJOB*/
-
+AutoDict_*
+TTHAnalysis/python/plotter/friends
+TTHAnalysis/python/plotter/trees
+TTHAnalysis/python/plotter/susy-1lep/RcsDevel/SampLinks/
