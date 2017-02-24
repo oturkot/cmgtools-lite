@@ -688,6 +688,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             ymin = hRatio.GetMinimum(); ymax = hRatio.GetMaximum()
             #ymin = hRatio.GetYaxis().GetXmin(); ymax = hRatio.GetYaxis().GetXmax()
             for i,mark in enumerate(marks):
+                if i == 2: continue
                 pos = axis.GetBinLowEdge(mark)
                 line = TLine(pos,ymin,pos,ymax)
                 #line.SetName("line_mark_"+str(mark))
@@ -814,6 +815,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                 #print marks
                 axis = hist.GetXaxis()
                 for i,mark in enumerate(marks):
+                    if i == 2: continue
                     pos = axis.GetBinLowEdge(mark)
                     line = TLine(pos,ymin,pos,ymax)
                     #line.SetName("line_mark_"+str(mark))
