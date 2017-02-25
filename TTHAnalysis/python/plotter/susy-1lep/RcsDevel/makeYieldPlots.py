@@ -132,7 +132,7 @@ def getSampLabel(name):
         "WJets" : "W + jets",
         "DY" : "DY + jets",
         "QCD": "QCD",
-        "TTV": "ttV(W/Z)"
+        "TTV": "t#bar{t}V",
         }
 
     if name in names: return names[name]
