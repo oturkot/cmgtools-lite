@@ -143,6 +143,10 @@ if __name__ == "__main__":
     yds.addFromFiles('{}/grid-dilep/{}/LT'.format(pattern, mergeFolder), ("lep","sele"))
     yds.showStats()
 
+    ydsSig = yp.YieldStore("lepYields")
+    ydsSig.addFromFiles('{}/scan/{}/LT'.format(pattern, mergeFolder), ("lep","sele"))
+    ydsSig.showStats()
+
     mcSamps = ['DY','TTV','SingleT','WJets','TTsemiLep','TTdiLep']
     #mcSamps = ['EWK']
 
@@ -165,6 +169,12 @@ if __name__ == "__main__":
     # DATA
     hDataPred = yp.makeSampHisto(yds,"data_QCDsubtr",cat,"Data_prediction"); hDataPred.SetTitle("Prediction")
     hData = yp.makeSampHisto(yds,"data_QCDsubtr","SR_MB","Data"); hData.SetTitle("Data")
+
+    # Signal
+    hSig1 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1900_mLSP100", "SR_MB", "T1tttt (1900/100)")
+    hSig1.SetTitle("T1tttt (1900/100)")
+    hSig2 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1700_mLSP1100", "SR_MB", "T1tttt (1700/1100)")
+    hSig2.SetTitle("T1tttt (1700/1100)")
 
     ## Append Systematics to prediction
     print "Appending syst. unc. to prediction and total MC"
@@ -222,7 +232,7 @@ if __name__ == "__main__":
     logY = True
     #logY = False
     cname = "DataPredict_wPull_"+mask+"_"+mergeFolder
-    hists = [mcStack,hUncert,hDataPois]
+    hists = [mcStack,hSig1,hSig2,hUncert,hDataPois]
     ratios = [hPredUnc,ratioPois]
     #ratios = pull
 

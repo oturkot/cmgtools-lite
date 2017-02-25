@@ -793,6 +793,14 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         elif "SigStack" in hist.GetName():
             hist.Draw(plotOpt+"hist")
             leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
+        elif "T1tttt" in hist.GetName():
+            hist.SetFillColorAlpha(kBlack, 0.)
+            if "1900" in hist.GetName():
+                hist.SetLineColor(kCyan)
+            else:
+                hist.SetLineColor(kMagenta)
+            hist.Draw(plotOpt+"hist")
+            leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
         elif "sqSum" in hist.GetName():
             hist.Draw(plotOpt+"p")
             #leg.AddEntry(hist,"Sum squared uncertainties","p")
