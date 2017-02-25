@@ -130,7 +130,7 @@ def getSampLabel(name):
         "SingleTop" : "t/#bar{t}",
         "SingleT" : "t/#bar{t}",
         "WJets" : "W + jets",
-        "DY" : "DY+jets",
+        "DY" : "DY + jets",
         "QCD": "QCD",
         "TTV": "ttV(W/Z)"
         }
