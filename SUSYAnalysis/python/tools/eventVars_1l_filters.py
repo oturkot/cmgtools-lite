@@ -40,7 +40,7 @@ def readList(fname):
 class EventVars1L_filters:
     def __init__(self):
         self.branches = [
-            'passFilters','passCSCFilterList',
+            'passFilters','passFiltersMoriond2017Tight','passFiltersICHEP2016','passCSCFilterList',
             ]
 
     def listBranches(self):
@@ -65,15 +65,22 @@ class EventVars1L_filters:
 
             # check filters present in event (not FastSim)
             if hasattr(event,"Flag_eeBadScFilter"):
+                #forMoriond2017 https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFiltersRun2#Moriond_2017
+                ret['passFilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter 
+                ret['passFiltersMoriond2017Tight'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronSummer2016 and event.Flag_badMuonSummer2016 and not event.Flag_badMuons and not event.Flag_duplicateMuons
                 #for2016ICHEP https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFiltersRun2#MiniAOD_8011_ICHEP_dataset
-                ret['passFilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronFilter and event.Flag_badMuonFilter
+                ret['passFiltersICHEP2016'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronFilter and event.Flag_badMuonFilter
                 #201574X:ret['passFilters'] = event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_HBHENoiseFilter_fix and event.Flag_HBHENoiseIsoFilter and ret['passCSCFilterList']
                 #ret['passFilters'] = event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter  and event.Flag_CSCTightHaloFilter and ret['passCSCFilterList']
             else:
                 ret['passFilters'] = 1
+                ret['passFiltersMoriond2017Tight'] = 1
+                ret['passFiltersICHEP'] = 1
         else:
             ret['passCSCFilterList'] = True
             ret['passFilters'] = True
+            ret['passFiltersMoriond2017Tight'] = True
+            ret['passFiltersICHEP'] = True
 
 
         return ret
