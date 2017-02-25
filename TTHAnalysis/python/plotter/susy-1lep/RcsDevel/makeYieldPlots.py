@@ -90,7 +90,7 @@ def doLegend(pos = "TM",nEntr = None):
         #leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.55,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
         #leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.65,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
         #leg = TLegend(1-gStyle.GetPadRightMargin()-0.4,0.65,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
-        leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.6,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
+        leg = TLegend(1-gStyle.GetPadRightMargin()-0.45,0.6,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
     elif pos == "TLC":
         #leg = TLegend(gStyle.GetPadLeftMargin(),0.55,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
         #leg = TLegend(gStyle.GetPadLeftMargin(),0.55,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
@@ -605,7 +605,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
     canv = TCanvas(cname,cname,width,height)
     #leg = doLegend(len(histList)+1)
     leg = doLegend(legPos)
-    leg2 = doLegend("TM")
+    #leg2 = doLegend("TM")
 
     if legPos == "Long":
         nh = 1
