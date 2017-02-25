@@ -471,7 +471,7 @@ def getPull(histA,histB):
     pull.GetYaxis().SetTitleOffset(0.3)
 
     pull.GetYaxis().SetLabelSize(0.1)
-    pull.GetYaxis().SetRangeUser(-5,5)
+    pull.GetYaxis().SetRangeUser(-2.5, 2.5)
 
     pull.GetXaxis().SetLabelSize(0.1)
 

@@ -133,7 +133,6 @@ if __name__ == "__main__":
     systHists = yp.makeSampHists(ydsSyst,systSamps)
     hMCSysts = yp.getSquaredSum(systHists)
 
-
     ###########################
     ## Make Prediction plots ##
     ###########################
