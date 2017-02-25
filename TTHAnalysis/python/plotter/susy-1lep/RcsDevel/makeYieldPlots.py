@@ -599,7 +599,7 @@ def getCatLabel(name):
 
     return cname
 
-def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height = 600, logY = False, nCols = 1):
+def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height = 600, logY = False, nCols = 1, mergeFolder = "merged"):
 
     #canv = TCanvas(cname,cname,1400,600)
     canv = TCanvas(cname,cname,width,height)
@@ -731,7 +731,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         else: ymax *= 1.5; ymin *= 0.5; ymin = max(0,ymin)
     else:
         #ymax *= 100; ymin = max(0.05,0.5*ymin)
-        ymax *= 10; ymin = max(0.05,0.5*ymin)
+        factor = 10.
+        if mergeFolder == "mergedFew":
+            factor = 100.
+        ymax *= factor; ymin = max(0.05,0.5*ymin)
         ymin /= 10.
 
     #ymin = 0

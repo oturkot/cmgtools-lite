@@ -237,7 +237,7 @@ if __name__ == "__main__":
     #ratios = pull
 
     #canv = yp.plotHists("SR_MB_Prediction",[mcStack,hTotal,hDataPred,hDataPois],[hPredUnc,ratioPois],'TM', 1200, 600, logY = logY)
-    canv = yp.plotHists("SR_MB_Prediction",hists,ratios,'TRC', 1000, 600, logY = logY, nCols = 2)
+    canv = yp.plotHists("SR_MB_Prediction",hists,ratios,'TRC', 1000, 600, logY = logY, nCols = 2, mergeFolder = mergeFolder)
 
     canv.SetName(cname + canv.GetName())
 
