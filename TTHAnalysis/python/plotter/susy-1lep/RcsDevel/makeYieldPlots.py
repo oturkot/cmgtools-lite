@@ -90,7 +90,7 @@ def doLegend(pos = "TM",nEntr = None):
         #leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.55,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
         #leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.65,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
         #leg = TLegend(1-gStyle.GetPadRightMargin()-0.4,0.65,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
-        leg = TLegend(1-gStyle.GetPadRightMargin()-0.35,0.6,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
+        leg = TLegend(1-gStyle.GetPadRightMargin()-0.45,0.6,1-gStyle.GetPadRightMargin(),1-gStyle.GetPadTopMargin())
     elif pos == "TLC":
         #leg = TLegend(gStyle.GetPadLeftMargin(),0.55,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
         #leg = TLegend(gStyle.GetPadLeftMargin(),0.55,gStyle.GetPadLeftMargin()+0.35,1-gStyle.GetPadTopMargin())
@@ -130,9 +130,9 @@ def getSampLabel(name):
         "SingleTop" : "t/#bar{t}",
         "SingleT" : "t/#bar{t}",
         "WJets" : "W + jets",
-        "DY" : "DY+jets",
+        "DY" : "DY + jets",
         "QCD": "QCD",
-        "TTV": "ttV(W/Z)"
+        "TTV": "t#bar{t}V",
         }
 
     if name in names: return names[name]
@@ -467,7 +467,7 @@ def getPull(histA,histB):
     pull.GetYaxis().SetTitle(title)
     pull.GetYaxis().CenterTitle()
     pull.GetYaxis().SetNdivisions(505)
-    pull.GetYaxis().SetTitleSize(0.1)
+    pull.GetYaxis().SetTitleSize(0.08)
     pull.GetYaxis().SetTitleOffset(0.3)
 
     pull.GetYaxis().SetLabelSize(0.1)
@@ -599,13 +599,13 @@ def getCatLabel(name):
 
     return cname
 
-def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height = 600, logY = False, nCols = 1):
+def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height = 600, logY = False, nCols = 1, mergeFolder = "merged"):
 
     #canv = TCanvas(cname,cname,1400,600)
     canv = TCanvas(cname,cname,width,height)
     #leg = doLegend(len(histList)+1)
     leg = doLegend(legPos)
-    leg2 = doLegend("TM")
+    #leg2 = doLegend("TM")
 
     if legPos == "Long":
         nh = 1
@@ -638,6 +638,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         else:
             multRatio = False
 
+        if mergeFolder == "mergedFew":
+            ratio.SetMaximum(1.9)
+        else:
+            ratio.SetMaximum(ratio.GetMaximum()+.3)
         #canv.SetWindowSize(600 + (600 - canv.GetWw()), (750 + (750 - canv.GetWh())));
         p2 = TPad("pad2","pad2",0,0,1,0.31);
         p2.SetTopMargin(0);
@@ -666,19 +670,6 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             ratio.Draw(plotOpt)
             hRatio = ratio
 
-        rname = hRatio.GetName()
-        #xmin = hRatio.GetXaxis().
-        if "pull" in rname: line = TLine(0,0,hRatio.GetNbinsX(),0)
-        elif "ratio" in rname: line = TLine(0,1,hRatio.GetNbinsX(),1)
-        elif "Kappa" in rname: line = TLine(0,1,hRatio.GetNbinsX(),1)
-        else: line = None #TLine(0,0,hRatio.GetNbinsX(),0)
-
-        if line != None:
-            line.SetLineColor(kGray)
-            line.SetLineWidth(1)
-            line.Draw()
-            SetOwnership(line,0)
-
         # plot bins separator
         marks = getMarks(hRatio)
         # do vertical lines
@@ -688,16 +679,30 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             ymin = hRatio.GetMinimum(); ymax = hRatio.GetMaximum()
             #ymin = hRatio.GetYaxis().GetXmin(); ymax = hRatio.GetYaxis().GetXmax()
             for i,mark in enumerate(marks):
+                if i == 2: continue
                 pos = axis.GetBinLowEdge(mark)
                 line = TLine(pos,ymin,pos,ymax)
                 #line.SetName("line_mark_"+str(mark))
                 line.SetLineStyle(3)
-                if i == 3: line.SetLineStyle(2) # nj6 -> nj9
+                if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                 line.Draw("same")
                 _lines.append(line)
 
         #redraw ratio on top of lines
         hRatio.Draw("same"+plotOpt)
+
+        rname = hRatio.GetName()
+        #xmin = hRatio.GetXaxis().
+        if "pull" in rname: ratioLine = TLine(0,0,hRatio.GetNbinsX(),0)
+        elif "ratio" in rname: ratioLine = TLine(0,1,hRatio.GetNbinsX(),1)
+        elif "Kappa" in rname: ratioLine = TLine(0,1,hRatio.GetNbinsX(),1)
+        else: ratioLine = None #TLine(0,0,hRatio.GetNbinsX(),0)
+
+        if ratioLine != None:
+            ratioLine.SetLineColor(kBlack)
+            ratioLine.SetLineWidth(1)
+            ratioLine.Draw()
+            SetOwnership(ratioLine,0)
 
 
         if multRatio:
@@ -729,7 +734,11 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         else: ymax *= 1.5; ymin *= 0.5; ymin = max(0,ymin)
     else:
         #ymax *= 100; ymin = max(0.05,0.5*ymin)
-        ymax *= 10; ymin = max(0.05,0.5*ymin)
+        factor = 10.
+        if mergeFolder == "mergedFew":
+            factor = 100.
+        ymax *= factor; ymin = max(0.05,0.5*ymin)
+        ymin /= 10.
 
     #ymin = 0
     #ymax = min(ymax, 1.5)
@@ -751,7 +760,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         if not hist.ClassName() == 'THStack':
 
             hist.GetYaxis().SetTitleSize(0.05)
-            hist.GetYaxis().SetTitleOffset(0.5)
+            hist.GetYaxis().SetTitleOffset(0.6)
 
             if ratio == None: hist.GetYaxis().SetLabelSize(0.04)
             else: hist.GetYaxis().SetLabelSize(0.05)
@@ -790,6 +799,14 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         elif "SigStack" in hist.GetName():
             hist.Draw(plotOpt+"hist")
             leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
+        elif "T1tttt" in hist.GetName():
+            hist.SetFillColorAlpha(kBlack, 0.)
+            if "1900" in hist.GetName():
+                hist.SetLineColor(kCyan)
+            else:
+                hist.SetLineColor(kMagenta)
+            hist.Draw(plotOpt+"hist")
+            leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
         elif "sqSum" in hist.GetName():
             hist.Draw(plotOpt+"p")
             #leg.AddEntry(hist,"Sum squared uncertainties","p")
@@ -813,11 +830,12 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                 #print marks
                 axis = hist.GetXaxis()
                 for i,mark in enumerate(marks):
+                    if i == 2: continue
                     pos = axis.GetBinLowEdge(mark)
                     line = TLine(pos,ymin,pos,ymax)
                     #line.SetName("line_mark_"+str(mark))
                     line.SetLineStyle(3)
-                    if i == 3: line.SetLineStyle(2) # nj6 -> nj9
+                    if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                     line.Draw("same")
                     _lines.append(line)
 
