@@ -77,12 +77,12 @@ class EventVars1L_filters:
             else:
                 ret['passFilters'] = 1
                 ret['passFiltersMoriond2017Tight'] = 1
-                ret['passFiltersICHEP'] = 1
+                ret['passFiltersICHEP2016'] = 1
         else:
             ret['passCSCFilterList'] = True
             ret['passFilters'] = True
             ret['passFiltersMoriond2017Tight'] = True
-            ret['passFiltersICHEP'] = True
+            ret['passFiltersICHEP2016'] = True
 
 
         return ret
