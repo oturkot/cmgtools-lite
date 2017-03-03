@@ -44,8 +44,14 @@ class EventVars1L_isoMT2:
 
         # MET
         metp4 = ROOT.TLorentzVector(0,0,0,0)
-        metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
-        pmiss  =array.array('d',[event.met_pt * cos(event.met_phi), event.met_pt * sin(event.met_phi)] )
+        if hasattr(event, 'metMuEGClean_pt'):
+            metp4.SetPtEtaPhiM(event.metMuEGClean_pt,event.metMuEGClean_eta,event.metMuEGClean_phi,event.metMuEGClean_mass)
+        else:
+            metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
+        if hasattr(event, 'metMuEGClean_pt'):
+            pmiss  =array.array('d',[event.metMuEGClean_pt * cos(event.metMuEGClean_phi), event.metMuEGClean_pt * sin(event.metMuEGClean_phi)] )
+        else:
+            pmiss  =array.array('d',[event.met_pt * cos(event.met_phi), event.met_pt * sin(event.met_phi)] )
 
         ####################################
         # import output from previous step #

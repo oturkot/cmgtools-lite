@@ -90,7 +90,10 @@ class EventVars1L_base:
         fatjets = [j for j in Collection(event,"FatJet","nFatJet")]
 
         metp4 = ROOT.TLorentzVector(0,0,0,0)
-        metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
+        if hasattr(event, 'metMuEGClean_pt'):
+            metp4.SetPtEtaPhiM(event.metMuEGClean_pt,event.metMuEGClean_eta,event.metMuEGClean_phi,event.metMuEGClean_mass)
+        else:
+            metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
 
         #isolation criteria as defined for PHYS14 1l synchronisation exercise
         centralEta = 2.4
@@ -374,7 +377,10 @@ class EventVars1L_base:
             recoWp4 =  tightLeps[0].p4() + metp4
             dPhiLepW = tightLeps[0].p4().DeltaPhi(recoWp4)
             Lp = tightLeps[0].pt / recoWp4.Pt() * cos(dPhiLepW)
-            ST = tightLeps[0].pt + event.met_pt
+            if hasattr(event, 'metMuEGClean_pt'):
+                ST = tightLeps[0].pt + event.metMuEGClean_pt
+            else:
+                ST = tightLeps[0].pt + event.met_pt
 
         ret["DeltaPhiLepW"] = dPhiLepW
         ret['ST'] = ST

@@ -763,7 +763,10 @@ class EventVars1L_base:
         # MET
         #####
         metp4 = ROOT.TLorentzVector(0,0,0,0)
-        metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
+        if hasattr(event, 'metMuEGClean_pt'):
+            metp4.SetPtEtaPhiM(event.metMuEGClean_pt,event.metMuEGClean_eta,event.metMuEGClean_phi,event.metMuEGClean_mass)
+        else:
+            metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
 
         # recalc MET
         if corrJEC != "central" or smearJER!= "None":

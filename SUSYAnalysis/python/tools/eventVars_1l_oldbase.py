@@ -68,8 +68,14 @@ class EventVars1L_base:
         njet = len(jets); nlep = len(leps)
 
         metp4 = ROOT.TLorentzVector(0,0,0,0)
-        metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
-        pmiss  =array.array('d',[event.met_pt * cos(event.met_phi), event.met_pt * sin(event.met_phi)] )
+        if hasattr(event, 'metMuEGClean_pt'):
+            metp4.SetPtEtaPhiM(event.metMuEGClean_pt,event.metMuEGClean_eta,event.metMuEGClean_phi,event.metMuEGClean_mass)
+        else:
+            metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
+        if hasattr(event, 'metMuEGClean_pt'):
+            pmiss  =array.array('d',[event.metMuEGClean_pt * cos(event.metMuEGClean_phi), event.metMuEGClean_pt * sin(event.metMuEGClean_phi)] )
+        else:
+            pmiss  =array.array('d',[event.met_pt * cos(event.met_phi), event.met_pt * sin(event.met_phi)] )
 
         #isolation criteria as defined for PHYS14 1l synchronisation exercise
         centralEta = 2.4
@@ -346,7 +352,10 @@ class EventVars1L_base:
             recoWp4 =  tightLeps[0].p4() + metp4
             dPhiLepW = tightLeps[0].p4().DeltaPhi(recoWp4)
             Lp = tightLeps[0].pt / recoWp4.Pt() * cos(dPhiLepW)
-            ST = tightLeps[0].pt + event.met_pt
+            if hasattr(event, 'metMuEGClean_pt'):
+                ST = tightLeps[0].pt + event.metMuEGClean_pt
+            else:
+                ST = tightLeps[0].pt + event.met_pt
 
         ret["DeltaPhiLepW"] = dPhiLepW
         ret['dPhi'] = abs(dPhiLepW) # nickname for absolute dPhiLepW
