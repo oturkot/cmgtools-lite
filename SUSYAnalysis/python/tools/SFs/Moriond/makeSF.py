@@ -19,19 +19,18 @@ h12_full_ele.SetTitle('El_CBtight_miniIso0p1_Moriond')
 h12_full_ele.SaveAs('El_CBtight_miniIso0p1_Moriond.root')
 
 # Fast-Sim to Full-Sim
-# NOT AVAILABLE AS OF 2017-02-06
-#f1_fast_ele = TFile.Open('sf_el_mini01_FastSim.root', 'read')
-#f2_fast_ele = TFile.Open('sf_el_tightCB_FastSim.root', 'read')
-#
-#h1_fast_ele = f1_fast_ele.Get('histo2D')
-#h2_fast_ele = f2_fast_ele.Get('histo2D')
-#
-#h12_fast_ele = h1_fast_ele.Clone()
-#h12_fast_ele.Multiply(h2_fast_ele)
-#
-#h12_fast_ele.SetName('CBtight_miniIso0p1_FastSim_Moriond')
-#h12_fast_ele.SetTitle('CBtight_miniIso0p1_FastSim_Moriond')
-#h12_fast_ele.SaveAs('CBtight_miniIso0p1_FastSim_Moriond.root')
+f1_fast_ele = TFile.Open('sf_el_mini01.root', 'read')
+f2_fast_ele = TFile.Open('sf_el_tightCB.root', 'read')
+
+h1_fast_ele = f1_fast_ele.Get('histo2D')
+h2_fast_ele = f2_fast_ele.Get('histo2D')
+
+h12_fast_ele = h1_fast_ele.Clone()
+h12_fast_ele.Multiply(h2_fast_ele)
+
+h12_fast_ele.SetName('CBtight_miniIso0p1_FastSim_Moriond')
+h12_fast_ele.SetTitle('CBtight_miniIso0p1_FastSim_Moriond')
+h12_fast_ele.SaveAs('CBtight_miniIso0p1_FastSim_Moriond.root')
 
 # Muons
 f1_full_mu = TFile.Open('TnP_NUM_MediumID_DENOM_generalTracks_VAR_map_pt_eta.root', 'read')
@@ -50,18 +49,17 @@ h123_full_mu.SetTitle("Mu_Medium_miniIso0p2_SIP3D_Moriond")
 h123_full_mu.SaveAs("Mu_Medium_miniIso0p2_SIP3D_Moriond.root")
 
 # Fast-Sim to Full-Sim
-# NOT AVAILABLE AS OF 2017-02-06
-#f1_fast_mu = TFile.Open('sf_mu_mediumID_mini02_FastSim.root', 'read')
-#f2_fast_mu = TFile.Open('sf_mu_medium_FastSim.root', 'read')
-#f3_fast_mu = TFile.Open('sf_mu_tightIP3D_FastSim.root', 'read')
-#
-#h1_fast_mu = f1_fast_mu.Get('histo2D')
-#h2_fast_mu = f2_fast_mu.Get('histo2D')
-#h3_fast_mu = f3_fast_mu.Get('histo2D')
-#
-#h123_fast_mu = h1_fast_mu.Clone()
-#h123_fast_mu.Multiply(h2_fast_mu)
-#h123_fast_mu.Multiply(h3_fast_mu)
-#h123_fast_mu.SetName("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond")
-#h123_fast_mu.SetTitle("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond")
-#h123_fast_mu.SaveAs("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond.root")
+f1_fast_mu = TFile.Open('sf_mu_mediumID_mini02_FastSim.root', 'read')
+f2_fast_mu = TFile.Open('sf_mu_medium_FastSim.root', 'read')
+f3_fast_mu = TFile.Open('sf_mu_tightIP3D_FastSim.root', 'read')
+
+h1_fast_mu = f1_fast_mu.Get('histo2D')
+h2_fast_mu = f2_fast_mu.Get('histo2D')
+h3_fast_mu = f3_fast_mu.Get('histo2D')
+
+h123_fast_mu = h1_fast_mu.Clone()
+h123_fast_mu.Multiply(h2_fast_mu)
+h123_fast_mu.Multiply(h3_fast_mu)
+h123_fast_mu.SetName("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond")
+h123_fast_mu.SetTitle("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond")
+h123_fast_mu.SaveAs("MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond.root")
