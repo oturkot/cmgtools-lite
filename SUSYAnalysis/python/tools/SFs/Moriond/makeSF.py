@@ -49,9 +49,9 @@ h123_full_mu.SetTitle("Mu_Medium_miniIso0p2_SIP3D_Moriond")
 h123_full_mu.SaveAs("Mu_Medium_miniIso0p2_SIP3D_Moriond.root")
 
 # Fast-Sim to Full-Sim
-f1_fast_mu = TFile.Open('sf_mu_mediumID_mini02_FastSim.root', 'read')
-f2_fast_mu = TFile.Open('sf_mu_medium_FastSim.root', 'read')
-f3_fast_mu = TFile.Open('sf_mu_tightIP3D_FastSim.root', 'read')
+f1_fast_mu = TFile.Open('sf_mu_mediumID_mini02.root', 'read')
+f2_fast_mu = TFile.Open('sf_mu_mediumID.root', 'read')
+f3_fast_mu = TFile.Open('sf_mu_mediumID_tightIP3D.root', 'read')
 
 h1_fast_mu = f1_fast_mu.Get('histo2D')
 h2_fast_mu = f2_fast_mu.Get('histo2D')
