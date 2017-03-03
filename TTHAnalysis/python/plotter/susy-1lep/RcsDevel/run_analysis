@@ -5,7 +5,7 @@ if [ -z "${1}" ]; then
     exit
 fi
 
-lumi=36.5
+lumi=35.9
 outputdir="${1}"
 
 # Signal

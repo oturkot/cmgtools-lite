@@ -3,7 +3,7 @@
 file=$1
 
 verb=0
-lumi=36.5
+lumi=35.9
 
 #./makeQCDtemplateFit.py $file -b -l $lumi -v $verb
 #./makeQCDtemplateFit.py $file -b -l $lumi -v $verb --mc

@@ -7,7 +7,7 @@ yp._batchMode = False
 yp._alpha = 0.75
 if __name__ == "__main__":
 
-    yp.CMS_lumi.lumi_13TeV = str(2.2) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(35.9) + " fb^{-1}"
     #yp.CMS_lumi.lumi_13TeV = "MC"
     yp.CMS_lumi.extraText = "Simulation"
 
