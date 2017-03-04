@@ -286,7 +286,9 @@ class EventVars1L_base:
             'METfilters',
             #Datasets
             'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET',
-            'RA2_muJetFilter'
+            'isDPhiSignal',
+            'RA2_muJetFilter',
+            'Flag_fastSimCorridorJetCleaning'
             ]
 
     def listBranches(self):
@@ -312,12 +314,16 @@ class EventVars1L_base:
         ret['PD_SingleEle'] = 0
         ret['PD_SingleMu'] = 0
         ret['PD_MET'] = 0
+        ret['isDPhiSignal'] = 0
 
         if event.isData and hasattr(self,"sample"):
             if "JetHT" in self.sample: ret['PD_JetHT'] = 1
             elif "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
             elif "SingleMu" in self.sample: ret['PD_SingleMu'] = 1
             elif "MET_" in self.sample: ret['PD_MET'] = 1
+        if not event.isData and hasattr(self,"sample"):
+            if "T1tttt" in self.sample or "T5qqqqWW" in self.sample:
+                ret['isDPhiSignal'] = 1
         ##############################
 
         # copy basic event info:
@@ -660,7 +666,11 @@ class EventVars1L_base:
         centralJet30 = []; centralJet30idx = []
         centralJet40 = []
 
+        ret['Flag_fastSimCorridorJetCleaning'] = 1
         for i,j in enumerate(jets):
+            # Cleaning up of fastsim jets (from "corridor" studies) https://twiki.cern.ch/twiki/bin/viewauth/CMS/SUSRecommendationsMoriond17#Cleaning_up_of_fastsim_jets_from
+            if ret['isDPhiSignal']: #only check for signals (see condition check above)
+                if j.pt>20 and abs(j.eta)<2.5 and j.mcPt == 0 and j.chHEF<0.1: ret['Flag_fastSimCorridorJetCleaning'] = 0  
             if j.pt>30 and abs(j.eta)<centralEta:
                 centralJet30.append(j)
                 centralJet30idx.append(i)
