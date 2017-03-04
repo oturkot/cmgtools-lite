@@ -48,6 +48,10 @@ if __name__ == "__main__":
         #pattern = ""
         print "No pattern given!"
         exit(0)
+    if len(sys.argv) > 2:
+        mergeFolder = sys.argv[2]
+    else:
+        mergeFolder = 'merged'
 
     #BinMask LTX_HTX_NBX_NJX for canvas names
     basename = os.path.basename(pattern)
@@ -95,7 +99,7 @@ if __name__ == "__main__":
         #jecPath = "Yields/systs/JEC/MC/allSF_noPU/meth1A/merged/"; paths.append(jecPath)
 
         # Add all systematics
-        paths = glob('{}/syst_*/merged/'.format(pattern))
+        paths = glob('{}/syst_*/{}/'.format(pattern, mergeFolder))
 
         for path in paths: ydsSyst.addFromFiles(path+'LT',("lep","sele"))
 
@@ -135,8 +139,12 @@ if __name__ == "__main__":
 
     ## Create Yield Storage
     yds = yp.YieldStore("lepYields")
-    yds.addFromFiles('{}/grid-dilep/merged/LT'.format(pattern), ("lep","sele"))
+    yds.addFromFiles('{}/grid-dilep/{}/LT'.format(pattern, mergeFolder), ("lep","sele"))
     yds.showStats()
+
+    ydsSig = yp.YieldStore("lepYields")
+    ydsSig.addFromFiles('{}/scan/{}/LT'.format(pattern, mergeFolder), ("lep","sele"))
+    ydsSig.showStats()
 
     mcSamps = ['DY','TTV','SingleT','WJets','TTsemiLep','TTdiLep']
     #mcSamps = ['EWK']
@@ -160,6 +168,12 @@ if __name__ == "__main__":
     # DATA
     hDataPred = yp.makeSampHisto(yds,"data_QCDsubtr",cat,"Data_prediction"); hDataPred.SetTitle("Prediction")
     hData = yp.makeSampHisto(yds,"data_QCDsubtr","SR_MB","Data"); hData.SetTitle("Data")
+
+    # Signal
+    hSig1 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1900_mLSP100", "SR_MB", "T1tttt (1900/100)")
+    hSig1.SetTitle("T1tttt (1900/100)")
+    hSig2 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1700_mLSP1100", "SR_MB", "T1tttt (1700/1100)")
+    hSig2.SetTitle("T1tttt (1700/1100)")
 
     ## Append Systematics to prediction
     print "Appending syst. unc. to prediction and total MC"
@@ -191,14 +205,14 @@ if __name__ == "__main__":
     # Ratio
     #ratio = yp.getRatio(hTotal,hDataPred)
     ratio = yp.getRatio(hData,hDataPred)
-    #ratioPois = yp.getRatio(hDataPois,hDataPred)
+    ratioPois = yp.getRatio(hDataPois,hDataPred)
     hPredUnc = yp.getRatio(hDataPred,hDataPred)
 
     # Pull
     pull = yp.getPull(hData,hDataPred)
 
     col = yp.kGray
-    hPredUnc.SetName("PredictionUncertainty")
+    hPredUnc.SetName("PredictionUncertainty_ratio")
     hPredUnc.SetLineColor(1)
     hPredUnc.SetFillColorAlpha(col,yp._alpha)
     #hPredUnc.SetFillStyle(3244)
@@ -216,13 +230,13 @@ if __name__ == "__main__":
     #### Drawing
     logY = True
     #logY = False
-    cname = "DataPredict_wPull_"+mask
-    hists = [mcStack,hUncert,hDataPois]
-    #ratios = [hPredUnc,ratioPois]
-    ratios = pull
+    cname = "DataPredict_wPull_"+mask+"_"+mergeFolder
+    hists = [mcStack,hSig1,hSig2,hUncert,hDataPois]
+    ratios = [hPredUnc,ratioPois]
+    #ratios = pull
 
     #canv = yp.plotHists("SR_MB_Prediction",[mcStack,hTotal,hDataPred,hDataPois],[hPredUnc,ratioPois],'TM', 1200, 600, logY = logY)
-    canv = yp.plotHists("SR_MB_Prediction",hists,ratios,'TRC', 1000, 600, logY = logY, nCols = 2)
+    canv = yp.plotHists("SR_MB_Prediction",hists,ratios,'TRC', 1000, 600, logY = logY, nCols = 2, mergeFolder = mergeFolder)
 
     canv.SetName(cname + canv.GetName())
 

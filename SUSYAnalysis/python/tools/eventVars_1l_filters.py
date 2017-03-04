@@ -66,7 +66,9 @@ class EventVars1L_filters:
             # check filters present in event (not FastSim)
             if hasattr(event,"Flag_eeBadScFilter"):
                 #forMoriond2017 https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFiltersRun2#Moriond_2017
-                ret['passFilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter 
+                #for Moriond 2017: use updated badChargedHadron and badPFMuon filters (Ece's Summer2016 implementation). Do NOT use Flag_badMuons and Flag_duplicateMuons (they are only to be used if new tails would appear in the metMuEGClean collection comparing to the METUncorrected collection)
+                ret['passFilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronSummer2016 and event.Flag_badMuonSummer2016
+                #also apply Flag_badMuons and Flag_duplicateMuons (they are only to be used if new tails would appear in the metMuEGClean collection comparing to the METUncorrected collection)
                 ret['passFiltersMoriond2017Tight'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronSummer2016 and event.Flag_badMuonSummer2016 and not event.Flag_badMuons and not event.Flag_duplicateMuons
                 #for2016ICHEP https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFiltersRun2#MiniAOD_8011_ICHEP_dataset
                 ret['passFiltersICHEP2016'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronFilter and event.Flag_badMuonFilter
@@ -75,12 +77,12 @@ class EventVars1L_filters:
             else:
                 ret['passFilters'] = 1
                 ret['passFiltersMoriond2017Tight'] = 1
-                ret['passFiltersICHEP'] = 1
+                ret['passFiltersICHEP2016'] = 1
         else:
             ret['passCSCFilterList'] = True
             ret['passFilters'] = True
             ret['passFiltersMoriond2017Tight'] = True
-            ret['passFiltersICHEP'] = True
+            ret['passFiltersICHEP2016'] = True
 
 
         return ret

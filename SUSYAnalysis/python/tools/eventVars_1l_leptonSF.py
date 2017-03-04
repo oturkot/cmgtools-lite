@@ -57,10 +57,11 @@ if not hEleHIP:
 
 
 ### Fast? SIM ###
-eleSFname = "../python/tools/SFs/ICHEP/CBtight_miniIso0p1_FastSim_ICHEP.root"
-eleHname = "CBtight_miniIso0p1_FastSim_ICHEP"
-muSFname = "../python/tools/SFs/ICHEP/MediumMuon_miniIso0p2_SIP3D_FastSim_ICHEP.root"
-muHname = "MediumMuon_miniIso0p2_SIP3D_FastSim_ICHEP"
+eleSFname = "../python/tools/SFs/Moriond/CBtight_miniIso0p1_FastSim_Moriond.root"
+eleHname = "CBtight_miniIso0p1_FastSim_Moriond"
+muSFname = "../python/tools/SFs/Moriond/MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond.root"
+muHname = "MediumMuon_miniIso0p2_SIP3D_FastSim_Moriond"
+
 
 hEleSF_FS = 0
 hMuSF_FS = 0
@@ -140,15 +141,14 @@ def getLepSF(lep, nPU = 1, sample = "FullSim"):
 
 #    print lepSF, HIP, lepSFerr
 
-    # TO BE UPDATED
-    # FastSim corrections are not yet available
-    #if sample == "FastSim":
-    #    maxPtfs = hSFfs.GetXaxis().GetXmax()
-    #    if lepPt > maxPtfs: lepPt = maxPtfs-0.1
+    # FastSim corrections
+    if sample == "FastSim":
+        maxPtfs = hSFfs.GetXaxis().GetXmax()
+        if lepPt > maxPtfs: lepPt = maxPtfs-0.1
 
-    #    bin = hSFfs.FindBin(lepPt,lepEta, nPU)
-    #    lepSF *= hSFfs.GetBinContent(bin)
-    #    lepSFerr = math.hypot(lepSFerr,hSFfs.GetBinError(bin))
+        bin = hSFfs.FindBin(lepPt,lepEta, nPU)
+        lepSF *= hSFfs.GetBinContent(bin)
+        lepSFerr = math.hypot(lepSFerr,hSFfs.GetBinError(bin))
 
     #print lep, hSF, lepPt, lepEta, bin, lepSF
     if lepSF == 0:
