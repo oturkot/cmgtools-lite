@@ -91,6 +91,7 @@ if __name__ == "__main__":
         ratio.GetYaxis().SetRangeUser(0.9,1.10)
         for i in range(0,ratio.GetNbinsX()):
             print ratio.GetBinContent(i)
+            ratio.SetBinError(i,0.0)
 
         #h1.GetYaxis().SetRangeUser(0.55,1.45)
         if "WJets" in samp and "Kappa" in cat:
