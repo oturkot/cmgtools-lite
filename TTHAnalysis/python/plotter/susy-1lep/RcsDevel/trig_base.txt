@@ -1,11 +1,11 @@
 # Select events with exactly one lepton
 1 hard lep: nLep == 1 && Lep_pt > 25
 
-# Veto events with additional leptons
-No veto lep: nVeto == 0
-
 # Lepton needs to be selected
 #Selected: Selected == 1
+
+# Veto events with additional leptons
+No veto lep: nVeto == 0
 
 # Fire at least one trigger
 Trigger: !isData || (HLT_EleOR || HLT_MuOR || HLT_MetOR)
@@ -22,6 +22,9 @@ Iso veto: !iso_Veto
 # Ghost Muon filters
 MET/met_caloPt <= 5: MET/met_caloPt <= 5
 Mu jet filter: RA2_muJetFilter == 1
+
+# FastSim jet veto
+FastSim jet veto: Flag_fastSimCorridorJetCleaning
 
 # At least 3 jets
 nJet >= 3: nJets30Clean >= 3
