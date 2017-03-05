@@ -284,7 +284,7 @@ class EventVars1LWeightsForSystematics:
         wmean = 5.67 - 0.5
         '''
 
-        #2016 update with 36.5/fb
+        #2016 update with 35.9/fb
         #https://indico.cern.ch/event/611061/contributions/2464202/attachments/1406419/2149049/diLepStudy.pdf
         constVariation= sqrt(0.030*0.030 +0.023*0.023)
         slopevariation = sqrt(0.017*0.017 +0.014*0.014)

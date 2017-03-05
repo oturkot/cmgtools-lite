@@ -7,7 +7,7 @@ import makeYieldPlots as yp
 yp._batchMode = False
 yp._alpha = 0.8
 
-lum = "36.5"
+lum = "35.9"
 yp.CMS_lumi.lumi_13TeV = lum +  " fb^{-1}"
 yp.CMS_lumi.extraText = "Preliminary"
 

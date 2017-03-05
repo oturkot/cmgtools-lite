@@ -7,7 +7,7 @@ yp._batchMode = False
 
 if __name__ == "__main__":
 
-    yp.CMS_lumi.lumi_13TeV = str(2.3) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(35.9) + " fb^{-1}"
     yp.CMS_lumi.extraText = "Preliminary"
 
     ## remove '-b' option

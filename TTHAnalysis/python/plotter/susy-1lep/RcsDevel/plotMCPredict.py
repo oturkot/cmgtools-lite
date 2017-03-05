@@ -24,7 +24,7 @@ if __name__ == "__main__":
     #basename = basename.replace("_SR","")
     mask = basename.replace("*","X_")
 
-    lumi = 3
+    lumi = 35.9
     CMS_lumi.lumi_13TeV = str(lumi) + " fb^{-1}"
     CMS_lumi.extraText = "Simulation"
 
