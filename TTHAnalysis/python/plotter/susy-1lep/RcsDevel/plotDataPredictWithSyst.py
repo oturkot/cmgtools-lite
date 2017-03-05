@@ -172,8 +172,8 @@ if __name__ == "__main__":
     # Signal
     hSig1 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1900_mLSP100", "SR_MB", "T1tttt (1900/100)")
     hSig1.SetTitle("T1tttt (1900/100)")
-    hSig2 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1700_mLSP1100", "SR_MB", "T1tttt (1700/1100)")
-    hSig2.SetTitle("T1tttt (1700/1100)")
+    hSig2 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1400_mLSP1100", "SR_MB", "T1tttt (1400/1100)")
+    hSig2.SetTitle("T1tttt (1400/1100)")
 
     ## Append Systematics to prediction
     print "Appending syst. unc. to prediction and total MC"
