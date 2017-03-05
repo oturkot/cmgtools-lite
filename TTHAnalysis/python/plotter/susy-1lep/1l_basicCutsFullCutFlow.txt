@@ -23,6 +23,9 @@ Iso veto: !iso_Veto
 MET/met_caloPt <= 5: MET/met_caloPt <= 5
 Mu jet filter: RA2_muJetFilter == 1
 
+# FastSim jet veto
+FastSim jet veto: Flag_fastSimCorridorJetCleaning
+
 # At least 5 jets
 nJet >= 5: nJets30Clean >= 5
 
