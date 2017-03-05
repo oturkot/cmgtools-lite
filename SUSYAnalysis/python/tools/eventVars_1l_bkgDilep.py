@@ -101,7 +101,10 @@ class EventVars1L_bkgDilep:
 
         # MET
         self.metp4 = ROOT.TLorentzVector(0,0,0,0)
-        self.metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
+        if hasattr(event, 'metMuEGClean_pt'):
+            self.metp4.SetPtEtaPhiM(event.metMuEGClean_pt,event.metMuEGClean_eta,event.metMuEGClean_phi,event.metMuEGClean_mass)
+        else:
+            self.metp4.SetPtEtaPhiM(event.met_pt,event.met_eta,event.met_phi,event.met_mass)
 
         ####################################
         # import output from previous step #
