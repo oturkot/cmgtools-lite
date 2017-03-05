@@ -89,7 +89,7 @@ if __name__ == "__main__":
     yds9.showStats()
 
     #pattern = 'arturstuff/grid/merged/LT\*NJ6\*'
-    printSamps = ['TTsemiLep','TTdiLep','TTV','SingleT', 'WJets', 'DY', 'QCD','VV','background','T1t$^4$ 1.8$/$0.1','T1t$^4$ 1.2$/$0.8']
+    printSamps = ['TTsemiLep','TTdiLep','TTV','SingleT', 'WJets', 'DY', 'QCD','VV','background','T1t$^4$ 1.9$/$0.1','T1t$^4$ 1.4$/$1.1']
 #    printSamps = ['TTJets','TTV','SingleTop', 'WJets', 'DY','EWK','T1t$^4$ 1.5$/$0.1','T1t$^4$ 1.2$/$0.8']
 
     if 1 ==1:
@@ -97,7 +97,7 @@ if __name__ == "__main__":
         for cat in cats:
             f =  open('yields' + cat +btagMethod+'.tex','w')
             samps = [('TTsemiLep',cat),('TTdiLep',cat),('TTV',cat), ('SingleT',cat), ('WJets',cat), ('DY',cat), ('QCD',cat),('VV',cat), ('background',cat),
-                     ('T1tttt_Scan_mGo1800_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
+                     ('T1tttt_Scan_mGo1900_mLSP100',cat),('T1tttt_Scan_mGo1400_mLSP1100',cat)]
 #            samps = [('TTJets',cat),('TTV',cat), ('SingleTop',cat), ('WJets',cat), ('DY',cat), ('EWK',cat),
 #                     ('T1tttt_Scan_mGo1500_mLSP100',cat),('T1tttt_Scan_mGo1200_mLSP800',cat)]
             caption ='Expected event yields in ' + cat.replace('_','\\_') + ' for the multi-b analysis in the search bins as defined in Table~\\ref{tab:def_sr_multi-b}. The following weights are applied to these MC predictions: only nISR weights for \\ttbar. The \\DF is adjusted for each \\LT bin. The contribution of dileptonic \\ttbar events is shown separately, where leptons can be either electrons, muons, or taus.'
@@ -238,11 +238,11 @@ if __name__ == "__main__":
 
     printLatexHeader(len(samps), f, caption,0)
 
-    samps = [('EWK','SR_MB'),('T1tttt_Scan_mGo1800_mLSP100','SR_MB'),('T1tttt_Scan_mGo1300_mLSP900','SR_MB')]
+    samps = [('EWK','SR_MB'),('T1tttt_Scan_mGo1900_mLSP100','SR_MB'),('T1tttt_Scan_mGo1400_mLSP1100','SR_MB')]
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
-    printSamps = ['MC 6ij','T1tttt 1.8/0.1','T1tttt 1.3/0.9']
+    printSamps = ['MC 6ij','T1tttt 1.9/0.1','T1tttt 1.4/1.1']
     ydsFew6.printLatexTable(samps, printSamps, label,f, False)
-    printSamps = ['MC 9ij','T1tttt 1.8/0.1','T1tttt 1.3/0.9']
+    printSamps = ['MC 9ij','T1tttt 1.9/0.1','T1tttt 1.4/1.1']
     ydsFew9.printLatexTable(samps, printSamps, label, f, False)
     printLatexFooter(f, 0)
     f.close()
