@@ -198,7 +198,7 @@ if __name__ == "__main__":
     printLatexFooter(f, 1)
     f.close()
 
-    caption = 'Background prediction based on the [4,5] jet sideband in the [6,8] and $\geq$ 9 jet signal regions. The oberseved events in the SR, MB are still blinded.'
+    caption = 'Background prediction based on the [4,5] jet sideband in the [6,8] and $\geq$ 9 jet signal regions. The observed events in the SR, MB are still blinded.'
     f =  open('4to68_4to9j_prediction.tex','w')
 
     printLatexHeader(len(samps), f, caption, 1)
