@@ -215,9 +215,6 @@ if __name__ == "__main__":
     printLatexFooter(f, 1)
     f.close()
 
-
-
-
     caption = 'Background prediction for aggregate signal regions.'
     f =  open('fewbins_prediction.tex','w')
 
@@ -276,6 +273,21 @@ if __name__ == "__main__":
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for njet $\\geq 9$'
     printSamps = ['data 45j, SR','data 45j, CR','data 4j5, Rcs$^{EWK}$',
                   'data 9j, CR','$\\kappa$ MC','data 9j, SRpred','Obs 9j SR']
+    yds9.printLatexTable(samps, printSamps, label, f, doSys)
+    printLatexFooter(f, 1)
+    f.close()
+
+    # Signal yields
+    caption = 'Dummy signal points'
+    f =  open('4to68_4to9j_signal.tex','w')
+    samps = [('T1tttt_Scan_mGo1900_mLSP100','SR_MB'), ('T1tttt_Scan_mGo1900_mLSP600','SR_MB'), ('T1tttt_Scan_mGo1800_mLSP1100','SR_MB'), ('T1tttt_Scan_mGo1450_mLSP1100','SR_MB')]
+    printSamps = ['T1tttt (1.9, 0.1)', 'T1tttt (1.9, 0.6)', 'T1tttt (1.8, 1.1)', 'T1tttt (1.45, 1.1)']
+    label = 'SR_MB predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
+
+    printLatexHeader(len(samps), f, caption, 1)
+    yds6.printLatexTable(samps, printSamps, label,f, doSys)
+
+    label = 'SR_MB predictions for '+lumi+' fb$^{-1}$ for njet $\\geq 9$'
     yds9.printLatexTable(samps, printSamps, label, f, doSys)
     printLatexFooter(f, 1)
     f.close()
