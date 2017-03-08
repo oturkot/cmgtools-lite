@@ -801,6 +801,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
         elif "T1tttt" in hist.GetName():
             hist.SetFillColorAlpha(kBlack, 0.)
+            hist.SetLineWidth(2)
             if "1900" in hist.GetName():
                 hist.SetLineColor(kCyan)
             else:
