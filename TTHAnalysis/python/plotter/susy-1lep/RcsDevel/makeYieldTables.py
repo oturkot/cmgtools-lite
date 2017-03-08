@@ -280,8 +280,9 @@ if __name__ == "__main__":
     # Signal yields
     caption = 'Dummy signal points'
     f =  open('4to68_4to9j_signal.tex','w')
-    samps = [('T1tttt_Scan_mGo1900_mLSP100','SR_MB'), ('T1tttt_Scan_mGo1900_mLSP600','SR_MB'), ('T1tttt_Scan_mGo1800_mLSP1100','SR_MB'), ('T1tttt_Scan_mGo1450_mLSP1100','SR_MB')]
-    printSamps = ['T1tttt (1.9, 0.1)', 'T1tttt (1.9, 0.6)', 'T1tttt (1.8, 1.1)', 'T1tttt (1.45, 1.1)']
+    samps = [('T1tttt_Scan_mGo1900_mLSP100','SR_MB'), ('T1tttt_Scan_mGo1900_mLSP600','SR_MB'), ('T1tttt_Scan_mGo1800_mLSP1100','SR_MB'), ('T1tttt_Scan_mGo1450_mLSP1100','SR_MB'),
+            ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
+    printSamps = ['T1tttt (1.9, 0.1)', 'T1tttt (1.9, 0.6)', 'T1tttt (1.8, 1.1)', 'T1tttt (1.45, 1.1)', 'data 68j, pred (val $\pm$ stat $\pm$ syst)', 'data 68j, SR']
     label = 'SR_MB predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
 
     printLatexHeader(len(samps), f, caption, 1)
