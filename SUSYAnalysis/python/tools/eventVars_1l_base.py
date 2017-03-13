@@ -269,6 +269,7 @@ class EventVars1L_base:
             'MET','LT','ST',
             'MT',
             "DeltaPhiLepW", 'dPhi','Lp',
+            "GendPhi","GenLT","GenMET",
             # no HF stuff
 #            'METNoHF', 'LTNoHF', 'dPhiNoHF',
             ## jets
@@ -782,6 +783,11 @@ class EventVars1L_base:
         if corrJEC != "central" or smearJER!= "None":
             ## get original jet collection
             metp4 = getRecalcMET(metp4,event,corrJEC,smearJER)
+        
+        Genmetp4 = ROOT.TLorentzVector(0,0,0,0)
+        
+        if not event.isData:
+            Genmetp4.SetPtEtaPhiM(event.met_genPt,event.met_genEta,event.met_genPhi,0)
 
         ret["MET"] = metp4.Pt()
 
@@ -809,16 +815,20 @@ class EventVars1L_base:
 
         # deltaPhi between the (single) lepton and the reconstructed W (lep + MET)
         dPhiLepW = -999 # set default value to -999 to spot "empty" entries
+        GendPhiLepW = -999 # set default value to -999 to spot "empty" entries
 #        dPhiLepWNoHF = -999 # set default value to -999 to spot "empty" entries
         # LT of lepton and MET
         LT = -999
+        GenLT = -999
 #        LTNoHF = -999
         Lp = -99
         MT = -99
 
         if len(tightLeps) >=1:
             recoWp4 =  tightLeps[0].p4() + metp4
-
+            GenrecoWp4 =  tightLeps[0].p4() + Genmetp4
+            GendPhiLepW = tightLeps[0].p4().DeltaPhi(GenrecoWp4)
+            GenLT = tightLeps[0].pt + Genmetp4.Pt()
             dPhiLepW = tightLeps[0].p4().DeltaPhi(recoWp4)
             LT = tightLeps[0].pt + metp4.Pt()
             Lp = tightLeps[0].pt / recoWp4.Pt() * cos(dPhiLepW)
@@ -838,7 +848,9 @@ class EventVars1L_base:
         ret['LT'] = LT
         ret['Lp'] = Lp
         ret['MT'] = MT
-
+        ret['GendPhi'] = abs(GendPhiLepW)
+        ret['GenLT'] = GenLT
+        ret['GenMET'] = Genmetp4.Pt()
         # no HF
 #        dPhiNoHF = abs(dPhiLepWNoHF) # nickname for absolute dPhiLepW
 #        ret['dPhiNoHF'] = dPhiNoHF
