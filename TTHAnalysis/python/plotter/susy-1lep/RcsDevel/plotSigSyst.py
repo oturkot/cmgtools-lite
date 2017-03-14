@@ -163,7 +163,7 @@ if __name__ == "__main__":
         #flats["stat"] = 0.1
         flats["lepSF"] = 0.02
         flats["lumi"] = 0.026
-        flats["iso"] = 0.03
+        flats["iso"] = 0.04
         flats["trig"] = 0.02
         #flats = {}
 
