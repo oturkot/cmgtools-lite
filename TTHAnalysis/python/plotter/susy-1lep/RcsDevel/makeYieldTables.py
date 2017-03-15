@@ -279,3 +279,18 @@ if __name__ == "__main__":
     yds9.printLatexTable(samps, printSamps, label, f, doSys)
     printLatexFooter(f, 1)
     f.close()
+
+
+
+    caption = ''
+    f =  open('PAS_prediction.tex','w')
+
+    printLatexHeader(len(samps), f, caption, 0)
+
+    samps = [ ('T1tttt_Scan_mGo1900_mLSP100','SR_MB'),('T1tttt_Scan_mGo1400_mLSP1100','SR_MB'),('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
+    label = ''
+    printSamps = ['1.9/0.1','1.4/1.1', 'Predicted background', 'Observed']
+    yds6.printLatexTable(samps, printSamps, label,f, doSys)
+    yds9.printLatexTable(samps, printSamps, label, f, doSys)
+    printLatexFooter(f, 0)
+    f.close()
