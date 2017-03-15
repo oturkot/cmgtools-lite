@@ -115,6 +115,7 @@ if __name__ == "__main__":
         "stat": "Stat.",
         "nISR" : "nISR rew.",
         "iso" : "Iso. track veto",
+        "scale" : "Q2 scale",
         }
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)

@@ -137,6 +137,7 @@ if __name__ == "__main__":
         "stat": "Stat.",
         "nISR" : "nISR rew.",
         "iso" : "Iso. track veto",
+        "scale" : "Q2 scale",
         }
 
 
