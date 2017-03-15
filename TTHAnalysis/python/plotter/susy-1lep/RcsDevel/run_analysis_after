@@ -26,6 +26,10 @@ mkdir -p pickles BinPlots FracPlots FracPlots_TT RCSplots
 # Merge bins
 echo Run mergeBins.py
 for folder in "${inputfolder}"/*; do
+    # If merged folder already exists, skip
+    if [[ -d "${folder}"/merged/ ]]; then
+        continue
+    fi
     ./mergeBins.py "${folder}"
 done
 
