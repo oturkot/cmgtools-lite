@@ -97,7 +97,10 @@ if __name__ == "__main__":
 
             # set error
             for i in xrange(1,hPredUnc.GetNbinsX()+1):
-                hPredUnc.SetBinError(i,hDataPred.GetBinError(i)/hDataPred.GetBinContent(i))
+                try:
+                    hPredUnc.SetBinError(i,hDataPred.GetBinError(i)/hDataPred.GetBinContent(i))
+                except ZeroDivisionError:
+                    hPredUnc.SetBinError(i, 0.)
 
         # MC samps
         samps = [(samp,cat) for samp in mcSamps]

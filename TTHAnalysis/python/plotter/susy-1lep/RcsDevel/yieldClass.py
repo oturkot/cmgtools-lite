@@ -232,14 +232,12 @@ class YieldStore:
 
         if samp in self.samples and cat in self.categories:
             # fill empty bins
-            '''
             dct = self.yields[samp][cat]
             for bin in self.bins:
                 if bin not in dct:
                     dct[bin] = BinYield(samp, cat, (0, 0))
             return dct
-            '''
-            return self.yields[samp][cat]
+            #return self.yields[samp][cat]
         else:
             print 'Either {} is not in {} or {} is not in {}. Something\'s wrong here.'.format(samp, self.samples, cat, self.categories)
             return 0

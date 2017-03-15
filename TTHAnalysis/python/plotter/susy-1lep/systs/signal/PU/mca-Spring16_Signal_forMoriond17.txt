@@ -1,17 +1,20 @@
-# Nominal
+# Comment all out until better understood what to do about PU-uncertainty; not usable the way it is now (because PU profiles 
+# that go into puRatio are completely different from what is in the FastSimMC samples)
 
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight;
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight;
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight;
-
-# Pileup variation up
-
-T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight*puRatio_up;
-T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight*puRatio_up;
-T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight*puRatio_up;
-
-# Pileup variation down
-
-T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight*puRatio_down;
-T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight*puRatio_down;
-T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight*puRatio_down;
+## Nominal
+#
+#T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight*puRatio;
+#T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight*puRatio;
+#T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight*puRatio;
+#
+## Pileup variation up
+#
+#T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight*puRatio_up;
+#T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight*puRatio_up;
+#T1tttt_Scan_PU-Up : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight*puRatio_up;
+#
+## Pileup variation down
+#
+#T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_1_Norm10201737 : susyXsec*10201737/susyNgen*lepSF*btagSF*nISRweight*puRatio_down;
+#T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_2_Norm10318820 : susyXsec*10318820/susyNgen*lepSF*btagSF*nISRweight*puRatio_down;
+#T1tttt_Scan_PU-Down : SMS_T1tttt_TuneCUETP8M1_3_Norm10091667 : susyXsec*10091667/susyNgen*lepSF*btagSF*nISRweight*puRatio_down;
