@@ -34,7 +34,7 @@ if __name__ == "__main__":
     yds.addFromFiles(pattern,(lep,"sele"))
     yds.showStats()
 
-    lumi = 35.9
+    lumi = 36
 
     CMS_lumi.lumi_13TeV = str(lumi) + " fb^{-1}"
     CMS_lumi.extraText = "Simulation"

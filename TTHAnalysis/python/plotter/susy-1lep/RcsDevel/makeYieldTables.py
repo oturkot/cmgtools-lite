@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-lumi = "35.9"
+lumi = "36"
 from yieldClass import *
 from ROOT import *
 

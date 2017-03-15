@@ -29,7 +29,7 @@ def scaleToHist(hists, hRef):
 
 if __name__ == "__main__":
 
-    yp.CMS_lumi.lumi_13TeV = str(35.9) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(36) + " fb^{-1}"
     yp.CMS_lumi.extraText = "Preliminary"
 
     #yp.CMS_lumi.lumi_13TeV = "MC"
