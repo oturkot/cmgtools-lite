@@ -3,37 +3,37 @@
 ./makeBinYields.py --mca ../systs/signal/scale/mca-Spring16_Signal_forMoriond17.txt --signal --systs True -v2 -l 35.6 -b -od lum36fb/signal/scale
 
 
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[0]/LHEweight_original;
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[0]/LHEweight_original;
-T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[0]/LHEweight_original;
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[0]/LHEweight_wgt[0];
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[0]/LHEweight_wgt[0];
+T1tttt_Scan : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[0]/LHEweight_wgt[0];
 
 
 
-T1tttt_ScanScale-Env1 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[1]/LHEweight_original;
-T1tttt_ScanScale-Env1 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[1]/LHEweight_original;
-T1tttt_ScanScale-Env1 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[1]/LHEweight_original;
+T1tttt_ScanScale-Env1 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[1]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env1 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[1]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env1 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[1]/LHEweight_wgt[0];
 
 
-T1tttt_ScanScale-Env2 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[2]/LHEweight_original;
-T1tttt_ScanScale-Env2 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[2]/LHEweight_original;
-T1tttt_ScanScale-Env2 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[2]/LHEweight_original;
+T1tttt_ScanScale-Env2 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[2]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env2 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[2]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env2 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[2]/LHEweight_wgt[0];
 
 
-T1tttt_ScanScale-Env3 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[3]/LHEweight_original;
-T1tttt_ScanScale-Env3 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[3]/LHEweight_original;
-T1tttt_ScanScale-Env3 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[3]/LHEweight_original;
+T1tttt_ScanScale-Env3 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[3]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env3 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[3]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env3 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[3]/LHEweight_wgt[0];
 
 
-T1tttt_ScanScale-Env4 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[4]/LHEweight_original;
-T1tttt_ScanScale-Env4 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[4]/LHEweight_original;
-T1tttt_ScanScale-Env4 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[4]/LHEweight_original;
+T1tttt_ScanScale-Env4 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[4]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env4 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[4]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env4 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[4]/LHEweight_wgt[0];
 
 
-T1tttt_ScanScale-Env6 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[6]/LHEweight_original;
-T1tttt_ScanScale-Env6 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[6]/LHEweight_original;
-T1tttt_ScanScale-Env6 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[6]/LHEweight_original;
+T1tttt_ScanScale-Env6 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[6]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env6 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[6]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env6 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[6]/LHEweight_wgt[0];
 
 
-T1tttt_ScanScale-Env8 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[8]/LHEweight_original;
-T1tttt_ScanScale-Env8 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[8]/LHEweight_original;
-T1tttt_ScanScale-Env8 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[8]/LHEweight_original;
+T1tttt_ScanScale-Env8 : SMS_T1tttt_TuneCUETP8M1_1_Norm10393971 : susyXsec*10393971/susyNgen*lepSF*btagSF*LHEweight_wgt[8]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env8 : SMS_T1tttt_TuneCUETP8M1_2_Norm10414335 : susyXsec*10414335/susyNgen*lepSF*btagSF*LHEweight_wgt[8]/LHEweight_wgt[0];
+T1tttt_ScanScale-Env8 : SMS_T1tttt_TuneCUETP8M1_3_Norm10327389 : susyXsec*10327389/susyNgen*lepSF*btagSF*LHEweight_wgt[8]/LHEweight_wgt[0];
