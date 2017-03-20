@@ -105,7 +105,7 @@ class EventVars1L_signal:
         # output dict:
         ret = {}
 
-        if not event.isData and "T1tttt" in self.sample:
+        if not event.isData and "tttt" in self.sample:
 
             global xsecGlu
             global cntsSusy
@@ -151,10 +151,13 @@ class EventVars1L_signal:
             #Moriond17 weights
             ISRweights = { 0: 1, 1 : 0.920, 2 : 0.821, 3 : 0.715, 4 : 0.662, 5 : 0.561, 6 : 0.511}
             ISRweightssyst = { 0: 0.0, 1 : 0.040, 2 : 0.090, 3 : 0.143, 4 : 0.169, 5 : 0.219, 6 : 0.244}
-            
-            C_ISR = float(C_ISRweightsSusy[(mGo,mLSP)][0])
-            C_ISR_up = float(C_ISRweightsSusy[(mGo,mLSP)][1])
-            C_ISR_down = float(C_ISRweightsSusy[(mGo,mLSP)][2])
+            C_ISR = 1
+            C_ISR_up = 1
+            C_ISR_down = 1
+            if (mGo,mLSP) in C_ISRweightsSusy: 
+                C_ISR = float(C_ISRweightsSusy[(mGo,mLSP)][0])
+                C_ISR_up = float(C_ISRweightsSusy[(mGo,mLSP)][1])
+                C_ISR_down = float(C_ISRweightsSusy[(mGo,mLSP)][2])
 
 
 
