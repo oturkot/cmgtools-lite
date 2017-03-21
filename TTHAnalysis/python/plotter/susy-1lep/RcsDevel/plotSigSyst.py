@@ -166,6 +166,7 @@ if __name__ == "__main__":
         flats["lumi"] = 0.026
         flats["iso"] = 0.04
         flats["trig"] = 0.02
+        flats["PU"] = 0.1
         #flats = {}
 
         for i, syst in enumerate(sorted(flats.keys())):
