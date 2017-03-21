@@ -36,7 +36,7 @@ def getHnames(fname,tdir):
 
 def getSystHist(tfile, hname, syst = "Xsec"):
     print tfile, hname, syst
-    if "Env" in syst or "RMS" in syst or "scale" in syst:
+    if "Env" in syst or "RMS" in syst:
         hNorm = tfile.Get(hname)
         if hNorm: print "", #"got it", hname
         else:
@@ -46,8 +46,8 @@ def getSystHist(tfile, hname, syst = "Xsec"):
         hSyst = hNorm.Clone(hNorm.GetName() + '_' + syst + '_syst')
         histDict = {}
         for i in range (0,200):
-            #hnameIter = hname + '_' + syst + str(i)
-            hnameIter = '{}Scale-Env{}'.format(hname, i)
+            hnameIter = hname + '_' + syst + str(i)
+            #hnameIter = '{}Scale-Env{}'.format(hname, i)
             tempImport = tfile.Get(hnameIter)
             if tempImport:
                 hVar = hNorm.Clone(hNorm.GetName() + '_' + syst + '_Var'+str(i))
