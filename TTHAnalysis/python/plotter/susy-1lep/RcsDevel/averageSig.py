@@ -96,8 +96,8 @@ if __name__ == "__main__":
     #    exit(0)
 
     # find files matching pattern
-    fileList1 = glob.glob("makeBinYields44_genMET/scan/merged/*.root")
-    fileList2 = glob.glob("makeBinYields44_genMET/scan-genMET/merged/*.root")
+    fileList1 = glob.glob("makeBinYields52_genMET-fixed/scan/merged/*.root")
+    fileList2 = glob.glob("makeBinYields52_genMET-fixed/scan-genMET/merged/*.root")
 
     makeSystHists(fileList1, fileList2)
 
