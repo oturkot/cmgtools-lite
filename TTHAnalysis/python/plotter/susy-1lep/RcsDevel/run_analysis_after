@@ -48,7 +48,8 @@ echo Run calcSyst.py
 for folder in "${inputfolder}"/*/merged*; do
     if [[ "${folder}" == */scan/* ]] \
         || [[ "${folder}" == */grid/* ]] \
-        || [[ "${folder}" == */grid-dilep/* ]]; then
+        || [[ "${folder}" == */grid-dilep/* ]] \
+        || [[ "${folder}" == */signal_MET/* ]]; then
         continue
     fi
     ./calcSyst.py "${folder}"
