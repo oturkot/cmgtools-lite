@@ -47,6 +47,7 @@ def getSystHist(tfile, hname, syst = "Xsec"):
         histDict = {}
         for i in range (0,200):
             hnameIter = hname + '_' + syst + str(i)
+            #hnameIter = '{}Scale-Env{}'.format(hname, i)
             tempImport = tfile.Get(hnameIter)
             if tempImport:
                 hVar = hNorm.Clone(hNorm.GetName() + '_' + syst + '_Var'+str(i))
@@ -64,7 +65,7 @@ def getSystHist(tfile, hname, syst = "Xsec"):
 
                 DevUp, DevDn = -999, -999
 #                print DevUp, DevDn
-                print len(histDict), "variations taken into account; determining envelope"
+                #print len(histDict), "variations taken into account; determining envelope"
                 collectDevs = []
                 for key, value in histDict.iteritems():
                     Dev = abs(value.GetBinContent(xbin,ybin))
@@ -78,7 +79,7 @@ def getSystHist(tfile, hname, syst = "Xsec"):
                 a = array(collectDevs)
 #                print collectDevs, a.mean(), a.std()
                 maxDev = (DevUp-DevDn)/2#WARNING: HERE DOING ONLY AN ENVELOPE OF THE VARIATIONS!
-                print DevUp, DevDn, maxDev
+                #print DevUp, DevDn, maxDev
                 # limit max deviation to 200%
                 if "RMS" in syst: maxDev = a.std()
 

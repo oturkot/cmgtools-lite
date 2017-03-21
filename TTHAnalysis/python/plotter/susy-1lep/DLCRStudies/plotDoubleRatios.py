@@ -215,7 +215,7 @@ if __name__ == "__main__":
     parser.add_option("-o", "--out", dest="out", default="DefaultOutput", help="Output file name");
     addPlotMakerOptions(parser)
     (options, args) = parser.parse_args()
-    options.lumi=35.9
+    options.lumi=36
     plotsDiLepton      = PlotFile(args[0],options)
     plotsSingleLepton  = PlotFile(args[1],options)
 

@@ -88,16 +88,16 @@ if __name__ == "__main__":
         sys.argv.remove('-b')
         _batchMode = True
 
-    if len(sys.argv) > 1:
-        pattern = sys.argv[1]
-        print '# pattern is', pattern
-    else:
-        print "No pattern given!"
-        exit(0)
+    #if len(sys.argv) > 1:
+    #    pattern = sys.argv[1]
+    #    print '# pattern is', pattern
+    #else:
+    #    print "No pattern given!"
+    #    exit(0)
 
     # find files matching pattern
-    fileList1 = glob.glob("testSigMET/RecoMet/scan*/merged/*.root")
-    fileList2 = glob.glob("testSigMET/GenMet/scan*/merged/*.root")
+    fileList1 = glob.glob("makeBinYields52_genMET-fixed/scan/merged/*.root")
+    fileList2 = glob.glob("makeBinYields52_genMET-fixed/scan-genMET/merged/*.root")
 
     makeSystHists(fileList1, fileList2)
 

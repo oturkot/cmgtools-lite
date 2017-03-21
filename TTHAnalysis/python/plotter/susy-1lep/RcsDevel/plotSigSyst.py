@@ -11,7 +11,7 @@ yp._alpha = 0.8
 
 if __name__ == "__main__":
 
-    yp.CMS_lumi.lumi_13TeV = str(35.9) + " fb^{-1}"
+    yp.CMS_lumi.lumi_13TeV = str(36) + " fb^{-1}"
     #yp.CMS_lumi.lumi_13TeV = "MC"
     yp.CMS_lumi.extraText = "Simulation"
 
@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     ## Check content
     #yds.showStats()
-    print [name for name in yds.samples if ("syst" in name and "mGo1200_mLSP800" in name)]
+    print [name for name in yds.samples if ("syst" in name and "mGo1900_mLSP100" in name)]
 
     ## Sys types
 #    systs = ["btagHF","btagLF"]
@@ -115,6 +115,7 @@ if __name__ == "__main__":
         "stat": "Stat.",
         "nISR" : "nISR rew.",
         "iso" : "Iso. track veto",
+        "scale" : "Q2 scale",
         }
 
     #sysCols = [2,4,7,8,3,9,6] + range(40,50)#[1,2,3] + range(4,10)
@@ -130,7 +131,7 @@ if __name__ == "__main__":
     # Sample and variable
     samp = "T1tttt_Scan"
     #mass = "mGo1150_mLSP800"
-    mass = "mGo1200_mLSP800"
+    mass = "mGo1900_mLSP100"
     #mass = "mGo1500_mLSP100"
     #mass = "mGo1000_mLSP100"
 
@@ -161,10 +162,11 @@ if __name__ == "__main__":
 
         ### Add flat systs (lumi, lepSF, triggEff, etc.)
         #flats["stat"] = 0.1
-        flats["lepSF"] = 0.05
+        flats["lepSF"] = 0.02
         flats["lumi"] = 0.026
-        flats["iso"] = 0.03
+        flats["iso"] = 0.04
         flats["trig"] = 0.02
+        flats["PU"] = 0.1
         #flats = {}
 
         for i, syst in enumerate(sorted(flats.keys())):
