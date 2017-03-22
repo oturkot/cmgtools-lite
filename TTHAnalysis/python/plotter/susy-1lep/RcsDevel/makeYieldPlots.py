@@ -258,9 +258,9 @@ def makeSampHisto(yds, samp, cat, hname = "", ind = 0):
     # fill histo
     for ibin,bin in enumerate(binList):
 
-        #binLabel = bin
-        binLabel = ydict[bin].label
-        if binLabel == "": binLabel = bin
+        binLabel = bin
+        #binLabel = ydict[bin].label
+        #if binLabel == "": binLabel = bin
 
         binLabel = getCleanLabel(binLabel)
 
@@ -516,6 +516,7 @@ def getSquaredSum(histList):
                 x = sqHist.GetBinContent(bin)
                 new = x*x + hist.GetBinContent(bin)*hist.GetBinContent(bin)
                 sqHist.SetBinContent(bin, math.sqrt(new))
+                sqHist.SetBinError(bin, 0.)
     sqHist.SetMarkerStyle(34)
     sqHist.SetMarkerSize(2)
     sqHist.SetMarkerColor(kBlack)
@@ -799,6 +800,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         elif "SigStack" in hist.GetName():
             hist.Draw(plotOpt+"hist")
             leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
+        elif "sqSum" in hist.GetName():
+            hist.Draw(plotOpt+"p")
+            #leg.AddEntry(hist,"Sum squared uncertainties","p")
+            leg.AddEntry(hist,"Total","p")
         elif "T1tttt" in hist.GetName():
             hist.SetFillColorAlpha(kBlack, 0.)
             hist.SetLineWidth(2)
@@ -808,10 +813,6 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                 hist.SetLineColor(kMagenta)
             hist.Draw(plotOpt+"hist")
             leg.AddEntry(hist,getSampLabel(hist.GetTitle()),"l")
-        elif "sqSum" in hist.GetName():
-            hist.Draw(plotOpt+"p")
-            #leg.AddEntry(hist,"Sum squared uncertainties","p")
-            leg.AddEntry(hist,"Total","p")
         else:
             if len(histList) < 3:
                 hist.Draw(plotOpt+"pE2")

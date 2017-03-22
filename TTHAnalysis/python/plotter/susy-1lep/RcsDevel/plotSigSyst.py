@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     ## Check content
     #yds.showStats()
-    print [name for name in yds.samples if ("syst" in name and "mGo1900_mLSP100" in name)]
+    print [name for name in yds.samples if ("syst" in name and "mGo1400_mLSP1100" in name)]
 
     ## Sys types
 #    systs = ["btagHF","btagLF"]
@@ -130,10 +130,8 @@ if __name__ == "__main__":
 
     # Sample and variable
     samp = "T1tttt_Scan"
-    #mass = "mGo1150_mLSP800"
-    mass = "mGo1900_mLSP100"
-    #mass = "mGo1500_mLSP100"
-    #mass = "mGo1000_mLSP100"
+    #mass = "mGo1900_mLSP100"
+    mass = "mGo1400_mLSP1100"
 
     masses = [mass]#"mGo1200_mLSP800"]#,"mGo1500_mLSP100"]
     #masses = ["mGo1200_mLSP800","mGo1500_mLSP100"]
