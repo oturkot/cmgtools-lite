@@ -4,7 +4,7 @@ import sys,os
 from math import *
 from ROOT import *
 
-def dumpCounts(fname,cname = "counts.txt"):
+def dumpCounts(fname,cname = "counts_T5tttt_2016.txt"):
 
     tfile = TFile(fname,"READ")
 
@@ -58,7 +58,7 @@ def dumpCounts(fname,cname = "counts.txt"):
     #exit(0)
 
     # write file
-    with open(cname,"a") as cfile:
+    with open(cname,"w") as cfile:
 
         #cfile.write("Total\t" + str(totalEvts) + "\n")
         cfile.write("#mGo\tmLSP\tTotal\tTotGenW\tCountsSMS\tGenWeightSMS\n")
@@ -80,10 +80,10 @@ def dumpCounts(fname,cname = "counts.txt"):
 
 def dumpFiles(fileList):
 
-    cname = "counts.txt"
+    cname = "counts_T5tttt_2016.txt"
 
     # overwrite file
-    cf = open(cname,"w"); cf.close()
+    cf = open(cname,"w+"); cf.close()
 
     for i,fname in enumerate(fileList):
         mass = fname
