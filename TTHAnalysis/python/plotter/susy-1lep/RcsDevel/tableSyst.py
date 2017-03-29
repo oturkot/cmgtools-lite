@@ -25,6 +25,8 @@ if __name__ == "__main__":
     # Define storage
     yds = YieldStore("Sele")
     yds9 = YieldStore("Sele")
+    ydsFew6 = YieldStore("lepYields")
+    ydsFew9 = YieldStore("lepYields")
     paths = []
 
     # Add files
@@ -56,6 +58,14 @@ if __name__ == "__main__":
     for path in paths:
         yds.addFromFiles(path+'/*NJ68*',("lep","sele"))
         yds9.addFromFiles(path+'/*NJ9i*',("lep","sele"))
+
+    paths = glob.glob('{}/syst_*/mergedFew/'.format(pattern))
+
+    for path in paths:
+        ydsFew6.addFromFiles(path+'/*NJ6i*', ('lep', 'sele'))
+        ydsFew9.addFromFiles(path+'/*NJ9*', ('lep', 'sele'))
+
+    del paths
 
     #systs = ["btagHF","btagLF","Wxsec","Wpol","TTVxsec","topPt","PU","JEC","DLSlope","DLConst"]#,"JEC"]
     #systsprint = ["b-tag HF","b-tag LF","W xsec","W polar","TTV xsec","Top pT","PU","JES","dilep slope","dilep const"]#,"JEC"]
@@ -91,4 +101,9 @@ if __name__ == "__main__":
     f =  open('sysTable.dat','w')
     yds.printTable(samps, systs, label,f)
     yds9.printTable(samps, systs, label,f)
+    f.close()
+
+    f =  open('sysTable_fewbins.dat','w')
+    ydsFew6.printTable(samps, systs, label,f)
+    ydsFew9.printTable(samps, systs, label,f)
     f.close()
