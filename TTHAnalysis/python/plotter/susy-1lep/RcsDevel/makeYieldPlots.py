@@ -410,7 +410,7 @@ def getRatio(histA,histB, keepStyle = False):
     hRatio.GetYaxis().SetTitle(title)
     hRatio.GetYaxis().CenterTitle()
     hRatio.GetYaxis().SetNdivisions(505)
-    hRatio.GetYaxis().SetTitleSize(0.08)
+    hRatio.GetYaxis().SetTitleSize(0.10)
     hRatio.GetYaxis().SetTitleOffset(0.3)
     hRatio.GetYaxis().SetLabelSize(0.1)
 
