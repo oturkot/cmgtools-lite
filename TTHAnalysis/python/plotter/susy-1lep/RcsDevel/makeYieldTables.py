@@ -224,9 +224,9 @@ if __name__ == "__main__":
             ('data_QCDsubtr','SR_MB_predict'), ('data','SR_MB')]
     label = 'SB, MB, and predictions for '+lumi+' fb$^{-1}$ for $n_{jet}$ 6,8 '
     printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 68j, CR', 'data 68j, pred (val $\pm$ stat)', 'data 68j, SR']
-    ydsFew6.printLatexTable(samps, printSamps, label,f, doSys)
+    ydsFew6.printLatexTable(samps, printSamps, label,f, doSys, True)
     printSamps = ['data 45j, SR','(data-QCD) 4j5, CR','data 4j5, Rcs$^{EWK}$','$\\kappa^{EWK}$, MC','(data-QCD) 9ij, CR', 'data 9ij, pred (val $\pm$ stat)', 'data 9ij, SR']
-    ydsFew9.printLatexTable(samps, printSamps, label, f, doSys)
+    ydsFew9.printLatexTable(samps, printSamps, label, f, doSys, True)
     printLatexFooter(f, 1)
     f.close()
 
