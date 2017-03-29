@@ -405,11 +405,12 @@ def getRatio(histA,histB, keepStyle = False):
         hRatio = ratio.GetHistogram()
 
     #hRatio.GetYaxis().SetTitle("Ratio")
-    title = "#frac{%s}{%s}" %(histA.GetTitle(),histB.GetTitle())
+    #title = "#frac{%s}{%s}" %(histA.GetTitle(),histB.GetTitle())
+    title = "Data/Pred."
     hRatio.GetYaxis().SetTitle(title)
     hRatio.GetYaxis().CenterTitle()
     hRatio.GetYaxis().SetNdivisions(505)
-    hRatio.GetYaxis().SetTitleSize(0.08)
+    hRatio.GetYaxis().SetTitleSize(0.10)
     hRatio.GetYaxis().SetTitleOffset(0.3)
     hRatio.GetYaxis().SetLabelSize(0.1)
 
@@ -807,7 +808,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
         elif "T1tttt" in hist.GetName():
             hist.SetFillColorAlpha(kBlack, 0.)
             hist.SetLineWidth(2)
-            if "1900" in hist.GetName():
+            if "1.9" in hist.GetName():
                 hist.SetLineColor(kCyan)
             else:
                 hist.SetLineColor(kMagenta)

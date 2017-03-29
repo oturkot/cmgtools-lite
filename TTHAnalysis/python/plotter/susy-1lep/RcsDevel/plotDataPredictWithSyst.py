@@ -170,10 +170,10 @@ if __name__ == "__main__":
     hData = yp.makeSampHisto(yds,"data_QCDsubtr","SR_MB","Data"); hData.SetTitle("Data")
 
     # Signal
-    hSig1 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1900_mLSP100", "SR_MB", "T1tttt (1900/100)")
-    hSig1.SetTitle("T1tttt (1900/100)")
-    hSig2 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1400_mLSP1100", "SR_MB", "T1tttt (1400/1100)")
-    hSig2.SetTitle("T1tttt (1400/1100)")
+    hSig1 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1900_mLSP100", "SR_MB", "T1tttt (1.9/0.1)")
+    hSig1.SetTitle("T1tttt (1.9/0.1)")
+    hSig2 = yp.makeSampHisto(ydsSig, "T1tttt_Scan_mGo1400_mLSP1100", "SR_MB", "T1tttt (1.4/1.1)")
+    hSig2.SetTitle("T1tttt (1.4/1.1)")
 
     ## Append Systematics to prediction
     print "Appending syst. unc. to prediction and total MC"

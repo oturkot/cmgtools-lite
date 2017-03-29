@@ -6,9 +6,9 @@ from ROOT import *
 from readYields import getLepYield, getScanYields
 #helper function maybe move somewhere else
 
-def readSystFile():
+def readSystFile(systFile='sysTable.dat'):
     systDict = {}
-    with open('sysTable.dat',"r") as xfile:
+    with open(systFile,"r") as xfile:
         lines = xfile.readlines()
         systs = lines[0].replace(' ','').replace('\n','').split('|')
         print systs
@@ -308,10 +308,14 @@ class YieldStore:
 
 
 
-    def printLatexTableEnh(self, OutputHelperList, label, f, doSys = False):
+    def printLatexTableEnh(self, OutputHelperList, label, f, doSys=False, isFew=False):
+
         systDict = {}
-        if doSys:
+        if doSys and not isFew:
             systDict = readSystFile()
+        if doSys and isFew:
+            systDict = readSystFile('sysTable_fewbins.dat')
+
         yds = self.getMixDict(OutputHelperList)
         ydsNorm = self.getMixDict([('EWK', 'Kappa'),])
         nSource = len(OutputHelperList)
@@ -381,13 +385,13 @@ class YieldStore:
         f.write(' \\hline \n')
         return 1
 
-    def printLatexTable(self, samps, printSamps, label, f, doSys = False):
+    def printLatexTable(self, samps, printSamps, label, f, doSys=False, isFew=False):
         assert len(samps)==len(printSamps)
         OutputHelperList = []
         for i,samp in enumerate(samps):
             OutputHelperList.append(OutputHelper(samp, printSamps[i]))
 
-        return self.printLatexTableEnh(OutputHelperList,label,f,doSys)
+        return self.printLatexTableEnh(OutputHelperList,label,f,doSys,isFew)
 
 
 
