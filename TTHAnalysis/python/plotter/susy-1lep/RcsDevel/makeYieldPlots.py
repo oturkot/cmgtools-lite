@@ -381,18 +381,22 @@ def getMarks(hist):
     # line markers
     marks = []
     ltmark = 0
+    binLabelOld = 'A'
 
     for bin in range(1,hist.GetNbinsX()+1):
         # for vertical lines
-        binLabel = hist.GetXaxis().GetBinLabel(bin).replace("#splitline{","")
+        binLabel = hist.GetXaxis().GetBinLabel(bin)[0]
         #print binLabel
 
-        ltbin = binLabel.split("}")[0] # should be LT
+        #ltbin = binLabel.split("}")[0] # should be LT
         #print ltbin, ltmark
-        if ltmark == 0: ltmark = ltbin
-        elif ltmark != ltbin:
-            ltmark = ltbin
+        #if ltmark == 0: ltmark = ltbin
+        #elif ltmark != ltbin:
+        #    ltmark = ltbin
+        #    marks.append(bin)
+        if not binLabel == binLabelOld:
             marks.append(bin)
+        binLabelOld = binLabel
 
     return marks
 
@@ -715,12 +719,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             ymin = hRatio.GetMinimum(); ymax = hRatio.GetMaximum()
             #ymin = hRatio.GetYaxis().GetXmin(); ymax = hRatio.GetYaxis().GetXmax()
             for i,mark in enumerate(marks):
-                if i == 2: continue
                 pos = axis.GetBinLowEdge(mark)
                 line = TLine(pos,ymin,pos,ymax)
                 #line.SetName("line_mark_"+str(mark))
                 line.SetLineStyle(3)
-                if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                 line.Draw("same")
                 _lines.append(line)
 
@@ -867,12 +869,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                 #print marks
                 axis = hist.GetXaxis()
                 for i,mark in enumerate(marks):
-                    if i == 2: continue
                     pos = axis.GetBinLowEdge(mark)
                     line = TLine(pos,ymin,pos,10*ymax)
                     #line.SetName("line_mark_"+str(mark))
                     line.SetLineStyle(3)
-                    if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                     line.Draw("same")
                     _lines.append(line)
 
