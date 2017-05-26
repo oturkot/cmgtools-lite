@@ -769,7 +769,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             else: hist.GetYaxis().SetLabelSize(0.05)
 
         # range
-        hist.SetMaximum(ymax)
+        hist.SetMaximum(10.*ymax)
         hist.SetMinimum(ymin)
         #print hist.GetName()
         if "dummy" == hist.GetName():
