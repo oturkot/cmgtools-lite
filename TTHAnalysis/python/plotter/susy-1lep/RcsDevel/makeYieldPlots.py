@@ -233,7 +233,8 @@ def makeSampHisto(yds, samp, cat, hname = "", ind = 0):
     binList = []
     # sort bins by NJ
     for njbin in ['NJ3','NJ4','NJ5','NJ6','NJ9']:
-        binList += [b for b in sorted(ydict.keys()) if njbin in b]
+        for bbin in ['NB1', 'NB2', 'NB3', 'NB4']:
+            binList += [b for b in sorted(ydict.keys()) if njbin in b and bbin in b]
 
     nbins = len(binList)
 
