@@ -22,6 +22,105 @@ def GetContours(g, color, style):
     return out
 
 
+
+def GetContoursSmooth(g, color, style, n_smooth  = 4):
+    
+    if(n_smooth>0):
+        g2 = g.Clone()
+        histo2d = g2.GetHistogram();
+        htemp = TH2D("", "",
+                     100, histo2d.GetXaxis().GetXmin(), histo2d.GetXaxis().GetXmax(),
+                     100, histo2d.GetYaxis().GetXmin(), histo2d.GetYaxis().GetXmax());
+        for binx in range(1,htemp.GetNbinsX()):
+            x = htemp.GetXaxis().GetBinCenter(binx)
+            for biny in range(1,htemp.GetNbinsY()):
+                y = htemp.GetYaxis().GetBinCenter(biny)
+                z = g2.Interpolate(x,y);
+                if(z!=0.):
+                    htemp.SetBinContent(htemp.GetBin(binx, biny), z)
+
+        for ind in range(0,n_smooth):
+            htemp.Smooth(1,"k5b");
+
+    
+        vx=[]; vy=[]; vz=[];
+        glu_lsp = 225
+        for binx in range(1,htemp.GetNbinsX()):
+            x = htemp.GetXaxis().GetBinCenter(binx)
+            for biny in range(1,htemp.GetNbinsY()):
+                y = htemp.GetYaxis().GetBinCenter(biny);
+                z = htemp.GetBinContent(htemp.GetBin(binx,biny));
+        
+                vx.append(x)
+                vy.append(y)
+                if ((x-y) > (glu_lsp+85)):
+                   vz.append(z)
+                else:
+                    vz.append(g2.Interpolate(x,y));
+        ax = array("d", vx) 
+        ay = array("d", vy) 
+        az = array("d", vz) 
+        gsmooth =  TGraph2D ("gsmooth", "Cross-Section Limit", len(vx), ax, ay, az)
+    else:
+        gsmooth = g.Clone()
+
+    contours = [1.0]
+    gsmooth.GetHistogram().SetContour(1,array('d',contours));
+    gsmooth.Draw("cont z list"); 
+    contLevel = gsmooth.GetContourList(1.0);
+    max_points = -1
+    #find the contour with the most points
+    outSM = TGraph()
+    for i,cont in enumerate(contLevel):
+        n_points = cont.GetN()
+        if n_points > max_points:
+            max_points = n_points
+            outSM = cont
+
+    #get the unsmoothed contour anyway for the last diagonal point
+    contours = [1.0]
+    g.GetHistogram().SetContour(1,array('d',contours));
+    contLevel = g.GetContourList(1.0);
+    max_points = -1
+    outnSM = TGraph()
+    #find the contour with the most points
+    for i,cont in enumerate(contLevel):
+        n_points = cont.GetN()
+        if n_points > max_points:
+            max_points = n_points
+            outnSM = cont
+
+
+    outnSM.SetLineColor(color)
+    outnSM.SetLineStyle(style)
+    outnSM.SetLineWidth(5)
+
+    glu_lsp = 225
+    #First: remove line above the diagonal    
+    if n_smooth > 0:
+        for point in range(0,outSM.GetN()):                                                                                                     
+            mglu, mlsp = Double(0), Double(0)                                                                                                  
+            outSM.GetPoint(point, mglu, mlsp);                                                                                                 
+            if(mlsp > mglu-glu_lsp-5):                                                                                                          
+                while(point <= outSM.GetN() and point!=0):                                                                                       
+                    outSM.RemovePoint(outSM.GetN()-1)                                                                                        
+    #Second:extend line down to LSP =0
+#    outSM.Sort()
+        endglu, endlsp = Double(0), Double(0)
+        outSM.GetPoint(1, endglu, endlsp)
+        outSM.SetPoint(1, endglu, 0)
+
+    #set the point along the diagonal to the one from the unsmoothed curve
+        iniglu, inilsp = Double(0), Double(0)
+        outnSM.GetPoint(1, iniglu, inilsp)
+        #outSM.SetPoint(outSM.GetN()-2, iniglu, inilsp)
+
+
+    outSM.SetLineColor(color)
+    outSM.SetLineStyle(style)
+    outSM.SetLineWidth(5)
+    return outSM
+
 def getxsecGlu():
     xsecGlu = {} # dict for xsecs 
     xsecFile = "../../../../../SUSYAnalysis/python/tools/glu_xsecs_13TeV.txt"
@@ -136,12 +235,12 @@ if __name__ == "__main__":
         glim.SetNpy(int(nybins))
         
         
-        cexp = GetContours(gexp, 2,1)
-        cup = GetContours(gup,2,2)
-        cdown = GetContours(gdown,2,2)
-        cobs = GetContours(gobs,1,1)
-        cobsup = GetContours(gobsup,1,2)
-        cobsdown = GetContours(gobsdown,1,2)
+        cexp = GetContoursSmooth(gexp, 2,1)
+        cup = GetContoursSmooth(gup,2,2)
+        cdown = GetContoursSmooth(gdown,2,2)
+        cobs = GetContoursSmooth(gobs,1,1)
+        cobsup = GetContoursSmooth(gobsup,1,2)
+        cobsdown = GetContoursSmooth(gobsdown,1,2)
 
         hlim = glim.GetHistogram()
         hlim.SetTitle(";m_{gluino} [GeV];m_{LSP} [GeV]");
@@ -153,9 +252,6 @@ if __name__ == "__main__":
         cobsup.Draw("same")
         cobsdown.Draw("same")
         flimit = TFile(pattern+"/limit_scan.root","recreate")
-        #ONLY do for T5tttt
-        hlim.SetBinContent(11,37,0.27)
-        hlim.SetBinError(11,37,0.27)
         hlim.Write("hXsec_exp_corr");
         cobs.Write("graph_smoothed_Obs");
         cobsup.Write("graph_smoothed_ObsP");
