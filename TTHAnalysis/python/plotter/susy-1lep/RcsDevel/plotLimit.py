@@ -105,15 +105,16 @@ def GetContoursSmooth(g, color, style, n_smooth  = 4):
                 while(point <= outSM.GetN() and point!=0):                                                                                       
                     outSM.RemovePoint(outSM.GetN()-1)                                                                                        
     #Second:extend line down to LSP =0
-#    outSM.Sort()
+#    outSM.Sort() #sorting doesn't really work
         endglu, endlsp = Double(0), Double(0)
         outSM.GetPoint(1, endglu, endlsp)
         outSM.SetPoint(1, endglu, 0)
 
-    #set the point along the diagonal to the one from the unsmoothed curve
-        iniglu, inilsp = Double(0), Double(0)
-        outnSM.GetPoint(1, iniglu, inilsp)
-        #outSM.SetPoint(outSM.GetN()-2, iniglu, inilsp)
+    #Extend line on the diagonal
+#        iniglu, inilsp = Double(0), Double(0)
+       # outSM.GetPoint(outSM.GetN()-1, iniglu, inilsp)
+       # outSM.SetPoint(outSM.GetN()-1, inilsp+225, inilsp)
+
 
 
     outSM.SetLineColor(color)
@@ -252,17 +253,23 @@ if __name__ == "__main__":
         cobsup.Draw("same")
         cobsdown.Draw("same")
         flimit = TFile(pattern+"/limit_scan.root","recreate")
-        hlim.Write("hXsec_exp_corr");
-        cobs.Write("graph_smoothed_Obs");
-        cobsup.Write("graph_smoothed_ObsP");
-        cobsdown.Write("graph_smoothed_ObsM");
-        cexp.Write("graph_smoothed_Exp");
-        cup.Write("graph_smoothed_ExpP");
-        cdown.Write("graph_smoothed_ExpM");
-        hexp.Write("hexp")
-        hexpup.Write("hexpup")
-        hexpdown.Write("hexpdown")
-        hobs.Write("hobs")
+
+        cobs.SetTitle("Observed Limit");
+        cobsup.SetTitle("Observed -1#sigma Limit");
+        cobsdown.SetTitle("Observed +1#sigma Limit");
+        cexp.SetTitle("Expected  Limit");
+        cup.SetTitle("Expected -1#sigma Limit");
+        cdown.SetTitle("Expected +1#sigma Limit");
+
+
+        hlim.Write("T1ttttObservedExcludedXsec");
+        cobs.Write("T1ttttObservedLimit");
+        cobsup.Write("T1ttttObservedLimitDown");
+        cobsdown.Write("T1ttttObservedLimitUp");
+        cexp.Write("T1ttttExpectedLimit");
+        cup.Write("T1ttttExpectedLimitDown");
+        cdown.Write("T1ttttExpectedLimitUp");
+
         c.SaveAs(pattern+'/canvas_'+pattern+'.root')
 
 
