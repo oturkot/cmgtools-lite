@@ -194,7 +194,7 @@ if __name__ == "__main__":
 
     #hData.SetBinErrorOption(TH1.kPoisson)
     from CMGTools.TTHAnalysis.plotter.mcPlots import getDataPoissonErrors
-    hDataPois = getDataPoissonErrors(hData,True,True)
+    hDataPois = getDataPoissonErrors(hData,True,False)
     hDataPois.SetName("DataPois")
     hDataPois.SetTitle("Data")
     #hDataPois = hData.Clone()
