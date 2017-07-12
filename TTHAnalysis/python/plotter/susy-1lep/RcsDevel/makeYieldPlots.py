@@ -197,24 +197,63 @@ def getCleanLabel(binLabel):
     binLabel = binLabel.replace("_CR","")
     binLabel = binLabel.replace("f6","")
     binLabel = binLabel.replace("f9","")
-
     binLabel = binLabel.replace("LTi","")
+
+    binLabel = binLabel.replace("LT12_HT01_NB1_NJ68","A01")
+    binLabel = binLabel.replace("LT12_HT23_NB1_NJ68","A02")
+    binLabel = binLabel.replace("LT12_HT4i_NB1_NJ68","A03")
+    binLabel = binLabel.replace("LT3_HT01_NB1_NJ68","A04")
+    binLabel = binLabel.replace("LT3_HT23_NB1_NJ68","A05")
+    binLabel = binLabel.replace("LT3_HT4i_NB1_NJ68","A06")
+    binLabel = binLabel.replace("LT4_HT01_NB1_NJ68","A07")
+    binLabel = binLabel.replace("LT4_HT23_NB1_NJ68","A08")
+    binLabel = binLabel.replace("LT4_HT4i_NB1_NJ68","A09")
+    binLabel = binLabel.replace("LT5i_HT0i_NB1_NJ68","A10")
+    binLabel = binLabel.replace("LT12_HT01_NB2_NJ68","B01")
+    binLabel = binLabel.replace("LT12_HT23_NB2_NJ68","B02")
+    binLabel = binLabel.replace("LT12_HT4i_NB2_NJ68","B03")
+    binLabel = binLabel.replace("LT3_HT01_NB2_NJ68","B04")
+    binLabel = binLabel.replace("LT3_HT23_NB2_NJ68","B05")
+    binLabel = binLabel.replace("LT3_HT4i_NB2_NJ68","B06")
+    binLabel = binLabel.replace("LT4_HT01_NB2_NJ68","B07")
+    binLabel = binLabel.replace("LT4_HT23_NB2_NJ68","B08")
+    binLabel = binLabel.replace("LT4_HT4i_NB2_NJ68","B09")
+    binLabel = binLabel.replace("LT5i_HT0i_NB2_NJ68","B10")
+    binLabel = binLabel.replace("LT12_HT01_NB3i_NJ68","C01")
+    binLabel = binLabel.replace("LT12_HT23_NB3i_NJ68","C02")
+    binLabel = binLabel.replace("LT12_HT4i_NB3i_NJ68","C03")
+    binLabel = binLabel.replace("LT3_HT01_NB3i_NJ68","C04")
+    binLabel = binLabel.replace("LT3_HT23_NB3i_NJ68","C05")
+    binLabel = binLabel.replace("LT3_HT4i_NB3i_NJ68","C06")
+    binLabel = binLabel.replace("LT4i_HT0i_NB3i_NJ68","C07")
+    binLabel = binLabel.replace("LT12_HT03_NB1_NJ9i","D01")
+    binLabel = binLabel.replace("LT12_HT4i_NB1_NJ9i","D02")
+    binLabel = binLabel.replace("LT3i_HT03_NB1_NJ9i","D03")
+    binLabel = binLabel.replace("LT3i_HT4i_NB1_NJ9i","D04")
+    binLabel = binLabel.replace("LT12_HT03_NB2_NJ9i","E01")
+    binLabel = binLabel.replace("LT12_HT4i_NB2_NJ9i","E02")
+    binLabel = binLabel.replace("LT3i_HT03_NB2_NJ9i","E03")
+    binLabel = binLabel.replace("LT3i_HT4i_NB2_NJ9i","E04")
+    binLabel = binLabel.replace("LT12_HT03_NB3i_NJ9i","F01")
+    binLabel = binLabel.replace("LT12_HT4i_NB3i_NJ9i","F02")
+    binLabel = binLabel.replace("LT3i_HT03_NB3i_NJ9i","F03")
+    binLabel = binLabel.replace("LT3i_HT4i_NB3i_NJ9i","F04")
 
     # NB
     #binLabel = binLabel.replace("NB0","")
     #binLabel = binLabel.replace("NB2i","")
 
-    binLabel = binLabel.replace("_NB1_","_1b_")
-    binLabel = binLabel.replace("_NB1i_","_#geq1b_")
-    binLabel = binLabel.replace("_NB2_","_2b_")
-    binLabel = binLabel.replace("_NB2i_","_#geq2b_")
-    binLabel = binLabel.replace("_NB3i_","_#geq3b_")
+    #binLabel = binLabel.replace("_NB1_","_1b_")
+    #binLabel = binLabel.replace("_NB1i_","_#geq1b_")
+    #binLabel = binLabel.replace("_NB2_","_2b_")
+    #binLabel = binLabel.replace("_NB2i_","_#geq2b_")
+    #binLabel = binLabel.replace("_NB3i_","_#geq3b_")
 
-    # NJ
-    #binLabel = binLabel.replace("_NJ68","")
-    binLabel = binLabel.replace("_NJ5","_5j")
-    binLabel = binLabel.replace("_NJ68","_6-8j")
-    binLabel = binLabel.replace("_NJ9i","_#geq9j")
+    ## NJ
+    ##binLabel = binLabel.replace("_NJ68","")
+    #binLabel = binLabel.replace("_NJ5","_5j")
+    #binLabel = binLabel.replace("_NJ68","_6-8j")
+    #binLabel = binLabel.replace("_NJ9i","_#geq9j")
     #binLabel = binLabel.replace("_",",")
 
     return binLabel
@@ -233,7 +272,8 @@ def makeSampHisto(yds, samp, cat, hname = "", ind = 0):
     binList = []
     # sort bins by NJ
     for njbin in ['NJ3','NJ4','NJ5','NJ6','NJ9']:
-        binList += [b for b in sorted(ydict.keys()) if njbin in b]
+        for bbin in ['NB1', 'NB2', 'NB3', 'NB4']:
+            binList += [b for b in sorted(ydict.keys()) if njbin in b and bbin in b]
 
     nbins = len(binList)
 
@@ -246,12 +286,6 @@ def makeSampHisto(yds, samp, cat, hname = "", ind = 0):
 
     #hist = TH1F(hname,hname,nbins,-0.5,nbins+0.5)
     hist = TH1F(hname,htitle,nbins,0,nbins)
-
-    # for bin labels
-    labels = []
-    for ibin,bin in enumerate(binList):
-        label = ydict[bin].label if ydict[bin].label != "" else bin
-        labels.append(getCleanLabel(label))
 
     #ulabs = getUniqLabels(labels)
 
@@ -347,18 +381,22 @@ def getMarks(hist):
     # line markers
     marks = []
     ltmark = 0
+    binLabelOld = 'A'
 
     for bin in range(1,hist.GetNbinsX()+1):
         # for vertical lines
-        binLabel = hist.GetXaxis().GetBinLabel(bin).replace("#splitline{","")
+        binLabel = hist.GetXaxis().GetBinLabel(bin)[0]
         #print binLabel
 
-        ltbin = binLabel.split("}")[0] # should be LT
+        #ltbin = binLabel.split("}")[0] # should be LT
         #print ltbin, ltmark
-        if ltmark == 0: ltmark = ltbin
-        elif ltmark != ltbin:
-            ltmark = ltbin
+        #if ltmark == 0: ltmark = ltbin
+        #elif ltmark != ltbin:
+        #    ltmark = ltbin
+        #    marks.append(bin)
+        if not binLabel == binLabelOld:
             marks.append(bin)
+        binLabelOld = binLabel
 
     return marks
 
@@ -681,12 +719,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             ymin = hRatio.GetMinimum(); ymax = hRatio.GetMaximum()
             #ymin = hRatio.GetYaxis().GetXmin(); ymax = hRatio.GetYaxis().GetXmax()
             for i,mark in enumerate(marks):
-                if i == 2: continue
                 pos = axis.GetBinLowEdge(mark)
                 line = TLine(pos,ymin,pos,ymax)
                 #line.SetName("line_mark_"+str(mark))
                 line.SetLineStyle(3)
-                if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                 line.Draw("same")
                 _lines.append(line)
 
@@ -768,7 +804,7 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
             else: hist.GetYaxis().SetLabelSize(0.05)
 
         # range
-        hist.SetMaximum(ymax)
+        hist.SetMaximum(10.*ymax)
         hist.SetMinimum(ymin)
         #print hist.GetName()
         if "dummy" == hist.GetName():
@@ -833,12 +869,10 @@ def plotHists(cname, histList, ratio = None, legPos = "TM", width = 800, height 
                 #print marks
                 axis = hist.GetXaxis()
                 for i,mark in enumerate(marks):
-                    if i == 2: continue
                     pos = axis.GetBinLowEdge(mark)
-                    line = TLine(pos,ymin,pos,ymax)
+                    line = TLine(pos,ymin,pos,10*ymax)
                     #line.SetName("line_mark_"+str(mark))
                     line.SetLineStyle(3)
-                    if i == 4: line.SetLineStyle(2) # nj6 -> nj9
                     line.Draw("same")
                     _lines.append(line)
 

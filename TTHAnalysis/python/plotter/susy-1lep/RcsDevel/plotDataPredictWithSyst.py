@@ -31,7 +31,7 @@ def scaleToHist(hists, hRef):
 if __name__ == "__main__":
 
     yp.CMS_lumi.lumi_13TeV = str(35.9) + " fb^{-1}"
-    yp.CMS_lumi.extraText = "Preliminary"
+    yp.CMS_lumi.extraText = ""
 
     #yp.CMS_lumi.lumi_13TeV = "MC"
     #yp.CMS_lumi.extraText = "Simulation"
@@ -194,7 +194,7 @@ if __name__ == "__main__":
 
     #hData.SetBinErrorOption(TH1.kPoisson)
     from CMGTools.TTHAnalysis.plotter.mcPlots import getDataPoissonErrors
-    hDataPois = getDataPoissonErrors(hData,True,True)
+    hDataPois = getDataPoissonErrors(hData,True,False)
     hDataPois.SetName("DataPois")
     hDataPois.SetTitle("Data")
     #hDataPois = hData.Clone()
@@ -215,8 +215,8 @@ if __name__ == "__main__":
     hPredUnc.SetName("PredictionUncertainty_ratio")
     hPredUnc.SetLineColor(1)
     hPredUnc.SetFillColorAlpha(col,yp._alpha)
-    #hPredUnc.SetFillStyle(3244)
-    hPredUnc.SetFillStyle(1001)
+    hPredUnc.SetFillStyle(3244)
+    #hPredUnc.SetFillStyle(1001)
     hPredUnc.SetMarkerColor(col)
     hPredUnc.SetMarkerStyle(0)
     hPredUnc.GetYaxis().SetTitle(ratio.GetYaxis().GetTitle())
