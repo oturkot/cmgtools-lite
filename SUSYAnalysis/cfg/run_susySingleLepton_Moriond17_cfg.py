@@ -36,7 +36,10 @@ jetAna.smearJets = False
 jetAna.recalibrateJets = True
 jetAna.applyL2L3Residual = "Data"
 metAna.recalibrate = True
-
+metAna.storePuppiExtra = False
+metAnaEGClean.storePuppiExtra = False
+metAnaMuEGClean.storePuppiExtra = False
+metAnaUncorr.storePuppiExtra = False
 
 
 
