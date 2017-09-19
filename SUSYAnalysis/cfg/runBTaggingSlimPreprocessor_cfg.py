@@ -68,12 +68,8 @@ updateJetCollection(
    jetSource = cms.InputTag('slimmedJets'),                                                                                                                                                
    jetCorrections = ('AK4PFchs', cms.vstring(['L1FastJet', 'L2Relative', 'L3Absolute']), 'None'),
    btagDiscriminators = [
-    'deepFlavourJetTags:probudsg'        ,
-    'deepFlavourJetTags:probb'           ,
-    'deepFlavourJetTags:probc'           ,
-    'deepFlavourJetTags:probbb'          ,
-    'deepFlavourJetTags:probcc'          ,
-    ]
+'pfDeepFlavourJetTags:probb', 'pfDeepFlavourJetTags:probbb', 'pfDeepFlavourJetTags:problepb', 'pfDeepFlavourJetTags:probc', 'pfDeepFlavourJetTags:probuds', 'pfDeepFlavourJetTags:probg'
+]
 )
 
 
