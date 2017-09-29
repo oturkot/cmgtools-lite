@@ -141,8 +141,8 @@ fi
 
    script = """#!/bin/bash
 #BSUB -q 8nm
-cp /tmp/x509up_u"${UID}" .
-export X509_USER_PROXY="${PWD}/x509up_u${UID}"
+cp /tmp/x509up_u${{UID}} .
+export X509_USER_PROXY=${{PWD}}/x509up_u${{UID}}
 echo 'environment:'
 echo
 env | sort
