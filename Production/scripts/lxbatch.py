@@ -89,8 +89,6 @@ fi"""
       cpCmd=dirCopy
    elif  remoteDir.startswith("root://eoscms.cern.ch//eos/cms/store/"):
        cpCmd="""echo 'sending root files to remote dir'
-cp /tmp/x509up_u"${UID}" .
-export X509_USER_PROXY="${PWD}/x509up_u${UID}"
 export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH # 
 for f in Loop/*/tree*.root
 do
@@ -143,6 +141,8 @@ fi
 
    script = """#!/bin/bash
 #BSUB -q 8nm
+cp /tmp/x509up_u"${UID}" .
+export X509_USER_PROXY="${PWD}/x509up_u${UID}"
 echo 'environment:'
 echo
 env | sort
