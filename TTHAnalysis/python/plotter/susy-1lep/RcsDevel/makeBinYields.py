@@ -365,18 +365,18 @@ def submitJobs(args, nchunks,options):
         lxbatchJobList.append(runcmd)
 
     # check log dir
-    logdir = 'logs'
+    logdir = 'logs' + "/" + outdir
     if not os.path.exists(logdir): os.system("mkdir -p "+logdir)
 
     if options.batch:
         # submit job array on list
-        subCmd = 'qsub -t 1-%s -o logs nafbatch_runner.sh %s' %(nchunks,jobListName)
+        subCmd = 'qsub -t 1-%s -o %s nafbatch_runner.sh %s' %(nchunks,logdir,jobListName)
         print 'Going to submit', nchunks, 'jobs with', subCmd
         os.system(subCmd)
     elif options.lxbatch:
         for job in lxbatchJobList:
-            basecmd = "bsub -q 8nh -o logs {cmssw}/src/CMGTools/SUSYAnalysis/macros/lxbatch_runner.sh {dir} {cmssw} {jobcmd}".format(
-                dir = os.getcwd(), cmssw = os.environ['CMSSW_BASE'], jobcmd=job
+            basecmd = "bsub -q 8nh -o {outlogs} {cmssw}/src/CMGTools/SUSYAnalysis/macros/lxbatch_runner.sh {dir} {cmssw} {jobcmd}".format(
+                outlogs = logdir,dir = os.getcwd(), cmssw = os.environ['CMSSW_BASE'], jobcmd=job
             )
             os.system(basecmd)
             time.sleep(0.1)
