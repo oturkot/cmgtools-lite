@@ -45,8 +45,10 @@ def resubmitJobs(options):
             for f in files:
                 print f
         else:
-            print "Log file does not exist for chunk ", stchunk, " ."
-    
+            print "Log file does not exist for chunk ", stchunk, ", resubmitting it."
+            iNresub += 1
+            subCmd = 'qsub -t %s -o %s nafbatch_runner.sh %s' %(stchunk,logdir,options.stinfile)
+            os.system(subCmd)
     if iNresub > 0:
         print iNresub, " jobs have been resubmitted."
     else:
