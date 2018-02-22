@@ -364,7 +364,7 @@ def submitJobs(args, nchunks,options):
         jobList.write(runcmd + '\n')
         lxbatchJobList.append(runcmd)
 
-    # check log dir
+    # check log directory
     logdir = 'logs' + "/" + outdir
     if not os.path.exists(logdir): os.system("mkdir -p "+logdir)
 

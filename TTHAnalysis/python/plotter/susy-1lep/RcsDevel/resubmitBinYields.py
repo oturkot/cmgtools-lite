@@ -52,7 +52,6 @@ def resubmitJobs(options):
     else:
         print "All jobs are finished, nothing to resubmit."
         
-#    newjobList.close()
     return 1
 
 if __name__ == "__main__":
