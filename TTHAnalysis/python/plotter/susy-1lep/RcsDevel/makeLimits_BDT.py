@@ -68,7 +68,7 @@ def submitJobsHTC(jobList, nchunks):
 		tempW = tempW.replace('@WORKDIR',os.environ['CMSSW_BASE']+"/src").replace('@EXEDIR',str(os.getcwd())).replace('@CMDBINS',line)
 		tempW_roRun = open(wrapsub, 'w')
 		tempW_roRun.write(tempW)
-		subCmd = 'condor_submit -name s02 '+condsub
+		subCmd = 'condor_submit '+condsub
 		print 'Going to submit', line.split("-n ")[-1] , 'jobs with', subCmd
 		file = open('submit_Bins.sh','a')
 		file.write("\n") 
