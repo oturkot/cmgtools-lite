@@ -13,8 +13,8 @@ xsecFile = "../python/tools/glu_xsecs_13TeV.txt"
 
 cntsSusy = {} # dict for signal counts
 C_ISRweightsSusy = {}
-#cntFile = "../python/tools/t1ttt_scan_counts.txt"
-cntFile = "../python/tools/scans/counts_T1tttt_2016.txt"
+cntFile = "../python/tools17/scans/counts.txt"
+#cntFile = "../python/tools17/scans/counts_T1tttt_2016.txt"
 ISRweightFile = "../python/tools/scans/ISRnormWeights_T1tttt2016.txt"
 
 def loadSUSYparams():
@@ -171,7 +171,7 @@ class EventVars1L_signal:
             ##############
             if (mGo,mLSP) in cntsSusy:
                 #ret['totalNgen'] = cntsSusy[(mGo,mLSP)][0] # merged scan: 93743963
-                if "Scan" in self.sample: ret['totalNgen'] = 93743963
+                if "Scan" in self.sample: ret['totalNgen'] = 35820984
                 else: ret['totalNgen'] = cntsSusy[(mGo,mLSP)][0]
                 ret['susyNgen'] = cntsSusy[(mGo,mLSP)][1]
                 ret['susyWgen'] = cntsSusy[(mGo,mLSP)][2]

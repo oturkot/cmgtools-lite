@@ -36,7 +36,6 @@
 #include "TMVA/Factory.h"
 #include "TMVA/DataLoader.h"//required to load dataset
 #include "TMVA/Reader.h"
-#include<TMVA/MethodRXGB.h>
 
 using namespace std;
 
@@ -61,7 +60,7 @@ int TMVA_1lep_CMG_v6(TString myMethodList = "" ){
    //---------------------------------------------------------------
    // This loads the library
    TMVA::Tools::Instance();
-   ROOT::R::TRInterface &r = ROOT::R::TRInterface::Instance();
+   //ROOT::R::TRInterface &r = ROOT::R::TRInterface::Instance();
 
    // Default MVA methods to be trained + tested
    std::map<std::string,int> Use;
@@ -82,7 +81,6 @@ int TMVA_1lep_CMG_v6(TString myMethodList = "" ){
    //
    // Mutidimensional likelihood and Nearest-Neighbour methods
    Use["PDERS"]           = 1;
-   Use["RXGB"]            = 0;
    Use["PDERSD"]          = 0;
    Use["PDERSPCA"]        = 0;
    Use["PDEFoam"]         = 1;
@@ -150,291 +148,166 @@ int TMVA_1lep_CMG_v6(TString myMethodList = "" ){
 
 		std::string factoryOptions( "!V:!Silent:Transformations=I;D;P;G,D:AnalysisType=Classification" );
 		//string inputFolder = "/nfs/dust/cms/user/amohamed/susy-desy/CMGSamples/Friends_for_Limits/";
-		string inputFolder = "./Friends_for_MVA/training/";
-		TString DYJetsToLL_M50_HT1200to2500=inputFolder+"evVarFriend_DYJetsToLL_M50_HT1200to2500.root";//
-		TString DYJetsToLL_M50_HT2500toInf=inputFolder+"evVarFriend_DYJetsToLL_M50_HT2500toInf.root";//
-		TString DYJetsToLL_M50_HT400to600=inputFolder+"evVarFriend_DYJetsToLL_M50_HT400to600.root";//
-		TString DYJetsToLL_M50_HT600to800=inputFolder+"evVarFriend_DYJetsToLL_M50_HT600to800.root";//
-		TString DYJetsToLL_M50_HT800to1200=inputFolder+"evVarFriend_DYJetsToLL_M50_HT800to1200.root";//
-		TString QCD_HT1000to1500=inputFolder+"evVarFriend_QCD_HT1000to1500.root";//
-		TString QCD_HT1500to2000=inputFolder+"evVarFriend_QCD_HT1500to2000.root";//
-		TString QCD_HT2000toInf=inputFolder+"evVarFriend_QCD_HT2000toInf.root";//
-		TString QCD_HT500to700=inputFolder+"evVarFriend_QCD_HT500to700.root";//
-		TString QCD_HT700to1000=inputFolder+"evVarFriend_QCD_HT700to1000.root";//
-		TString SMS_T1tttt_TuneCUETP8M1_2="evVarFriend_SMS_T1tttt_TuneCUETP8M1_1750_1000.root";//
-		//TString SMS_T1tttt_TuneCUETP8M1_2="evVarFriend_SMS_T1tttt_TuneCUETP8M1_1850_600.root";//
-		//TString SMS_T1tttt_TuneCUETP8M1_3=inputFolder+"evVarFriend_SMS_T1tttt_TuneCUETP8M1_3.root";//
-		//TString SMS_T1tttt_TuneCUETP8M1_4=inputFolder+"evVarFriend_SMS_T1tttt_TuneCUETP8M1_4.root";//
-		//TString SMS_T1tttt_TuneCUETP8M1_5=inputFolder+"evVarFriend_SMS_T1tttt_TuneCUETP8M1_5.root";//
-		//TString SMS_T1tttt_TuneCUETP8M1_6=inputFolder+"evVarFriend_SMS_T1tttt_TuneCUETP8M1_6.root";//
-		TString TBar_tWch_ext1=inputFolder+"evVarFriend_TBar_tWch_ext1.root";//
-		TString TBar_tch_powheg=inputFolder+"evVarFriend_TBar_tch_powheg.root";//
-		TString TTJets_DiLepton=inputFolder+"evVarFriend_TTJets_DiLepton.root";//
-		TString TTJets_LO_HT1200to2500_ext=inputFolder+"evVarFriend_TTJets_LO_HT1200to2500_ext.root";//
-		TString TTJets_LO_HT2500toInf_ext=inputFolder+"evVarFriend_TTJets_LO_HT2500toInf_ext.root";//
-		TString TTJets_LO_HT600to800=inputFolder+"evVarFriend_TTJets_LO_HT600to800.root";//
-		TString TTJets_LO_HT800to1200_ext=inputFolder+"evVarFriend_TTJets_LO_HT800to1200_ext.root";//
-		TString TTJets_SingleLeptonFromT=inputFolder+"evVarFriend_TTJets_SingleLeptonFromT.root";//
-		TString TTJets_SingleLeptonFromTbar=inputFolder+"evVarFriend_TTJets_SingleLeptonFromTbar.root";//
-		TString TTWToLNu=inputFolder+"evVarFriend_TTWToLNu.root";//
-		TString TTWToQQ=inputFolder+"evVarFriend_TTWToQQ.root";//
-		TString TTZToLLNuNu=inputFolder+"evVarFriend_TTZToLLNuNu.root";//
-		TString TTZToQQ=inputFolder+"evVarFriend_TTZToQQ.root";//
-		TString TToLeptons_sch=inputFolder+"evVarFriend_TToLeptons_sch.root";//
-		TString T_tWch_ext1=inputFolder+"evVarFriend_T_tWch_ext1.root";//
-		TString T_tch_powheg=inputFolder+"evVarFriend_T_tch_powheg.root";//
-		TString WJetsToLNu_HT1200to2500=inputFolder+"evVarFriend_WJetsToLNu_HT1200to2500.root";//
-		TString WJetsToLNu_HT2500toInf=inputFolder+"evVarFriend_WJetsToLNu_HT2500toInf.root";//
-		TString WJetsToLNu_HT400to600=inputFolder+"evVarFriend_WJetsToLNu_HT400to600.root";//
-		TString WJetsToLNu_HT600to800=inputFolder+"evVarFriend_WJetsToLNu_HT600to800.root";//
-		TString WJetsToLNu_HT800to1200_ext=inputFolder+"evVarFriend_WJetsToLNu_HT800to1200_ext.root";//
-		TString WWTo2L2Nu=inputFolder+"evVarFriend_WWTo2L2Nu.root";//
-		TString WWToLNuQQ=inputFolder+"evVarFriend_WWToLNuQQ.root";//
-		TString WZTo1L1Nu2Q=inputFolder+"evVarFriend_WZTo1L1Nu2Q.root";//
-		TString WZTo1L3Nu=inputFolder+"evVarFriend_WZTo1L3Nu.root";//
-		TString WZTo2L2Q=inputFolder+"evVarFriend_WZTo2L2Q.root";//
-		TString ZZTo2L2Nu=inputFolder+"evVarFriend_ZZTo2L2Nu.root";//
-		TString ZZTo2L2Q=inputFolder+"evVarFriend_ZZTo2L2Q.root";//
-		
-		TFile *input_DYJetsToLL_M50_HT1200to2500;// 
-		TFile *input_DYJetsToLL_M50_HT2500toInf;//  
-		TFile *input_DYJetsToLL_M50_HT400to600;//   
-		TFile *input_DYJetsToLL_M50_HT600to800;//   
-		TFile *input_DYJetsToLL_M50_HT800to1200;//  
-		TFile *input_QCD_HT1000to1500;//            
-		TFile *input_QCD_HT1500to2000;//            
-		TFile *input_QCD_HT2000toInf;//             
-		TFile *input_QCD_HT500to700;//              
-		TFile *input_QCD_HT700to1000;//             
-		TFile *input_SMS_T1tttt_TuneCUETP8M1_1;//   
-		TFile *input_SMS_T1tttt_TuneCUETP8M1_2;//   
-		TFile *input_SMS_T1tttt_TuneCUETP8M1_3;//   
-		TFile *input_SMS_T1tttt_TuneCUETP8M1_4;//   
-		TFile *input_SMS_T1tttt_TuneCUETP8M1_5;//   
-		TFile *input_SMS_T1tttt_TuneCUETP8M1_6;//   
-		TFile *input_TBar_tWch_ext1;//              
-		TFile *input_TBar_tch_powheg;//             
-		TFile *input_TTJets_DiLepton;//             
-		TFile *input_TTJets_LO_HT1200to2500_ext;//  
-		TFile *input_TTJets_LO_HT2500toInf_ext;//   
-		TFile *input_TTJets_LO_HT600to800;//        
-		TFile *input_TTJets_LO_HT800to1200_ext;//   
-		TFile *input_TTJets_SingleLeptonFromT;//    
-		TFile *input_TTJets_SingleLeptonFromTbar;// 
-		TFile *input_TTWToLNu;//                    
-		TFile *input_TTWToQQ;//                     
-		TFile *input_TTZToLLNuNu;//                 
-		TFile *input_TTZToQQ;//                     
-		TFile *input_TToLeptons_sch;//              
-		TFile *input_T_tWch_ext1;//                 
-		TFile *input_T_tch_powheg;//                
-		TFile *input_WJetsToLNu_HT1200to2500;//     
-		TFile *input_WJetsToLNu_HT2500toInf;//      
-		TFile *input_WJetsToLNu_HT400to600;//       
-		TFile *input_WJetsToLNu_HT600to800;//       
-		TFile *input_WJetsToLNu_HT800to1200_ext;//  
-		TFile *input_WWTo2L2Nu;//                   
-		TFile *input_WWToLNuQQ;//                   
-		TFile *input_WZTo1L1Nu2Q;//                 
-		TFile *input_WZTo1L3Nu;//                   
-		TFile *input_WZTo2L2Q;//                    
-		TFile *input_ZZTo2L2Nu;//                   
-		TFile *input_ZZTo2L2Q;//                    
-		
-		input_DYJetsToLL_M50_HT1200to2500=TFile::Open(DYJetsToLL_M50_HT1200to2500);
-		input_DYJetsToLL_M50_HT2500toInf=TFile::Open(DYJetsToLL_M50_HT2500toInf);
-		input_DYJetsToLL_M50_HT400to600=TFile::Open(DYJetsToLL_M50_HT400to600);
-		input_DYJetsToLL_M50_HT600to800=TFile::Open(DYJetsToLL_M50_HT600to800);
-		input_DYJetsToLL_M50_HT800to1200=TFile::Open(DYJetsToLL_M50_HT800to1200);
-		input_QCD_HT1000to1500=TFile::Open(QCD_HT1000to1500);
-		input_QCD_HT1500to2000=TFile::Open(QCD_HT1500to2000);
-		input_QCD_HT2000toInf=TFile::Open(QCD_HT2000toInf);
-		input_QCD_HT500to700=TFile::Open(QCD_HT500to700);
-		input_QCD_HT700to1000=TFile::Open(QCD_HT700to1000);
-		//input_SMS_T1tttt_TuneCUETP8M1_1=TFile::Open(SMS_T1tttt_TuneCUETP8M1_1);
-		input_SMS_T1tttt_TuneCUETP8M1_2=TFile::Open(SMS_T1tttt_TuneCUETP8M1_2);
-		/*input_SMS_T1tttt_TuneCUETP8M1_3=TFile::Open(SMS_T1tttt_TuneCUETP8M1_3);
-		input_SMS_T1tttt_TuneCUETP8M1_4=TFile::Open(SMS_T1tttt_TuneCUETP8M1_4);
-		input_SMS_T1tttt_TuneCUETP8M1_5=TFile::Open(SMS_T1tttt_TuneCUETP8M1_5);
-		input_SMS_T1tttt_TuneCUETP8M1_6=TFile::Open(SMS_T1tttt_TuneCUETP8M1_6);*/
-		input_TBar_tWch_ext1=TFile::Open(TBar_tWch_ext1);
-		input_TBar_tch_powheg=TFile::Open(TBar_tch_powheg);
-		input_TTJets_DiLepton=TFile::Open(TTJets_DiLepton);
-		input_TTJets_LO_HT1200to2500_ext=TFile::Open(TTJets_LO_HT1200to2500_ext);
-		input_TTJets_LO_HT2500toInf_ext=TFile::Open(TTJets_LO_HT2500toInf_ext);
-		input_TTJets_LO_HT600to800=TFile::Open(TTJets_LO_HT600to800);
-		input_TTJets_LO_HT800to1200_ext=TFile::Open(TTJets_LO_HT800to1200_ext);
-		input_TTJets_SingleLeptonFromT=TFile::Open(TTJets_SingleLeptonFromT);
-		input_TTJets_SingleLeptonFromTbar=TFile::Open(TTJets_SingleLeptonFromTbar);
-		input_TTWToLNu=TFile::Open(TTWToLNu);
-		input_TTWToQQ=TFile::Open(TTWToQQ);
-		input_TTZToLLNuNu=TFile::Open(TTZToLLNuNu);
-		input_TTZToQQ=TFile::Open(TTZToQQ);
-		input_TToLeptons_sch=TFile::Open(TToLeptons_sch);
-		input_T_tWch_ext1=TFile::Open(T_tWch_ext1);
-		input_T_tch_powheg=TFile::Open(T_tch_powheg);
-		input_WJetsToLNu_HT1200to2500=TFile::Open(WJetsToLNu_HT1200to2500);
-		input_WJetsToLNu_HT2500toInf=TFile::Open(WJetsToLNu_HT2500toInf);
-		input_WJetsToLNu_HT400to600=TFile::Open(WJetsToLNu_HT400to600);
-		input_WJetsToLNu_HT600to800=TFile::Open(WJetsToLNu_HT600to800);
-		input_WJetsToLNu_HT800to1200_ext=TFile::Open(WJetsToLNu_HT800to1200_ext);
-		input_WWTo2L2Nu=TFile::Open(WWTo2L2Nu);
-		input_WWToLNuQQ=TFile::Open(WWToLNuQQ);
-		input_WZTo1L1Nu2Q=TFile::Open(WZTo1L1Nu2Q);
-		input_WZTo1L3Nu=TFile::Open(WZTo1L3Nu);
-		input_WZTo2L2Q=TFile::Open(WZTo2L2Q);
-		input_ZZTo2L2Nu=TFile::Open(ZZTo2L2Nu);
-		input_ZZTo2L2Q=TFile::Open(ZZTo2L2Q);
-
-		TTree *tree_DYJetsToLL_M50_HT1200to2500=(TTree*)input_DYJetsToLL_M50_HT1200to2500->Get("sf/t");
-		TTree *tree_DYJetsToLL_M50_HT2500toInf =(TTree*)input_DYJetsToLL_M50_HT2500toInf->Get("sf/t");
-		TTree *tree_DYJetsToLL_M50_HT400to600  =(TTree*)input_DYJetsToLL_M50_HT400to600->Get("sf/t");
-		TTree *tree_DYJetsToLL_M50_HT600to800  =(TTree*)input_DYJetsToLL_M50_HT600to800->Get("sf/t");
-		TTree *tree_DYJetsToLL_M50_HT800to1200 =(TTree*)input_DYJetsToLL_M50_HT800to1200->Get("sf/t");
-		TTree *tree_QCD_HT1000to1500           =(TTree*)input_QCD_HT1000to1500->Get("sf/t");
-		TTree *tree_QCD_HT1500to2000           =(TTree*)input_QCD_HT1500to2000->Get("sf/t");
-		TTree *tree_QCD_HT2000toInf            =(TTree*)input_QCD_HT2000toInf->Get("sf/t");
-		TTree *tree_QCD_HT500to700             =(TTree*)input_QCD_HT500to700->Get("sf/t");
-		TTree *tree_QCD_HT700to1000            =(TTree*)input_QCD_HT700to1000->Get("sf/t");
-		//TTree *tree_SMS_T1tttt_TuneCUETP8M1_1  =(TTree*)input_SMS_T1tttt_TuneCUETP8M1_1->Get("sf/t");
-		TTree *tree_SMS_T1tttt_TuneCUETP8M1_2  =(TTree*)input_SMS_T1tttt_TuneCUETP8M1_2->Get("sf/t");
-		/*TTree *tree_SMS_T1tttt_TuneCUETP8M1_3  =(TTree*)input_SMS_T1tttt_TuneCUETP8M1_3->Get("sf/t");
-		TTree *tree_SMS_T1tttt_TuneCUETP8M1_4  =(TTree*)input_SMS_T1tttt_TuneCUETP8M1_4->Get("sf/t");
-		TTree *tree_SMS_T1tttt_TuneCUETP8M1_5  =(TTree*)input_SMS_T1tttt_TuneCUETP8M1_5->Get("sf/t");
-		TTree *tree_SMS_T1tttt_TuneCUETP8M1_6  =(TTree*)input_SMS_T1tttt_TuneCUETP8M1_6->Get("sf/t");*/
-		TTree *tree_TBar_tWch_ext1             =(TTree*)input_TBar_tWch_ext1->Get("sf/t");
-		TTree *tree_TBar_tch_powheg            =(TTree*)input_TBar_tch_powheg->Get("sf/t");
-		TTree *tree_TTJets_DiLepton            =(TTree*)input_TTJets_DiLepton->Get("sf/t");
-		TTree *tree_TTJets_LO_HT1200to2500_ext =(TTree*)input_TTJets_LO_HT1200to2500_ext->Get("sf/t");
-		TTree *tree_TTJets_LO_HT2500toInf_ext  =(TTree*)input_TTJets_LO_HT2500toInf_ext->Get("sf/t");
-		TTree *tree_TTJets_LO_HT600to800       =(TTree*)input_TTJets_LO_HT600to800->Get("sf/t");
-		TTree *tree_TTJets_LO_HT800to1200_ext  =(TTree*)input_TTJets_LO_HT800to1200_ext->Get("sf/t");
-		TTree *tree_TTJets_SingleLeptonFromT   =(TTree*)input_TTJets_SingleLeptonFromT->Get("sf/t");
-		TTree *tree_TTJets_SingleLeptonFromTbar=(TTree*)input_TTJets_SingleLeptonFromTbar->Get("sf/t");
-		TTree *tree_TTWToLNu                   =(TTree*)input_TTWToLNu->Get("sf/t");
-		TTree *tree_TTWToQQ                    =(TTree*)input_TTWToQQ->Get("sf/t");
-		TTree *tree_TTZToLLNuNu                =(TTree*)input_TTZToLLNuNu->Get("sf/t");
-		TTree *tree_TTZToQQ                    =(TTree*)input_TTZToQQ->Get("sf/t");
-		TTree *tree_TToLeptons_sch             =(TTree*)input_TToLeptons_sch->Get("sf/t");
-		TTree *tree_T_tWch_ext1                =(TTree*)input_T_tWch_ext1->Get("sf/t");
-		TTree *tree_T_tch_powheg               =(TTree*)input_T_tch_powheg->Get("sf/t");
-		TTree *tree_WJetsToLNu_HT1200to2500    =(TTree*)input_WJetsToLNu_HT1200to2500->Get("sf/t");
-		TTree *tree_WJetsToLNu_HT2500toInf     =(TTree*)input_WJetsToLNu_HT2500toInf->Get("sf/t");
-		TTree *tree_WJetsToLNu_HT400to600      =(TTree*)input_WJetsToLNu_HT400to600->Get("sf/t");
-		TTree *tree_WJetsToLNu_HT600to800      =(TTree*)input_WJetsToLNu_HT600to800->Get("sf/t");
-		TTree *tree_WJetsToLNu_HT800to1200_ext =(TTree*)input_WJetsToLNu_HT800to1200_ext->Get("sf/t");
-		TTree *tree_WWTo2L2Nu                  =(TTree*)input_WWTo2L2Nu->Get("sf/t");
-		TTree *tree_WWToLNuQQ                  =(TTree*)input_WWToLNuQQ->Get("sf/t");
-		TTree *tree_WZTo1L1Nu2Q                =(TTree*)input_WZTo1L1Nu2Q->Get("sf/t");
-		TTree *tree_WZTo1L3Nu                  =(TTree*)input_WZTo1L3Nu->Get("sf/t");
-		TTree *tree_WZTo2L2Q                   =(TTree*)input_WZTo2L2Q->Get("sf/t");
-		TTree *tree_ZZTo2L2Nu                  =(TTree*)input_ZZTo2L2Nu->Get("sf/t");
-		TTree *tree_ZZTo2L2Q                   =(TTree*)input_ZZTo2L2Q->Get("sf/t"); 
-   
+		string inputFolder = "./TMVA_Friends_withnosplit/";
+	
    Double_t signalWeight      = 1.0;
    Double_t backgroundWeight = 1.0;
    Double_t lumi=35.9 ;
    // Create a new root output file.
-   TString outfileName( "TMVASignalBackground_CMG_v7_comp_XGB.root" );
+   TString outfileName( "TMVA_OUT_SMS_T1tttt_1p75_1p0.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
    // ____________
    TMVA::Factory *factory = new TMVA::Factory( "TMVAClassification", outputFile, factoryOptions );
-   TMVA::DataLoader *dataloader=new TMVA::DataLoader("datasetBkg_v7_comp");
+   TMVA::DataLoader *dataloader=new TMVA::DataLoader("TMVA_OUT_SMS_T1tttt_1p75_1p0");
    
+	TString QCD_HT2000toInf_ext=inputFolder+"evVarFriend_QCD_HT2000toInf_ext.root";
+	TFile *input_QCD_HT2000toInf_ext;
+	input_QCD_HT2000toInf_ext=TFile::Open(QCD_HT2000toInf_ext);
+	TTree *tree_QCD_HT2000toInf_ext=(TTree*)input_QCD_HT2000toInf_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_QCD_HT2000toInf_ext		,	1);
+	TString QCD_HT1500to2000_ext=inputFolder+"evVarFriend_QCD_HT1500to2000_ext.root";
+	TFile *input_QCD_HT1500to2000_ext;
+	input_QCD_HT1500to2000_ext=TFile::Open(QCD_HT1500to2000_ext);
+	TTree *tree_QCD_HT1500to2000_ext=(TTree*)input_QCD_HT1500to2000_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_QCD_HT1500to2000_ext		,	1);
+	TString WJetsToLNu_HT400to600_ext=inputFolder+"evVarFriend_WJetsToLNu_HT400to600_ext.root";
+	TFile *input_WJetsToLNu_HT400to600_ext;
+	input_WJetsToLNu_HT400to600_ext=TFile::Open(WJetsToLNu_HT400to600_ext);
+	TTree *tree_WJetsToLNu_HT400to600_ext=(TTree*)input_WJetsToLNu_HT400to600_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT400to600_ext		,	1);
+	TString QCD_HT300to500_ext=inputFolder+"evVarFriend_QCD_HT300to500_ext.root";
+	TFile *input_QCD_HT300to500_ext;
+	input_QCD_HT300to500_ext=TFile::Open(QCD_HT300to500_ext);
+	TTree *tree_QCD_HT300to500_ext=(TTree*)input_QCD_HT300to500_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_QCD_HT300to500_ext		,	1);
+	TString TTJets_SingleLeptonFromTbar_genMET=inputFolder+"evVarFriend_TTJets_SingleLeptonFromTbar_genMET.root";
+	TFile *input_TTJets_SingleLeptonFromTbar_genMET;
+	input_TTJets_SingleLeptonFromTbar_genMET=TFile::Open(TTJets_SingleLeptonFromTbar_genMET);
+	TTree *tree_TTJets_SingleLeptonFromTbar_genMET=(TTree*)input_TTJets_SingleLeptonFromTbar_genMET->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_TTJets_SingleLeptonFromTbar_genMET		,	1);
+	TString WJetsToLNu_HT1200to2500_ext=inputFolder+"evVarFriend_WJetsToLNu_HT1200to2500_ext.root";
+	TFile *input_WJetsToLNu_HT1200to2500_ext;
+	input_WJetsToLNu_HT1200to2500_ext=TFile::Open(WJetsToLNu_HT1200to2500_ext);
+	TTree *tree_WJetsToLNu_HT1200to2500_ext=(TTree*)input_WJetsToLNu_HT1200to2500_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT1200to2500_ext		,	1);
+	TString TTJets_SingleLeptonFromT_ext=inputFolder+"evVarFriend_TTJets_SingleLeptonFromT_ext.root";
+	TFile *input_TTJets_SingleLeptonFromT_ext;
+	input_TTJets_SingleLeptonFromT_ext=TFile::Open(TTJets_SingleLeptonFromT_ext);
+	TTree *tree_TTJets_SingleLeptonFromT_ext=(TTree*)input_TTJets_SingleLeptonFromT_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_TTJets_SingleLeptonFromT_ext		,	1);
+	TString TTJets_DiLepton_ext=inputFolder+"evVarFriend_TTJets_DiLepton_ext.root";
+	TFile *input_TTJets_DiLepton_ext;
+	input_TTJets_DiLepton_ext=TFile::Open(TTJets_DiLepton_ext);
+	TTree *tree_TTJets_DiLepton_ext=(TTree*)input_TTJets_DiLepton_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_TTJets_DiLepton_ext		,	1);
+	TString TTJets_SingleLeptonFromT_genMET=inputFolder+"evVarFriend_TTJets_SingleLeptonFromT_genMET.root";
+	TFile *input_TTJets_SingleLeptonFromT_genMET;
+	input_TTJets_SingleLeptonFromT_genMET=TFile::Open(TTJets_SingleLeptonFromT_genMET);
+	TTree *tree_TTJets_SingleLeptonFromT_genMET=(TTree*)input_TTJets_SingleLeptonFromT_genMET->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_TTJets_SingleLeptonFromT_genMET		,	1);
+	TString WJetsToLNu_HT600to800_ext=inputFolder+"evVarFriend_WJetsToLNu_HT600to800_ext.root";
+	TFile *input_WJetsToLNu_HT600to800_ext;
+	input_WJetsToLNu_HT600to800_ext=TFile::Open(WJetsToLNu_HT600to800_ext);
+	TTree *tree_WJetsToLNu_HT600to800_ext=(TTree*)input_WJetsToLNu_HT600to800_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT600to800_ext		,	1);
+	TString QCD_HT200to300_ext=inputFolder+"evVarFriend_QCD_HT200to300_ext.root";
+	TFile *input_QCD_HT200to300_ext;
+	input_QCD_HT200to300_ext=TFile::Open(QCD_HT200to300_ext);
+	TTree *tree_QCD_HT200to300_ext=(TTree*)input_QCD_HT200to300_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_QCD_HT200to300_ext		,	1);
+	TString DYJetsToLL_M50_HT200to400_ext=inputFolder+"evVarFriend_DYJetsToLL_M50_HT200to400_ext.root";
+	TFile *input_DYJetsToLL_M50_HT200to400_ext;
+	input_DYJetsToLL_M50_HT200to400_ext=TFile::Open(DYJetsToLL_M50_HT200to400_ext);
+	TTree *tree_DYJetsToLL_M50_HT200to400_ext=(TTree*)input_DYJetsToLL_M50_HT200to400_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT200to400_ext		,	1);
+	TString QCD_HT500to700_ext=inputFolder+"evVarFriend_QCD_HT500to700_ext.root";
+	TFile *input_QCD_HT500to700_ext;
+	input_QCD_HT500to700_ext=TFile::Open(QCD_HT500to700_ext);
+	TTree *tree_QCD_HT500to700_ext=(TTree*)input_QCD_HT500to700_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_QCD_HT500to700_ext		,	1);
+	TString WJetsToLNu_HT200to400_ext=inputFolder+"evVarFriend_WJetsToLNu_HT200to400_ext.root";
+	TFile *input_WJetsToLNu_HT200to400_ext;
+	input_WJetsToLNu_HT200to400_ext=TFile::Open(WJetsToLNu_HT200to400_ext);
+	TTree *tree_WJetsToLNu_HT200to400_ext=(TTree*)input_WJetsToLNu_HT200to400_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT200to400_ext		,	1);
+	TString TTJets_SingleLeptonFromTbar_ext=inputFolder+"evVarFriend_TTJets_SingleLeptonFromTbar_ext.root";
+	TFile *input_TTJets_SingleLeptonFromTbar_ext;
+	input_TTJets_SingleLeptonFromTbar_ext=TFile::Open(TTJets_SingleLeptonFromTbar_ext);
+	TTree *tree_TTJets_SingleLeptonFromTbar_ext=(TTree*)input_TTJets_SingleLeptonFromTbar_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_TTJets_SingleLeptonFromTbar_ext		,	1);
+	TString TTJets_DiLepton_genMET=inputFolder+"evVarFriend_TTJets_DiLepton_genMET.root";
+	TFile *input_TTJets_DiLepton_genMET;
+	input_TTJets_DiLepton_genMET=TFile::Open(TTJets_DiLepton_genMET);
+	TTree *tree_TTJets_DiLepton_genMET=(TTree*)input_TTJets_DiLepton_genMET->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_TTJets_DiLepton_genMET		,	1);
+	TString DYJetsToLL_M50_HT400to600_ext=inputFolder+"evVarFriend_DYJetsToLL_M50_HT400to600_ext.root";
+	TFile *input_DYJetsToLL_M50_HT400to600_ext;
+	input_DYJetsToLL_M50_HT400to600_ext=TFile::Open(DYJetsToLL_M50_HT400to600_ext);
+	TTree *tree_DYJetsToLL_M50_HT400to600_ext=(TTree*)input_DYJetsToLL_M50_HT400to600_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT400to600_ext		,	1);
+	TString WJetsToLNu_HT200to400_ext2=inputFolder+"evVarFriend_WJetsToLNu_HT200to400_ext2.root";
+	TFile *input_WJetsToLNu_HT200to400_ext2;
+	input_WJetsToLNu_HT200to400_ext2=TFile::Open(WJetsToLNu_HT200to400_ext2);
+	TTree *tree_WJetsToLNu_HT200to400_ext2=(TTree*)input_WJetsToLNu_HT200to400_ext2->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT200to400_ext2		,	1);
+	TString QCD_HT1000to1500_ext=inputFolder+"evVarFriend_QCD_HT1000to1500_ext.root";
+	TFile *input_QCD_HT1000to1500_ext;
+	input_QCD_HT1000to1500_ext=TFile::Open(QCD_HT1000to1500_ext);
+	TTree *tree_QCD_HT1000to1500_ext=(TTree*)input_QCD_HT1000to1500_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_QCD_HT1000to1500_ext		,	1);
+	TString DYJetsToLL_M50_HT100to200_ext=inputFolder+"evVarFriend_DYJetsToLL_M50_HT100to200_ext.root";
+	TFile *input_DYJetsToLL_M50_HT100to200_ext;
+	input_DYJetsToLL_M50_HT100to200_ext=TFile::Open(DYJetsToLL_M50_HT100to200_ext);
+	TTree *tree_DYJetsToLL_M50_HT100to200_ext=(TTree*)input_DYJetsToLL_M50_HT100to200_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT100to200_ext		,	1);
+	TString WJetsToLNu_HT800to1200_ext=inputFolder+"evVarFriend_WJetsToLNu_HT800to1200_ext.root";
+	TFile *input_WJetsToLNu_HT800to1200_ext;
+	input_WJetsToLNu_HT800to1200_ext=TFile::Open(WJetsToLNu_HT800to1200_ext);
+	TTree *tree_WJetsToLNu_HT800to1200_ext=(TTree*)input_WJetsToLNu_HT800to1200_ext->Get("sf/t");
+	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT800to1200_ext		,	1);
+   
+   
+   //dataloader->AddVariable("Lep_pdgId"       ,"Lep_pdgId"       ,"",'F');
+   //dataloader->AddVariable("Lep_pt"          ,"Lep_pt"          ,"",'F');
+   //dataloader->AddVariable("Lep_eta"         ,"Lep_eta"         ,"",'F');
+   //dataloader->AddVariable("Lep_phi"         ,"Lep_phi"         ,"",'F');
+   //dataloader->AddVariable("Lep_relIso"      ,"Lep_relIso"      ,"",'F');
+   //dataloader->AddVariable("Lep_miniIso"     ,"Lep_miniIso"     ,"",'F');
+   //dataloader->AddVariable("Lep2_pt"         ,"Lep2_pt"         ,"",'F');
+   dataloader->AddVariable("MET"             ,"MET"             ,"",'F');
+   dataloader->AddVariable("MT"              ,"MT"              ,"",'F');
+   dataloader->AddVariable("dPhi"            ,"dPhi"            ,"",'F');
+   dataloader->AddVariable("LT"              ,"LT"              ,"",'F');
+   dataloader->AddVariable("HT"              ,"HT"              ,"",'F');
+   dataloader->AddVariable("nJets30Clean"    ,"nJets30Clean"           ,"",'F');
+   dataloader->AddVariable("nBJet"           ,"nBJet"           ,"",'F');
+   //dataloader->AddVariable("Jet1_pt"         ,"Jet1_pt"         ,"",'F');
+   //dataloader->AddVariable("Jet2_pt"         ,"Jet2_pt"         ,"",'F');
+   //dataloader->AddVariable("nBJetDeep"       ,"nBJetDeep"       ,"",'F');
+   //dataloader->AddVariable("FatJet1_pt"      ,"FatJet1_pt"      ,"",'F');
+   //dataloader->AddVariable("FatJet2_pt"      ,"FatJet2_pt"      ,"",'F');
+   //dataloader->AddVariable("FatJet1_eta"     ,"FatJet1_eta"     ,"",'F');
+   //dataloader->AddVariable("FatJet2_eta"     ,"FatJet2_eta"     ,"",'F');
+   //dataloader->AddVariable("FatJet1_phi"     ,"FatJet1_phi"     ,"",'F');
+   //dataloader->AddVariable("FatJet2_phi"     ,"FatJet2_phi"     ,"",'F');
+   //dataloader->AddVariable("FatJet1_mass"    ,"FatJet1_mass"    ,"",'F');
+   //dataloader->AddVariable("FatJet2_mass"    ,"FatJet2_mass"    ,"",'F');
+   //dataloader->AddVariable("nDeepTop_medium" ,"nDeepTop_medium" ,"",'F');
+   //dataloader->AddVariable("nDeepTop_tight"  ,"nDeepTop_tight"  ,
+	//dataloader->AddVariable("nDeepTop_loose"  ,"nDeepTop_loose"  ,
 	
-	dataloader->AddVariable( "MT"			,"MT"			, "", 'F' );
-	dataloader->AddVariable( "HT"			, "HT"			, "", 'F' );
-	dataloader->AddVariable( "LT"			, "LT"			, "", 'F' );
-	dataloader->AddVariable( "nBJet"		, "nBJet"		, "", 'F' );
-	dataloader->AddVariable( "dPhi"			, "dPhi"		, "", 'F' );
-	dataloader->AddVariable( "nJets30Clean"	,"nJets30Clean"	,""	,'F');
-	
-	dataloader->AddSpectator("RA2_muJetFilter","RA2_muJetFilter","", 'O');
-	dataloader->AddSpectator("Flag_fastSimCorridorJetCleaning","Flag_fastSimCorridorJetCleaning","", 'O');
-	dataloader->AddSpectator("btagSF","btagSF","", 'D');
-	dataloader->AddSpectator("puRatio","puRatio","", 'D');
-	dataloader->AddSpectator("lepSF","lepSF","", 'D');
-	//dataloader->AddSpectator("Xsec","Xsec","", 'D');
-	dataloader->AddSpectator("genWeight","genWeight","", 'D');
-	//dataloader->AddSpectator("susyXsec","susyXsec","", 'D');
-	//dataloader->AddSpectator("susyNgen","susyNgen","", 'D');
-	//dataloader->AddSpectator("nISRweight","nISRweight","", 'D');
-	//dataloader->AddSpectator("nISRttweight","nISRttweight","", 'D');
-	//dataloader->AddSpectator( "nJet", "nJet", 'D' );
-	
-	//dataloader->AddSpectator( "mGo"	, "mGo"	, 'D' );
-	//dataloader->AddSpectator( "mLSP", "mLSP", 'D' );
-	dataloader->AddSpectator( "nTrueInt", "nTrueInt", 'D' );
-	dataloader->AddSpectator( "Lep_pt"		,"Lep_pt"		, "", 'F' );
-	dataloader->AddSpectator( "Lep_eta"		,"Lep_eta"		, "", 'F' );
-	dataloader->AddSpectator( "Lep_miniIso"	,"Lep_miniIso"	, "", 'F' );
-	dataloader->AddSpectator( "nEl"			,"nEl"			,""	,'F');
-	dataloader->AddSpectator( "nMu"			,"nMu"			,""	,'F');
-	dataloader->AddSpectator( "Selected"		,"Selected"		,""	,'F');
-	dataloader->AddSpectator( "nLep"		,"nLep"			,""	,'F');
-	dataloader->AddSpectator( "nVeto"		,"nVeto"		,""	,'F');
-	dataloader->AddSpectator( "Jet1_pt"		,"Jet1_pt"		, "", 'F' );
-	dataloader->AddSpectator( "Jet2_pt"		,"Jet2_pt"		, "", 'F' );
-	dataloader->AddSpectator( "MET"			,"MET"			, "", 'F' );
-
-	//dataloader->AddSpectator( "lheHTIncoming","lheHTIncoming" , "F");
-	//dataloader->AddSpectator( "genTau_grandmotherId","genTau_grandmotherId" , "I");
-	//dataloader->AddSpectator( "genLep_grandmotherId","genLep_grandmotherId" , "I");
-	
-	//dataloader->AddSpectator("nISRweight","nISRweight","", 'D');
-	//dataloader->AddSpectator("Xsec","Xsec","", 'D');
-   // You can add so-called "Spectator variables", which are not used in the MVA training,
-   // but will appear in the final "TestTree" produced by TMVA. This TestTree will contain the
-   // input variables, the response values of all trained MVAs, and the spectator variables
-
-   //dataloader->AddSpectator( "spec1 := var1*2",  "Spectator 1", "units", 'F' );
-   //dataloader->AddSpectator( "spec2 := var1*3",  "Spectator 2", "units", 'F' );
-		
+	TString SMS_T1tttt_TuneCUETP8M1_2="SMS_T1tttt_1750_1000_fr/evVarFriend_SMS_T1tttt_1750_1000.root";
+	TFile *input_SMS_T1tttt_TuneCUETP8M1_2;
+	input_SMS_T1tttt_TuneCUETP8M1_2=TFile::Open(SMS_T1tttt_TuneCUETP8M1_2);
+	TTree *tree_SMS_T1tttt_TuneCUETP8M1_2=(TTree*)input_SMS_T1tttt_TuneCUETP8M1_2->Get("sf/t");
 	//dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_1,     0.00359842);
-	dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_2,     1.0);
+	dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_2,     1);
 	/*dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_3,     3754923);
 	dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_4,     3760043);
 	dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_5,     4287118);
 	dataloader->AddSignalTree    ( tree_SMS_T1tttt_TuneCUETP8M1_6,     3963362);*/
 	
-	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT1200to2500	,	1);
-	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT2500toInf 	,	1);
-	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT400to600  	,	1);
-	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT600to800  	,	1);
-	dataloader->AddBackgroundTree(tree_DYJetsToLL_M50_HT800to1200 	,	1);
-	dataloader->AddBackgroundTree(tree_QCD_HT1000to1500           	,	1);
-	dataloader->AddBackgroundTree(tree_QCD_HT1500to2000           	,	1);
-	dataloader->AddBackgroundTree(tree_QCD_HT2000toInf            	,	1);
-	dataloader->AddBackgroundTree(tree_QCD_HT500to700             	,	1);
-	dataloader->AddBackgroundTree(tree_QCD_HT700to1000            	,	1);
-	dataloader->AddBackgroundTree(tree_TBar_tWch_ext1             	,	1);
-	dataloader->AddBackgroundTree(tree_TBar_tch_powheg            	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_DiLepton            	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_LO_HT1200to2500_ext 	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_LO_HT2500toInf_ext  	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_LO_HT600to800       	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_LO_HT800to1200_ext  	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_SingleLeptonFromT   	,	1);
-	dataloader->AddBackgroundTree(tree_TTJets_SingleLeptonFromTbar	,	1);
-	dataloader->AddBackgroundTree(tree_TTWToLNu                   	,	1);
-	dataloader->AddBackgroundTree(tree_TTWToQQ                    	,	1);
-	dataloader->AddBackgroundTree(tree_TTZToLLNuNu                	,	1);
-	dataloader->AddBackgroundTree(tree_TTZToQQ                    	,	1);
-	dataloader->AddBackgroundTree(tree_TToLeptons_sch             	,	1);
-	dataloader->AddBackgroundTree(tree_T_tWch_ext1                	,	1);
-	dataloader->AddBackgroundTree(tree_T_tch_powheg               	,	1);
-	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT1200to2500    	,	1);
-	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT2500toInf     	,	1);
-	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT400to600      	,	1);
-	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT600to800      	,	1);
-	dataloader->AddBackgroundTree(tree_WJetsToLNu_HT800to1200_ext 	,	1);
-	dataloader->AddBackgroundTree(tree_WWTo2L2Nu                  	,	1);
-	dataloader->AddBackgroundTree(tree_WWToLNuQQ                  	,	1);
-	dataloader->AddBackgroundTree(tree_WZTo1L1Nu2Q                	,	1);
-	dataloader->AddBackgroundTree(tree_WZTo1L3Nu                  	,	1);
-	dataloader->AddBackgroundTree(tree_WZTo2L2Q                   	,	1);
-	dataloader->AddBackgroundTree(tree_ZZTo2L2Nu                  	,	1);
-	dataloader->AddBackgroundTree(tree_ZZTo2L2Q 					,	1);
+
 	  //0.00359842 1750
 	  //0.00212345 1850
    // Set individual event weights (the variables must exist in the original TTree)
@@ -443,8 +316,8 @@ int TMVA_1lep_CMG_v6(TString myMethodList = "" ){
    dataloader->SetBackgroundWeightExpression( "Xsec" );
    dataloader->SetSignalWeightExpression( "0.00359842" );
    //     factory->SetBackgroundWeightExpression("weight");
-   TCut mycuts = "nLep == 1 && Lep_pt > 25 && Selected == 1 &&  nVeto == 0 && nJets30Clean >= 3 && Jet2_pt > 80 &&  HT > 500 && LT > 250 "; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
-   TCut mycutb = "nLep == 1 && Lep_pt > 25 && Selected == 1 &&  nVeto == 0 && nJets30Clean >= 3 && Jet2_pt > 80 &&  HT > 500 && LT > 250"; // for example: TCut mycutb = "abs(var1)<0.5";
+   TCut mycuts = "nLep == 1 && Lep_pt > 25 && Selected == 1 &&  nVeto == 0 && nJets30Clean >= 5 && Jet2_pt > 80 &&  HT > 500 && LT > 250 "; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
+   TCut mycutb = "nLep == 1 && Lep_pt > 25 && Selected == 1 &&  nVeto == 0 && nJets30Clean >= 5 && Jet2_pt > 80 &&  HT > 500 && LT > 250"; // for example: TCut mycutb = "abs(var1)<0.5";
 
    // tell the factory to use all remaining events in the trees after training for testing:
    // dataloader->PrepareTrainingAndTestTree( mycuts, mycutb,

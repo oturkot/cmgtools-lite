@@ -159,10 +159,10 @@ if __name__ == "__main__":
     xsecGlu = getxsecGlu()
     if 1==1:
         fileList = glob.glob(pattern+'/limitOutput/*root')
-        hexp = TH2F('hexp','hexp', 81,-12.5, 2012.5, 81, -12.5, 2012.5)
-        hexpdown = TH2F('hexpdown','hexpdown', 81,-12.5, 2012.5, 81, -12.5, 2012.5)
-        hexpup = TH2F('hexpup','hexpup', 81,-12.5, 2012.5, 81, -12.5, 2012.5)
-        hobs = TH2F('hobs','hobs', 81,-12.5, 2012.5, 81, -12.5, 2012.5)
+        hexp = TH2F('hexp','hexp', 113,-12.5,2812.5, 113,-12.5,2812.5)
+        hexpdown = TH2F('hexpdown','hexpdown', 113,-12.5,2812.5, 113,-12.5,2812.5)
+        hexpup = TH2F('hexpup','hexpup', 113,-12.5,2812.5, 113,-12.5,2812.5)
+        hobs = TH2F('hobs','hobs', 113,-12.5,2812.5, 113,-12.5,2812.5)
         vmx=[]; vmy = []; vxsec = []; vobs = [];  vobsup = []; vobsdown = []; vexp = []; vup = []; vdown = []; vlim = [];
         for x in fileList:
             mGo = int(x[x.find('_mGo')+4:x.find('_mLSP')])

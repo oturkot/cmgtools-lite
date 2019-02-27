@@ -65,8 +65,8 @@ DYJetsToLL_M50_HT2500toInf     = kreator.makeMCComponent("DYJetsToLL_M50_HT2500t
 
 DYJetsToLLM50HT = [
     DYJetsToLL_M50_HT100to200,
-    DYJetsToLL_M50_HT200to400,     DYJetsToLL_M50_HT200to400_ext1,
-    DYJetsToLL_M50_HT400to600,     DYJetsToLL_M50_HT400to600_ext1,
+    DYJetsToLL_M50_HT200to400,#     DYJetsToLL_M50_HT200to400_ext1,
+    DYJetsToLL_M50_HT400to600,#     DYJetsToLL_M50_HT400to600_ext1,
     DYJetsToLL_M50_HT600to800,
     DYJetsToLL_M50_HT800to1200,
     DYJetsToLL_M50_HT1200to2500,
@@ -102,7 +102,7 @@ TTJets_LO_HT2500toInf      = kreator.makeMCComponent("TTJets_LO_HT2500toInf", "/
 
 
 TTs = [
-TTJets,
+#TTJets,
 
 TTJets_SingleLeptonFromTbar,
 TTJets_SingleLeptonFromT,
@@ -111,10 +111,10 @@ TTJets_LO_HT600to800,
 TTJets_LO_HT800to1200,
 TTJets_LO_HT1200to2500,
 TTJets_LO_HT2500toInf,
-TTJets_SingleLeptonFromTbar_genMET,  
+#TTJets_SingleLeptonFromTbar_genMET,  
 #TTJets_SingleLeptonFromTbar_genMET_ext,
-TTJets_SingleLeptonFromT_genMET,
-TTJets_DiLepton_genMET,       
+#TTJets_SingleLeptonFromT_genMET,
+#TTJets_DiLepton_genMET,       
 
 ]
 
@@ -134,10 +134,10 @@ SingleTop = [
 TToLeptons_sch_amcatnlo,
 T_tch_powheg,
 TBar_tch_powheg,
-TBar_tWch_ext1,
-TBar_tWch_ext2,
+#TBar_tWch_ext1,
+#TBar_tWch_ext2,
 TBar_tWch,
-T_tWch_ext1,
+#T_tWch_ext1,
 T_tWch,
 ]
 
@@ -181,7 +181,7 @@ WZTo3LNu_amcatnlo = kreator.makeMCComponent("WZTo3LNu_amcatnlo", "/WZTo3LNu_Tune
 DiBosons = [
 WWTo2L2Nu,
 WWToLNuQQ,
-WWToLNuQQ_ext,
+#WWToLNuQQ_ext,
 WWTo1L1Nu2Q,
 ZZTo2L2Nu,
 ZZTo2L2Q,

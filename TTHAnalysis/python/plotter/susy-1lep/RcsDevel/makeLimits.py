@@ -5,8 +5,8 @@ SMS = "T1tttt"
 
 from ROOT import *
 def combineCards(f , s ):
-    try:            
-        os.stat('combinedCards') 
+    try:
+        os.stat('combinedCards')
     except:
         os.mkdir('combinedCards')
 
@@ -27,6 +27,7 @@ def createJobs(f , s, jobs):
     jobs.write(cmd)
     return 1
 
+
 def submitJobs(jobList, nchunks):
     print 'Reading joblist'
     jobListName = jobList
@@ -35,7 +36,7 @@ def submitJobs(jobList, nchunks):
     os.system(subCmd)
 
     return 1
-    
+
 def submitJobsHTC(jobList, nchunks):
 	print 'Reading joblist'
 	listtxt = open(jobList,"r")
@@ -43,16 +44,16 @@ def submitJobsHTC(jobList, nchunks):
 	if not os.path.exists(logdir): os.system("mkdir -p "+logdir)
 	if  os.path.exists('submit_Bins.sh'):
 		os.remove('submit_Bins.sh')
-		
-	for line in listtxt: 
-		print "line is ",line 
+
+	for line in listtxt:
+		print "line is ",line
 		line = line.strip()
-		if line.startswith('#') : 
+		if line.startswith('#') :
 			print "commented line continue!"
-			continue 
+			continue
 		if len(line.strip()) == 0 :
 			print "empty line continue!"
-			continue 
+			continue
 		exten = line.split("-n ")[-1]
 		condsub = "./submit"+exten+".condor"
 		wrapsub = "./wrapnanoPost_"+exten+".sh"
@@ -68,17 +69,15 @@ def submitJobsHTC(jobList, nchunks):
 		tempW = tempW.replace('@WORKDIR',os.environ['CMSSW_BASE']+"/src").replace('@EXEDIR',str(os.getcwd())).replace('@CMDBINS',line)
 		tempW_roRun = open(wrapsub, 'w')
 		tempW_roRun.write(tempW)
-		subCmd = 'condor_submit -name s02 '+condsub
+		subCmd = 'condor_submit '+condsub
 		print 'Going to submit', line.split("-n ")[-1] , 'jobs with', subCmd
 		file = open('submit_Bins.sh','a')
-		file.write("\n") 
+		file.write("\n")
 		file.write(subCmd)
-	file.close() 
+	file.close()
 	os.system('chmod a+x submit_Bins.sh')
-	
-	return 1    
 
-
+	return 1
 
 if __name__ == "__main__":
 
@@ -95,39 +94,35 @@ if __name__ == "__main__":
         exit(0)
 
     ## Create Yield Storage
-    
+
 #    pattern = "datacardsABCD_2p1bins_fullscan2"
     os.chdir(pattern)
     dirList = glob.glob(SMS+'*')
-    samples = [x[x.find('/')+1:] for x in dirList]    
+    samples = [x[x.find('/')+1:] for x in dirList]
     if 1==1:
 
         print samples
         for (f,s) in zip(dirList,samples):
             combineCards(f,s)
-    
+
     if 1==1:
         fileList = glob.glob('combinedCards/*')
         print fileList
-        try:            
-            os.stat('limitOutput') 
+        try:
+            os.stat('limitOutput')
         except:
             os.mkdir('limitOutput')
 
         chunks =0
         os.chdir('limitOutput')
         jobList = 'joblist_limits.txt'
-        jobs = open(jobList, 'w') 
+        jobs = open(jobList, 'w')
         print fileList
         for f in fileList:
             s = f[f.find('/')+1:f.find('.txt')]
             createJobs(f,s,jobs)
             chunks = chunks+1
 #            runCards(f,s)
-        submitJobs(jobList, chunks)
-        os.system("./submit_Bins.sh")
         jobs.close()
-        
-
-
-    
+        submitJobsHTC(jobList, chunks)
+        os.system("./submit_Bins.sh")

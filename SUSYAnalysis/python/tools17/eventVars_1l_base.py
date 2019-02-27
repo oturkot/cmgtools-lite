@@ -83,7 +83,7 @@ def returnJERSmearFactor(aeta, shiftJER):
     #13 TeV tables
 
     factor =1.1432 + shiftJER*0.0222
-    if   aeta > 3.139: factor = 1.1542 + shiftJER *0.1524  
+    if   aeta > 3.139: factor = 1.1542 + shiftJER *0.1524
     elif aeta > 2.964: factor = 1.2696 + shiftJER *0.1089
     elif aeta > 2.853: factor = 2.2923 + shiftJER *0.3743
     elif aeta > 2.500: factor = 1.9909 + shiftJER *0.5684
@@ -293,7 +293,13 @@ class EventVars1L_base:
             'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET',
             'isDPhiSignal',
             'RA2_muJetFilter',
-            'Flag_fastSimCorridorJetCleaning'
+            'Flag_fastSimCorridorJetCleaning',
+###################################################for ISR study ##############################################
+            'ISR_HT','ISR_pT','ISR_N',
+###################################################for PS Tune study ##############################################
+            "nGenJets","nGenbJets","nGenJets30","nGenbJets30",
+###################################################for Prefire study ##############################################
+            "prefireW","prefireWup","prefireWdwn",
             ]
 
     def listBranches(self):
@@ -321,6 +327,13 @@ class EventVars1L_base:
         ret['PD_MET'] = 0
         ret['isDPhiSignal'] = 0
 
+        if hasattr(event, 'prefireW'):
+            ret['prefireW'] = event.prefireW
+        if hasattr(event, 'prefireWup'):
+            ret['prefireWup'] = event.prefireWup
+        if hasattr(event, 'prefireWdwn'):
+            ret['prefireWdwn'] = event.prefireWdwn
+
         if event.isData and hasattr(self,"sample"):
             if "JetHT" in self.sample: ret['PD_JetHT'] = 1
             elif "SingleEle" in self.sample: ret['PD_SingleEle'] = 1
@@ -347,9 +360,26 @@ class EventVars1L_base:
         '''
         # make python lists as Collection does not support indexing in slices
         genleps = [l for l in Collection(event,"genLep","ngenLep")]
-        genparts = [l for l in Collection(event,"GenPart","nGenPart")]
         '''
-
+        # for checking the nGenBjets and nGenJets differences between 16/17 PS tunes 
+        genJets = []
+        genbJets = []
+        genJets30 = []
+        genbJets30 = []
+        if not event.isData : 
+            genparts = [l for l in Collection(event,"GenPart","nGenPart")]
+            for Gj in genparts:
+                if (Gj.status !=23 or abs(Gj.pdgId) > 5): continue
+                genJets.append(Gj)
+                if Gj.pt > 30  : genJets30.append(Gj)
+                if  Gj.pdgId == 5 : genbJets.append(Gj)
+                if  Gj.pdgId == 5 and Gj.pt > 30 : genbJets30.append(Gj)
+                
+        ret["nGenJets"] = len(genJets)
+        ret["nGenbJets"] = len(genbJets)
+        ret["nGenJets30"] = len(genJets30)
+        ret["nGenbJets30"] = len(genbJets30)
+        
         leps = [l for l in Collection(event,"LepGood","nLepGood")]
         nlep = len(leps)
 
@@ -387,7 +417,7 @@ class EventVars1L_base:
 
                 # ID, IP and Iso check:
                 passID = 0
-                
+
                 passID = lep.mediumMuonId
                 passIso = lep.miniRelIso < muo_miniIsoCut
                 passIP = lep.sip3d < goodMu_sip3d
@@ -675,7 +705,7 @@ class EventVars1L_base:
         for i,j in enumerate(jets):
             # Cleaning up of fastsim jets (from "corridor" studies) https://twiki.cern.ch/twiki/bin/viewauth/CMS/SUSRecommendationsMoriond17#Cleaning_up_of_fastsim_jets_from
             if ret['isDPhiSignal']: #only check for signals (see condition check above)
-                if j.pt>20 and abs(j.eta)<2.5 and j.mcPt == 0 and j.chHEF<0.1: ret['Flag_fastSimCorridorJetCleaning'] = 0  
+                if j.pt>20 and abs(j.eta)<2.5 and j.mcPt == 0 and j.chHEF<0.1: ret['Flag_fastSimCorridorJetCleaning'] = 0
             if j.pt>30 and abs(j.eta)<centralEta:
                 centralJet30.append(j)
                 centralJet30idx.append(i)
@@ -698,9 +728,9 @@ class EventVars1L_base:
         FatJets =[l for l in Collection(event,"FatJet","nFatJet")]
         nfatjet=len(FatJets)
         fatJets=[]
-        
+
         nFatJetLoose = 0
-        nFatJetMedium = 0       
+        nFatJetMedium = 0
         nFatJetTight = 0
 
         for i,j in enumerate(FatJets):
@@ -719,7 +749,7 @@ class EventVars1L_base:
         ret['nDeepTop_medium'] = nFatJetMedium
         ret['nDeepTop_tight'] = nFatJetTight
 
-        
+
         if nfatjet>=1:
               ret['FatJet1_pt'] = fatJets[0].pt
               ret['FatJet1_eta'] = fatJets[0].eta
@@ -735,13 +765,14 @@ class EventVars1L_base:
               ret['FatJet2_mass'] = fatJets[1].mass
 
 
-        
+
 #####################################################################################################
 
         ##############################
         ## Local cleaning from leptons
         ##############################
         cJet30Clean = []
+        cISRJet30Clean = []
         dRminCut = 0.4
 
         # Do cleaning a la CMG: clean max 1 jet for each lepton (the nearest)
@@ -810,16 +841,16 @@ class EventVars1L_base:
         _nBTagDeep_out_Loose=0
         _nBTagDeep_out_Medium=0
         _nBTagDeep_out_Tight=0
-     
 
+############################################################################
         for i,j in enumerate(cJet30Clean):
             if j.btagCSV > btagWP:
                 BJetMedium30.append(j)
 ###########################################################################
-         
+
                 _BTag_phi=j.phi
                 _BTag_eta=j.eta
-                
+
                 flag_leq_08_Loose=0
                 flag_leq_08_Medium=0
                 flag_leq_08_Tight=0
@@ -830,18 +861,18 @@ class EventVars1L_base:
                              _TopTag_Eta_Loose=l.eta
 
                              _delta_phi_Loose=fabs(acos(cos(_TopTag_Phi_Loose-_BTag_phi)))
-                             _delta_eta_Loose=fabs(_TopTag_Eta_Loose-_BTag_eta)                           
+                             _delta_eta_Loose=fabs(_TopTag_Eta_Loose-_BTag_eta)
                              _delta_R_Loose=sqrt(pow(_delta_eta_Loose,2)+pow(_delta_phi_Loose,2))
 
                              if(_delta_R_Loose<0.8):
-                                    flag_leq_08_Loose+=1  
+                                    flag_leq_08_Loose+=1
 
                        if(l.raw_score_deep_Top_PUPPI>topTag_DeepAK8_MediumWP):
                              _TopTag_Phi_Medium=l.phi
                              _TopTag_Eta_Medium=l.eta
 
                              _delta_phi_Medium=fabs(acos(cos(_TopTag_Phi_Medium-_BTag_phi)))
-                             _delta_eta_Medium=fabs(_TopTag_Eta_Medium-_BTag_eta)             
+                             _delta_eta_Medium=fabs(_TopTag_Eta_Medium-_BTag_eta)
                              _delta_R_Medium=sqrt(pow(_delta_eta_Medium,2)+pow(_delta_phi_Medium,2))
 
                              if(_delta_R_Medium<0.8):
@@ -852,14 +883,14 @@ class EventVars1L_base:
                              _TopTag_Eta_Tight=l.eta
 
                              _delta_phi_Tight=fabs(acos(cos(_TopTag_Phi_Tight-_BTag_phi)))
-                             _delta_eta_Tight=fabs(_TopTag_Eta_Tight-_BTag_eta)                          
+                             _delta_eta_Tight=fabs(_TopTag_Eta_Tight-_BTag_eta)
                              _delta_R_Tight=sqrt(pow(_delta_eta_Tight,2)+pow(_delta_phi_Tight,2))
 
                              if(_delta_R_Tight<0.8):
                                     flag_leq_08_Tight+=1
 
 
-                         
+
 
                 if(flag_leq_08_Loose==0):
                        _nBTag_out_Loose+=1
@@ -872,14 +903,14 @@ class EventVars1L_base:
 
             if (j.DFprobb + j.DFprobbb + j.DFproblepb) > 0.66:
                  nBJetDeep += 1
-                 
+
                  _BTagDeep_phi=j.phi
                  _BTagDeep_eta=j.eta
 
                  flagDeep_leq_08_Loose=0
                  flagDeep_leq_08_Medium=0
                  flagDeep_leq_08_Tight=0
-                 
+
                  for k,l in enumerate(FatJets):
                        if(l.raw_score_deep_Top_PUPPI>topTag_DeepAK8_LooseWP):
                              _TopTag_Phi_Loose=l.phi
@@ -927,17 +958,29 @@ class EventVars1L_base:
                        _nBTagDeep_out_Tight+=1
 
 
-        ret['nBJetDeep'] = nBJetDeep           
+        ret['nBJetDeep'] = nBJetDeep
 
-        ret['nBJet_Excl_LooseTop_08'] = _nBTag_out_Loose  
+        ret['nBJet_Excl_LooseTop_08'] = _nBTag_out_Loose
         ret['nBJet_Excl_MediumTop_08'] = _nBTag_out_Medium
-        ret['nBJet_Excl_TightTop_08'] = _nBTag_out_Tight 
+        ret['nBJet_Excl_TightTop_08'] = _nBTag_out_Tight
 
         ret['nBJetDeep_Excl_LooseTop_08'] = _nBTagDeep_out_Loose
         ret['nBJetDeep_Excl_MediumTop_08'] = _nBTagDeep_out_Medium
         ret['nBJetDeep_Excl_TightTop_08'] = _nBTagDeep_out_Tight
 
-             
+        ######### for ISR ###################
+###########################################################################
+###########################################################################
+        ISR_HT = -999
+        ISR_pT = -999
+        ISR_N = 0
+        cISRJet30Clean =  [ j for j in cJet30Clean if j.btagCSV <= 0.5803 ] 
+        ret['ISR_HT']  = sum([j.pt for j in cISRJet30Clean])
+        for j in cISRJet30Clean :
+            ret['ISR_pT']  = j.pt
+        ret['ISR_N' ] = len(cISRJet30Clean)
+
+
 #####################################################################################
 
        # if (j.DFprobb + j.DFprobbb) >  0.0574 :
@@ -969,9 +1012,9 @@ class EventVars1L_base:
         if corrJEC != "central" or smearJER!= "None":
             ## get original jet collection
             metp4 = getRecalcMET(metp4,event,corrJEC,smearJER)
-        
+
         Genmetp4 = ROOT.TLorentzVector(0,0,0,0)
-        
+
         if not event.isData:
             Genmetp4.SetPtEtaPhiM(event.met_genPt,event.met_genEta,event.met_genPhi,0)
 
@@ -984,17 +1027,7 @@ class EventVars1L_base:
 
         ## MET FILTERS for data
         if event.isData:
-            #ret['METfilters'] = event.Flag_goodVertices and event.Flag_HBHENoiseFilter_fix and event.Flag_CSCTightHaloFilter and event.Flag_eeBadScFilter)
-            #ret['METfilters'] = event.nVert > 0 and event.Flag_HBHENoiseFilter_fix and event.Flag_CSCTightHaloFilter and event.Flag_eeBadScFilter
-            # add HCAL Iso Noise
-            if hasattr(event,"Flag_eeBadScFilter"):
-                #old ret['METfilters'] = event.Flag_goodVertices and event.Flag_CSCTightHaloFilter and event.Flag_eeBadScFilter and event.Flag_HBHENoiseFilter_fix and event.Flag_HBHENoiseIsoFilter
-                #for ICHEP; same as in eventVars_1l_filters.py
-                #ret['METfilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronFilter and event.Flag_badMuonFilter
-                #for Moriond 2017: use updated badChargedHadron and badPFMuon filters (Ece's Summer2016 implementation). Do NOT use Flag_badMuons and Flag_duplicateMuons (they are only to be used if new tails would appear in the metMuEGClean collection comparing to the METUncorrected collection)
-                ret['METfilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_BadChargedCandidateFilter
-            else:
-                ret['METfilters'] = 1
+            ret['METfilters'] = event.Flag_goodVertices and event.Flag_HBHENoiseFilter and event.Flag_eeBadScFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and event.Flag_BadPFMuonFilter and event.Flag_globalTightHalo2016Filter
         else:
             ret['METfilters'] = 1
 

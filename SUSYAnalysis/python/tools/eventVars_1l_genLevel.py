@@ -20,6 +20,7 @@ class EventVars1LGenLevel:
         genLeps = [l for l in Collection(event,"genLep","ngenLep")]
         genTaus = [l for l in Collection(event,"genTau","ngenTau")]
         genParts = [l for l in Collection(event,"GenPart","nGenPart")]
+        
         genLepsAndLepsFromTaus = [l for l in Collection(event,"genLep","ngenLep")] + [k for k in Collection(event,"genLepFromTau","ngenLepFromTau")]
 #        print genLepsAndLepsFromTaus
         ngenLeps = len(genLeps); ngenTaus = len(genTaus); ngenParts = len (genParts); ngenLepsAndLepsFromTau = len(genLepsAndLepsFromTaus)

@@ -44,6 +44,9 @@ class ttHLepEventAnalyzer( Analyzer ):
                         if abs(mtop-172) < abs(event.bestMTopHad - 172):
                             event.bestMTopHad = mtop
                             event.bestMTopHadPt = tp4.Pt()
+        #event.lightJets = [ j for j in event.cleanJets if not j.btagWP("CSVv2IVFL") ]
+        #event.lightJets.sort( key = lambda j : j.pt(), reverse = True )
+        #event.ISRJet = event.lightJets[0] if len(event.lightJets) else None
 
     def process(self, event):
         self.readCollections( event.input )

@@ -21,9 +21,8 @@ def find_all_matching(substring, path):
                 result.append(os.path.join(root, thisfile ))
     return result
 
-TMVA_Temp="./TMVA_1lep_App_Temp_uncomp.C"
+
 TMVA_TempC="./TMVA_1lep_App_Temp_Comp_v6.C"
-TMVA_TempDNN="./TMVA_1lep_App_Temp_CompDNN_v6.C"
 
 if  os.path.exists('submit_TMVA_HTC.sh'):
    os.remove('submit_TMVA_HTC.sh')
@@ -39,22 +38,18 @@ if __name__ == '__main__':
 	parser.add_argument('--indir', help='List of datasets to process', metavar='indir')
 	parser.add_argument('--outdir', help='output directory',default=None, metavar='outdir')
 	parser.add_argument('--batchMode', '-b', help="Batch mode.", action='store_true')
-	parser.add_argument('--compressed', '-c', help="by default it will look for the uncopressed BDT classifier if you use this it will switch to the compressed", action='store_true')
-	parser.add_argument('--DNN', '-dnn', help="if you use this flag then you will evaluate the dnn score.", action='store_true')
+	parser.add_argument('--wd', help="wight directory", metavar='wd')
+	parser.add_argument('--CN', help="the classifier output name in the output tree for example BDT, BDT_1 or DNN", metavar='CN')
 	
 	args = parser.parse_args()
 	batch = args.batchMode
 	indire = args.indir
 	outdire = args.outdir
+	wgtdire = args.wd
+	classNAME = args.CN
 	
-	if args.compressed : 
-		print "you managed to use " , TMVA_TempC , "instead of ", TMVA_Temp
-		TMVA_Temp = TMVA_TempC
-	if args.DNN : 
-		print "you managed to use " , TMVA_TempDNN , "instead of ", TMVA_Temp , "suppose you evaluate the DNN score" 
-		TMVA_Temp = TMVA_TempDNN
-		wrapTEMP = wrapTEMPDNN
-	
+	TMVA_Temp = TMVA_TempC
+
 	if  os.path.exists(outdire):
 		des = raw_input(" this dir is already exist : "+str(outdire)+" do you want to remove it [y/n]: ")
 		if ( "y" in des or "Y" in des or "Yes" in des) : 
@@ -74,18 +69,18 @@ if __name__ == '__main__':
 		os.system("cp "+TMVA_Temp+" "+script_Name)
 		s1 = open(script_Name).read()
 		#print textname
-		s1 = s1.replace('@INFILE', rf).replace('@OUTFILE',outdire+"/"+rf.split("/")[-1]).replace("@SCRIPTNAME",rf.split("/")[-1].replace(".root",""))
+		s1 = s1.replace('@INFILE', rf).replace('@OUTFILE', outdire+"/"+rf.split("/")[-1]).replace("@SCRIPTNAME", rf.split("/")[-1].replace(".root", "")).replace("@MASSPOINT", wgtdire).replace("@BDT", classNAME)
 		f1 = open(script_Name, 'w')
 		f1.write(s1)
 		f1.close()
 		if not batch : 
 			cmd = "root -l -q "+script_Name+'\\'+'('+'\\'+'\"'+"BDT"+'\\'+'\"'+'\\'+")"
-			if args.DNN : 
-				cmd = "root -l -q "+script_Name+'\\'+'('+'\\'+'\"'+"DNN_CPU"+'\\'+'\"'+'\\'+")"
+#			if args.DNN : 
+#				cmd = "root -l -q "+script_Name+'\\'+'('+'\\'+'\"'+"DNN_CPU"+'\\'+'\"'+'\\'+")"
 		else : 
 			cmd = "root -l -q -b "+script_Name+'\\'+'('+'\\'+'\"'+"BDT"+'\\'+'\"'+'\\'+")"
-			if args.DNN : 
-				cmd = "root -l -q -b "+script_Name+'\\'+'('+'\\'+'\"'+"DNN_CPU"+'\\'+'\"'+'\\'+")"
+#			if args.DNN : 
+#				cmd = "root -l -q -b "+script_Name+'\\'+'('+'\\'+'\"'+"DNN_CPU"+'\\'+'\"'+'\\'+")"
 				
 		#print "root -l "+script_Name+'\\'+'('+'\\'+'\"'+"BDT"+'\\'+'\"'+'\\'+")"
 		if not batch : 
@@ -109,7 +104,7 @@ if __name__ == '__main__':
 			f2.close()
 			file = open('submit_TMVA_HTC.sh','a')
 			file.write("\n")
-			file.write("condor_submit -name s02 "+dirname+"/Condor"+textname+".submit")
+			file.write("condor_submit "+dirname+"/Condor"+textname+".submit")
 			file.close()		
 	os.system('chmod a+x submit_TMVA_HTC.sh')
 	print 'script is submit_TMVA_HTC is READY FOR BATCH'

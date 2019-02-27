@@ -10,11 +10,11 @@ import time
 
 Tdir = ["SampLinks/"] #important needs this format
 # MC
-mcFTdir = "SampLinks/friends_v1_wBDT/"
-sigFTdir = "SampLinks/friends_v1_wBDT/"
+mcFTdir = "SampLinks/friends_v1_BDT_1and2and3/"
+sigFTdir = "SampLinks/friends_v1_BDT_1and2and3/"
 
 # new data
-dataFTdir = "SampLinks/friends_v1_wBDT/"
+dataFTdir = "SampLinks/friends_v1_BDT_1and2and3/"
 
 
 
@@ -46,8 +46,10 @@ def addOptions(options):
         #options.bins = "60,-1500,1500,30,0,1500"
         #options.bins = "34,-1700,1700,10,0,1500"
         #options.bins = "161,-2012.5,2012.5,81,-12.5,2012.5"
+        # old scan ranges to be used with 2016
         options.bins = "185,-2312.5,2312.5,93,-12.5,2312.5"
-
+        # new scan ranges to be used with 2017
+        #options.bins = "225,-2812.5,2812.5,113,-12.5,2812.5"
         options.friendTreesMC = [("sf/t",sigFTdir+"/evVarFriend_{cname}.root")]
         options.cutsToAdd += [("base","Selected","Selected == 1")] # make always selected for signal
 
@@ -406,7 +408,6 @@ def submitJobs(args, nchunks,options):
 		#
     return 1
 
-
 if __name__ == "__main__":
 
 
@@ -470,7 +471,7 @@ if __name__ == "__main__":
 
     print options.conference
     if options.conference == "Moriond17":
-        from searchBinsMoriond17 import *
+        from searchBinsMoriond17_BDT_2 import *
     else:
         from searchBins import *
 
@@ -479,27 +480,30 @@ if __name__ == "__main__":
 
     doDLCR = False
 
-    doNjet6 = True
+    cDict.update(cutDictCR)
+    cDict.update(cutDictSR)
+
+    doNjet6 = False
     if doNjet6:
         cDict.update(cutDictCR)
         cDict.update(cutDictSR)
         if doDLCR: cDict.update(cutDictDLCR)
 
 
-    doNjet9 = True
+    doNjet9 = False
     if doNjet9:
         cDict.update(cutDictSRf9)
         cDict.update(cutDictCRf9)
         if doDLCR: cDict.update(cutDictDLCRf9)
 
 
-    doNjet5 = True
+    doNjet5 = False
     if doNjet5:
         cDict.update(cutDictSRf5)
         cDict.update(cutDictCRf5)
 
 
-    doFew = True
+    doFew = False
     if doFew and options.conference == "Moriond17":
         cDict.update(cutDictSRfFew)
         cDict.update(cutDictCRfFew)

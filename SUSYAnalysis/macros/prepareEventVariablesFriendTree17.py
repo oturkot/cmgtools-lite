@@ -37,6 +37,14 @@ MODULES.append( ('1l_bkgDilep', EventVars1L_bkgDilep()) )
 from CMGTools.SUSYAnalysis.tools17.eventVars_1l_isoMT2 import EventVars1L_isoMT2
 MODULES.append( ('1l_isoMT2', EventVars1L_isoMT2()) )
 
+#from CMGTools.SUSYAnalysis.tools.eventVars_1l_genLevel import EventVars1LGenLevel
+#MODULES.append( ('1l_BasicsGen', EventVars1LGenLevel()) )
+
+# ISR study
+#from CMGTools.SUSYAnalysis.tools17.eventVars_1l_ISR_study import EventVars1L_ISR
+#MODULES.append( ('1l_ISR', EventVars1L_ISR()) )
+
+
 '''
 from CMGTools.SUSYAnalysis.tools.eventVars_1l_top import EventVars1L_Top
 MODULES.append( ('1l_TopVars', EventVars1L_Top()) )
@@ -45,8 +53,7 @@ MODULES.append( ('1l_TopVars', EventVars1L_Top()) )
 from CMGTools.SUSYAnalysis.tools.resolvedTopTagVars_1l import resolvedTopTagVars1l
 MODULES.append( ('1l_resolvedTopTagVars', resolvedTopTagVars1l()) )
 
-from CMGTools.SUSYAnalysis.tools.eventVars_1l_genLevel import EventVars1LGenLevel
-MODULES.append( ('1l_BasicsGen', EventVars1LGenLevel()) )
+
 '''
 
 class VariableProducer(Module):
@@ -283,10 +290,10 @@ if options.naf:
         if not options.bulk : 
             os.system("cp templates/submit.condor "+condsub)
             temp = open(condsub).read()
-            temp = temp.replace('@EXESH',str(os.getcwd())+"/"+wrapsub).replace('@LOGS',str(logdir)).replace('@time','60*60*6')
+            temp = temp.replace('@EXESH',str(os.getcwd())+"/"+wrapsub).replace('@LOGS',str(logdir)).replace('@time','60*60*2')
             temp_toRun =  open(condsub, 'w')
             temp_toRun.write(temp)
-            subCmd = 'condor_submit -name s02 '+condsub
+            subCmd = 'condor_submit '+condsub
             print 'Going to submit', line.split("-d ")[-1] , 'jobs with', subCmd
             file = open('submit_Friends.sh','a')
             file.write("\n") 
@@ -295,12 +302,12 @@ if options.naf:
     if options.bulk : 
         os.system("cp templates/submit.condor ./condor.sub_all")
         temp = open('condor.sub_all').read()
-        temp = temp.replace('@EXESH',str(os.getcwd())+'/$(Chunk)/wrapnanoPost.sh').replace('@LOGS',str(logdir)).replace('@time','60*60*6').replace('Queue 1','queue Chunk matching dirs '+outdir+'/*')
+        temp = temp.replace('@EXESH',str(os.getcwd())+'/$(Chunk)/wrapnanoPost.sh').replace('@LOGS',str(logdir)).replace('@time','60*60*2').replace('Queue 1','queue Chunk matching dirs '+outdir+'/*')
         temp_toRun =  open('condor.sub_all', 'w')
         temp_toRun.write(temp)
         temp_toRun.close()
     if  os.path.exists('condor.sub_all'):
-        os.system('condor_submit -name s02 condor.sub_all')
+        os.system('condor_submit condor.sub_all')
     if  os.path.exists('submit_Friends.sh'):
         os.system('chmod a+x submit_Friends.sh')
         print " ===== the script submit_Friends.sh os now created for your job list please use ./submit_Friends.sh to have them running now ======"

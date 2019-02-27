@@ -40,3 +40,7 @@ triggLT: LT > 250
 
 # Place holder for bin cuts
 base: 1
+
+nDeepTop_loose >= 1 : nDeepTop_loose >= 1
+
+#dPhi >= 0.75 : dPhi >= 0.75

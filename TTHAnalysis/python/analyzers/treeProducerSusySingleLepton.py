@@ -44,7 +44,7 @@ susySingleLepton_globalVariables = susyCore_globalVariables + [
 ]
 susySingleLepton_globalObjects = susyCore_globalObjects.copy()
 susySingleLepton_globalObjects.update({
-            # put more here
+            #"ISRJet" : NTupleObject("ISRJet", jetTypeSusyExtraLight, help="Lead non-b jet (may be missing)", nillable=True),
 })
 
 susySingleLepton_collections = susyCore_collections.copy()

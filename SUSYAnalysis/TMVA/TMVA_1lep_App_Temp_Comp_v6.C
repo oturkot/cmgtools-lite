@@ -138,46 +138,43 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    Long64_t Event;
    Float_t HT,LT,nBJet,dPhi,nEl,nMu,Selected,nLep,nVeto,RA2_muJetFilter,Flag_fastSimCorridorJetCleaning,btagSF,met_caloPt,isDPhiSignal,METfilters,Lp;
    Float_t puRatio,lepSF,Xsec,genWeight,susyXsec,susyNgen,nISRweight,nISRttweight,nJets30Clean,mGo,mLSP,nTrueInt;
+   Float_t 	FatJet1_pt,	FatJet2_pt,	FatJet1_eta, FatJet2_eta, FatJet1_phi, FatJet2_phi, FatJet1_mass, FatJet2_mass;
+   Float_t Lep_pdgId,Lep_phi,Lep2_pt,nJets,nBJetDeep,Lep_relIso,BDT_1,BDT_2;//,lheHTIncoming;
+   Int_t nDeepTop_loose,nDeepTop_medium, nDeepTop_tight;//,genTau_grandmotherId,genLep_grandmotherId;
+   
 
 
    // Create a set of variables and declare them to the reader
    // - the variable names MUST corresponds in name and type to those given in the weight file(s) used
 
-	reader->AddVariable( "MT"			,&MT			 );
-	reader->AddVariable( "HT"			,&HT			 );
-	reader->AddVariable( "LT"			,&LT			 );
-	reader->AddVariable( "nBJet"		,&nBJet 		 );
-	reader->AddVariable( "dPhi"			,&dPhi		  	 );
-	reader->AddVariable( "nJets30Clean"					,&nJets30Clean						);
-	
+	//reader->AddVariable( "MT"			,&MT			 );
 
-	reader->AddSpectator("RA2_muJetFilter"					,&RA2_muJetFilter					);
-	reader->AddSpectator("Flag_fastSimCorridorJetCleaning"	,&Flag_fastSimCorridorJetCleaning	);
-	reader->AddSpectator("btagSF"							,&btagSF							);
-	reader->AddSpectator("puRatio"							,&puRatio							);
-	reader->AddSpectator("lepSF"							,&lepSF								);
-	//reader->AddSpectator("Xsec"								,&Xsec								);
-	reader->AddSpectator("genWeight"						,&genWeight							);
-	//reader->AddSpectator("susyXsec"							,&susyXsec							);
-	//reader->AddSpectator("susyNgen"							,&susyNgen							);
-	//reader->AddSpectator("nISRweight"						,&nISRweight						);
-	//reader->AddSpectator("nISRttweight"						,&nISRttweight						);
-	//reader->AddSpectator( "mGo"								,&mGo								);
-	//reader->AddSpectator( "mLSP"							,&mLSP								);
-	reader->AddSpectator( "nTrueInt"						,&nTrueInt							);
-	reader->AddSpectator( "Lep_pt"		,&Lep_pt		 );
-	reader->AddSpectator( "Lep_eta"		,&Lep_eta		 );
-	reader->AddSpectator( "Lep_miniIso"	,&Lep_miniIso	 );	
-	reader->AddSpectator( "nEl"			,&nEl			 );
-	reader->AddSpectator( "nMu"			,&nMu			 );
-	reader->AddSpectator( "Selected"		,&Selected		 );
-	reader->AddSpectator( "nLep "		,&nLep			 );
-	reader->AddSpectator( "nVeto"		,&nVeto  		 );
-	reader->AddSpectator( "Jet1_pt"		,&Jet1_pt		 );
-	reader->AddSpectator( "Jet2_pt"		,&Jet2_pt		 );
-	reader->AddSpectator( "MET"			,&MET			 );
-
-
+//reader->AddVariable("Lep_pdgId"       ,&Lep_pdgId       );   
+//reader->AddVariable("Lep_pt"          ,&Lep_pt          ); 
+//reader->AddVariable("Lep_eta"         ,&Lep_eta         );    
+//reader->AddVariable("Lep_phi"         ,&Lep_phi         );   
+//reader->AddVariable("Lep_relIso"      ,&Lep_relIso      );   
+//reader->AddVariable("Lep_miniIso"     ,&Lep_miniIso     );   
+//reader->AddVariable("Lep2_pt"         ,&Lep2_pt         );   
+reader->AddVariable("MET"             ,&MET             );
+reader->AddVariable("MT"              ,&MT              );   
+reader->AddVariable("dPhi"            ,&dPhi            );  
+reader->AddVariable("LT"              ,&LT              );  
+reader->AddVariable("HT"              ,&HT              );   
+reader->AddVariable("nJets30Clean"    ,&nJets30Clean    );   
+reader->AddVariable("nBJet"           ,&nBJet           );   
+//reader->AddVariable("Jet1_pt"         ,&Jet1_pt         );   
+//reader->AddVariable("Jet2_pt"         ,&Jet2_pt         );   
+//reader->AddVariable("nBJetDeep"       ,&nBJetDeep       );   
+//reader->AddVariable("FatJet1_pt"      ,&FatJet1_pt      );   
+//reader->AddVariable("FatJet2_pt"      ,&FatJet2_pt      );   
+//reader->AddVariable("FatJet1_eta"     ,&FatJet1_eta     );   
+//reader->AddVariable("FatJet2_eta"     ,&FatJet2_eta     );   
+//reader->AddVariable("FatJet1_phi"     ,&FatJet1_phi     );   
+//reader->AddVariable("FatJet2_phi"     ,&FatJet2_phi     );   
+//reader->AddVariable("FatJet1_mass"    ,&FatJet1_mass    );  
+//reader->AddVariable("FatJet2_mass"    ,&FatJet2_mass    );  
+//reader->AddVariable("nDeepTop_medium" ,&nDeepTop_medium );
 
    // Book the MVA methods
    TString dir    = "dataset/weights/";
@@ -187,7 +184,7 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    for (std::map<std::string,int>::iterator it = Use.begin(); it != Use.end(); it++) {
       if (it->second) {
          TString methodName = TString(it->first) + TString(" method");
-         TString weightfile = "/nfs/dust/cms/user/amohamed/susy-desy/nanoAOD/pureNANOAOD/CMSSW_9_4_4/src/tthAnalysis/NanoAODTools/TMVA/datasetBkg_v7_comp/weights/TMVAClassification_BDT.weights.xml";
+         TString weightfile = "/nfs/dust/cms/user/amohamed/susy-desy/deepAK8/CMSSW_9_4_11/src/CMGTools/SUSYAnalysis/TMVA/@MASSPOINT/weights/TMVAClassification_BDT.weights.xml";
          reader->BookMVA( methodName, weightfile );
       }
    }
@@ -308,6 +305,8 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    theTree->SetBranchAddress("Run",&Run);
    theTree->SetBranchAddress("Lumi",&Lumi);
    theTree->SetBranchAddress("Event",&Event);
+   theTree->SetBranchAddress("BDT_1",&BDT_1);
+   theTree->SetBranchAddress("BDT_2",&BDT_2);
    theTree->SetBranchAddress("Lep_pt",&Lep_pt);
    theTree->SetBranchAddress("Lep_eta",&Lep_eta);
    theTree->SetBranchAddress("Lep_miniIso",&Lep_miniIso);
@@ -340,6 +339,19 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    theTree->SetBranchAddress("mLSP",&mLSP);
    theTree->SetBranchAddress("nTrueInt",&nTrueInt);
    theTree->SetBranchAddress("met_caloPt",&met_caloPt);
+
+   theTree->SetBranchAddress("FatJet1_pt"		,&FatJet1_pt);
+   theTree->SetBranchAddress("FatJet2_pt"		,&FatJet2_pt);
+   theTree->SetBranchAddress("FatJet1_eta"		,&FatJet1_eta);
+   theTree->SetBranchAddress("FatJet2_eta"		,&FatJet2_eta);
+   theTree->SetBranchAddress("FatJet1_phi"		,&FatJet1_phi);
+   theTree->SetBranchAddress("FatJet2_phi"		,&FatJet2_phi);
+   theTree->SetBranchAddress("FatJet1_mass"		,&FatJet1_mass);
+   theTree->SetBranchAddress("FatJet2_mass"		,&FatJet2_mass);
+   theTree->SetBranchAddress("nDeepTop_loose"	,&nDeepTop_loose);
+   theTree->SetBranchAddress("nDeepTop_medium"	,&nDeepTop_medium);
+   theTree->SetBranchAddress("nDeepTop_tight"	,&nDeepTop_tight);
+
    
    theTree->SetBranchAddress("isData",&isData);
    theTree->SetBranchAddress("HLT_EleOR",&HLT_EleOR);
@@ -353,7 +365,13 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    theTree->SetBranchAddress("PD_MET",&PD_MET);
    theTree->SetBranchAddress("isDPhiSignal",&isDPhiSignal);
    theTree->SetBranchAddress("METfilters",&METfilters);
+   //theTree->SetBranchAddress("lheHTIncoming",&lheHTIncoming);
+   //theTree->SetBranchAddress("genTau_grandmotherId",&genTau_grandmotherId);
+   //theTree->SetBranchAddress("genLep_grandmotherId",&genLep_grandmotherId);
    theTree->SetBranchAddress("Lp",&Lp);
+
+
+
 
 
    // Efficiency calculator for cut method
@@ -361,7 +379,7 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    Double_t effS       = 0.7;
 
    TFile *target  = new TFile( "@OUTFILE","RECREATE" );
-   Float_t b_BDT;
+   Float_t b_@BDT;
    TDirectory *sfdir;
    sfdir = target->mkdir("sf");
    sfdir->cd();
@@ -369,7 +387,9 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    t->Branch("Run",  &Run); 
    t->Branch("Lumi",  &Lumi); 
    t->Branch("Event",  &Event); 
-   t->Branch("b_BDTC",  &b_BDT); 
+   t->Branch("@BDT",  &b_@BDT);
+   t->Branch("BDT_1",  &BDT_1);
+   t->Branch("BDT_2",  &BDT_2); 
    t->Branch("Lep_pt",&Lep_pt);
    t->Branch("Lep_eta",&Lep_eta);
    t->Branch("Lep_miniIso",&Lep_miniIso);
@@ -415,7 +435,22 @@ void @SCRIPTNAME( TString myMethodList = ""  )
    t->Branch("isDPhiSignal",&isDPhiSignal);
    t->Branch("METfilters",&METfilters);
    t->Branch("Lp",&Lp);
-   
+   t->Branch("FatJet1_pt"		,&FatJet1_pt);
+   t->Branch("FatJet2_pt"		,&FatJet2_pt);
+   t->Branch("FatJet1_eta"		,&FatJet1_eta);
+   t->Branch("FatJet2_eta"		,&FatJet2_eta);
+   t->Branch("FatJet1_phi"		,&FatJet1_phi);
+   t->Branch("FatJet2_phi"		,&FatJet2_phi);
+   t->Branch("FatJet1_mass"		,&FatJet1_mass);
+   t->Branch("FatJet2_mass"		,&FatJet2_mass);
+   t->Branch("nDeepTop_loose"	,&nDeepTop_loose);
+   t->Branch("nDeepTop_medium"	,&nDeepTop_medium);
+   t->Branch("nDeepTop_tight"	,&nDeepTop_tight);
+   //t->Branch("lheHTIncoming",&lheHTIncoming);
+   //t->Branch("genTau_grandmotherId",&genTau_grandmotherId);
+   //t->Branch("genLep_grandmotherId",&genLep_grandmotherId);
+
+
    std::vector<Float_t> vecVar(4); // vector for EvaluateMVA tests
 
    std::cout << "--- Processing: " << theTree->GetEntries() << " events" << std::endl;
@@ -455,7 +490,7 @@ void @SCRIPTNAME( TString myMethodList = ""  )
       if (Use["DNN_CPU"]) histDnnCpu->Fill(reader->EvaluateMVA("DNN_CPU method"));
       if (Use["BDT"          ]) {
 		    histBdt    ->Fill( reader->EvaluateMVA( "BDT method"           ) );
-		    b_BDT= reader->EvaluateMVA( "BDT method");
+		    b_@BDT= reader->EvaluateMVA( "BDT method");
 		    t->Fill();		}
       if (Use["BDTG"         ])   histBdtG   ->Fill( reader->EvaluateMVA( "BDTG method"          ) );
       if (Use["BDTB"         ])   histBdtB   ->Fill( reader->EvaluateMVA( "BDTB method"          ) );

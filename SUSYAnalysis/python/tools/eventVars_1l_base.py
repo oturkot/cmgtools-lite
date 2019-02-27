@@ -299,7 +299,12 @@ class EventVars1L_base:
             'PD_JetHT', 'PD_SingleEle', 'PD_SingleMu', 'PD_MET',
             'isDPhiSignal',
             'RA2_muJetFilter',
-            'Flag_fastSimCorridorJetCleaning'
+            'Flag_fastSimCorridorJetCleaning',
+###################################################for PS Tune study ##############################################
+            "nGenJets","nGenbJets","nGenJets30","nGenbJets30",
+###################################################for Prefire study ##############################################
+            "prefireW","prefireWup","prefireWdwn",
+            
             ]
 
     def listBranches(self):
@@ -326,6 +331,14 @@ class EventVars1L_base:
         ret['PD_SingleMu'] = 0
         ret['PD_MET'] = 0
         ret['isDPhiSignal'] = 0
+
+        if hasattr(event, 'prefireW'):
+            ret['prefireW'] = event.prefireW
+        if hasattr(event, 'prefireWup'):
+            ret['prefireWup'] = event.prefireWup
+        if hasattr(event, 'prefireWdwn'):
+            ret['prefireWdwn'] = event.prefireWdwn
+
 
         if event.isData and hasattr(self,"sample"):
             if "JetHT" in self.sample: ret['PD_JetHT'] = 1
@@ -355,6 +368,23 @@ class EventVars1L_base:
         genleps = [l for l in Collection(event,"genLep","ngenLep")]
         genparts = [l for l in Collection(event,"GenPart","nGenPart")]
         '''
+        genJets = []
+        genbJets = []
+        genJets30 = []
+        genbJets30 = []
+        # for checking the nGenBjets and nGenJets differences between 16/17 PS tunes 
+        if not event.isData : 
+            genparts = [l for l in Collection(event,"GenPart","nGenPart")]
+            for Gj in genparts:
+                if (Gj.status !=23 or abs(Gj.pdgId) > 5): continue
+                genJets.append(Gj)
+                if Gj.pt > 30  : genJets30.append(Gj)
+                if  Gj.pdgId == 5 : genbJets.append(Gj)
+                if  Gj.pdgId == 5 and Gj.pt > 30 : genbJets30.append(Gj)
+        ret["nGenJets"] = len(genJets)
+        ret["nGenbJets"] = len(genbJets)
+        ret["nGenJets30"] = len(genJets30)
+        ret["nGenbJets30"] = len(genbJets30)
 
         leps = [l for l in Collection(event,"LepGood","nLepGood")]
         nlep = len(leps)
@@ -986,17 +1016,7 @@ class EventVars1L_base:
 
         ## MET FILTERS for data
         if event.isData:
-            #ret['METfilters'] = event.Flag_goodVertices and event.Flag_HBHENoiseFilter_fix and event.Flag_CSCTightHaloFilter and event.Flag_eeBadScFilter)
-            #ret['METfilters'] = event.nVert > 0 and event.Flag_HBHENoiseFilter_fix and event.Flag_CSCTightHaloFilter and event.Flag_eeBadScFilter
-            # add HCAL Iso Noise
-            if hasattr(event,"Flag_eeBadScFilter"):
-                #old ret['METfilters'] = event.Flag_goodVertices and event.Flag_CSCTightHaloFilter and event.Flag_eeBadScFilter and event.Flag_HBHENoiseFilter_fix and event.Flag_HBHENoiseIsoFilter
-                #for ICHEP; same as in eventVars_1l_filters.py
-                #ret['METfilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronFilter and event.Flag_badMuonFilter
-                #for Moriond 2017: use updated badChargedHadron and badPFMuon filters (Ece's Summer2016 implementation). Do NOT use Flag_badMuons and Flag_duplicateMuons (they are only to be used if new tails would appear in the metMuEGClean collection comparing to the METUncorrected collection)
-                ret['METfilters'] = event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and  event.Flag_goodVertices and event.Flag_eeBadScFilter and event.Flag_globalTightHalo2016Filter and event.Flag_badChargedHadronSummer2016 and event.Flag_badMuonSummer2016
-            else:
-                ret['METfilters'] = 1
+            ret['METfilters'] = event.Flag_goodVertices and event.Flag_HBHENoiseFilter and event.Flag_eeBadScFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and event.Flag_BadPFMuonFilter and event.Flag_globalTightHalo2016Filter
         else:
             ret['METfilters'] = 1
 
