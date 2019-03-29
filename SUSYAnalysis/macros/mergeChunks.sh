@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+CURDIR=$(pwd)
+
 if [  $# = 0 ]; then
     echo "Usage:"
     echo "./mergeChunk.sh [INDIR] [OUTDIR]"
@@ -57,3 +59,24 @@ do
 done
 
 rm longList
+
+nonChunkFile=$CURDIR/nonchunk_list.txt
+
+if [ -f $nonChunkFile ]; then
+    rm $nonChunkFile
+fi
+
+find $InDir  -name "*.root" ! -name "*chunk*" -type f -printf "%f\n" | cut -d "." -f1 | sort -u >> $nonChunkFile
+
+nonChunkList=$(cat $nonChunkFile | sort -u)
+
+echo "#################"
+echo "Going to copy $(echo $nonChunkList |wc -l ) nonchunked friend trees"
+
+for f in $(echo $nonChunkList);
+do
+    cp $InDir/$f'.root' $OutDir/
+done
+
+rm $nonChunkFile
+
