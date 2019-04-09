@@ -40,3 +40,6 @@ triggLT: LT > 250
 
 # Multi-b selection
 nbjets >= 1: nBJet >= 1
+
+# Cut BDT for the Data:
+#BDT <= 0: !isData || (BDT <= 0)

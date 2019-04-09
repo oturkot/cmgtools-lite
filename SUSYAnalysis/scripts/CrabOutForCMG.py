@@ -94,7 +94,7 @@ if __name__ == '__main__':
 			condorFile.write("\n")
 			condorFile.write("getenv      = True")
 			condorFile.write("\n")
-			condorFile.write("+RequestRuntime = 60*60*3")
+			condorFile.write("+RequestRuntime = 60*60*9")
 			condorFile.write("\n")
 			condorFile.write("Queue 1")
 			condorFile.write("\n")

@@ -45,7 +45,7 @@ elif (args.year == 17 or args.year == 2017):
 
 print 'Checking', sam_year, sam_type, 'samples with trees stored in', args.tree_dir, 'and friend trees in', args.friend_dir
 
-with open('samples.json') as json_file:  
+with open(os.path.dirname(os.path.realpath(__file__)) + '/samples.json') as json_file:  
     Samples = json.load(json_file)
 
 print '    N samples = ', len(Samples[sam_year][sam_type])

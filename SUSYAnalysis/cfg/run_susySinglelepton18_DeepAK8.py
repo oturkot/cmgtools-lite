@@ -15,7 +15,7 @@ from PhysicsTools.HeppyCore.framework.heppy_loop import getHeppyOption
 run80X = getHeppyOption("run80X",False)
 
 runData = getHeppyOption("runData",False)
-runMC = getHeppyOption("runMC",False)
+runMC = getHeppyOption("runMC",True)
 runSig = getHeppyOption("runSig",False)
 
 
@@ -30,7 +30,7 @@ selectedEvents=getHeppyOption("selectEvents","")
 keepGenPart=getHeppyOption("keepGenPart",False)
 
 sample = "main"
-test = 1
+test = 0
 multib = True
 zerob = False
 

@@ -31,29 +31,29 @@ filelist=['evVarFriend_DYJetsToLL_M50_HT100to200_ext.root','evVarFriend_QCD_HT30
           'evVarFriend_QCD_HT300to500_ext.root','evVarFriend_TBar_tWch_ext.root','evVarFriend_VVTo2L2Nu.root']
 
 for f in filelist : 
-	FTrain = ROOT.TFile('Friends_for_MVA/training/'+f, 'RECREATE' )
-	FEval = ROOT.TFile( 'Friends_for_MVA/evaluation/'+f, 'RECREATE' )
-	file0 = ROOT.TFile.Open(path+"/"+f)
-	t = file0.Get(TreeName)
-	t.SetBranchStatus("*", 1)
-	sfdirT = FTrain.mkdir('sf')
-	sfdirT.cd()
-	outTreeT = t.CloneTree(0)
-	sfdirE = FEval.mkdir('sf')
-	sfdirE.cd()
-	outTreeE = t.CloneTree(0)
-	print 'going to crop 20% = ', t.GetEntries() * 20 / 100,' out of : ' , t.GetEntries() , ' from this file : ', f 
-	for i in range(t.GetEntries()):
-		t.GetEntry(i)
-		if i <= t.GetEntries() * 20 /100 : 
-			outTreeT.Fill()
-		elif i > t.GetEntries() * 20 /100 : 
-			outTreeE.Fill()
-	print ' now writting the output for' , f
-	outTreeT.AutoSave()
-	outTreeE.AutoSave()
-	FTrain.Write()
-	FEval.Write()
-	FTrain.Close()
-	FEval.Close()
+    FTrain = ROOT.TFile('Training/'+f, 'RECREATE' )
+    FEval = ROOT.TFile( 'Evaluation/'+f, 'RECREATE' )
+    file0 = ROOT.TFile.Open(path+"/"+f)
+    t = file0.Get(TreeName)
+    t.SetBranchStatus("*", 1)
+    sfdirT = FTrain.mkdir('sf')
+    sfdirT.cd()
+    outTreeT = t.CloneTree(0)
+    sfdirE = FEval.mkdir('sf')
+    sfdirE.cd()
+    outTreeE = t.CloneTree(0)
+    print 'going to crop 20% = ', t.GetEntries() * 20 / 100,' out of : ' , t.GetEntries() , ' from this file : ', f 
+    for i in range(t.GetEntries()):
+        t.GetEntry(i)
+        if i <= t.GetEntries() * 20 /100 : 
+            outTreeT.Fill()
+        elif i > t.GetEntries() * 20 /100 : 
+            outTreeE.Fill()
+    print ' now writting the output for' , f
+    outTreeT.AutoSave()
+    outTreeE.AutoSave()
+    FTrain.Write()
+    FEval.Write()
+    FTrain.Close()
+    FEval.Close()
 
